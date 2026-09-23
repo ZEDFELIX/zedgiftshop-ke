@@ -37,7 +37,7 @@ function ResetForm() {
       setStatus("done");
       router.push("/login");
     } catch {
-      setError("Network error â€” please try again.");
+      setError("Network error — please try again.");
       setStatus("idle");
     }
   }
@@ -88,7 +88,7 @@ function ResetForm() {
 export default function ResetPasswordPage() {
   return (
     <div className="container-zed flex min-h-[60vh] items-center justify-center py-14 lg:py-24">
-      <Suspense fallback={<p className="text-sm text-black/50">Loadingâ€¦</p>}>
+      <Suspense fallback={<p className="text-sm text-black/50">Loading…</p>}>
         <ResetForm />
       </Suspense>
     </div>

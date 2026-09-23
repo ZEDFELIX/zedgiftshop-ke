@@ -3,7 +3,7 @@ import { getCurrentUser } from "@/lib/auth";
 import { StaffManager } from "@/components/admin/StaffManager";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Staff Â· Admin" };
+export const metadata = { title: "Staff · Admin" };
 
 export default async function AdminStaffPage() {
   const me = await getCurrentUser();
@@ -16,7 +16,7 @@ export default async function AdminStaffPage() {
   return (
     <div className="space-y-4">
       <p className="text-sm text-black/55">
-        {me?.role === "ADMIN" ? "You're the owner â€” you can add teammates with staff access." : "Only the owner can manage staff."}
+        {me?.role === "ADMIN" ? "You're the owner — you can add teammates with staff access." : "Only the owner can manage staff."}
       </p>
       <StaffManager
         canAdd={me?.role === "ADMIN"}

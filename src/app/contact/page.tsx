@@ -3,7 +3,7 @@ import { Mail, MessageCircle, Phone, Clock, MessageSquareText } from "lucide-rea
 import { SITE } from "@/lib/constants";
 import { ContactForm } from "@/components/contact/ContactForm";
 
-export const metadata = { title: "Contact Us Ã‚Â· ZED Gift Shop", description: "Questions about an order, a custom gift, or bulk corporate orders? Get in touch with ZED Gift Shop by phone, WhatsApp or email." };
+export const metadata = { title: "Contact Us · ZED Gift Shop", description: "Questions about an order, a custom gift, or bulk corporate orders? Get in touch with ZED Gift Shop by phone, WhatsApp or email." };
 
 export default function ContactPage() {
   return (
@@ -11,7 +11,7 @@ export default function ContactPage() {
       <p className="eyebrow text-soft-sage">We&apos;re here to help</p>
       <h1 className="mt-2 max-w-2xl font-display text-4xl font-black text-black sm:text-5xl">Contact ZED Gift Shop</h1>
       <p className="mt-4 max-w-2xl text-black/70">
-        Need help with an order, a custom or personalized gift, or a bulk corporate order? Send us a message Ã¢â‚¬â€
+        Need help with an order, a custom or personalized gift, or a bulk corporate order? Send us a message —
         we usually reply within one working day.
       </p>
 
@@ -42,9 +42,9 @@ export default function ContactPage() {
               <Clock className="size-5 text-soft-sage" /> Opening hours
             </p>
             <ul className="mt-3 space-y-1.5 text-sm text-black/70">
-              <li className="flex justify-between"><span>Mon Ã¢â‚¬â€œ Fri</span><span className="font-semibold">8:00am Ã¢â‚¬â€œ 8:00pm</span></li>
-              <li className="flex justify-between"><span>Saturday</span><span className="font-semibold">9:00am Ã¢â‚¬â€œ 8:00pm</span></li>
-              <li className="flex justify-between"><span>Sundays & holidays</span><span className="font-semibold">10:00am Ã¢â‚¬â€œ 6:00pm</span></li>
+              <li className="flex justify-between"><span>Mon – Fri</span><span className="font-semibold">8:00am – 8:00pm</span></li>
+              <li className="flex justify-between"><span>Saturday</span><span className="font-semibold">9:00am – 8:00pm</span></li>
+              <li className="flex justify-between"><span>Sundays & holidays</span><span className="font-semibold">10:00am – 6:00pm</span></li>
             </ul>
           </div>
 
@@ -56,7 +56,7 @@ export default function ContactPage() {
               Corporate gifting, bulk orders and partnership enquiries: email us and a team member will follow up.
             </p>
             <Link href="/gifts/corporate" className="mt-4 inline-block rounded-zed glass-panel px-4 py-2 font-bold text-deep-olive hover:bg-zed-950">
-              Corporate gifting Ã¢â€ â€™
+              Corporate gifting →
             </Link>
           </div>
         </aside>

@@ -75,7 +75,7 @@ export default async function AdminDashboardPage() {
               <AlertTriangle className="size-4 text-amber-500" /> Low stock
             </h3>
             {lowStock.length === 0 ? (
-              <p className="mt-2 text-sm text-black/55">All good â€” nothing running low.</p>
+              <p className="mt-2 text-sm text-black/55">All good — nothing running low.</p>
             ) : (
               <ul className="mt-2 divide-y divide-edge text-sm">
                 {lowStock.map((p) => (

@@ -19,12 +19,12 @@ type BuilderItem = {
 };
 
 const OCCASIONS = [
-  { value: "birthday", label: "Birthday", emoji: "ðŸŽ‚" },
-  { value: "anniversary", label: "Anniversary", emoji: "ðŸ’" },
-  { value: "graduation", label: "Graduation", emoji: "ðŸŽ“" },
-  { value: "corporate", label: "Corporate", emoji: "ðŸ’¼" },
-  { value: "valentines", label: "Valentine's", emoji: "â¤ï¸" },
-  { value: "just-because", label: "Just because", emoji: "âœ¨" },
+  { value: "birthday", label: "Birthday", emoji: "🎂" },
+  { value: "anniversary", label: "Anniversary", emoji: "💍" },
+  { value: "graduation", label: "Graduation", emoji: "🎓" },
+  { value: "corporate", label: "Corporate", emoji: "💼" },
+  { value: "valentines", label: "Valentine's", emoji: "❤️" },
+  { value: "just-because", label: "Just because", emoji: "✨" },
 ];
 
 const RECIPIENTS = [
@@ -233,7 +233,7 @@ export default function GiftBuilder() {
             className="mt-8 inline-flex items-center gap-2 rounded-zed bg-zed-950 px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-zed-900 disabled:opacity-60"
           >
             {loading ? <Loader2 className="size-4 animate-spin" /> : <Sparkles className="size-4" />}
-            {loading ? "Picking giftsâ€¦" : "Show me gifts"}
+            {loading ? "Picking gifts…" : "Show me gifts"}
           </button>
         </section>
       )}
@@ -243,7 +243,7 @@ export default function GiftBuilder() {
         <section className="mt-10">
           <h2 className="font-display text-xl font-bold text-black">Pick the ones you love</h2>
           <p className="mt-1 text-sm text-black/60">
-            Select up to 5 gifts â€” we&apos;ll add them all to your cart together.
+            Select up to 5 gifts — we&apos;ll add them all to your cart together.
           </p>
 
           {error && <p className="mt-4 rounded-zed bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
@@ -309,7 +309,7 @@ export default function GiftBuilder() {
                     disabled={adding || selectedItems.length > 5}
                     className="rounded-zed bg-zed-950 px-5 py-2.5 text-sm font-bold text-black transition-colors hover:bg-white disabled:opacity-50"
                   >
-                    {adding ? "Addingâ€¦" : `Add to cart Â· ${formatKES(total)}`}
+                    {adding ? "Adding…" : `Add to cart · ${formatKES(total)}`}
                   </button>
                 </div>
               </div>

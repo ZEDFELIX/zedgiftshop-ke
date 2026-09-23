@@ -64,7 +64,7 @@ export default async function GiftHistoryPage() {
                       <p className="text-sm font-medium text-black">{item.name}</p>
                       {item.personalizationJson && (
                         <p className="text-xs text-soft-sage">
-                          Personalized Â· {JSON.parse(item.personalizationJson).engravingText ?? ""}
+                          Personalized · {JSON.parse(item.personalizationJson).engravingText ?? ""}
                         </p>
                       )}
                     </div>
@@ -76,10 +76,10 @@ export default async function GiftHistoryPage() {
               <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2 text-sm text-black/65">
                   <span>
-                    {order.items.length} item{order.items.length > 1 ? "s" : ""} Â·{" "}
+                    {order.items.length} item{order.items.length > 1 ? "s" : ""} ·{" "}
                     {formatKES(order.total)} total
                   </span>
-                  {order.isGift && <span className="text-xs text-soft-sage">ðŸŽ Gift order</span>}
+                  {order.isGift && <span className="text-xs text-soft-sage">🎁 Gift order</span>}
                 </div>
                 <Link
                   href={`/track/${order.orderNumber}`}

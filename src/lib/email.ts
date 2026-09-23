@@ -81,7 +81,7 @@ export async function sendEmail(mail: EmailData): Promise<{ ok: boolean; message
 
 function layout(raw: { subject: string; text: string; html: string }) {
   return {
-    html: `<!doctype html><html><body style="margin:0;background:#f3ede5;font-family:Arial,sans-serif;color:#000000;">
+    html: `<!doctype html><html><body style="margin:0;background:#f5f3ee;font-family:Arial,sans-serif;color:#111110;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px;">
 <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border-radius:12px;overflow:hidden;">
 <tr><td style="background:#111110;padding:20px 28px;">
@@ -105,10 +105,10 @@ export async function sendOrderConfirmation(input: {
 }) {
   const rows = input.items
     .map(
-      (i) => `<tr><td style="padding:6px 0;">${i.name} Ã— ${i.qty}</td><td style="padding:6px 0;text-align:right;">${i.lineTotal}</td></tr>`,
+      (i) => `<tr><td style="padding:6px 0;">${i.name} × ${i.qty}</td><td style="padding:6px 0;text-align:right;">${i.lineTotal}</td></tr>`,
     )
     .join("");
-  const subject = `Order ${input.orderNumber} received â€” thanks for your order`;
+  const subject = `Order ${input.orderNumber} received — thanks for your order`;
   const text = `Hi, your order ${input.orderNumber} has been received. Total: ${input.total}. Track it: ${input.statusUrl}`;
   const html = `
     <h2 style="margin:0 0 12px;">Thanks for your order!</h2>

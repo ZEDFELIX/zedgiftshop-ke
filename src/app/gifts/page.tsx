@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 export const metadata = buildMetadata({
   title: "Gifts by Occasion & Recipient",
   path: "/gifts",
-  description: "Find the perfect gift by occasion (birthday, anniversary, graduation, corporate) or recipient â€” delivered across Kenya.",
+  description: "Find the perfect gift by occasion (birthday, anniversary, graduation, corporate) or recipient — delivered across Kenya.",
 });
 
 export default async function GiftsPage() {
@@ -25,7 +25,7 @@ export default async function GiftsPage() {
         <p className="eyebrow">Gift discovery</p>
         <h1 className="mt-2 font-display text-3xl font-bold text-black lg:text-4xl">What are we celebrating?</h1>
         <p className="mt-3 text-black/70">
-          Start with the occasion or the person â€” we&apos;ll match the moment to the gift.
+          Start with the occasion or the person — we&apos;ll match the moment to the gift.
         </p>
       </header>
 
@@ -63,7 +63,7 @@ export default async function GiftsPage() {
           <div>
             <h2 className="font-display text-2xl font-bold">Not sure where to start?</h2>
             <p className="mt-2 max-w-md text-white/75">
-              Use the Gift Builder to pick a recipient, budget and vibe â€” we&apos;ll assemble a ready-to-checkout box of ideas.
+              Use the Gift Builder to pick a recipient, budget and vibe — we&apos;ll assemble a ready-to-checkout box of ideas.
             </p>
             <Link
               href="/gift-builder"

@@ -179,7 +179,7 @@ export function CartDrawer() {
               <>
                 <div className="flex-1 space-y-3 overflow-y-auto px-5 py-4">
                   {(loading ? [] : cart.items).length === 0 && (
-                    <p className="py-6 text-center text-sm text-black/50">Refreshing cartâ€¦</p>
+                    <p className="py-6 text-center text-sm text-black/50">Refreshing cart…</p>
                   )}
                   {cart.items.map((item) => (
                     <div key={item.id} className={`glass-panel rounded-2xl p-3 ${busyId === item.id ? "opacity-60" : ""}`}>
@@ -202,8 +202,8 @@ export function CartDrawer() {
                           </div>
                           <div className="mt-0.5 text-xs text-black/60">
                             {item.variant && <span>{item.variant.value}</span>}
-                            {item.personalization && <span className="ml-1 italic">Â· Personalized</span>}
-                            {item.giftWrapPrice > 0 && <span className="ml-1">Â· Gift box +{formatKES(item.giftWrapPrice)}</span>}
+                            {item.personalization && <span className="ml-1 italic">· Personalized</span>}
+                            {item.giftWrapPrice > 0 && <span className="ml-1">· Gift box +{formatKES(item.giftWrapPrice)}</span>}
                           </div>
                           <div className="mt-2 flex items-center justify-between">
                             <div className="flex items-center rounded-full border border-white/60 bg-white/60">
@@ -232,7 +232,7 @@ export function CartDrawer() {
                     {cart.couponCode ? (
                       <div className="flex items-center justify-between rounded-2xl border border-zed-900/60 bg-white/60 px-3 py-2 text-sm backdrop-blur-sm">
                         <span className="font-semibold text-black">
-                          Coupon {cart.couponCode} Â· âˆ’{formatKES(cart.discount)}
+                          Coupon {cart.couponCode} · −{formatKES(cart.discount)}
                         </span>
                         <button type="button" onClick={clearCoupon} className="text-xs text-black/60 underline hover:text-black">
                           remove
@@ -267,7 +267,7 @@ export function CartDrawer() {
                     {cart.discount > 0 && (
                       <div className="flex justify-between font-semibold text-deep-olive">
                         <dt>Discount</dt>
-                        <dd>âˆ’{formatKES(cart.discount)}</dd>
+                        <dd>−{formatKES(cart.discount)}</dd>
                       </div>
                     )}
                     <div className="flex justify-between border-t border-white/50 pt-2 text-base font-bold text-black">
@@ -284,7 +284,7 @@ export function CartDrawer() {
                     }`}
                     aria-disabled={!checkoutEnabled}
                   >
-                    Checkout Â· M-PESA
+                    Checkout · M-PESA
                   </Link>
                   <button
                     type="button"

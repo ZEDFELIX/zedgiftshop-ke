@@ -45,7 +45,7 @@ export default async function CheckoutPage() {
       />
 
       <p className="mt-8 flex items-center justify-center gap-2 text-center text-xs text-black/50">
-        <Truck className="size-4 text-soft-sage" /> Same-day in Nairobi by 2 PMÂ· Countrywide in 1â€“3 days
+        <Truck className="size-4 text-soft-sage" /> Same-day in Nairobi by 2 PM· Countrywide in 1–3 days
       </p>
     </div>
   );

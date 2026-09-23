@@ -35,7 +35,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ or
             <p className="text-sm text-black/50">Total</p>
             <p className="font-display text-xl font-bold text-black">{formatKES(order.total)}</p>
             <p className={`text-xs font-semibold ${order.paymentStatus === "SUCCESS" ? "text-emerald-600" : "text-amber-600"}`}>
-              {PAYMENT_STATUS_LABELS[order.paymentStatus] ?? order.paymentStatus}{receipt ? ` Â· ${receipt}` : ""}
+              {PAYMENT_STATUS_LABELS[order.paymentStatus] ?? order.paymentStatus}{receipt ? ` · ${receipt}` : ""}
             </p>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ or
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="font-medium text-black">{i.name}</p>
-                  <p className="text-xs text-black/55">Qty {i.quantity}{i.giftWrapPrice > 0 ? " Â· Gift wrap" : ""}</p>
+                  <p className="text-xs text-black/55">Qty {i.quantity}{i.giftWrapPrice > 0 ? " · Gift wrap" : ""}</p>
                 </div>
                 <p className="font-semibold text-black">{formatKES((i.price + i.giftWrapPrice) * i.quantity)}</p>
               </li>
@@ -68,7 +68,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ or
           </ul>
           <dl className="mt-4 space-y-1.5 border-t border-white/40 pt-4 text-sm">
             <div className="flex justify-between text-black/70"><dt>Subtotal</dt><dd>{formatKES(order.subtotal)}</dd></div>
-            {order.discount > 0 && <div className="flex justify-between text-deep-olive"><dt>Discount{order.couponCode ? ` (${order.couponCode})` : ""}</dt><dd>âˆ’{formatKES(order.discount)}</dd></div>}
+            {order.discount > 0 && <div className="flex justify-between text-deep-olive"><dt>Discount{order.couponCode ? ` (${order.couponCode})` : ""}</dt><dd>−{formatKES(order.discount)}</dd></div>}
             <div className="flex justify-between text-black/70"><dt>Delivery</dt><dd>{order.deliveryFee === 0 ? "Free" : formatKES(order.deliveryFee)}</dd></div>
             <div className="flex justify-between border-t border-white/40 pt-2 text-base font-bold text-black"><dt>Total</dt><dd>{formatKES(order.total)}</dd></div>
           </dl>
@@ -88,7 +88,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ or
           </div>
           {order.isGift && (
             <div className="rounded-zed border border-soft-sage/30 bg-warm-white p-4 text-sm text-black">
-              Marked as a gift â€” prices hidden from the delivery slip and wrapped on request.
+              Marked as a gift — prices hidden from the delivery slip and wrapped on request.
             </div>
           )}
         </section>

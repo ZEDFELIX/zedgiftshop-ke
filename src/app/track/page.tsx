@@ -24,7 +24,7 @@ type TrackedOrder = {
 
 export default function TrackPage() {
   return (
-    <Suspense fallback={<div className="container-zed max-w-2xl py-20 text-center text-sm text-black/50">LoadingÃ¢â‚¬Â¦</div>}>
+    <Suspense fallback={<div className="container-zed max-w-2xl py-20 text-center text-sm text-black/50">Loading…</div>}>
       <TrackContent />
     </Suspense>
   );
@@ -84,7 +84,7 @@ function TrackContent() {
         </div>
         <div>
           <label className="label" htmlFor="t-key">Email or last digits of M-PESA phone</label>
-          <input id="t-key" className="field" value={orderKey} onChange={(e) => setOrderKey(e.target.value)} required placeholder="you@example.com or 0712Ã¢â‚¬Â¦" />
+          <input id="t-key" className="field" value={orderKey} onChange={(e) => setOrderKey(e.target.value)} required placeholder="you@example.com or 0712…" />
         </div>
         <button type="submit" disabled={loading} className="flex w-full items-center justify-center gap-2 rounded-zed bg-zed-950 py-3.5 text-sm font-bold uppercase tracking-wider text-white disabled:opacity-50">
           {loading ? <Loader2 className="size-4 animate-spin" /> : <Search className="size-4" />} Track order
@@ -103,7 +103,7 @@ function TrackContent() {
                 <div>
                   <p className="font-display text-lg font-bold text-black">{result.orderNumber}</p>
                   <p className="text-xs text-black/55">
-                    Placed {new Date(result.createdAt).toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" })} Ã‚Â· {result.county}, {result.town}
+                    Placed {new Date(result.createdAt).toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" })} · {result.county}, {result.town}
                   </p>
                 </div>
               </div>
@@ -140,7 +140,7 @@ function TrackContent() {
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium text-black">{item.name}</p>
-                    <p className="text-xs text-black/55">Qty {item.quantity}{item.giftWrapPrice > 0 ? " Ã‚Â· Gift wrap" : ""}</p>
+                    <p className="text-xs text-black/55">Qty {item.quantity}{item.giftWrapPrice > 0 ? " · Gift wrap" : ""}</p>
                   </div>
                   <p className="text-sm font-semibold text-black">{formatKES((item.price + item.giftWrapPrice) * item.quantity)}</p>
                 </li>

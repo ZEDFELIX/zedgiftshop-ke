@@ -27,7 +27,7 @@ export function ContactForm() {
     }
     setDone(true);
     setBusy(false);
-    showToast("Message sent â€” we'll reply within one working day", "success");
+    showToast("Message sent — we'll reply within one working day", "success");
   }
 
   if (done) {

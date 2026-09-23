@@ -117,7 +117,7 @@ export function ShopControls({
         <p className="eyebrow mb-3">Price (KES)</p>
         <form onSubmit={applyPrice} className="flex items-center gap-2">
           <input value={min} onChange={(e) => setMin(e.target.value)} inputMode="numeric" placeholder={String(minPrice)} className="field text-sm" aria-label="Minimum price" />
-          <span className="text-black/40">â€“</span>
+          <span className="text-black/40">–</span>
           <input value={max} onChange={(e) => setMax(e.target.value)} inputMode="numeric" placeholder={String(maxPrice)} className="field text-sm" aria-label="Maximum price" />
           <button type="submit" className="rounded-zed bg-zed-950 px-3 py-2.5 text-xs font-bold text-white">
             Go

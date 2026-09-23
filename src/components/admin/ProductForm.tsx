@@ -94,7 +94,7 @@ export function ProductForm({ product, categories, collections }: { product?: Pr
       router.push("/admin/products");
       router.refresh();
     } catch {
-      setError("Network error Ã¢â‚¬â€ please try again.");
+      setError("Network error — please try again.");
       setBusy(false);
     }
   }
@@ -211,13 +211,13 @@ export function ProductForm({ product, categories, collections }: { product?: Pr
 
       <div className="rounded-zed border border-edge bg-white p-5">
         <div className="flex items-center justify-between">
-          <p className="label">Variants (size, scent, colourÃ¢â‚¬Â¦)</p>
+          <p className="label">Variants (size, scent, colour…)</p>
           <button type="button" onClick={addVariant} className="flex items-center gap-1.5 rounded-zed border border-edge px-3 py-1.5 text-xs font-semibold text-black/70 hover:border-soft-sage">
             <Plus className="size-3.5" /> Add variant
           </button>
         </div>
         {form.variants.length === 0 ? (
-          <p className="mt-3 text-sm text-black/50">No variants Ã¢â‚¬â€ the product is sold as a single SKU.</p>
+          <p className="mt-3 text-sm text-black/50">No variants — the product is sold as a single SKU.</p>
         ) : (
           <ul className="mt-3 space-y-3">
             {form.variants.map((v, i) => (

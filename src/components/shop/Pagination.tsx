@@ -23,15 +23,15 @@ export function Pagination({ page, pages, total, pageSize, href }: { page: numbe
         </Link>
         {Array.from({ length: pages }, (_, i) => i + 1)
           .filter((p) => p === 1 || p === pages || Math.abs(p - page) <= 1)
-          .reduce<(number | "â€¦")[]>((acc, p, idx, arr) => {
-            if (idx > 0 && (arr[idx - 1] as number) + 1 !== p) acc.push("â€¦");
+          .reduce<(number | "…")[]>((acc, p, idx, arr) => {
+            if (idx > 0 && (arr[idx - 1] as number) + 1 !== p) acc.push("…");
             acc.push(p);
             return acc;
           }, [])
           .map((p, i) =>
-            p === "â€¦" ? (
+            p === "…" ? (
               <span key={`gap-${i}`} className="px-2 text-black/40">
-                â€¦
+                …
               </span>
             ) : (
               <Link
@@ -56,7 +56,7 @@ export function Pagination({ page, pages, total, pageSize, href }: { page: numbe
         </Link>
       </div>
       <p className="text-xs text-black/50">
-        Showing {start}â€“{end} of {total} gifts
+        Showing {start}–{end} of {total} gifts
       </p>
     </div>
   );

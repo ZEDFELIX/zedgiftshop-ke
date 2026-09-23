@@ -4,7 +4,7 @@ export function BackgroundScene() {
   return (
     <div className="bg-scene" aria-hidden>
       <div
-        className="blob left-[-8%] top-[-12%] h-[46vw] w-[46vw] bg-[radial-gradient(circle_at_center,_rgba(244,114,182,0.30),_transparent_65%)] animate-[blob_26s_ease-in-out_infinite]"
+        className="blob left-[-8%] top-[-12%] h-[46vw] w-[46vw] bg-[radial-gradient(circle_at_center,_rgba(63,74,60,0.22),_transparent_65%)] animate-[blob_26s_ease-in-out_infinite]"
       />
       <div
         className="blob right-[-10%] top-[8%] h-[40vw] w-[40vw] bg-[radial-gradient(circle_at_center,_rgba(201,165,106,0.2),_transparent_65%)] animate-[blob_30s_ease-in-out_infinite]"

@@ -57,7 +57,7 @@ export function ReviewsManager({ reviews }: { reviews: ReviewRow[] }) {
               <span className="flex text-amber-500">
                 {Array.from({ length: r.rating }).map((_, i) => <Star key={i} className="size-4 fill-current" />)}
               </span>
-              <span className="text-black/55">â€” {r.author}</span>
+              <span className="text-black/55">— {r.author}</span>
               {r.verifiedPurchase && <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">VERIFIED</span>}
             </div>
             <span className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${r.status === "APPROVED" ? "bg-emerald-50 text-emerald-700" : r.status === "REJECTED" ? "bg-red-50 text-red-600" : "bg-amber-50 text-amber-700"}`}>
@@ -68,7 +68,7 @@ export function ReviewsManager({ reviews }: { reviews: ReviewRow[] }) {
           <p className="mt-1 text-sm text-black/70">{r.comment ?? <span className="italic text-black/40">No comment</span>}</p>
           <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-black/50">
             <Link target="_blank" href={`/product/${r.productSlug}`} className="text-soft-sage underline underline-offset-2">{r.productName}</Link>
-            <span>Â·</span>
+            <span>·</span>
             <span>{new Date(r.createdAt).toLocaleDateString("en-KE")}</span>
             {r.status === "PENDING" && (
               <span className="ml-auto flex gap-2">

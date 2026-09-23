@@ -90,7 +90,7 @@ export function DeliveriesManager() {
         </button>
       </div>
 
-      {loading && <p className="flex items-center gap-2 text-sm text-black/50"><Loader2 className="size-4 animate-spin" /> Loadingâ€¦</p>}
+      {loading && <p className="flex items-center gap-2 text-sm text-black/50"><Loader2 className="size-4 animate-spin" /> Loading…</p>}
 
       {showForm && (
         <form onSubmit={create} className="grid gap-4 rounded-zed border border-edge bg-white p-5 sm:grid-cols-2">
@@ -111,7 +111,7 @@ export function DeliveriesManager() {
           </div>
           <div>
             <label className="label" htmlFor="dz-time">Delivery time label</label>
-            <input id="dz-time" className="field" placeholder="1â€“3 business days" value={form.deliveryTime} onChange={(e) => setForm({ ...form, deliveryTime: e.target.value })} />
+            <input id="dz-time" className="field" placeholder="1–3 business days" value={form.deliveryTime} onChange={(e) => setForm({ ...form, deliveryTime: e.target.value })} />
           </div>
           <div className="flex gap-4 sm:col-span-2">
             {([["sameDay", "Same-day"], ["nextDay", "Next-day"], ["pickup", "Pickup"]] as const).map(([key, label]) => (
@@ -130,7 +130,7 @@ export function DeliveriesManager() {
 
       {Object.keys(grouped).length === 0 && !loading && (
         <div className="rounded-zed border border-dashed border-edge p-10 text-center text-sm text-black/50">
-          <Truck className="mx-auto mb-2 size-8 text-soft-sage/50" /> No delivery zones yet â€” add at least Nairobi for same-day.
+          <Truck className="mx-auto mb-2 size-8 text-soft-sage/50" /> No delivery zones yet — add at least Nairobi for same-day.
         </div>
       )}
 
@@ -146,8 +146,8 @@ export function DeliveriesManager() {
                       <span className={`ml-2 rounded-full px-2 py-0.5 text-[10px] font-bold ${z.active ? "bg-emerald-50 text-emerald-700" : "bg-panel text-black/55"}`}>{z.active ? "Active" : "Paused"}</span>
                     </p>
                     <p className="text-xs text-black/50">
-                      {[z.sameDay && "Same-day", z.nextDay && "Next-day", z.pickup && "Pickup"].filter(Boolean).join(" Â· ") || "â€”"}
-                      {z.deliveryTime ? ` Â· ${z.deliveryTime}` : ""}
+                      {[z.sameDay && "Same-day", z.nextDay && "Next-day", z.pickup && "Pickup"].filter(Boolean).join(" · ") || "—"}
+                      {z.deliveryTime ? ` · ${z.deliveryTime}` : ""}
                     </p>
                   </div>
                   <div className="flex items-center gap-2">

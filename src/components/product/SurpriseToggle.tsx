@@ -35,10 +35,10 @@ export function SurpriseToggle() {
       </button>
       {isSurprise && (
         <div className="mt-3 space-y-2 text-xs text-black/75">
-          <p>â€¢ Price is hidden from the delivery slip</p>
-          <p>â€¢ Your details are protected</p>
-          <p>â€¢ Neutral communication is sent</p>
-          <p>â€¢ A handwritten-style note is included</p>
+          <p>• Price is hidden from the delivery slip</p>
+          <p>• Your details are protected</p>
+          <p>• Neutral communication is sent</p>
+          <p>• A handwritten-style note is included</p>
         </div>
       )}
     </div>

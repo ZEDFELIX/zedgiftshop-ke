@@ -84,9 +84,9 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="container-zed flex flex-col items-center justify-between gap-2 py-5 text-xs text-white/50 sm:flex-row">
-          <p>Ã‚Â© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
           <p>
-            Prices in KES Ã‚Â· Payments via M-PESA Ã‚Â· Made with <span className="text-white">Ã¢â„¢Â¥</span> in Kenya
+            Prices in KES · Payments via M-PESA · Made with <span className="text-white">♥</span> in Kenya
           </p>
         </div>
       </div>

@@ -75,7 +75,7 @@ export function ReviewForm({ productId }: { productId: string }) {
       </div>
       {error && <p className="text-sm text-red-600">{error}</p>}
       <button type="submit" disabled={state === "busy"} className="rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold text-white disabled:opacity-60">
-        {state === "busy" ? "SubmittingÃ¢â‚¬Â¦" : "Submit review"}
+        {state === "busy" ? "Submitting…" : "Submit review"}
       </button>
     </form>
   );

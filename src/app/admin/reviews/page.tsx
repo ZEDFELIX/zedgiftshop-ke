@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { ReviewsManager } from "@/components/admin/ReviewsManager";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Reviews Â· Admin" };
+export const metadata = { title: "Reviews · Admin" };
 
 export default async function AdminReviewsPage() {
   const reviews = await prisma.review.findMany({
@@ -16,7 +16,7 @@ export default async function AdminReviewsPage() {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-black/55">{pending} pending Â· {reviews.length} total</p>
+      <p className="text-sm text-black/55">{pending} pending · {reviews.length} total</p>
       <ReviewsManager reviews={reviews.map((r) => ({
         id: r.id,
         productName: r.product.name,

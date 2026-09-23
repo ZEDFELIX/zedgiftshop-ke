@@ -23,7 +23,7 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
     : personalizable && !sale
       ? { label: "Personalize", cls: "bg-panel/90 text-deep-olive backdrop-blur" }
       : sale != null && sale > 0
-        ? { label: `SALE âˆ’${sale}%`, cls: "bg-zed-950 text-white" }
+        ? { label: `SALE −${sale}%`, cls: "bg-zed-950 text-white" }
         : isNew
           ? { label: "NEW", cls: "bg-zed-950 text-white" }
           : isPopular

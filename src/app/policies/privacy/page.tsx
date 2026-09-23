@@ -1,6 +1,6 @@
 import { SITE } from "@/lib/constants";
 
-export const metadata = { title: "Privacy Policy Â· ZED Gift Shop", description: "How ZED Gift Shop collects, uses and protects your personal information." };
+export const metadata = { title: "Privacy Policy · ZED Gift Shop", description: "How ZED Gift Shop collects, uses and protects your personal information." };
 
 function Heading({ n, t }: { n: number; t: string }) {
   return <h2 className="mt-8 font-display text-xl font-bold text-black"><span className="text-soft-sage">{n}.</span> {t}</h2>;
@@ -9,7 +9,7 @@ function Heading({ n, t }: { n: number; t: string }) {
 export default function PrivacyPage() {
   return (
     <div className="container-zed max-w-3xl py-12">
-      <p className="eyebrow text-soft-sage">Policies Â· Last updated {new Date().toDateString()}</p>
+      <p className="eyebrow text-soft-sage">Policies · Last updated {new Date().toDateString()}</p>
       <h1 className="mt-2 font-display text-4xl font-black text-black">Privacy Policy</h1>
       <p className="mt-4 text-black/70">This policy explains what we collect, why, and the choices you have. It applies to {SITE.name} ({SITE.url}).</p>
 

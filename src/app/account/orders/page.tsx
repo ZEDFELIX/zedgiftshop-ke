@@ -39,7 +39,7 @@ export default async function AccountOrdersPage() {
               </span>
               <span className="rounded-full bg-white/45 px-2.5 py-1 font-semibold text-black">{ORDER_STATUS_LABELS[o.orderStatus] ?? o.orderStatus}</span>
               {receipt && <span className="rounded-full bg-white/45 px-2.5 py-1 text-black/55">Receipt {receipt}</span>}
-              <span className="text-black/45">Â· {o.items.length} item{o.items.length === 1 ? "" : "s"} Â· {o.county}</span>
+              <span className="text-black/45">· {o.items.length} item{o.items.length === 1 ? "" : "s"} · {o.county}</span>
             </div>
           </Link>
         );

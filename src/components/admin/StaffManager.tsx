@@ -76,7 +76,7 @@ export function StaffManager({ staff, canAdd }: { staff: StaffRow[]; canAdd: boo
                   {s.name}
                   <span className={`ml-2 rounded-full px-2 py-0.5 text-[10px] font-bold ${s.role === "ADMIN" ? "bg-zed-950 text-white" : "bg-warm-white text-deep-olive"}`}>{s.role}</span>
                 </p>
-                <p className="text-sm text-black/55">{s.email} Â· joined {new Date(s.createdAt).toLocaleDateString("en-KE")}</p>
+                <p className="text-sm text-black/55">{s.email} · joined {new Date(s.createdAt).toLocaleDateString("en-KE")}</p>
               </div>
             </div>
           </li>

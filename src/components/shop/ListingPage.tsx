@@ -13,7 +13,7 @@ const SORT_LABELS: Record<string, string> = {
   "price-asc": "Price: Low to High",
   "price-desc": "Price: High to Low",
   rating: "Top rated",
-  name: "Name Aâ€“Z",
+  name: "Name A–Z",
 };
 
 export async function ListingPage({

@@ -37,7 +37,7 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
           </span>
         )}
         <h1 className="mt-4 font-display text-3xl font-bold text-black">
-          {isPaid ? "Thank you â€” it&apos;s on its way!" : "Order placed"}
+          {isPaid ? "Thank you — it&apos;s on its way!" : "Order placed"}
         </h1>
         <p className="mt-2 text-sm text-black/60">
           {isPaid
@@ -68,9 +68,9 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
 
         <div className="glass-panel mt-5 rounded-zed p-4 text-sm text-black/70">
           {isPaid ? (
-            <>We&apos;re preparing your gift now. You&apos;ll get email updates as it ships â€” same-day in Nairobi if ordered before 2 PM.</>
+            <>We&apos;re preparing your gift now. You&apos;ll get email updates as it ships — same-day in Nairobi if ordered before 2 PM.</>
           ) : (
-            <>Keep the M-PESA prompt on your phone to approve payment. You can head to track order any time â€” status updates live.</>
+            <>Keep the M-PESA prompt on your phone to approve payment. You can head to track order any time — status updates live.</>
           )}
         </div>
       </div>

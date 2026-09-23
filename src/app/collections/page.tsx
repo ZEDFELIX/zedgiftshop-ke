@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export const metadata = buildMetadata({
   title: "Collections",
   path: "/collections",
-  description: "Curated ZED GIFT SHOP collections Ã¢â‚¬â€ bestsellers, personalized picks, corporate gifts and more.",
+  description: "Curated ZED GIFT SHOP collections — bestsellers, personalized picks, corporate gifts and more.",
 });
 
 export default async function CollectionsPage() {

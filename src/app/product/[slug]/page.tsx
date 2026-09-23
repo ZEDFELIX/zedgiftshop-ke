@@ -100,7 +100,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <span className="grid aspect-square place-items-center font-display text-4xl text-soft-sage">ZED</span>
             )}
             {sale != null && sale > 0 && (
-              <span className="absolute left-4 top-4 rounded-full bg-zed-950 px-3 py-1.5 text-xs font-bold text-black">âˆ’{sale}%</span>
+              <span className="absolute left-4 top-4 rounded-full bg-zed-950 px-3 py-1.5 text-xs font-bold text-black">−{sale}%</span>
             )}
           </div>
           <div className="grid grid-cols-5 gap-3">
@@ -139,7 +139,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                   ))}
                 </span>
                 <a href="#reviews" className="text-sm text-black/60 underline-offset-2 hover:underline">
-                  {breakdown.average.toFixed(1)} Â· {breakdown.count} review{breakdown.count === 1 ? "" : "s"}
+                  {breakdown.average.toFixed(1)} · {breakdown.count} review{breakdown.count === 1 ? "" : "s"}
                 </a>
               </>
             ) : (
@@ -160,7 +160,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
           <p className="mt-1 text-sm">
             {inStock ? (
-              <span className="font-semibold text-soft-sage">In stock{totalStock <= product.lowStockThreshold ? ` â€” only ${totalStock} left` : ""}</span>
+              <span className="font-semibold text-soft-sage">In stock{totalStock <= product.lowStockThreshold ? ` — only ${totalStock} left` : ""}</span>
             ) : (
               <span className="font-semibold text-red-600">Out of stock</span>
             )}
@@ -193,7 +193,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div className="glass-card mt-8 grid gap-3 rounded-zed p-5 sm:grid-cols-2">
             <div className="flex items-center gap-2.5 text-sm text-black/75">
               <Truck className="size-5 shrink-0 text-soft-sage" />
-              Same-day in Nairobi, 1â€“3 days countrywide
+              Same-day in Nairobi, 1–3 days countrywide
             </div>
             <div className="flex items-center gap-2.5 text-sm text-black/75">
               <ShieldCheck className="size-5 shrink-0 text-soft-sage" />
@@ -236,7 +236,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <div className="space-y-1.5">
               {breakdown.buckets.map((b) => (
                 <div key={b.star} className="flex items-center gap-3 text-xs">
-                  <span className="w-8 text-black/60">{b.star}â˜…</span>
+                  <span className="w-8 text-black/60">{b.star}★</span>
                   <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/50">
                     <div className="h-full rounded-full bg-zed-950" style={{ width: `${b.percent}%` }} />
                   </div>

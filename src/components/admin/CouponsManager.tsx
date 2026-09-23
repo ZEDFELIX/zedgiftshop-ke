@@ -92,7 +92,7 @@ export function CouponsManager() {
         </button>
       </div>
 
-      {loading && <p className="flex items-center gap-2 text-sm text-black/50"><Loader2 className="size-4 animate-spin" /> Loadingâ€¦</p>}
+      {loading && <p className="flex items-center gap-2 text-sm text-black/50"><Loader2 className="size-4 animate-spin" /> Loading…</p>}
 
       {showForm && (
         <form onSubmit={create} className="grid gap-4 rounded-zed border border-edge bg-white p-5 sm:grid-cols-2">
@@ -147,8 +147,8 @@ export function CouponsManager() {
                 </p>
                 <p className="mt-1 text-sm text-black/60">
                   {c.type === "PERCENTAGE" ? `${c.value}% off` : `${formatKES(c.value)} off`}
-                  {c.minSpend > 0 ? ` Â· min ${formatKES(c.minSpend)}` : ""} Â· used {c.usedCount}{c.maxUses ? `/${c.maxUses}` : ""}
-                  {c.expiresAt ? ` Â· expires ${new Date(c.expiresAt).toLocaleDateString("en-KE")}` : ""}
+                  {c.minSpend > 0 ? ` · min ${formatKES(c.minSpend)}` : ""} · used {c.usedCount}{c.maxUses ? `/${c.maxUses}` : ""}
+                  {c.expiresAt ? ` · expires ${new Date(c.expiresAt).toLocaleDateString("en-KE")}` : ""}
                 </p>
               </div>
               <div className="flex items-center gap-2">

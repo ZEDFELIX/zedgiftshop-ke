@@ -61,7 +61,7 @@ export default async function DesignApprovalsPage() {
                 <div>
                   <p className="font-display text-sm font-bold text-black">{order.orderNumber}</p>
                   <p className="text-xs text-black/55">
-                    {order.createdAt.toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" })} Â· {order.items.length} item(s)
+                    {order.createdAt.toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" })} · {order.items.length} item(s)
                   </p>
                 </div>
                 <span className="rounded-full bg-warm-white px-2.5 py-1 text-xs font-semibold text-black">

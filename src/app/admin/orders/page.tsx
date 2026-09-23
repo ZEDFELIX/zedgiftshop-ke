@@ -4,7 +4,7 @@ import { formatKES } from "@/lib/utils";
 import { ORDER_STATUS_LABELS, PAYMENT_STATUS_LABELS } from "@/lib/constants";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Orders Â· Admin" };
+export const metadata = { title: "Orders · Admin" };
 
 const PAYMENTS = ["ALL", "PENDING", "SUCCESS", "FAILED", "CANCELLED"];
 
@@ -19,7 +19,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
   return (
     <div className="space-y-4">
       <form method="GET" className="flex flex-wrap items-center gap-2">
-        <input name="q" defaultValue={q} placeholder="Order no., name, email, phoneâ€¦" className="field w-72" />
+        <input name="q" defaultValue={q} placeholder="Order no., name, email, phone…" className="field w-72" />
         <select name="status" defaultValue={status} className="field w-44">
           <option value="">All statuses</option>
           {ORDER_STATUS_LABELS && Object.entries(ORDER_STATUS_LABELS).map(([k, v]) => (
@@ -59,7 +59,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
                 <td className="p-3 font-semibold text-black">{formatKES(o.total)}</td>
                 <td className="p-3">
                   <span className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${o.paymentStatus === "SUCCESS" ? "bg-emerald-50 text-emerald-700" : o.paymentStatus === "PENDING" ? "bg-amber-50 text-amber-700" : "bg-panel text-black/55"}`}>
-                    {PAYMENT_STATUS_LABELS[o.paymentStatus]}{o.payments[0]?.mpesaReceipt ? ` Â· ${o.payments[0].mpesaReceipt}` : ""}
+                    {PAYMENT_STATUS_LABELS[o.paymentStatus]}{o.payments[0]?.mpesaReceipt ? ` · ${o.payments[0].mpesaReceipt}` : ""}
                   </span>
                 </td>
                 <td className="p-3 text-black/75">{ORDER_STATUS_LABELS[o.orderStatus] ?? o.orderStatus}</td>

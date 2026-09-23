@@ -2,16 +2,16 @@ import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { SITE } from "@/lib/constants";
 
-export const metadata = { title: "FAQs Â· ZED Gift Shop", description: "Answers about ordering, payment, personalization, delivery and returns from ZED Gift Shop." };
+export const metadata = { title: "FAQs · ZED Gift Shop", description: "Answers about ordering, payment, personalization, delivery and returns from ZED Gift Shop." };
 
 const faqs = [
   {
     q: "How do I pay?",
-    a: "We accept M-PESA via STK Push. When you place your order we send a payment request straight to your M-PESA number â€” approve it with your PIN and your order is confirmed instantly.",
+    a: "We accept M-PESA via STK Push. When you place your order we send a payment request straight to your M-PESA number — approve it with your PIN and your order is confirmed instantly.",
   },
   {
     q: "When will my order arrive?",
-    a: "Orders placed before 5:00pm are delivered the same day within Nairobi. Countrywide deliveries usually arrive in 1â€“3 working days for major towns and 2â€“7 working days for the rest of Kenya, with tracking.",
+    a: "Orders placed before 5:00pm are delivered the same day within Nairobi. Countrywide deliveries usually arrive in 1–3 working days for major towns and 2–7 working days for the rest of Kenya, with tracking.",
   },
   {
     q: "How is delivery charged?",
@@ -23,11 +23,11 @@ const faqs = [
   },
   {
     q: "What can I personalize?",
-    a: "Many of our gifts can be engraved, printed or customized â€” mugs, t-shirts, frames, keyholders, hampers and more. Look for 'Personalize' on product pages and add names, dates or short messages.",
+    a: "Many of our gifts can be engraved, printed or customized — mugs, t-shirts, frames, keyholders, hampers and more. Look for 'Personalize' on product pages and add names, dates or short messages.",
   },
   {
     q: "Can I include a gift message?",
-    a: "Of course. Add a handwritten-style gift note at checkout on selected products â€” it's included in a classic ZED gift box.",
+    a: "Of course. Add a handwritten-style gift note at checkout on selected products — it's included in a classic ZED gift box.",
   },
   {
     q: "What if my gift arrives damaged or wrong?",
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "Do you do corporate and bulk gifts?",
-    a: "Yes. We handle corporate gifting, team gifts and bulk orders â€” visit the Corporate gifts page or email us and we'll follow up.",
+    a: "Yes. We handle corporate gifting, team gifts and bulk orders — visit the Corporate gifts page or email us and we'll follow up.",
   },
 ];
 

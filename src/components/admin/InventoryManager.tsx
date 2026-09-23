@@ -38,7 +38,7 @@ export function InventoryManager({ products }: { products: ProductRow[] }) {
 
   return (
     <div className="space-y-4">
-      <input className="field w-full max-w-sm" placeholder="Search productsÃ¢â‚¬Â¦" value={q} onChange={(e) => setQ(e.target.value)} />
+      <input className="field w-full max-w-sm" placeholder="Search products…" value={q} onChange={(e) => setQ(e.target.value)} />
       <div className="overflow-hidden rounded-zed border border-edge bg-white">
         <table className="w-full text-sm">
           <thead>
@@ -83,7 +83,7 @@ export function InventoryManager({ products }: { products: ProductRow[] }) {
                   </tr>
                   {p.variants.map((v) => (
                     <tr key={v.id} className="bg-panel/30 text-xs hover:bg-panel/60">
-                      <td className="p-2 pl-9 text-black/60">{p.name} Ã‚Â· {v.value} <span className="text-black/40">({v.sku})</span></td>
+                      <td className="p-2 pl-9 text-black/60">{p.name} · {v.value} <span className="text-black/40">({v.sku})</span></td>
                       <td className="p-2 font-semibold text-black">{v.quantity}</td>
                       <td className="p-2 text-black/50">{v.reservedQuantity}</td>
                       <td className="p-2 text-black/60">{Math.max(0, v.quantity - v.reservedQuantity)}</td>

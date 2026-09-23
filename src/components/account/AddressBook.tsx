@@ -90,14 +90,14 @@ export function AddressBook() {
       </div>
 
       {loading && (
-        <p className="flex items-center gap-2 text-sm text-black/50"><Loader2 className="size-4 animate-spin" /> Loadingâ€¦</p>
+        <p className="flex items-center gap-2 text-sm text-black/50"><Loader2 className="size-4 animate-spin" /> Loading…</p>
       )}
 
       {showForm && (
         <form onSubmit={create} className="glass-card grid gap-4 rounded-zed p-5 sm:grid-cols-2">
           <div>
             <label className="label" htmlFor="ad-label">Label</label>
-            <input id="ad-label" className="field" placeholder="Home, Officeâ€¦" value={form.label} onChange={(e) => setForm({ ...form, label: e.target.value })} maxLength={60} />
+            <input id="ad-label" className="field" placeholder="Home, Office…" value={form.label} onChange={(e) => setForm({ ...form, label: e.target.value })} maxLength={60} />
           </div>
           <div>
             <label className="label" htmlFor="ad-county">County</label>

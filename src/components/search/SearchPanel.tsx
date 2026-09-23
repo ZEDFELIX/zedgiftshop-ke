@@ -117,7 +117,7 @@ export function SearchPanel({ open, onClose }: { open: boolean; onClose: () => v
                   setQ(e.target.value);
                   fetchSuggests(e.target.value);
                 }}
-                placeholder="Search gifts, occasions, recipientsâ€¦"
+                placeholder="Search gifts, occasions, recipients…"
                 aria-label="Search products"
                 className="w-full border-none bg-transparent text-lg text-black placeholder:text-black/40 focus:outline-none"
               />
@@ -157,17 +157,17 @@ export function SearchPanel({ open, onClose }: { open: boolean; onClose: () => v
               <div className="mt-4 min-h-24">
                 {loading && (
                   <p className="flex items-center gap-2 py-6 text-sm text-black/50">
-                    <Loader2 className="size-4 animate-spin" /> Searchingâ€¦
+                    <Loader2 className="size-4 animate-spin" /> Searching…
                   </p>
                 )}
                 {!loading && results.length === 0 && (
                   <p className="py-6 text-sm text-black/50">
-                    No matches for <span className="font-semibold text-black">â€œ{q}â€</span>. Press Enter to browse all results.
+                    No matches for <span className="font-semibold text-black">“{q}”</span>. Press Enter to browse all results.
                   </p>
                 )}
                 {categoryHits.map((c) => (
                   <button key={c.slug} type="button" onClick={() => submit(c.name)} className="mb-1 flex items-center gap-2 rounded-zed px-2 py-1.5 text-sm text-deep-olive hover:bg-zed-900/5">
-                    <Search className="size-3.5" /> Category Â· {c.name}
+                    <Search className="size-3.5" /> Category · {c.name}
                   </button>
                 ))}
                 <ul className="divide-y divide-white/40">
@@ -188,7 +188,7 @@ export function SearchPanel({ open, onClose }: { open: boolean; onClose: () => v
                 </ul>
                 {results.length > 0 && (
                   <button type="button" onClick={() => submit(q)} className="mt-3 block w-full rounded-zed bg-zed-950 py-2.5 text-center text-sm font-bold text-white hover:bg-zed-900">
-                    See all results for â€œ{q}â€
+                    See all results for “{q}”
                   </button>
                 )}
               </div>

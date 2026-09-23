@@ -39,7 +39,7 @@ export function ProfileForm({ name, email, phone }: { name: string; email: strin
           <input id="p-name" className="field" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
         </div>
         <div>
-          <label className="label" htmlFor="p-phone">Phone (2547â€¦)</label>
+          <label className="label" htmlFor="p-phone">Phone (2547…)</label>
           <input id="p-phone" className="field" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} inputMode="tel" />
         </div>
         <div className="sm:col-span-2">

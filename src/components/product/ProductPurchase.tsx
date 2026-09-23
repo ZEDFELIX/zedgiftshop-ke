@@ -114,7 +114,7 @@ export function ProductPurchase({
         </span>
         <span className="text-edge-strong">|</span>
         <span className="flex items-center gap-1">
-          <Truck className="size-4 text-soft-sage" /> Same-day Nairobi, countrywide 1Ã¢â‚¬â€œ3 days
+          <Truck className="size-4 text-soft-sage" /> Same-day Nairobi, countrywide 1–3 days
         </span>
       </div>
 
@@ -147,7 +147,7 @@ export function ProductPurchase({
                     <span className="ml-1 text-xs opacity-70">+{formatKES(v.priceOffset)}</span>
                   )}
                   {v.priceOffset < 0 && (
-                    <span className="ml-1 text-xs opacity-70">Ã¢Ë†â€™{formatKES(Math.abs(v.priceOffset))}</span>
+                    <span className="ml-1 text-xs opacity-70">−{formatKES(Math.abs(v.priceOffset))}</span>
                   )}
                 </button>
               );
@@ -163,7 +163,7 @@ export function ProductPurchase({
             <Sparkles className="size-4" /> Personalize
           </p>
           <p className="mt-1 text-xs text-black/70">
-            We engrave or print this exactly as written Ã¢â‚¬â€ double-check spelling.
+            We engrave or print this exactly as written — double-check spelling.
           </p>
           <div className="mt-3 space-y-3">
             {personalizationFields.map((field) => (
@@ -246,7 +246,7 @@ export function ProductPurchase({
               <textarea
                 value={giftMessage.message}
                 onChange={(e) => setGiftMessage((m) => ({ ...m, message: e.target.value }))}
-                placeholder="Your messageÃ¢â‚¬Â¦"
+                placeholder="Your message…"
                 className="field"
                 rows={3}
                 maxLength={500}
@@ -292,7 +292,7 @@ export function ProductPurchase({
             className="inline-flex w-full items-center justify-center gap-2 rounded-zed bg-zed-950 px-6 py-4 text-sm font-bold uppercase tracking-wider text-black transition-colors hover:bg-zed-950 hover:text-white disabled:opacity-60"
           >
             <ShoppingBag className="size-4" />
-            {busy ? "AddingÃ¢â‚¬Â¦" : "Add to cart"}
+            {busy ? "Adding…" : "Add to cart"}
           </button>
         ) : (
           <p className="rounded-zed glass-panel px-6 py-4 text-center text-sm font-bold text-black/60">
@@ -301,7 +301,7 @@ export function ProductPurchase({
         )}
         {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
         <p className="mt-3 flex items-center justify-center gap-2 text-center text-xs text-black/60">
-          <ShieldCheck className="size-4 text-soft-sage" /> Secure M-PESA checkout Ã‚Â· Free gift box with every order
+          <ShieldCheck className="size-4 text-soft-sage" /> Secure M-PESA checkout · Free gift box with every order
         </p>
         <p className="mt-1 text-center text-xs text-black/40">Free in Nairobi on this item.</p>
       </div>

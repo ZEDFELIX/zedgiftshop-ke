@@ -27,7 +27,7 @@ export function ForgotPasswordForm() {
       }
       setStatus("sent");
     } catch {
-      setError("Network error â€” please try again.");
+      setError("Network error — please try again.");
       setStatus("idle");
     }
   }
