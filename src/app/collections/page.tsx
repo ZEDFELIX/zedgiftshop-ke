@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export const metadata = buildMetadata({
   title: "Collections",
   path: "/collections",
-  description: "Curated ZED GIFT SHOP collections — bestsellers, personalized picks, corporate gifts and more.",
+  description: "Curated ZED GIFT SHOP collections Ã¢â‚¬â€ bestsellers, personalized picks, corporate gifts and more.",
 });
 
 export default async function CollectionsPage() {
@@ -19,13 +19,13 @@ export default async function CollectionsPage() {
     <div className="container-zed py-10 lg:py-14">
       <header className="max-w-2xl">
         <p className="eyebrow">Curated for you</p>
-        <h1 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">Collections</h1>
-        <p className="mt-3 text-ink/70">Groups of gifts we&apos;ve put together for how you shop.</p>
+        <h1 className="mt-2 font-display text-3xl font-bold text-black lg:text-4xl">Collections</h1>
+        <p className="mt-3 text-black/70">Groups of gifts we&apos;ve put together for how you shop.</p>
       </header>
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {collections.map((c) => (
-          <Link key={c.id} href={`/collections/${c.slug}`} className="group overflow-hidden rounded-zed bg-panel">
+          <Link key={c.id} href={`/collections/${c.slug}`} className="group overflow-hidden rounded-zed glass-panel">
             <div className="relative aspect-[4/3] overflow-hidden">
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
@@ -35,7 +35,7 @@ export default async function CollectionsPage() {
               <div className="absolute inset-x-5 bottom-5">
                 <p className="font-display text-xl font-bold text-white">{c.name}</p>
                 <p className="mt-1 text-sm text-white/70">{c._count.products} gifts</p>
-                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-champagne">
+                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
                   Shop collection <ArrowRight className="size-4" />
                 </span>
               </div>

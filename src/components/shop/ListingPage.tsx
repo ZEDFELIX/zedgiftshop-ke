@@ -13,7 +13,7 @@ const SORT_LABELS: Record<string, string> = {
   "price-asc": "Price: Low to High",
   "price-desc": "Price: High to Low",
   rating: "Top rated",
-  name: "Name A–Z",
+  name: "Name Aâ€“Z",
 };
 
 export async function ListingPage({
@@ -42,9 +42,9 @@ export async function ListingPage({
     <div className="container-zed py-10 lg:py-14">
       <header className="mb-8 max-w-2xl">
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-        <h1 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">{title}</h1>
-        {description ? <p className="mt-3 leading-relaxed text-ink/70">{description}</p> : null}
-        <p className="mt-3 text-sm text-ink/50">
+        <h1 className="mt-2 font-display text-3xl font-bold text-black lg:text-4xl">{title}</h1>
+        {description ? <p className="mt-3 leading-relaxed text-black/70">{description}</p> : null}
+        <p className="mt-3 text-sm text-black/50">
           {result.total} gift{result.total === 1 ? "" : "s"} available
         </p>
       </header>

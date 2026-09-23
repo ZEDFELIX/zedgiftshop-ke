@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { ReviewsManager } from "@/components/admin/ReviewsManager";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Reviews · Admin" };
+export const metadata = { title: "Reviews Â· Admin" };
 
 export default async function AdminReviewsPage() {
   const reviews = await prisma.review.findMany({
@@ -16,7 +16,7 @@ export default async function AdminReviewsPage() {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-ink/55">{pending} pending · {reviews.length} total</p>
+      <p className="text-sm text-black/55">{pending} pending Â· {reviews.length} total</p>
       <ReviewsManager reviews={reviews.map((r) => ({
         id: r.id,
         productName: r.product.name,
@@ -29,7 +29,7 @@ export default async function AdminReviewsPage() {
         verifiedPurchase: r.verifiedPurchase,
         createdAt: r.createdAt.toISOString(),
       }))} />
-      <p className="text-xs text-ink/45">
+      <p className="text-xs text-black/45">
         Public pages only show <Link href="/shop" className="underline">approved</Link> reviews.
       </p>
     </div>

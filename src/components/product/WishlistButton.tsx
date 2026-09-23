@@ -46,8 +46,8 @@ export function WishlistButton({ productId, initialInWishlist = false }: { produ
       aria-pressed={inWishlist}
       className={`grid size-10 place-items-center rounded-full border backdrop-blur transition-colors ${
         inWishlist
-          ? "border-champagne/60 bg-champagne/90 text-charcoal shadow-glass"
-          : "border-white/55 bg-white/75 text-ink/70 hover:border-soft-sage hover:text-deep-olive"
+          ? "border-zed-900/60 bg-zed-950 text-black shadow-glass"
+          : "border-white/55 bg-white/75 text-black/70 hover:border-soft-sage hover:text-deep-olive"
       } ${busy ? "opacity-60" : ""}`}
     >
       <Heart className={`size-5 ${inWishlist ? "fill-current" : ""} ${popping ? "animate-[heart-pop_0.45s_cubic-bezier(0.16,1,0.3,1)]" : ""}`} />

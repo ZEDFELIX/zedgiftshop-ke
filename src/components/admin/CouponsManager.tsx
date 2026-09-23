@@ -86,13 +86,13 @@ export function CouponsManager() {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <p className="text-sm text-ink/55">Active coupons:{coupons.filter((c) => c.active).length}</p>
-        <button type="button" onClick={() => setShowForm((s) => !s)} className="flex items-center gap-1.5 rounded-zed bg-obsidian px-4 py-2.5 text-sm font-bold text-champagne">
+        <p className="text-sm text-black/55">Active coupons:{coupons.filter((c) => c.active).length}</p>
+        <button type="button" onClick={() => setShowForm((s) => !s)} className="flex items-center gap-1.5 rounded-zed bg-zed-950 px-4 py-2.5 text-sm font-bold text-white">
           <Plus className="size-4" /> {showForm ? "Cancel" : "New coupon"}
         </button>
       </div>
 
-      {loading && <p className="flex items-center gap-2 text-sm text-ink/50"><Loader2 className="size-4 animate-spin" /> Loading…</p>}
+      {loading && <p className="flex items-center gap-2 text-sm text-black/50"><Loader2 className="size-4 animate-spin" /> Loadingâ€¦</p>}
 
       {showForm && (
         <form onSubmit={create} className="grid gap-4 rounded-zed border border-edge bg-white p-5 sm:grid-cols-2">
@@ -124,14 +124,14 @@ export function CouponsManager() {
             <input id="cp-expires" type="date" className="field" value={form.expiresAt} onChange={(e) => setForm({ ...form, expiresAt: e.target.value })} />
           </div>
           {error && <p className="rounded-zed bg-red-50 px-4 py-3 text-sm text-red-700 sm:col-span-2">{error}</p>}
-          <button type="submit" disabled={busy} className="rounded-zed bg-obsidian py-3 text-sm font-bold text-champagne disabled:opacity-50 sm:col-span-2">
+          <button type="submit" disabled={busy} className="rounded-zed bg-zed-950 py-3 text-sm font-bold text-white disabled:opacity-50 sm:col-span-2">
             {busy ? <Loader2 className="mx-auto size-4 animate-spin" /> : "Create coupon"}
           </button>
         </form>
       )}
 
       {coupons.length === 0 && !loading && (
-        <div className="rounded-zed border border-dashed border-edge p-10 text-center text-sm text-ink/50">
+        <div className="rounded-zed border border-dashed border-edge p-10 text-center text-sm text-black/50">
           <Ticket className="mx-auto mb-2 size-8 text-soft-sage/50" /> No coupons yet.
         </div>
       )}
@@ -141,18 +141,18 @@ export function CouponsManager() {
           <li key={c.id} className="rounded-zed border border-edge bg-white p-5">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="flex items-center gap-2 font-bold text-charcoal">
+                <p className="flex items-center gap-2 font-bold text-black">
                   {c.code}
-                  <span className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${c.active ? "bg-emerald-50 text-emerald-700" : "bg-panel text-ink/55"}`}>{c.active ? "Active" : "Paused"}</span>
+                  <span className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${c.active ? "bg-emerald-50 text-emerald-700" : "bg-panel text-black/55"}`}>{c.active ? "Active" : "Paused"}</span>
                 </p>
-                <p className="mt-1 text-sm text-ink/60">
+                <p className="mt-1 text-sm text-black/60">
                   {c.type === "PERCENTAGE" ? `${c.value}% off` : `${formatKES(c.value)} off`}
-                  {c.minSpend > 0 ? ` · min ${formatKES(c.minSpend)}` : ""} · used {c.usedCount}{c.maxUses ? `/${c.maxUses}` : ""}
-                  {c.expiresAt ? ` · expires ${new Date(c.expiresAt).toLocaleDateString("en-KE")}` : ""}
+                  {c.minSpend > 0 ? ` Â· min ${formatKES(c.minSpend)}` : ""} Â· used {c.usedCount}{c.maxUses ? `/${c.maxUses}` : ""}
+                  {c.expiresAt ? ` Â· expires ${new Date(c.expiresAt).toLocaleDateString("en-KE")}` : ""}
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <button type="button" onClick={() => toggle(c)} className="rounded-zed border border-edge px-3 py-1.5 text-xs font-semibold text-ink/70 hover:border-soft-sage">
+                <button type="button" onClick={() => toggle(c)} className="rounded-zed border border-edge px-3 py-1.5 text-xs font-semibold text-black/70 hover:border-soft-sage">
                   {c.active ? "Pause" : "Activate"}
                 </button>
                 <button type="button" onClick={() => remove(c.id)} className="rounded-zed border border-red-100 p-2 text-red-500 hover:bg-red-50" aria-label="Delete coupon">

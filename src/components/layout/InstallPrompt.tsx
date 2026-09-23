@@ -64,24 +64,24 @@ export function InstallPrompt() {
     <div className="fixed bottom-4 left-4 z-[85] max-w-sm animate-[slide-up_0.5s_cubic-bezier(0.16,1,0.3,1)_both]">
       <div className="glass-strong overflow-hidden rounded-2xl border border-white/50 shadow-glass-lg">
         <div className="flex items-start gap-3 p-4">
-          <span className="grid size-10 shrink-0 place-items-center rounded-full bg-champagne text-charcoal">
+          <span className="grid size-10 shrink-0 place-items-center rounded-full bg-zed-950 text-white">
             <Gift className="size-5" />
           </span>
           <div className="min-w-0 flex-1">
-            <p className="font-display text-sm font-bold text-charcoal">Get the ZED app</p>
-            <p className="mt-0.5 text-xs text-ink/65">Install ZED Gift Shop for a faster, app-like gifting experience.</p>
+            <p className="font-display text-sm font-bold text-black">Get the ZED app</p>
+            <p className="mt-0.5 text-xs text-black/65">Install ZED Gift Shop for a faster, app-like gifting experience.</p>
             <div className="mt-3 flex gap-2">
               <button
                 type="button"
                 onClick={handleInstall}
-                className="rounded-zed bg-obsidian px-4 py-2 text-xs font-bold uppercase tracking-wider text-champagne transition-colors hover:bg-charcoal"
+                className="rounded-zed bg-zed-950 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-zed-900"
               >
                 Install
               </button>
               <button
                 type="button"
                 onClick={handleDismiss}
-                className="rounded-zed border border-white/50 px-4 py-2 text-xs font-semibold text-ink/70 transition-colors hover:bg-white/50"
+                className="rounded-zed border border-white/50 px-4 py-2 text-xs font-semibold text-black/70 transition-colors hover:bg-white/50"
               >
                 Not now
               </button>

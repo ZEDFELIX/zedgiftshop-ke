@@ -50,8 +50,8 @@ export function SettingsForm({ initial }: { initial: SettingsShape }) {
 
   return (
     <form onSubmit={save} className="space-y-4 rounded-zed border border-edge bg-white p-6">
-      <h2 className="font-display text-lg font-bold text-charcoal">Store settings</h2>
-      <p className="text-sm text-ink/55">These power the announcement bar, hero and contact details sitewide.</p>
+      <h2 className="font-display text-lg font-bold text-black">Store settings</h2>
+      <p className="text-sm text-black/55">These power the announcement bar, hero and contact details sitewide.</p>
 
       <div>
         <label className="label" htmlFor="st-announce">Announcement bar text</label>
@@ -83,7 +83,7 @@ export function SettingsForm({ initial }: { initial: SettingsShape }) {
           <input id="st-corp" type="email" className="field" value={form.corporateEmail} onChange={(e) => set("corporateEmail", e.target.value)} />
         </div>
       </div>
-      <label className="flex items-center gap-2 text-sm text-ink/75">
+      <label className="flex items-center gap-2 text-sm text-black/75">
         <input type="checkbox" checked={form.maintenanceMode} onChange={(e) => set("maintenanceMode", e.target.checked)} className="size-4 accent-deep-olive" />
         Maintenance mode (show a closed banner sitewide)
       </label>
@@ -91,7 +91,7 @@ export function SettingsForm({ initial }: { initial: SettingsShape }) {
       {status === "error" && <p className="rounded-zed bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
       {status === "saved" && <p className="rounded-zed bg-emerald-50 px-4 py-3 text-sm text-emerald-700">Settings saved and live.</p>}
 
-      <button type="submit" disabled={busy} className="flex items-center gap-2 rounded-zed bg-obsidian px-5 py-3 text-sm font-bold text-champagne disabled:opacity-50">
+      <button type="submit" disabled={busy} className="flex items-center gap-2 rounded-zed bg-zed-950 px-5 py-3 text-sm font-bold text-white disabled:opacity-50">
         {busy ? <Loader2 className="size-4 animate-spin" /> : <Save className="size-4" />} Save settings
       </button>
     </form>

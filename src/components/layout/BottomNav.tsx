@@ -27,7 +27,7 @@ export function BottomNav() {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-obsidian/90 backdrop-blur-xl lg:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-zed-900/15 bg-zed-950/95 backdrop-blur-xl lg:hidden"
       aria-label="Main navigation"
     >
       <div className="flex items-center justify-around gap-1 py-2">
@@ -40,14 +40,14 @@ export function BottomNav() {
               aria-label={label}
               className={`group relative flex flex-col items-center gap-0.5 rounded-xl px-3 py-2 transition-colors ${
                 active
-                  ? "text-champagne"
+                  ? "text-white"
                   : "text-white/40 hover:text-white/80"
               }`}
             >
               <Icon className="size-5" />
               <span className="text-[10px] font-semibold">{label}</span>
               {active && (
-                <span className="absolute -top-px left-1/2 h-[3px] w-8 -translate-x-1/2 rounded-full bg-champagne" />
+                <span className="absolute -top-px left-1/2 h-[3px] w-8 -translate-x-1/2 rounded-full bg-zed-950" />
               )}
             </Link>
           );
@@ -58,7 +58,7 @@ export function BottomNav() {
         type="button"
         aria-label="Open cart"
         onClick={() => window.dispatchEvent(new CustomEvent("zed:open-cart"))}
-        className="absolute -top-5 mx-auto grid size-10 place-items-center rounded-full bg-champagne text-charcoal shadow-glass-lg transition-transform hover:scale-110"
+        className="absolute -top-5 mx-auto grid size-10 place-items-center rounded-full bg-zed-950 text-white shadow-glass-lg transition-transform hover:scale-110"
       >
         <ShoppingCart className="size-5" />
       </button>

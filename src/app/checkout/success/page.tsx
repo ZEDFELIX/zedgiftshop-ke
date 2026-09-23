@@ -14,8 +14,8 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
   if (!data) {
     return (
       <div className="container-zed py-24 text-center">
-        <h1 className="font-display text-2xl font-bold text-charcoal">Order not found</h1>
-        <p className="mt-2 text-ink/60">We couldn&apos;t find that order. Check your email or visit track order.</p>
+        <h1 className="font-display text-2xl font-bold text-black">Order not found</h1>
+        <p className="mt-2 text-black/60">We couldn&apos;t find that order. Check your email or visit track order.</p>
         <Link href="/track" className="mt-6 inline-block text-soft-sage underline underline-offset-2">Track an order</Link>
       </div>
     );
@@ -28,7 +28,7 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
     <div className="container-zed max-w-2xl py-14 lg:py-20">
       <div className="text-center">
         {isPaid ? (
-          <span className="glass-strong mx-auto grid size-16 place-items-center rounded-full text-charcoal">
+          <span className="glass-strong mx-auto grid size-16 place-items-center rounded-full text-black">
             <CheckCircle2 className="size-9 text-soft-sage" />
           </span>
         ) : (
@@ -36,10 +36,10 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
             <Package className="size-9" />
           </span>
         )}
-        <h1 className="mt-4 font-display text-3xl font-bold text-charcoal">
-          {isPaid ? "Thank you — it&apos;s on its way!" : "Order placed"}
+        <h1 className="mt-4 font-display text-3xl font-bold text-black">
+          {isPaid ? "Thank you â€” it&apos;s on its way!" : "Order placed"}
         </h1>
-        <p className="mt-2 text-sm text-ink/60">
+        <p className="mt-2 text-sm text-black/60">
           {isPaid
             ? <>We got your payment. Order <strong className="text-deep-olive">{data.orderNumber}</strong> is confirmed.</>
             : <>We&apos;ve saved order <strong className="text-deep-olive">{data.orderNumber}</strong>. Complete your M-PESA payment to confirm it.</>}
@@ -49,42 +49,42 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
       <div className="glass-card mt-8 rounded-zed p-6">
         <dl className="grid gap-3 text-sm sm:grid-cols-2">
           <div>
-            <dt className="text-ink/50">Order number</dt>
-            <dd className="font-semibold text-charcoal">{data.orderNumber}</dd>
+            <dt className="text-black/50">Order number</dt>
+            <dd className="font-semibold text-black">{data.orderNumber}</dd>
           </div>
           <div>
-            <dt className="text-ink/50">Total paid</dt>
-            <dd className="font-semibold text-charcoal">{formatKES(data.total)}</dd>
+            <dt className="text-black/50">Total paid</dt>
+            <dd className="font-semibold text-black">{formatKES(data.total)}</dd>
           </div>
           <div>
-            <dt className="text-ink/50">Payment</dt>
+            <dt className="text-black/50">Payment</dt>
             <dd className="font-semibold text-emerald-700">{isPaid ? "Paid via M-PESA" : "Awaiting payment"}{data.payments[0]?.mpesaReceipt ? ` (${data.payments[0].mpesaReceipt})` : ""}</dd>
           </div>
           <div>
-            <dt className="text-ink/50">Status</dt>
-            <dd className="font-semibold text-charcoal">{statusLabel}</dd>
+            <dt className="text-black/50">Status</dt>
+            <dd className="font-semibold text-black">{statusLabel}</dd>
           </div>
         </dl>
 
-        <div className="glass-panel mt-5 rounded-zed p-4 text-sm text-ink/70">
+        <div className="glass-panel mt-5 rounded-zed p-4 text-sm text-black/70">
           {isPaid ? (
-            <>We&apos;re preparing your gift now. You&apos;ll get email updates as it ships — same-day in Nairobi if ordered before 2 PM.</>
+            <>We&apos;re preparing your gift now. You&apos;ll get email updates as it ships â€” same-day in Nairobi if ordered before 2 PM.</>
           ) : (
-            <>Keep the M-PESA prompt on your phone to approve payment. You can head to track order any time — status updates live.</>
+            <>Keep the M-PESA prompt on your phone to approve payment. You can head to track order any time â€” status updates live.</>
           )}
         </div>
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-        <Link href={`/track?order=${data.orderNumber}`} className="rounded-zed bg-obsidian px-5 py-3 text-sm font-bold text-champagne">
+        <Link href={`/track?order=${data.orderNumber}`} className="rounded-zed bg-zed-950 px-5 py-3 text-sm font-bold text-white">
           Track order
         </Link>
-        <Link href="/shop" className="rounded-zed glass-panel px-5 py-3 text-sm font-semibold text-ink hover:text-deep-olive">
+        <Link href="/shop" className="rounded-zed glass-panel px-5 py-3 text-sm font-semibold text-black hover:text-deep-olive">
           Continue shopping
         </Link>
       </div>
 
-      <p className="mt-8 flex items-center justify-center gap-1.5 text-center text-xs text-ink/45">
+      <p className="mt-8 flex items-center justify-center gap-1.5 text-center text-xs text-black/45">
         <QrCode className="size-4" /> Keep your order number handy for quick order lookup.
       </p>
     </div>

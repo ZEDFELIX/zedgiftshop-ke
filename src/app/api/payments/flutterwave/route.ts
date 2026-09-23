@@ -38,6 +38,7 @@ export async function POST(req: Request) {
       orderStatus: true,
       paymentStatus: true,
       total: true,
+      phone: true,
     },
   });
 
@@ -83,6 +84,7 @@ export async function POST(req: Request) {
       amount,
       phone: phone ?? "",
       email,
+      phone: phone ?? order.phone,
       txRef,
       checkoutUrl: result.data.authorization_url,
     },

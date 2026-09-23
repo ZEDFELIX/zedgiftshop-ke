@@ -4,7 +4,7 @@ import { InventoryManager } from "@/components/admin/InventoryManager";
 import { formatDate } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Inventory · Admin" };
+export const metadata = { title: "Inventory Â· Admin" };
 
 export default async function AdminInventoryPage() {
   const [products, txns] = await Promise.all([
@@ -31,21 +31,21 @@ export default async function AdminInventoryPage() {
       }))} />
 
       <section className="rounded-zed border border-edge bg-white p-5">
-        <h2 className="font-display text-base font-bold text-charcoal">Recent movements</h2>
+        <h2 className="font-display text-base font-bold text-black">Recent movements</h2>
         <ul className="mt-3 divide-y divide-edge text-sm">
           {txns.map((t) => (
             <li key={t.id} className="flex items-center justify-between gap-2 py-2">
               <div className="min-w-0">
-                <p className="truncate font-medium text-ink">{t.product?.name ?? "Deleted product"} {t.variant ? `· ${t.variant.value}` : ""}</p>
-                <p className="truncate text-xs text-ink/50">{t.type} — {t.note ?? ""}</p>
+                <p className="truncate font-medium text-black">{t.product?.name ?? "Deleted product"} {t.variant ? `Â· ${t.variant.value}` : ""}</p>
+                <p className="truncate text-xs text-black/50">{t.type} â€” {t.note ?? ""}</p>
               </div>
               <div className="shrink-0 text-right">
                 <p className={`font-bold ${t.quantity > 0 ? "text-emerald-600" : "text-red-600"}`}>{t.quantity > 0 ? "+" : ""}{t.quantity}</p>
-                <p className="text-xs text-ink/45">{formatDate(t.createdAt)}</p>
+                <p className="text-xs text-black/45">{formatDate(t.createdAt)}</p>
               </div>
             </li>
           ))}
-          {txns.length === 0 && <li className="py-4 text-center text-ink/50">No transactions yet.</li>}
+          {txns.length === 0 && <li className="py-4 text-center text-black/50">No transactions yet.</li>}
         </ul>
       </section>
     </div>

@@ -81,10 +81,10 @@ export function ShopControls({
             <button
               type="button"
               onClick={() => go(keyName, active ? "" : c.slug)}
-              className={`flex w-full items-center justify-between rounded-zed px-2 py-1.5 text-sm ${active ? "bg-warm-white font-semibold text-charcoal" : "text-ink/75 hover:bg-charcoal/5"}`}
+              className={`flex w-full items-center justify-between rounded-zed px-2 py-1.5 text-sm ${active ? "bg-warm-white font-semibold text-black" : "text-black/75 hover:bg-zed-900/5"}`}
             >
               <span>{c.name}</span>
-              <span className="text-xs text-ink/40">{c.count}</span>
+              <span className="text-xs text-black/40">{c.count}</span>
             </button>
           </li>
         );
@@ -109,7 +109,7 @@ export function ShopControls({
               </option>
             ))}
           </select>
-          <ChevronDown className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-ink/50" />
+          <ChevronDown className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-black/50" />
         </div>
       </div>
 
@@ -117,9 +117,9 @@ export function ShopControls({
         <p className="eyebrow mb-3">Price (KES)</p>
         <form onSubmit={applyPrice} className="flex items-center gap-2">
           <input value={min} onChange={(e) => setMin(e.target.value)} inputMode="numeric" placeholder={String(minPrice)} className="field text-sm" aria-label="Minimum price" />
-          <span className="text-ink/40">–</span>
+          <span className="text-black/40">â€“</span>
           <input value={max} onChange={(e) => setMax(e.target.value)} inputMode="numeric" placeholder={String(maxPrice)} className="field text-sm" aria-label="Maximum price" />
-          <button type="submit" className="rounded-zed bg-obsidian px-3 py-2.5 text-xs font-bold text-champagne">
+          <button type="submit" className="rounded-zed bg-zed-950 px-3 py-2.5 text-xs font-bold text-white">
             Go
           </button>
         </form>
@@ -127,11 +127,11 @@ export function ShopControls({
 
       <div>
         <p className="eyebrow mb-3">Quick picks</p>
-        <label className="flex cursor-pointer items-center gap-2 text-sm text-ink/80">
+        <label className="flex cursor-pointer items-center gap-2 text-sm text-black/80">
           <input type="checkbox" checked={Boolean(params.get("personalized"))} onChange={(e) => go("personalized", e.target.checked ? "1" : "")} className="size-4 accent-deep-olive" />
           Personalized only
         </label>
-        <label className="mt-2 flex cursor-pointer items-center gap-2 text-sm text-ink/80">
+        <label className="mt-2 flex cursor-pointer items-center gap-2 text-sm text-black/80">
           <input type="checkbox" checked={Boolean(params.get("inStock"))} onChange={(e) => go("inStock", e.target.checked ? "1" : "")} className="size-4 accent-deep-olive" />
           In stock only
         </label>
@@ -171,12 +171,12 @@ export function ShopControls({
         <button
           type="button"
           onClick={() => setFiltersOpen(true)}
-          className="glass-panel inline-flex items-center gap-2 rounded-zed px-4 py-2.5 text-sm font-semibold text-ink"
+          className="glass-panel inline-flex items-center gap-2 rounded-zed px-4 py-2.5 text-sm font-semibold text-black"
         >
           <SlidersHorizontal className="size-4" />
           Filters
           {activeFilterCount > 0 && (
-            <span className="grid size-5 place-items-center rounded-full bg-champagne text-[11px] font-bold text-charcoal">{activeFilterCount}</span>
+            <span className="grid size-5 place-items-center rounded-full bg-zed-950 text-[11px] font-bold text-black">{activeFilterCount}</span>
           )}
         </button>
         <div className="relative">
@@ -185,7 +185,7 @@ export function ShopControls({
               <option key={key} value={key}>{label}</option>
             ))}
           </select>
-          <ChevronDown className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-ink/50" />
+          <ChevronDown className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-black/50" />
         </div>
       </div>
 
@@ -195,11 +195,11 @@ export function ShopControls({
       {/* Mobile filter drawer */}
       {filtersOpen && (
         <div className="fixed inset-0 z-[60] lg:hidden">
-          <div className="absolute inset-0 bg-obsidian/45" onClick={() => setFiltersOpen(false)} />
+          <div className="absolute inset-0 bg-zed-950/45" onClick={() => setFiltersOpen(false)} />
           <div className="absolute inset-y-0 right-0 flex w-[min(90vw,360px)] flex-col bg-warm-white/85 shadow-drawer backdrop-blur-xl animate-[drawer_0.3s_cubic-bezier(0.16,1,0.3,1)_both]">
             <div className="flex items-center justify-between border-b border-white/50 bg-white/40 px-4 py-3.5">
-              <p className="font-display text-lg font-bold text-charcoal">Filters</p>
-              <button type="button" onClick={() => setFiltersOpen(false)} aria-label="Close filters" className="grid size-9 place-items-center rounded-zed hover:bg-charcoal/5">
+              <p className="font-display text-lg font-bold text-black">Filters</p>
+              <button type="button" onClick={() => setFiltersOpen(false)} aria-label="Close filters" className="grid size-9 place-items-center rounded-zed hover:bg-zed-900/5">
                 <X className="size-5" />
               </button>
             </div>

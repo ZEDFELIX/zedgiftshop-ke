@@ -40,7 +40,7 @@ export function ReviewForm({ productId }: { productId: string }) {
 
   if (state === "done") {
     return (
-      <div className="flex items-center gap-2 rounded-zed bg-warm-white px-4 py-3 text-sm font-semibold text-charcoal">
+      <div className="flex items-center gap-2 rounded-zed glass-panel px-4 py-3 text-sm font-semibold text-black">
         <Check className="size-4 text-soft-sage" /> Thanks! Your review is in the queue for approval.
       </div>
     );
@@ -60,7 +60,7 @@ export function ReviewForm({ productId }: { productId: string }) {
               aria-label={`${star} star${star === 1 ? "" : "s"}`}
               className="p-0.5"
             >
-              <Star className={`size-7 ${star <= (hover || rating) ? "fill-champagne text-champagne" : "text-ink/25"}`} />
+              <Star className={`size-7 ${star <= (hover || rating) ? "fill-zed-950 text-white" : "text-black/25"}`} />
             </button>
           ))}
         </div>
@@ -74,8 +74,8 @@ export function ReviewForm({ productId }: { productId: string }) {
         <textarea id="review-comment" value={comment} onChange={(e) => setComment(e.target.value)} maxLength={2000} rows={4} className="field" placeholder="How did it feel, how did they react, how did it arrive?" />
       </div>
       {error && <p className="text-sm text-red-600">{error}</p>}
-      <button type="submit" disabled={state === "busy"} className="rounded-zed bg-obsidian px-6 py-3 text-sm font-bold text-champagne disabled:opacity-60">
-        {state === "busy" ? "Submitting…" : "Submit review"}
+      <button type="submit" disabled={state === "busy"} className="rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold text-white disabled:opacity-60">
+        {state === "busy" ? "SubmittingÃ¢â‚¬Â¦" : "Submit review"}
       </button>
     </form>
   );

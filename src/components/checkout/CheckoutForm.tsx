@@ -257,7 +257,7 @@ export function CheckoutForm({
         {/* Order summary banner (review step) */}
         {showReview && (
           <div className="glass-card rounded-zed p-5">
-            <h2 className="font-display text-lg font-bold text-charcoal">Order details</h2>
+            <h2 className="font-display text-lg font-bold text-black">Order details</h2>
             <ul className="mt-3 divide-y divide-white/40 text-sm">
               {cart.items.map((i) => (
                 <li key={i.id} className="flex items-center gap-3 py-2.5">
@@ -265,14 +265,14 @@ export function CheckoutForm({
                     {i.image ? <Image src={i.image} alt="" fill unoptimized className="object-cover" /> : null}
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate font-medium text-ink">{i.name}</p>
-                    <p className="text-xs text-ink/55">
-                      ×{i.quantity}
-                      {i.variant ? ` · ${i.variant.value}` : ""}
-                      {i.giftWrapPrice > 0 ? " · Gift box" : ""}
+                    <p className="truncate font-medium text-black">{i.name}</p>
+                    <p className="text-xs text-black/55">
+                      Ãƒâ€”{i.quantity}
+                      {i.variant ? ` Ã‚Â· ${i.variant.value}` : ""}
+                      {i.giftWrapPrice > 0 ? " Ã‚Â· Gift box" : ""}
                     </p>
                   </div>
-                  <p className="font-semibold text-charcoal">{formatKES(i.lineTotal)}</p>
+                  <p className="font-semibold text-black">{formatKES(i.lineTotal)}</p>
                 </li>
               ))}
             </ul>
@@ -282,16 +282,16 @@ export function CheckoutForm({
         {/* Contact & delivery */}
         {step === "form" || step === "review" ? (
           <div className="glass-card rounded-zed p-5 lg:p-7">
-            <h2 className="font-display text-lg font-bold text-charcoal">Delivery details</h2>
+            <h2 className="font-display text-lg font-bold text-black">Delivery details</h2>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <div>
                 <label className="label" htmlFor="co-name">Full name</label>
                 <input id="co-name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="field" placeholder="Jane Mwangi" />
               </div>
               <div>
-                <label className="label" htmlFor="co-phone">M-PESA phone (07XX…)</label>
+                <label className="label" htmlFor="co-phone">M-PESA phone (07XXÃ¢â‚¬Â¦)</label>
                 <div className="relative">
-                  <Phone className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-ink/40" />
+                  <Phone className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-black/40" />
                   <input id="co-phone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="field pl-9" placeholder="0712 345 678" inputMode="tel" />
                 </div>
               </div>
@@ -331,8 +331,8 @@ export function CheckoutForm({
               <div className="mt-6">
                 <p className="label">Delivery method</p>
                 {deliveryOptions.length === 0 ? (
-                  <p className="flex items-center gap-2 text-sm text-ink/50">
-                    <Loader2 className="size-4 animate-spin" /> Checking options for {form.county}…
+                  <p className="flex items-center gap-2 text-sm text-black/50">
+                    <Loader2 className="size-4 animate-spin" /> Checking options for {form.county}Ã¢â‚¬Â¦
                   </p>
                 ) : (
                   <div className="space-y-2">
@@ -348,11 +348,11 @@ export function CheckoutForm({
                             {form.deliveryMethod === opt.method && <Check className="size-3 text-white" />}
                           </span>
                           <div>
-                            <p className="text-sm font-semibold text-charcoal">{opt.label}</p>
-                            <p className="text-xs text-ink/60">{opt.description}</p>
+                            <p className="text-sm font-semibold text-black">{opt.label}</p>
+                            <p className="text-xs text-black/60">{opt.description}</p>
                           </div>
                         </div>
-                        <p className="shrink-0 text-sm font-bold text-charcoal">{opt.fee === 0 ? "Free" : formatKES(opt.fee)}</p>
+                        <p className="shrink-0 text-sm font-bold text-black">{opt.fee === 0 ? "Free" : formatKES(opt.fee)}</p>
                       </button>
                     ))}
                   </div>
@@ -373,8 +373,8 @@ export function CheckoutForm({
                     {paymentMethod === "M_PESA" && <Check className="size-3 text-white" />}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-charcoal">M-PESA STK Push</p>
-                    <p className="text-xs text-ink/60">Pay instantly with your phone via M-PESA</p>
+                    <p className="text-sm font-semibold text-black">M-PESA STK Push</p>
+                    <p className="text-xs text-black/60">Pay instantly with your phone via M-PESA</p>
                   </div>
                 </button>
                 <button
@@ -386,22 +386,22 @@ export function CheckoutForm({
                     {paymentMethod === "FLUTTERWAVE" && <Check className="size-3 text-white" />}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-charcoal">Card / Mobile Money</p>
-                    <p className="text-xs text-ink/60">Pay with card or M-PESA via Flutterwave</p>
+                    <p className="text-sm font-semibold text-black">Card / Mobile Money</p>
+                    <p className="text-xs text-black/60">Pay with card or M-PESA via Flutterwave</p>
                   </div>
                 </button>
               </div>
             </div>
 
             {/* Gift flag */}
-            <div className="mt-6 flex items-start gap-3 rounded-zed bg-warm-white/70 p-4 backdrop-blur-sm">
+            <div className="mt-6 flex items-start gap-3 rounded-zed glass-panel/70 p-4 backdrop-blur-sm">
               <Sparkles className="mt-0.5 size-5 shrink-0 text-soft-sage" />
               <div>
-                <label className="flex cursor-pointer items-center gap-2 text-sm font-semibold text-charcoal">
+                <label className="flex cursor-pointer items-center gap-2 text-sm font-semibold text-black">
                   <input type="checkbox" checked={form.isGift} onChange={(e) => setForm({ ...form, isGift: e.target.checked })} className="size-4 accent-deep-olive" />
                   This is a gift
                 </label>
-                <p className="mt-1 text-xs text-charcoal/70">We&apos;ll wrap it beautifully and hide all pricing from the delivery slip.</p>
+                <p className="mt-1 text-xs text-black/70">We&apos;ll wrap it beautifully and hide all pricing from the delivery slip.</p>
               </div>
             </div>
 
@@ -418,7 +418,7 @@ export function CheckoutForm({
               type="button"
               disabled={!canSubmit}
               onClick={toggleReview}
-              className="mt-6 w-full rounded-zed bg-obsidian py-4 text-sm font-bold uppercase tracking-wider text-champagne transition-colors hover:bg-charcoal disabled:cursor-not-allowed disabled:opacity-40"
+              className="mt-6 w-full rounded-zed bg-zed-950 py-4 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-zed-900 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {step === "review" ? "Back to edit details" : "Review order"}
             </button>
@@ -433,29 +433,29 @@ export function CheckoutForm({
             </span>
             {step === "flutterwave" ? (
               <>
-                <h2 className="mt-4 font-display text-xl font-bold text-charcoal">Complete your payment</h2>
+                <h2 className="mt-4 font-display text-xl font-bold text-black">Complete your payment</h2>
                 {flutterwaveUrl && (
-                  <a href={flutterwaveUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block rounded-zed bg-champagne px-8 py-4 text-sm font-bold text-charcoal transition-colors hover:bg-white hover:shadow-glass-lg">
+                  <a href={flutterwaveUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block rounded-zed bg-zed-950 px-8 py-4 text-sm font-bold text-black transition-colors hover:bg-white hover:shadow-glass-lg">
                     Pay with Flutterwave
                   </a>
                 )}
-                <p className="mx-auto mt-4 max-w-sm text-sm text-ink/65">
+                <p className="mx-auto mt-4 max-w-sm text-sm text-black/65">
                   You&apos;ll be redirected to Flutterwave to complete payment. We&apos;ll check for confirmation automatically.
                 </p>
               </>
             ) : step === "stk" ? (
               <>
-                <h2 className="mt-4 font-display text-xl font-bold text-charcoal">Check your phone</h2>
-                <p className="mx-auto mt-2 max-w-sm text-sm text-ink/65">
+                <h2 className="mt-4 font-display text-xl font-bold text-black">Check your phone</h2>
+                <p className="mx-auto mt-2 max-w-sm text-sm text-black/65">
                   We&apos;ve sent an <strong>M-PESA STK push</strong> to <strong>{form.phone}</strong> for{" "}
                   <strong>{formatKES(total)}</strong>. Enter your M-PESA PIN to approve.
                 </p>
-                <p className="mt-2 text-xs text-ink/45">Order {orderRef.orderNumber}</p>
+                <p className="mt-2 text-xs text-black/45">Order {orderRef.orderNumber}</p>
                 <div className="mt-5 flex flex-col items-center justify-center gap-2 sm:flex-row">
-                  <button type="button" onClick={startPolling} className="rounded-zed bg-champagne px-6 py-3 text-sm font-bold text-charcoal">
+                  <button type="button" onClick={startPolling} className="rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold text-black">
                     I&apos;ve entered my PIN
                   </button>
-                  <button type="button" onClick={() => router.push(`/track?order=${orderRef.orderNumber}`)} className="text-sm text-ink/60 underline-offset-2 hover:underline">
+                  <button type="button" onClick={() => router.push(`/track?order=${orderRef.orderNumber}`)} className="text-sm text-black/60 underline-offset-2 hover:underline">
                     I&apos;ll track it later
                   </button>
                 </div>
@@ -463,10 +463,10 @@ export function CheckoutForm({
               </>
             ) : (
               <>
-                <p className="mx-auto mt-2 max-w-sm text-sm text-ink/65">
-                  Waiting for payment confirmation{pollSeconds >= 5 ? ` (${pollSeconds}s…)` : "…"}.
+                <p className="mx-auto mt-2 max-w-sm text-sm text-black/65">
+                  Waiting for payment confirmation{pollSeconds >= 5 ? ` (${pollSeconds}sÃ¢â‚¬Â¦)` : "Ã¢â‚¬Â¦"}.
                 </p>
-                <p className="mt-4 text-xs text-ink/45">If nothing happens in a minute, check your payment app and try again.</p>
+                <p className="mt-4 text-xs text-black/45">If nothing happens in a minute, check your payment app and try again.</p>
               </>
             )}
           </div>
@@ -474,19 +474,19 @@ export function CheckoutForm({
 
         {step === "done" && orderRef && (
           <div className="glass-card rounded-zed p-6 text-center">
-            <span className="mx-auto grid size-14 place-items-center rounded-full bg-champagne text-charcoal">
+            <span className="mx-auto grid size-14 place-items-center rounded-full bg-zed-950 text-white">
               <Check className="size-7" />
             </span>
-            <h2 className="mt-4 font-display text-xl font-bold text-charcoal">Thanks for your order!</h2>
-            <p className="mt-2 text-sm text-ink/65">
+            <h2 className="mt-4 font-display text-xl font-bold text-black">Thanks for your order!</h2>
+            <p className="mt-2 text-sm text-black/65">
               Order <strong>{orderRef.orderNumber}</strong> is confirmed and being prepared.
               {error && <span className="mt-2 block text-red-600">{error}</span>}
             </p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-              <button type="button" onClick={() => router.push(`/checkout/success?order=${orderRef.orderNumber}`)} className="rounded-zed bg-obsidian px-6 py-3 text-sm font-bold text-champagne">
+              <button type="button" onClick={() => router.push(`/checkout/success?order=${orderRef.orderNumber}`)} className="rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold text-white">
                 View order summary
               </button>
-              <button type="button" onClick={() => router.push("/shop")} className="glass-panel rounded-zed px-6 py-3 text-sm font-semibold text-ink hover:text-deep-olive">
+              <button type="button" onClick={() => router.push("/shop")} className="glass-panel rounded-zed px-6 py-3 text-sm font-semibold text-black hover:text-deep-olive">
                 Keep shopping
               </button>
             </div>
@@ -497,20 +497,20 @@ export function CheckoutForm({
       {/* Totals */}
       <aside className="lg:sticky lg:top-24 lg:self-start">
         <div className="glass-card rounded-zed p-5">
-          <p className="font-display text-lg font-bold text-charcoal">Summary</p>
+          <p className="font-display text-lg font-bold text-black">Summary</p>
           <ul className="mt-4 max-h-64 space-y-2.5 overflow-y-auto text-sm">
             {cart.items.map((i) => (
               <li key={i.id} className="flex items-center justify-between gap-3">
-                <span className="truncate text-ink/80">
+                <span className="truncate text-black/80">
                   {i.name.slice(0, 42)}
-                  <span className="text-ink/45"> ×{i.quantity}</span>
+                  <span className="text-black/45"> Ãƒâ€”{i.quantity}</span>
                 </span>
                 <span className="shrink-0 font-medium">{formatKES(i.lineTotal)}</span>
               </li>
             ))}
           </ul>
           <dl className="mt-4 space-y-1.5 border-t border-white/40 pt-4 text-sm">
-            <div className="flex justify-between text-ink/70">
+            <div className="flex justify-between text-black/70">
               <dt>Subtotal</dt>
               <dd>{formatKES(cart.subtotal)}</dd>
             </div>
@@ -519,25 +519,25 @@ export function CheckoutForm({
                 <dt className="flex items-center gap-1">
                   Coupon {cart.couponCode} <HelpCircle className="size-3.5" />
                 </dt>
-                <dd>−{formatKES(cart.discount)}</dd>
+                <dd>Ã¢Ë†â€™{formatKES(cart.discount)}</dd>
               </div>
             )}
-            <div className="flex justify-between text-ink/70">
+            <div className="flex justify-between text-black/70">
               <dt>Delivery {form.deliveryMethod ? `(${(methods as Record<string, string>)[form.deliveryMethod]})` : ""}</dt>
               <dd>{deliveryFee === 0 ? "Free" : formatKES(deliveryFee)}</dd>
             </div>
-            <div className="flex justify-between border-t border-white/40 pt-3 text-base font-bold text-charcoal">
+            <div className="flex justify-between border-t border-white/40 pt-3 text-base font-bold text-black">
               <dt>Total</dt>
               <dd>{formatKES(total)}</dd>
             </div>
           </dl>
-          <div className="glass-panel mt-4 rounded-zed px-3.5 py-3 text-xs text-ink/60">
-            <span className="flex items-center gap-1.5 font-semibold text-charcoal">
+          <div className="glass-panel mt-4 rounded-zed px-3.5 py-3 text-xs text-black/60">
+            <span className="flex items-center gap-1.5 font-semibold text-black">
               <ShieldCheck className="size-3.5" /> {paymentMethod === "FLUTTERWAVE" ? "Paid via Flutterwave" : "Paid via M-PESA STK Push"}
             </span>
-            <p className="mt-1">{paymentMethod === "FLUTTERWAVE" ? "Pay securely with card or mobile money." : "You approve with your M-PESA PIN — no card details on the site. Refunds are processed via M-PESA."}</p>
+            <p className="mt-1">{paymentMethod === "FLUTTERWAVE" ? "Pay securely with card or mobile money." : "You approve with your M-PESA PIN Ã¢â‚¬â€ no card details on the site. Refunds are processed via M-PESA."}</p>
           </div>
-          <p className="mt-3 text-[11px] leading-relaxed text-ink/45">
+          <p className="mt-3 text-[11px] leading-relaxed text-black/45">
             Need help? WhatsApp {sitePhone}. By placing this order you agree to our delivery &amp; returns policy.
           </p>
         </div>

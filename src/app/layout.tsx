@@ -24,7 +24,7 @@ export const metadata: Metadata = buildMetadata({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#3f4a3c",
+  themeColor: "#6E1F2A",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`} suppressHydrationWarning>
       {/* Strip Chrome extension attributes to prevent hydration mismatch */}
       <script dangerouslySetInnerHTML={{ __html: `document.addEventListener('DOMContentLoaded',()=>{const e=document.documentElement;e.removeAttribute('crxlauncher');e.removeAttribute('crxlauncher-bridged')})`}} />
-      <body className="min-h-screen bg-warm-white text-ink font-sans antialiased" suppressHydrationWarning>
+      <body className="min-h-screen bg-pure-white text-black font-sans antialiased" suppressHydrationWarning>
         <BackgroundScene />
         <script
           type="application/ld+json"

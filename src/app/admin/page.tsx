@@ -41,8 +41,8 @@ export default async function AdminDashboardPage() {
         {cards.map(({ label, value, icon: Icon, tint }) => (
           <div key={label} className="rounded-zed border border-edge bg-white p-5">
             <span className={`grid size-9 place-items-center rounded-zed ${tint}`}><Icon className="size-5" /></span>
-            <p className="mt-3 font-display text-2xl font-bold text-charcoal">{value}</p>
-            <p className="text-sm text-ink/55">{label}</p>
+            <p className="mt-3 font-display text-2xl font-bold text-black">{value}</p>
+            <p className="text-sm text-black/55">{label}</p>
           </div>
         ))}
       </section>
@@ -50,19 +50,19 @@ export default async function AdminDashboardPage() {
       <section className="grid gap-6 lg:grid-cols-[1fr_320px]">
         <div className="rounded-zed border border-edge bg-white p-6">
           <div className="flex items-center justify-between">
-            <h2 className="font-display text-lg font-bold text-charcoal">Recent orders</h2>
+            <h2 className="font-display text-lg font-bold text-black">Recent orders</h2>
             <Link href="/admin/orders" className="flex items-center gap-1 text-sm font-semibold text-soft-sage hover:underline">Manage <ArrowRight className="size-3.5" /></Link>
           </div>
           <ul className="mt-3 divide-y divide-edge text-sm">
             {recentOrders.map((o) => (
               <li key={o.id}>
                 <Link href={`/admin/orders/${o.id}`} className="flex flex-wrap items-center justify-between gap-2 py-2.5 hover:text-soft-sage">
-                  <span className="font-semibold text-ink">{o.orderNumber}</span>
-                  <span className="hidden text-ink/50 sm:block">{o.name}</span>
+                  <span className="font-semibold text-black">{o.orderNumber}</span>
+                  <span className="hidden text-black/50 sm:block">{o.name}</span>
                   <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${o.paymentStatus === "SUCCESS" ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"}`}>
                     {PAYMENT_STATUS_LABELS[o.paymentStatus]}
                   </span>
-                  <span className="font-bold text-charcoal">{formatKES(o.total)}</span>
+                  <span className="font-bold text-black">{formatKES(o.total)}</span>
                 </Link>
               </li>
             ))}
@@ -71,16 +71,16 @@ export default async function AdminDashboardPage() {
 
         <div className="space-y-6">
           <div className="rounded-zed border border-edge bg-white p-6">
-            <h3 className="flex items-center gap-2 font-display text-base font-bold text-charcoal">
+            <h3 className="flex items-center gap-2 font-display text-base font-bold text-black">
               <AlertTriangle className="size-4 text-amber-500" /> Low stock
             </h3>
             {lowStock.length === 0 ? (
-              <p className="mt-2 text-sm text-ink/55">All good — nothing running low.</p>
+              <p className="mt-2 text-sm text-black/55">All good â€” nothing running low.</p>
             ) : (
               <ul className="mt-2 divide-y divide-edge text-sm">
                 {lowStock.map((p) => (
                   <li key={p.id} className="flex items-center justify-between py-2">
-                    <span className="truncate pr-2 text-ink/80">{p.name}</span>
+                    <span className="truncate pr-2 text-black/80">{p.name}</span>
                     <span className="font-bold text-red-600">{p.quantity} left</span>
                   </li>
                 ))}
@@ -90,10 +90,10 @@ export default async function AdminDashboardPage() {
           </div>
 
           <div className="rounded-zed border border-edge bg-white p-6">
-            <h3 className="flex items-center gap-2 font-display text-base font-bold text-charcoal">
+            <h3 className="flex items-center gap-2 font-display text-base font-bold text-black">
               <Star className="size-4 text-soft-sage" /> Reviews
             </h3>
-            <p className="mt-2 text-sm text-ink/65">
+            <p className="mt-2 text-sm text-black/65">
               <span className="font-bold text-amber-600">{reviewCounts.find((r) => r.status === "PENDING")?._count._all ?? 0} pending</span> review(s) waiting for moderation.
             </p>
             <Link href="/admin/reviews" className="mt-3 inline-block text-sm font-semibold text-soft-sage hover:underline">Moderate reviews</Link>
