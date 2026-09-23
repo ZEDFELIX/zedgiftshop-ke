@@ -81,7 +81,7 @@ export function HeaderContent({
   return (
     <>
       {/* Announcement bar */}
-      <div className="relative z-30 border-b border-white/10 bg-obsidian/90 text-white backdrop-blur">
+      <div className="relative z-30 border-b border-champagne/20 bg-obsidian text-white backdrop-blur-xl">
         <div className="container-zed flex h-9 items-center justify-center overflow-hidden">
           <p className="truncate text-[11px] font-medium tracking-[0.12em]">{announcement}</p>
         </div>
@@ -89,7 +89,7 @@ export function HeaderContent({
 
       {/* Floating glass nav */}
       <div className="sticky top-0 z-40 px-2 py-2 sm:px-3">
-        <header className={`glass-nav flex h-14 items-center justify-between gap-4 rounded-2xl px-3 transition-shadow sm:px-4 lg:h-16 lg:px-5 ${scrolled ? "shadow-glass-lg" : ""}`}>
+        <header className={`glass-nav flex h-14 items-center justify-between gap-4 rounded-[1.25rem] px-3 transition-all duration-500 sm:px-4 lg:h-16 lg:px-5 ${scrolled ? "shadow-glass-lg -translate-y-0.5" : ""}`}>
           {/* Brand */}
           <div className="flex items-center gap-1">
             <button
@@ -101,13 +101,13 @@ export function HeaderContent({
               <Menu className="size-5" />
             </button>
             <Link href="/" className="flex items-baseline gap-1.5 px-1" aria-label="ZED GIFT SHOP home">
-              <span className="font-display text-lg font-black tracking-[0.08em] text-charcoal sm:text-xl">
+              <span className="font-display text-lg font-black tracking-[0.11em] text-deep-olive sm:text-xl">
                 ZED
               </span>
-              <span className="hidden text-[9px] font-bold tracking-[0.3em] text-soft-sage sm:inline">
+              <span className="hidden text-[9px] font-bold tracking-[0.34em] text-champagne sm:inline">
                 GIFT SHOP
               </span>
-              <span className="inline-block size-2 rounded-full bg-champagne sm:hidden" />
+              <span className="inline-block size-2 rounded-full bg-champagne shadow-[0_0_12px_rgba(201,168,106,0.65)] sm:hidden" />
             </Link>
           </div>
 
@@ -198,7 +198,7 @@ export function HeaderContent({
               type="button"
               aria-label={`Open cart (${cartCount} items)`}
               onClick={openCart}
-              className="relative grid size-9 place-items-center rounded-full bg-obsidian text-white shadow-glass hover:bg-charcoal"
+              className="relative grid size-9 place-items-center rounded-full bg-deep-olive text-champagne shadow-glass transition-transform hover:scale-105 hover:bg-charcoal"
             >
               <ShoppingBag className="size-5" />
               {cartCount > 0 && (
@@ -260,7 +260,7 @@ export function HeaderContent({
                   Admin dashboard
                 </Link>
               )}
-              <Link href={accountHref} onClick={() => setMobileOpen(false)} className="block rounded-xl bg-obsidian px-4 py-3 text-center text-sm font-semibold text-white">
+              <Link href={accountHref} onClick={() => setMobileOpen(false)} className="block rounded-xl bg-deep-olive px-4 py-3 text-center text-sm font-semibold text-champagne shadow-raised">
                 {isAuthed ? "My account" : "Sign in / Create account"}
               </Link>
             </div>
