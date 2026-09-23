@@ -31,7 +31,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const storeJsonLd = JSON.stringify(jsonLdStore());
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`} suppressHydrationWarning>
-      <body className="min-h-screen bg-warm-white text-ink font-sans antialiased">
+      {/* Strip Chrome extension attributes to prevent hydration mismatch */}
+      <script dangerouslySetInnerHTML={{ __html: `document.addEventListener('DOMContentLoaded',()=>{const e=document.documentElement;e.removeAttribute('crxlauncher');e.removeAttribute('crxlauncher-bridged')})`}} />
+      <body className="min-h-screen bg-warm-white text-ink font-sans antialiased" suppressHydrationWarning>
         <BackgroundScene />
         <script
           type="application/ld+json"
