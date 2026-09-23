@@ -43,7 +43,7 @@ export function OrderStatusController({ orderId, orderStatus, paymentStatus, rec
 
   return (
     <form onSubmit={save} className="space-y-4 rounded-zed border border-edge bg-white p-5">
-      <h2 className="font-display text-base font-bold text-zed-950">Update order</h2>
+      <h2 className="font-display text-base font-bold text-charcoal">Update order</h2>
       <div className="grid gap-4 sm:grid-cols-3">
         <div>
           <label className="label" htmlFor="os-status">Order status</label>
@@ -64,7 +64,7 @@ export function OrderStatusController({ orderId, orderStatus, paymentStatus, rec
       </div>
       {error && <p className="rounded-zed bg-red-50 px-4 py-2.5 text-sm text-red-700">{error}</p>}
       {status === "saved" && <p className="rounded-zed bg-emerald-50 px-4 py-2.5 text-sm text-emerald-700">Saved. The customer gets an email on new status.</p>}
-      <button type="submit" disabled={busy} className="flex items-center gap-2 rounded-zed bg-zed-950 px-5 py-2.5 text-sm font-bold text-lime disabled:opacity-50">
+      <button type="submit" disabled={busy} className="flex items-center gap-2 rounded-zed bg-obsidian px-5 py-2.5 text-sm font-bold text-champagne disabled:opacity-50">
         {busy ? <Loader2 className="size-4 animate-spin" /> : <Save className="size-4" />} Save
       </button>
     </form>

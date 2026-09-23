@@ -134,7 +134,7 @@ export function CartDrawer() {
       {open && (
         <div className="fixed inset-0 z-[70]">
           <div
-            className="absolute inset-0 bg-zed-950/40 backdrop-blur-sm"
+            className="absolute inset-0 bg-obsidian/40 backdrop-blur-sm"
             onClick={() => setOpen(false)}
             aria-hidden
           />
@@ -142,17 +142,17 @@ export function CartDrawer() {
             role="dialog"
             aria-modal="true"
             aria-label="Shopping cart"
-            className="absolute inset-y-0 right-0 flex w-full max-w-md flex-col border-l border-white/40 bg-zed-50/70 shadow-drawer backdrop-blur-2xl animate-[drawer_0.35s_cubic-bezier(0.16,1,0.3,1)_both]"
+            className="absolute inset-y-0 right-0 flex w-full max-w-md flex-col border-l border-white/40 bg-warm-white/70 shadow-drawer backdrop-blur-2xl animate-[drawer_0.35s_cubic-bezier(0.16,1,0.3,1)_both]"
           >
             <header className="flex items-center justify-between border-b border-white/50 bg-white/50 px-5 py-4 backdrop-blur-sm">
-              <h2 className="font-display text-lg font-bold text-zed-950">
+              <h2 className="font-display text-lg font-bold text-charcoal">
                 Your Cart{cart && cart.count > 0 ? ` (${cart.count})` : ""}
               </h2>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close cart"
-                className="grid size-9 place-items-center rounded-full hover:bg-zed-900/5"
+                className="grid size-9 place-items-center rounded-full hover:bg-charcoal/5"
               >
                 <X className="size-5" />
               </button>
@@ -160,17 +160,17 @@ export function CartDrawer() {
 
             {!cart || cart.items.length === 0 ? (
               <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 text-center">
-                <span className="grid size-16 place-items-center rounded-full bg-white/70 text-zed-800 shadow-glass">
+                <span className="grid size-16 place-items-center rounded-full bg-white/70 text-deep-olive shadow-glass">
                   <ShoppingBag className="size-7" />
                 </span>
                 <div>
-                  <p className="font-display text-lg font-bold text-zed-950">Your cart is empty</p>
+                  <p className="font-display text-lg font-bold text-charcoal">Your cart is empty</p>
                   <p className="mt-1 text-sm text-ink/60">Find a gift that says more.</p>
                 </div>
                 <Link
                   href="/shop"
                   onClick={() => setOpen(false)}
-                  className="rounded-zed bg-zed-950 px-6 py-3 text-sm font-semibold text-lime hover:bg-zed-900"
+                  className="rounded-zed bg-obsidian px-6 py-3 text-sm font-semibold text-champagne hover:bg-charcoal"
                 >
                   Browse gifts
                 </Link>
@@ -188,15 +188,15 @@ export function CartDrawer() {
                           {item.image ? (
                             <Image src={item.image} alt={item.name} fill sizes="80px" unoptimized className="object-cover" />
                           ) : (
-                            <span className="grid size-full place-items-center text-zed-700"><Gift className="size-6" /></span>
+                            <span className="grid size-full place-items-center text-soft-sage"><Gift className="size-6" /></span>
                           )}
                         </Link>
                         <div className="min-w-0 flex-1">
                           <div className="flex items-start justify-between gap-2">
-                            <Link href={`/product/${item.slug}`} className="text-sm font-semibold leading-snug text-ink hover:text-zed-800">
+                            <Link href={`/product/${item.slug}`} className="text-sm font-semibold leading-snug text-ink hover:text-deep-olive">
                               {item.name}
                             </Link>
-                            <button type="button" aria-label="Remove" onClick={() => removeItem(item.id)} className="grid size-7 shrink-0 place-items-center rounded-full text-ink/50 hover:bg-zed-900/5 hover:text-ink">
+                            <button type="button" aria-label="Remove" onClick={() => removeItem(item.id)} className="grid size-7 shrink-0 place-items-center rounded-full text-ink/50 hover:bg-charcoal/5 hover:text-ink">
                               <Trash2 className="size-4" />
                             </button>
                           </div>
@@ -207,11 +207,11 @@ export function CartDrawer() {
                           </div>
                           <div className="mt-2 flex items-center justify-between">
                             <div className="flex items-center rounded-full border border-white/60 bg-white/60">
-                              <button type="button" aria-label="Decrease" onClick={() => changeQty(item, -1)} className="grid size-7 place-items-center hover:bg-zed-900/5">
+                              <button type="button" aria-label="Decrease" onClick={() => changeQty(item, -1)} className="grid size-7 place-items-center hover:bg-charcoal/5">
                                 <Minus className="size-3.5" />
                               </button>
                               <span className="w-8 text-center text-sm font-semibold">{item.quantity}</span>
-                              <button type="button" aria-label="Increase" onClick={() => changeQty(item, 1)} className="grid size-7 place-items-center hover:bg-zed-900/5">
+                              <button type="button" aria-label="Increase" onClick={() => changeQty(item, 1)} className="grid size-7 place-items-center hover:bg-charcoal/5">
                                 <Plus className="size-3.5" />
                               </button>
                             </div>
@@ -219,7 +219,7 @@ export function CartDrawer() {
                               {item.compareAt != null && item.compareAt > item.price && (
                                 <p className="text-[11px] text-ink/40 line-through">{formatKES(item.compareAt)}</p>
                               )}
-                              <p className="text-sm font-bold text-zed-950">{formatKES(item.lineTotal)}</p>
+                              <p className="text-sm font-bold text-charcoal">{formatKES(item.lineTotal)}</p>
                             </div>
                           </div>
                         </div>
@@ -230,8 +230,8 @@ export function CartDrawer() {
                   {/* Coupon */}
                   <div className="pt-1">
                     {cart.couponCode ? (
-                      <div className="flex items-center justify-between rounded-2xl border border-zed-lime/60 bg-white/60 px-3 py-2 text-sm backdrop-blur-sm">
-                        <span className="font-semibold text-zed-900">
+                      <div className="flex items-center justify-between rounded-2xl border border-champagne/60 bg-white/60 px-3 py-2 text-sm backdrop-blur-sm">
+                        <span className="font-semibold text-charcoal">
                           Coupon {cart.couponCode} · −{formatKES(cart.discount)}
                         </span>
                         <button type="button" onClick={clearCoupon} className="text-xs text-ink/60 underline hover:text-ink">
@@ -247,7 +247,7 @@ export function CartDrawer() {
                           className="field text-sm uppercase"
                           aria-label="Coupon code"
                         />
-                        <button type="submit" disabled={!coupon.trim()} className="shrink-0 rounded-zed bg-white/70 px-4 text-sm font-semibold text-zed-800 shadow-glass hover:border-zed-700 disabled:opacity-40">
+                        <button type="submit" disabled={!coupon.trim()} className="shrink-0 rounded-zed bg-white/70 px-4 text-sm font-semibold text-deep-olive shadow-glass hover:border-soft-sage disabled:opacity-40">
                           Apply
                         </button>
                       </form>
@@ -265,12 +265,12 @@ export function CartDrawer() {
                       <dd>{formatKES(cart.subtotal)}</dd>
                     </div>
                     {cart.discount > 0 && (
-                      <div className="flex justify-between font-semibold text-zed-800">
+                      <div className="flex justify-between font-semibold text-deep-olive">
                         <dt>Discount</dt>
                         <dd>−{formatKES(cart.discount)}</dd>
                       </div>
                     )}
-                    <div className="flex justify-between border-t border-white/50 pt-2 text-base font-bold text-zed-950">
+                    <div className="flex justify-between border-t border-white/50 pt-2 text-base font-bold text-charcoal">
                       <dt>Total</dt>
                       <dd>{formatKES(cart.total)}</dd>
                     </div>
@@ -280,7 +280,7 @@ export function CartDrawer() {
                     href="/checkout"
                     onClick={() => setOpen(false)}
                     className={`mt-3 block rounded-2xl py-3.5 text-center text-sm font-bold transition-colors ${
-                      checkoutEnabled ? "bg-zed-lime text-zed-950 shadow-glass hover:bg-zed-600 hover:text-white" : "cursor-not-allowed bg-white/40 text-ink/40"
+                      checkoutEnabled ? "bg-champagne text-charcoal shadow-glass hover:bg-deep-olive hover:text-white" : "cursor-not-allowed bg-white/40 text-ink/40"
                     }`}
                     aria-disabled={!checkoutEnabled}
                   >

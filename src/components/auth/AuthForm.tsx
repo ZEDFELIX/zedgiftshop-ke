@@ -45,7 +45,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
       <form onSubmit={submit} className="glass-card space-y-4 rounded-zed p-6 lg:p-8">
         <div className="text-center">
           <p className="eyebrow">{isLogin ? "Welcome back" : "Join the club"}</p>
-          <h1 className="mt-2 font-display text-2xl font-bold text-zed-950">
+          <h1 className="mt-2 font-display text-2xl font-bold text-charcoal">
             {isLogin ? "Log in to your account" : "Create a free account"}
           </h1>
           <p className="mt-1.5 text-sm text-ink/55">
@@ -82,7 +82,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
 
         {error && <p className="rounded-zed bg-red-50/70 px-4 py-3 text-sm text-red-700 backdrop-blur-sm">{error}</p>}
 
-        <button type="submit" disabled={loading} className="flex w-full items-center justify-center gap-2 rounded-zed bg-zed-950 py-3.5 text-sm font-bold uppercase tracking-wider text-lime disabled:opacity-50">
+        <button type="submit" disabled={loading} className="flex w-full items-center justify-center gap-2 rounded-zed bg-obsidian py-3.5 text-sm font-bold uppercase tracking-wider text-champagne disabled:opacity-50">
           {loading ? <Loader2 className="size-4 animate-spin" /> : <LogIn className="size-4" />}
           {isLogin ? "Log in" : "Create account"}
         </button>
@@ -90,18 +90,18 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
         <p className="pt-1 text-center text-sm text-ink/60">
           {isLogin ? (
             <>
-              New to ZED? <Link className="font-semibold text-zed-700 underline underline-offset-2" href={`/register${next !== "/account" ? `?next=${encodeURIComponent(next)}` : ""}`}>Create an account</Link>
+              New to ZED? <Link className="font-semibold text-soft-sage underline underline-offset-2" href={`/register${next !== "/account" ? `?next=${encodeURIComponent(next)}` : ""}`}>Create an account</Link>
             </>
           ) : (
             <>
-              Already have an account? <Link className="font-semibold text-zed-700 underline underline-offset-2" href={`/login${next !== "/account" ? `?next=${encodeURIComponent(next)}` : ""}`}>Log in</Link>
+              Already have an account? <Link className="font-semibold text-soft-sage underline underline-offset-2" href={`/login${next !== "/account" ? `?next=${encodeURIComponent(next)}` : ""}`}>Log in</Link>
             </>
           )}
         </p>
 
         {isLogin && (
           <p className="text-center text-xs">
-            <Link className="text-ink/50 underline underline-offset-2 hover:text-zed-700" href="/forgot-password">Forgot your password?</Link>
+            <Link className="text-ink/50 underline underline-offset-2 hover:text-soft-sage" href="/forgot-password">Forgot your password?</Link>
           </p>
         )}
       </form>

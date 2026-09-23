@@ -23,19 +23,19 @@ export default async function GiftsPage() {
     <div className="container-zed py-10 lg:py-14">
       <header className="max-w-2xl">
         <p className="eyebrow">Gift discovery</p>
-        <h1 className="mt-2 font-display text-3xl font-bold text-zed-950 lg:text-4xl">What are we celebrating?</h1>
+        <h1 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">What are we celebrating?</h1>
         <p className="mt-3 text-ink/70">
           Start with the occasion or the person — we&apos;ll match the moment to the gift.
         </p>
       </header>
 
       <section className="mt-10">
-        <h2 className="font-display text-xl font-bold text-zed-950">By occasion</h2>
+        <h2 className="font-display text-xl font-bold text-charcoal">By occasion</h2>
         <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {OCCASION_CARDS.map((c) => (
             <Link key={c.href} href={c.href} className="group relative block aspect-[4/5] overflow-hidden rounded-zed bg-white/45">
               <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style={{ backgroundImage: `url(${c.image})` }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-zed-950/75 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/75 to-transparent" />
               <span className="absolute inset-x-3 bottom-3 text-center font-display text-sm font-bold text-white">{c.title}</span>
             </Link>
           ))}
@@ -43,7 +43,7 @@ export default async function GiftsPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="font-display text-xl font-bold text-zed-950">By recipient</h2>
+        <h2 className="font-display text-xl font-bold text-charcoal">By recipient</h2>
         <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {recipients.map((r) => (
             <Link
@@ -51,14 +51,14 @@ export default async function GiftsPage() {
               href={`/gifts/${r.slug}`}
               className="glass-card flex flex-col items-center justify-center gap-2 rounded-zed p-6 text-center transition-all hover:-translate-y-1 hover:shadow-glass-lg"
             >
-              <span className="font-display text-sm font-bold text-zed-950">{r.name}</span>
+              <span className="font-display text-sm font-bold text-charcoal">{r.name}</span>
               <span className="text-xs text-ink/50">{r._count.products} gifts</span>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="mt-12 rounded-zed bg-zed-950 p-8 text-white lg:p-10">
+      <section className="mt-12 rounded-zed bg-obsidian p-8 text-white lg:p-10">
         <div className="grid gap-6 lg:grid-cols-2">
           <div>
             <h2 className="font-display text-2xl font-bold">Not sure where to start?</h2>
@@ -67,7 +67,7 @@ export default async function GiftsPage() {
             </p>
             <Link
               href="/gift-builder"
-              className="mt-6 inline-flex items-center gap-2 rounded-zed bg-zed-lime px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-zed-950 transition-colors hover:bg-white"
+              className="mt-6 inline-flex items-center gap-2 rounded-zed bg-champagne px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-charcoal transition-colors hover:bg-white"
             >
               Open the Gift Builder <ArrowRight className="size-4" />
             </Link>

@@ -98,7 +98,7 @@ export function SearchPanel({ open, onClose }: { open: boolean; onClose: () => v
 
   return (
     <div className="fixed inset-0 z-[80]">
-      <div className="absolute inset-0 bg-zed-950/30 backdrop-blur-sm animate-fade-in" onClick={onClose} aria-hidden />
+      <div className="absolute inset-0 bg-obsidian/30 backdrop-blur-sm animate-fade-in" onClick={onClose} aria-hidden />
       <div className="absolute inset-x-0 top-0 animate-[slide-up_0.35s_cubic-bezier(0.16,1,0.3,1)_both]">
         <div className="container-zed py-5 sm:py-8">
           <div className="glass-strong rounded-3xl p-5 shadow-glass-lg sm:p-6">
@@ -109,7 +109,7 @@ export function SearchPanel({ open, onClose }: { open: boolean; onClose: () => v
               }}
               className="flex items-center gap-3"
             >
-              <Search className="size-5 shrink-0 text-zed-700" />
+              <Search className="size-5 shrink-0 text-soft-sage" />
               <input
                 ref={inputRef}
                 value={q}
@@ -121,7 +121,7 @@ export function SearchPanel({ open, onClose }: { open: boolean; onClose: () => v
                 aria-label="Search products"
                 className="w-full border-none bg-transparent text-lg text-ink placeholder:text-ink/40 focus:outline-none"
               />
-              <button type="button" onClick={onClose} aria-label="Close search" className="grid size-9 shrink-0 place-items-center rounded-zed hover:bg-zed-900/5">
+              <button type="button" onClick={onClose} aria-label="Close search" className="grid size-9 shrink-0 place-items-center rounded-zed hover:bg-charcoal/5">
                 <X className="size-5" />
               </button>
             </form>
@@ -135,7 +135,7 @@ export function SearchPanel({ open, onClose }: { open: boolean; onClose: () => v
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {recent.map((r) => (
-                        <button key={r} type="button" onClick={() => submit(r)} className="rounded-full bg-zed-900/5 px-3 py-1.5 text-sm text-ink/80 hover:bg-zed-900/10">
+                        <button key={r} type="button" onClick={() => submit(r)} className="rounded-full bg-charcoal/5 px-3 py-1.5 text-sm text-ink/80 hover:bg-charcoal/10">
                           {r}
                         </button>
                       ))}
@@ -146,7 +146,7 @@ export function SearchPanel({ open, onClose }: { open: boolean; onClose: () => v
                   <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink/50">Popular</p>
                   <div className="flex flex-wrap gap-2">
                     {POPULAR.map((t) => (
-                      <button key={t} type="button" onClick={() => submit(t)} className="rounded-full border border-white/60 bg-white/50 px-3 py-1.5 text-sm text-ink/80 hover:border-zed-700 hover:text-zed-900">
+                      <button key={t} type="button" onClick={() => submit(t)} className="rounded-full border border-white/60 bg-white/50 px-3 py-1.5 text-sm text-ink/80 hover:border-soft-sage hover:text-charcoal">
                         {t}
                       </button>
                     ))}
@@ -166,14 +166,14 @@ export function SearchPanel({ open, onClose }: { open: boolean; onClose: () => v
                   </p>
                 )}
                 {categoryHits.map((c) => (
-                  <button key={c.slug} type="button" onClick={() => submit(c.name)} className="mb-1 flex items-center gap-2 rounded-zed px-2 py-1.5 text-sm text-zed-800 hover:bg-zed-900/5">
+                  <button key={c.slug} type="button" onClick={() => submit(c.name)} className="mb-1 flex items-center gap-2 rounded-zed px-2 py-1.5 text-sm text-deep-olive hover:bg-charcoal/5">
                     <Search className="size-3.5" /> Category · {c.name}
                   </button>
                 ))}
                 <ul className="divide-y divide-white/40">
                   {results.map((p) => (
                     <li key={p.id}>
-                      <Link href={`/product/${p.slug}`} onClick={() => { remember(p.name); onClose(); }} className="flex items-center gap-3 rounded-zed px-2 py-2.5 hover:bg-zed-900/5">
+                      <Link href={`/product/${p.slug}`} onClick={() => { remember(p.name); onClose(); }} className="flex items-center gap-3 rounded-zed px-2 py-2.5 hover:bg-charcoal/5">
                         <span className="relative block size-11 shrink-0 overflow-hidden rounded-zed bg-white/60">
                           {p.image ? <Image src={p.image} alt="" fill sizes="44px" unoptimized className="object-cover" /> : null}
                         </span>
@@ -181,13 +181,13 @@ export function SearchPanel({ open, onClose }: { open: boolean; onClose: () => v
                           <span className="block truncate text-sm font-medium text-ink">{p.name}</span>
                           <span className="block text-xs text-ink/50">{p.category ?? "Gift"}</span>
                         </span>
-                        <span className="shrink-0 text-sm font-bold text-zed-950">{formatKES(p.price)}</span>
+                        <span className="shrink-0 text-sm font-bold text-charcoal">{formatKES(p.price)}</span>
                       </Link>
                     </li>
                   ))}
                 </ul>
                 {results.length > 0 && (
-                  <button type="button" onClick={() => submit(q)} className="mt-3 block w-full rounded-zed bg-zed-950 py-2.5 text-center text-sm font-bold text-lime hover:bg-zed-900">
+                  <button type="button" onClick={() => submit(q)} className="mt-3 block w-full rounded-zed bg-obsidian py-2.5 text-center text-sm font-bold text-champagne hover:bg-charcoal">
                     See all results for “{q}”
                   </button>
                 )}

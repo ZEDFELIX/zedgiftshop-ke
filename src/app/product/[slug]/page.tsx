@@ -70,13 +70,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
       {/* Breadcrumbs */}
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 overflow-x-auto text-xs text-ink/55">
-        <Link href="/" className="hover:text-zed-800">Home</Link>
+        <Link href="/" className="hover:text-deep-olive">Home</Link>
         <ChevronRight className="size-3.5 shrink-0" />
-        <Link href="/shop" className="hover:text-zed-800">Shop</Link>
+        <Link href="/shop" className="hover:text-deep-olive">Shop</Link>
         {categories[0] && (
           <>
             <ChevronRight className="size-3.5 shrink-0" />
-            <Link href={`/gifts/${categories[0].slug}`} className="whitespace-nowrap hover:text-zed-800">
+            <Link href={`/gifts/${categories[0].slug}`} className="whitespace-nowrap hover:text-deep-olive">
               {categories[0].name}
             </Link>
           </>
@@ -99,10 +99,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 className="object-cover"
               />
             ) : (
-              <span className="grid aspect-square place-items-center font-display text-4xl text-zed-700">ZED</span>
+              <span className="grid aspect-square place-items-center font-display text-4xl text-soft-sage">ZED</span>
             )}
             {sale != null && sale > 0 && (
-              <span className="absolute left-4 top-4 rounded-full bg-zed-lime px-3 py-1.5 text-xs font-bold text-zed-950">−{sale}%</span>
+              <span className="absolute left-4 top-4 rounded-full bg-champagne px-3 py-1.5 text-xs font-bold text-charcoal">−{sale}%</span>
             )}
           </div>
           <div className="grid grid-cols-5 gap-3">
@@ -118,7 +118,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div>
           <div className="flex flex-wrap items-center gap-2">
             {categories.slice(0, 3).map((c) => (
-              <Link key={c.id} href={`/gifts/${c.slug}`} className="rounded-full bg-lime-tint px-3 py-1 text-[11px] font-semibold text-zed-800 hover:bg-zed-lime">
+              <Link key={c.id} href={`/gifts/${c.slug}`} className="rounded-full bg-warm-white px-3 py-1 text-[11px] font-semibold text-deep-olive hover:bg-champagne">
                 {c.name}
               </Link>
             ))}
@@ -129,15 +129,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             ))}
           </div>
 
-          <h1 className="mt-3 font-display text-3xl font-black leading-tight text-zed-950 lg:text-4xl">{product.name}</h1>
-          {product.headline && <p className="mt-2 text-lg text-zed-700">{product.headline}</p>}
+          <h1 className="mt-3 font-display text-3xl font-black leading-tight text-charcoal lg:text-4xl">{product.name}</h1>
+          {product.headline && <p className="mt-2 text-lg text-soft-sage">{product.headline}</p>}
 
           <div className="mt-3 flex items-center gap-2">
             {breakdown.count > 0 ? (
               <>
                 <span className="flex items-center gap-1">
                   {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className={`size-4 ${s <= Math.round(breakdown.average) ? "fill-zed-lime text-zed-lime" : "text-ink/25"}`} />
+                    <Star key={s} className={`size-4 ${s <= Math.round(breakdown.average) ? "fill-champagne text-champagne" : "text-ink/25"}`} />
                   ))}
                 </span>
                 <a href="#reviews" className="text-sm text-ink/60 underline-offset-2 hover:underline">
@@ -150,11 +150,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
 
           <div className="mt-5 flex items-baseline gap-3">
-            <p className="font-display text-4xl font-black text-zed-950">{formatKES(product.price)}</p>
+            <p className="font-display text-4xl font-black text-charcoal">{formatKES(product.price)}</p>
             {product.compareAtPrice != null && product.compareAtPrice > product.price && (
               <>
                 <p className="text-xl text-ink/40 line-through">{formatKES(product.compareAtPrice)}</p>
-                <span className="rounded-full bg-zed-lime px-2.5 py-1 text-xs font-bold text-zed-950">
+                <span className="rounded-full bg-champagne px-2.5 py-1 text-xs font-bold text-charcoal">
                   Save {formatKES(product.compareAtPrice - product.price)}
                 </span>
               </>
@@ -162,7 +162,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
           <p className="mt-1 text-sm">
             {inStock ? (
-              <span className="font-semibold text-zed-700">In stock{totalStock <= product.lowStockThreshold ? ` — only ${totalStock} left` : ""}</span>
+              <span className="font-semibold text-soft-sage">In stock{totalStock <= product.lowStockThreshold ? ` — only ${totalStock} left` : ""}</span>
             ) : (
               <span className="font-semibold text-red-600">Out of stock</span>
             )}
@@ -194,19 +194,19 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           {/* USPs */}
           <div className="glass-card mt-8 grid gap-3 rounded-zed p-5 sm:grid-cols-2">
             <div className="flex items-center gap-2.5 text-sm text-ink/75">
-              <Truck className="size-5 shrink-0 text-zed-700" />
+              <Truck className="size-5 shrink-0 text-soft-sage" />
               Same-day in Nairobi, 1–3 days countrywide
             </div>
             <div className="flex items-center gap-2.5 text-sm text-ink/75">
-              <ShieldCheck className="size-5 shrink-0 text-zed-700" />
+              <ShieldCheck className="size-5 shrink-0 text-soft-sage" />
               Secure M-PESA STK Push payment
             </div>
             <div className="flex items-center gap-2.5 text-sm text-ink/75">
-              <Quote className="size-5 shrink-0 text-zed-700" />
+              <Quote className="size-5 shrink-0 text-soft-sage" />
               Handwritten-style gift note included
             </div>
             <div className="flex items-center gap-2.5 text-sm text-ink/75">
-              <span className="grid size-5 shrink-0 place-items-center rounded bg-zed-lime text-[10px] font-black text-zed-950">KES</span>
+              <span className="grid size-5 shrink-0 place-items-center rounded bg-champagne text-[10px] font-black text-charcoal">KES</span>
               Transparent pricing in Kenyan Shillings
             </div>
           </div>
@@ -216,21 +216,21 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       {/* Description */}
       {product.description && (
         <section className="mx-auto mt-14 max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-zed-950">About this gift</h2>
+          <h2 className="font-display text-2xl font-bold text-charcoal">About this gift</h2>
           <p className="mt-4 whitespace-pre-line leading-relaxed text-ink/75">{product.description}</p>
         </section>
       )}
 
       {/* Reviews */}
       <section id="reviews" className="mx-auto mt-14 max-w-4xl">
-        <h2 className="font-display text-2xl font-bold text-zed-950">Customer reviews</h2>
+        <h2 className="font-display text-2xl font-bold text-charcoal">Customer reviews</h2>
         {breakdown.count > 0 && (
           <div className="mt-4 grid gap-6 sm:grid-cols-[180px_1fr]">
             <div>
-              <p className="font-display text-5xl font-black text-zed-950">{breakdown.average.toFixed(1)}</p>
+              <p className="font-display text-5xl font-black text-charcoal">{breakdown.average.toFixed(1)}</p>
               <div className="mt-1 flex gap-0.5">
                 {[1, 2, 3, 4, 5].map((s) => (
-                  <Star key={s} className={`size-4 ${s <= Math.round(breakdown.average) ? "fill-zed-lime text-zed-lime" : "text-ink/25"}`} />
+                  <Star key={s} className={`size-4 ${s <= Math.round(breakdown.average) ? "fill-champagne text-champagne" : "text-ink/25"}`} />
                 ))}
               </div>
               <p className="mt-1 text-sm text-ink/50">{breakdown.count} review{breakdown.count === 1 ? "" : "s"}</p>
@@ -240,7 +240,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 <div key={b.star} className="flex items-center gap-3 text-xs">
                   <span className="w-8 text-ink/60">{b.star}★</span>
                   <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/50">
-                    <div className="h-full rounded-full bg-zed-lime" style={{ width: `${b.percent}%` }} />
+                    <div className="h-full rounded-full bg-champagne" style={{ width: `${b.percent}%` }} />
                   </div>
                   <span className="w-8 text-right text-ink/50">{b.count}</span>
                 </div>
@@ -260,24 +260,24 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <article key={r.id} className="glass-card rounded-zed p-5">
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
-                    <span className="grid size-9 place-items-center rounded-full bg-lime-tint font-bold text-zed-800">
+                    <span className="grid size-9 place-items-center rounded-full bg-warm-white font-bold text-deep-olive">
                       {(r.user?.name ?? "ZED").charAt(0).toUpperCase()}
                     </span>
                     <div>
                       <p className="text-sm font-semibold text-ink">{r.user?.name ?? "Verified customer"}</p>
                       <div className="flex gap-0.5">
                         {[1, 2, 3, 4, 5].map((s) => (
-                          <Star key={s} className={`size-3.5 ${s <= r.rating ? "fill-zed-lime text-zed-lime" : "text-ink/25"}`} />
+                          <Star key={s} className={`size-3.5 ${s <= r.rating ? "fill-champagne text-champagne" : "text-ink/25"}`} />
                         ))}
                       </div>
                     </div>
                   </div>
                   <span className="text-xs text-ink/45">{r.createdAt.toLocaleDateString("en-KE", { month: "short", year: "numeric" })}</span>
                 </div>
-                {r.title && <p className="mt-3 font-semibold text-zed-950">{r.title}</p>}
+                {r.title && <p className="mt-3 font-semibold text-charcoal">{r.title}</p>}
                 {r.comment && <p className="mt-1 text-sm leading-relaxed text-ink/75">{r.comment}</p>}
                 {r.verifiedPurchase && (
-                  <p className="mt-2 inline-flex items-center gap-1 rounded-full bg-lime-tint px-2.5 py-0.5 text-[11px] font-semibold text-zed-800">
+                  <p className="mt-2 inline-flex items-center gap-1 rounded-full bg-warm-white px-2.5 py-0.5 text-[11px] font-semibold text-deep-olive">
                     <Star className="size-3 fill-current" /> Verified purchase
                   </p>
                 )}
@@ -286,7 +286,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
 
           <div>
-            <h3 className="font-display text-lg font-bold text-zed-950">Write a review</h3>
+            <h3 className="font-display text-lg font-bold text-charcoal">Write a review</h3>
             <p className="mb-4 mt-1 text-sm text-ink/55">Reviews are approved before they appear.</p>
             <ReviewForm productId={product.id} />
           </div>
@@ -296,7 +296,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       {/* Related */}
       {related.length > 0 && (
         <section className="mt-16">
-          <h2 className="font-display text-2xl font-bold text-zed-950">You may also love</h2>
+          <h2 className="font-display text-2xl font-bold text-charcoal">You may also love</h2>
           <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-4">
             {related.map((p) => (
               <ProductCard key={p.id} product={p} />

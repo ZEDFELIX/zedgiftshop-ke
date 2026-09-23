@@ -1,4 +1,6 @@
-import type { Metadata, Viewport } from "next";
+import "server-only";
+
+import { Metadata, Viewport } from "next";
 import { fraunces, inter } from "@/app/fonts";
 import { SITE } from "@/lib/constants";
 import { buildMetadata, jsonLdStore } from "@/lib/seo";
@@ -7,6 +9,9 @@ import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { BackgroundScene } from "@/components/layout/BackgroundScene";
 import { ToastHost } from "@/components/ui/ToastHost";
+import { InstallPrompt } from "@/components/layout/InstallPrompt";
+import { BottomNav } from "@/components/layout/BottomNav";
+import { ServiceWorkerReg } from "@/components/layout/ServiceWorkerReg";
 import "@/app/globals.css";
 
 export const metadata: Metadata = buildMetadata({
@@ -19,14 +24,14 @@ export const metadata: Metadata = buildMetadata({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#063121",
+  themeColor: "#3f4a3c",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const storeJsonLd = JSON.stringify(jsonLdStore());
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      <body className="min-h-screen bg-zed-50 text-ink font-sans antialiased">
+      <body className="min-h-screen bg-warm-white text-ink font-sans antialiased">
         <BackgroundScene />
         <script
           type="application/ld+json"
@@ -43,6 +48,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <CartDrawer />
         <ToastHost />
+        <InstallPrompt />
+        <BottomNav />
+        <ServiceWorkerReg />
       </body>
     </html>
   );

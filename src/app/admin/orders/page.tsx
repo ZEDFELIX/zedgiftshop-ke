@@ -29,7 +29,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
         <select name="payment" defaultValue={payment} className="field w-40">
           {PAYMENTS.map((p) => <option key={p} value={p}>{p === "ALL" ? "All payments" : PAYMENT_STATUS_LABELS[p]}</option>)}
         </select>
-        <button type="submit" className="rounded-zed border border-edge bg-white px-4 py-2.5 text-sm font-semibold text-ink/70 hover:border-zed-700">Filter</button>
+        <button type="submit" className="rounded-zed border border-edge bg-white px-4 py-2.5 text-sm font-semibold text-ink/70 hover:border-soft-sage">Filter</button>
       </form>
 
       <p className="text-sm text-ink/55">{total} order{total === 1 ? "" : "s"}</p>
@@ -50,7 +50,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
             {items.map((o) => (
               <tr key={o.id} className="hover:bg-panel/50">
                 <td className="p-3">
-                  <Link href={`/admin/orders/${o.id}`} className="font-semibold text-zed-700 hover:underline">{o.orderNumber}</Link>
+                  <Link href={`/admin/orders/${o.id}`} className="font-semibold text-soft-sage hover:underline">{o.orderNumber}</Link>
                 </td>
                 <td className="p-3">
                   <p className="font-medium text-ink">{o.name}</p>
@@ -75,7 +75,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
         <div className="flex items-center justify-center gap-2 text-sm">
           {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
             <Link key={n} href={`?page=${n}${q ? `&q=${encodeURIComponent(q)}` : ""}${status ? `&status=${status}` : ""}&payment=${payment}`}
-              className={`rounded-zed px-3 py-1.5 font-semibold ${n === current ? "bg-zed-950 text-lime" : "bg-panel text-ink/60"}`}>
+              className={`rounded-zed px-3 py-1.5 font-semibold ${n === current ? "bg-obsidian text-champagne" : "bg-panel text-ink/60"}`}>
               {n}
             </Link>
           ))}

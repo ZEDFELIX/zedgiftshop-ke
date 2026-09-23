@@ -35,14 +35,14 @@ export function ForgotPasswordForm() {
   if (status === "sent") {
     return (
       <div className="glass-card w-full max-w-md rounded-zed p-6 text-center lg:p-8">
-        <span className="mx-auto grid size-14 place-items-center rounded-full bg-zed-lime text-zed-950">
+        <span className="mx-auto grid size-14 place-items-center rounded-full bg-champagne text-charcoal">
           <CheckCircle2 className="size-7" />
         </span>
-        <h1 className="mt-4 font-display text-2xl font-bold text-zed-950">Check your inbox</h1>
+        <h1 className="mt-4 font-display text-2xl font-bold text-charcoal">Check your inbox</h1>
         <p className="mt-2 text-sm text-ink/60">
           If an account exists for <strong>{email}</strong>, we&apos;ve emailed you a link to reset your password. It expires in 1 hour.
         </p>
-        <Link href="/login" className="mt-6 inline-block font-semibold text-zed-700 underline underline-offset-2">Back to log in</Link>
+        <Link href="/login" className="mt-6 inline-block font-semibold text-soft-sage underline underline-offset-2">Back to log in</Link>
       </div>
     );
   }
@@ -51,7 +51,7 @@ export function ForgotPasswordForm() {
     <form onSubmit={submit} className="glass-card w-full max-w-md space-y-4 rounded-zed p-6 lg:p-8">
       <div className="text-center">
         <p className="eyebrow">Need a hand?</p>
-        <h1 className="mt-2 font-display text-2xl font-bold text-zed-950">Reset your password</h1>
+        <h1 className="mt-2 font-display text-2xl font-bold text-charcoal">Reset your password</h1>
         <p className="mt-1.5 text-sm text-ink/55">Enter your account email and we&apos;ll send you a reset link.</p>
       </div>
       <div>
@@ -62,11 +62,11 @@ export function ForgotPasswordForm() {
         </div>
       </div>
       {error && <p className="rounded-zed bg-red-50/70 px-4 py-3 text-sm text-red-700 backdrop-blur-sm">{error}</p>}
-      <button type="submit" disabled={status === "loading"} className="flex w-full items-center justify-center gap-2 rounded-zed bg-zed-950 py-3.5 text-sm font-bold uppercase tracking-wider text-lime disabled:opacity-50">
+      <button type="submit" disabled={status === "loading"} className="flex w-full items-center justify-center gap-2 rounded-zed bg-obsidian py-3.5 text-sm font-bold uppercase tracking-wider text-champagne disabled:opacity-50">
         {status === "loading" ? <Loader2 className="size-4 animate-spin" /> : "Send reset link"}
       </button>
       <p className="text-center text-sm">
-        <Link href="/login" className="font-semibold text-zed-700 underline underline-offset-2">Back to log in</Link>
+        <Link href="/login" className="font-semibold text-soft-sage underline underline-offset-2">Back to log in</Link>
       </p>
     </form>
   );

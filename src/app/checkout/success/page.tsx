@@ -14,9 +14,9 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
   if (!data) {
     return (
       <div className="container-zed py-24 text-center">
-        <h1 className="font-display text-2xl font-bold text-zed-950">Order not found</h1>
+        <h1 className="font-display text-2xl font-bold text-charcoal">Order not found</h1>
         <p className="mt-2 text-ink/60">We couldn&apos;t find that order. Check your email or visit track order.</p>
-        <Link href="/track" className="mt-6 inline-block text-zed-700 underline underline-offset-2">Track an order</Link>
+        <Link href="/track" className="mt-6 inline-block text-soft-sage underline underline-offset-2">Track an order</Link>
       </div>
     );
   }
@@ -28,21 +28,21 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
     <div className="container-zed max-w-2xl py-14 lg:py-20">
       <div className="text-center">
         {isPaid ? (
-          <span className="glass-strong mx-auto grid size-16 place-items-center rounded-full text-zed-950">
-            <CheckCircle2 className="size-9 text-zed-700" />
+          <span className="glass-strong mx-auto grid size-16 place-items-center rounded-full text-charcoal">
+            <CheckCircle2 className="size-9 text-soft-sage" />
           </span>
         ) : (
           <span className="glass-strong mx-auto grid size-16 place-items-center rounded-full text-amber-500">
             <Package className="size-9" />
           </span>
         )}
-        <h1 className="mt-4 font-display text-3xl font-bold text-zed-950">
+        <h1 className="mt-4 font-display text-3xl font-bold text-charcoal">
           {isPaid ? "Thank you — it&apos;s on its way!" : "Order placed"}
         </h1>
         <p className="mt-2 text-sm text-ink/60">
           {isPaid
-            ? <>We got your payment. Order <strong className="text-zed-800">{data.orderNumber}</strong> is confirmed.</>
-            : <>We&apos;ve saved order <strong className="text-zed-800">{data.orderNumber}</strong>. Complete your M-PESA payment to confirm it.</>}
+            ? <>We got your payment. Order <strong className="text-deep-olive">{data.orderNumber}</strong> is confirmed.</>
+            : <>We&apos;ve saved order <strong className="text-deep-olive">{data.orderNumber}</strong>. Complete your M-PESA payment to confirm it.</>}
         </p>
       </div>
 
@@ -50,11 +50,11 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
         <dl className="grid gap-3 text-sm sm:grid-cols-2">
           <div>
             <dt className="text-ink/50">Order number</dt>
-            <dd className="font-semibold text-zed-950">{data.orderNumber}</dd>
+            <dd className="font-semibold text-charcoal">{data.orderNumber}</dd>
           </div>
           <div>
             <dt className="text-ink/50">Total paid</dt>
-            <dd className="font-semibold text-zed-950">{formatKES(data.total)}</dd>
+            <dd className="font-semibold text-charcoal">{formatKES(data.total)}</dd>
           </div>
           <div>
             <dt className="text-ink/50">Payment</dt>
@@ -62,7 +62,7 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
           </div>
           <div>
             <dt className="text-ink/50">Status</dt>
-            <dd className="font-semibold text-zed-900">{statusLabel}</dd>
+            <dd className="font-semibold text-charcoal">{statusLabel}</dd>
           </div>
         </dl>
 
@@ -76,10 +76,10 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-        <Link href={`/track?order=${data.orderNumber}`} className="rounded-zed bg-zed-950 px-5 py-3 text-sm font-bold text-lime">
+        <Link href={`/track?order=${data.orderNumber}`} className="rounded-zed bg-obsidian px-5 py-3 text-sm font-bold text-champagne">
           Track order
         </Link>
-        <Link href="/shop" className="rounded-zed glass-panel px-5 py-3 text-sm font-semibold text-ink hover:text-zed-800">
+        <Link href="/shop" className="rounded-zed glass-panel px-5 py-3 text-sm font-semibold text-ink hover:text-deep-olive">
           Continue shopping
         </Link>
       </div>

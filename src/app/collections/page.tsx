@@ -19,7 +19,7 @@ export default async function CollectionsPage() {
     <div className="container-zed py-10 lg:py-14">
       <header className="max-w-2xl">
         <p className="eyebrow">Curated for you</p>
-        <h1 className="mt-2 font-display text-3xl font-bold text-zed-950 lg:text-4xl">Collections</h1>
+        <h1 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">Collections</h1>
         <p className="mt-3 text-ink/70">Groups of gifts we&apos;ve put together for how you shop.</p>
       </header>
 
@@ -31,11 +31,11 @@ export default async function CollectionsPage() {
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                 style={{ backgroundImage: `url(${c.image ?? "/placeholders/collection-bestsellers.svg"})` }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zed-950/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/70 via-transparent to-transparent" />
               <div className="absolute inset-x-5 bottom-5">
                 <p className="font-display text-xl font-bold text-white">{c.name}</p>
                 <p className="mt-1 text-sm text-white/70">{c._count.products} gifts</p>
-                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-lime">
+                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-champagne">
                   Shop collection <ArrowRight className="size-4" />
                 </span>
               </div>

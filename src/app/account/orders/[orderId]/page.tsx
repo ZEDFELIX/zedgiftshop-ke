@@ -21,19 +21,19 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ or
 
   return (
     <div className="space-y-6">
-      <Link href="/account/orders" className="flex items-center gap-1 text-sm font-semibold text-ink/60 hover:text-zed-700">
+      <Link href="/account/orders" className="flex items-center gap-1 text-sm font-semibold text-ink/60 hover:text-soft-sage">
         <ArrowLeft className="size-4" /> Back to orders
       </Link>
 
       <div className="glass-card rounded-zed p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="font-display text-lg font-bold text-zed-950">{order.orderNumber}</p>
+            <p className="font-display text-lg font-bold text-charcoal">{order.orderNumber}</p>
             <p className="text-sm text-ink/55">{order.createdAt.toLocaleDateString("en-KE", { dateStyle: "full" })}</p>
           </div>
           <div className="text-right">
             <p className="text-sm text-ink/50">Total</p>
-            <p className="font-display text-xl font-bold text-zed-950">{formatKES(order.total)}</p>
+            <p className="font-display text-xl font-bold text-charcoal">{formatKES(order.total)}</p>
             <p className={`text-xs font-semibold ${order.paymentStatus === "SUCCESS" ? "text-emerald-600" : "text-amber-600"}`}>
               {PAYMENT_STATUS_LABELS[order.paymentStatus] ?? order.paymentStatus}{receipt ? ` · ${receipt}` : ""}
             </p>
@@ -42,7 +42,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ or
 
         <ol className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {steps.map((s, i) => (
-            <li key={s} className={`rounded-zed border p-3 text-xs ${i <= currentIndex ? "border-zed-700 bg-lime-tint font-semibold text-zed-900" : "border-white/50 bg-white/30 text-ink/45"}`}>
+            <li key={s} className={`rounded-zed border p-3 text-xs ${i <= currentIndex ? "border-soft-sage bg-warm-white font-semibold text-charcoal" : "border-white/50 bg-white/30 text-ink/45"}`}>
               {ORDER_STATUS_STEPS[i].label}
             </li>
           ))}
@@ -51,7 +51,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ or
 
       <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
         <section className="glass-card rounded-zed p-6">
-          <h2 className="font-display text-base font-bold text-zed-950">Items</h2>
+          <h2 className="font-display text-base font-bold text-charcoal">Items</h2>
           <ul className="mt-3 divide-y divide-white/40">
             {order.items.map((i) => (
               <li key={i.id} className="flex items-center gap-3 py-3">
@@ -62,22 +62,22 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ or
                   <p className="font-medium text-ink">{i.name}</p>
                   <p className="text-xs text-ink/55">Qty {i.quantity}{i.giftWrapPrice > 0 ? " · Gift wrap" : ""}</p>
                 </div>
-                <p className="font-semibold text-zed-950">{formatKES((i.price + i.giftWrapPrice) * i.quantity)}</p>
+                <p className="font-semibold text-charcoal">{formatKES((i.price + i.giftWrapPrice) * i.quantity)}</p>
               </li>
             ))}
           </ul>
           <dl className="mt-4 space-y-1.5 border-t border-white/40 pt-4 text-sm">
             <div className="flex justify-between text-ink/70"><dt>Subtotal</dt><dd>{formatKES(order.subtotal)}</dd></div>
-            {order.discount > 0 && <div className="flex justify-between text-zed-800"><dt>Discount{order.couponCode ? ` (${order.couponCode})` : ""}</dt><dd>−{formatKES(order.discount)}</dd></div>}
+            {order.discount > 0 && <div className="flex justify-between text-deep-olive"><dt>Discount{order.couponCode ? ` (${order.couponCode})` : ""}</dt><dd>−{formatKES(order.discount)}</dd></div>}
             <div className="flex justify-between text-ink/70"><dt>Delivery</dt><dd>{order.deliveryFee === 0 ? "Free" : formatKES(order.deliveryFee)}</dd></div>
-            <div className="flex justify-between border-t border-white/40 pt-2 text-base font-bold text-zed-950"><dt>Total</dt><dd>{formatKES(order.total)}</dd></div>
+            <div className="flex justify-between border-t border-white/40 pt-2 text-base font-bold text-charcoal"><dt>Total</dt><dd>{formatKES(order.total)}</dd></div>
           </dl>
         </section>
 
         <section className="space-y-6">
           <div className="glass-card rounded-zed p-6">
-            <h3 className="flex items-center gap-2 font-display text-base font-bold text-zed-950">
-              <MapPin className="size-4 text-zed-700" /> Delivery to
+            <h3 className="flex items-center gap-2 font-display text-base font-bold text-charcoal">
+              <MapPin className="size-4 text-soft-sage" /> Delivery to
             </h3>
             <p className="mt-2 text-sm text-ink/80">{order.name}</p>
             <p className="text-sm text-ink/60">
@@ -87,7 +87,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ or
             <p className="mt-1 text-sm text-ink/60">{order.phone}</p>
           </div>
           {order.isGift && (
-            <div className="rounded-zed border border-zed-700/30 bg-lime-tint p-4 text-sm text-zed-900">
+            <div className="rounded-zed border border-soft-sage/30 bg-warm-white p-4 text-sm text-charcoal">
               Marked as a gift — prices hidden from the delivery slip and wrapped on request.
             </div>
           )}

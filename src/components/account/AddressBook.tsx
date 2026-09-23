@@ -84,7 +84,7 @@ export function AddressBook() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <p className="text-sm text-ink/60">{addresses.length} saved address{addresses.length === 1 ? "" : "es"}</p>
-        <button type="button" onClick={() => setShowForm((s) => !s)} className="flex items-center gap-1.5 rounded-zed bg-zed-950 px-4 py-2.5 text-sm font-bold text-lime">
+        <button type="button" onClick={() => setShowForm((s) => !s)} className="flex items-center gap-1.5 rounded-zed bg-obsidian px-4 py-2.5 text-sm font-bold text-champagne">
           <Plus className="size-4" /> {showForm ? "Cancel" : "Add address"}
         </button>
       </div>
@@ -123,11 +123,11 @@ export function AddressBook() {
             <input id="ad-apartment" className="field" value={form.apartment} onChange={(e) => setForm({ ...form, apartment: e.target.value })} />
           </div>
           <label className="flex items-center gap-2 text-sm text-ink/75 sm:col-span-2">
-            <input type="checkbox" checked={form.isDefault} onChange={(e) => setForm({ ...form, isDefault: e.target.checked })} className="size-4 accent-zed-800" />
+            <input type="checkbox" checked={form.isDefault} onChange={(e) => setForm({ ...form, isDefault: e.target.checked })} className="size-4 accent-deep-olive" />
             Make this my default address
           </label>
           {error && <p className="rounded-zed bg-red-50 px-4 py-3 text-sm text-red-700 sm:col-span-2">{error}</p>}
-          <button type="submit" disabled={busy} className="flex items-center justify-center gap-2 rounded-zed bg-zed-950 py-3 text-sm font-bold text-lime disabled:opacity-50 sm:col-span-2">
+          <button type="submit" disabled={busy} className="flex items-center justify-center gap-2 rounded-zed bg-obsidian py-3 text-sm font-bold text-champagne disabled:opacity-50 sm:col-span-2">
             {busy ? <Loader2 className="size-4 animate-spin" /> : <Check className="size-4" />} Save address
           </button>
         </form>
@@ -135,7 +135,7 @@ export function AddressBook() {
 
       {addresses.length === 0 && !loading && (
         <div className="rounded-zed border border-dashed border-edge p-10 text-center text-sm text-ink/55">
-          <MapPin className="mx-auto mb-2 size-8 text-zed-700/50" />
+          <MapPin className="mx-auto mb-2 size-8 text-soft-sage/50" />
           No saved addresses yet. Add one to check out faster.
         </div>
       )}
@@ -145,16 +145,16 @@ export function AddressBook() {
           <li key={a.id} className="glass-card rounded-zed p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <p className="flex items-center gap-2 font-semibold text-zed-950">
+                <p className="flex items-center gap-2 font-semibold text-charcoal">
                   {a.label ?? a.fullName}
-                  {a.isDefault && <span className="flex items-center gap-1 rounded-full bg-lime-tint px-2 py-0.5 text-[11px] font-bold text-zed-800"><Star className="size-3" /> Default</span>}
+                  {a.isDefault && <span className="flex items-center gap-1 rounded-full bg-warm-white px-2 py-0.5 text-[11px] font-bold text-deep-olive"><Star className="size-3" /> Default</span>}
                 </p>
                 <p className="mt-1 text-sm text-ink/65">{a.address}{a.building ? `, ${a.building}` : ""}{a.apartment ? `, ${a.apartment}` : ""}</p>
                 <p className="text-sm text-ink/65">{a.town}, {a.county}</p>
               </div>
               <div className="flex items-center gap-2">
                 {!a.isDefault && (
-                  <button type="button" onClick={() => setDefault(a.id)} className="rounded-zed border border-edge px-3 py-1.5 text-xs font-semibold text-ink/70 hover:border-zed-700">
+                  <button type="button" onClick={() => setDefault(a.id)} className="rounded-zed border border-edge px-3 py-1.5 text-xs font-semibold text-ink/70 hover:border-soft-sage">
                     Make default
                   </button>
                 )}

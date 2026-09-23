@@ -17,7 +17,7 @@ export function Pagination({ page, pages, total, pageSize, href }: { page: numbe
           href={pageHref(page - 1)}
           aria-disabled={page <= 1}
           aria-label="Previous page"
-          className={`glass-panel grid size-10 place-items-center rounded-zed ${page <= 1 ? "pointer-events-none opacity-40" : "hover:border-zed-700"}`}
+          className={`glass-panel grid size-10 place-items-center rounded-zed ${page <= 1 ? "pointer-events-none opacity-40" : "hover:border-soft-sage"}`}
         >
           <ChevronLeft className="size-4" />
         </Link>
@@ -39,7 +39,7 @@ export function Pagination({ page, pages, total, pageSize, href }: { page: numbe
                 href={pageHref(p)}
                 aria-current={p === page ? "page" : undefined}
                 className={`grid size-10 place-items-center rounded-zed text-sm font-semibold ${
-                  p === page ? "bg-zed-950 text-lime" : "glass-panel text-ink hover:border-zed-700"
+                  p === page ? "bg-obsidian text-champagne" : "glass-panel text-ink hover:border-soft-sage"
                 }`}
               >
                 {p}
@@ -50,7 +50,7 @@ export function Pagination({ page, pages, total, pageSize, href }: { page: numbe
           href={pageHref(page + 1)}
           aria-disabled={page >= pages}
           aria-label="Next page"
-          className={`glass-panel grid size-10 place-items-center rounded-zed ${page >= pages ? "pointer-events-none opacity-40" : "hover:border-zed-700"}`}
+          className={`glass-panel grid size-10 place-items-center rounded-zed ${page >= pages ? "pointer-events-none opacity-40" : "hover:border-soft-sage"}`}
         >
           <ChevronRight className="size-4" />
         </Link>

@@ -37,7 +37,7 @@ export function StaffManager({ staff, canAdd }: { staff: StaffRow[]; canAdd: boo
       {canAdd && (
         <div className="flex items-center justify-between">
           <p className="text-sm text-ink/55">{staff.length} teammate{staff.length === 1 ? "" : "s"}</p>
-          <button type="button" onClick={() => setShowForm((s) => !s)} className="flex items-center gap-1.5 rounded-zed bg-zed-950 px-4 py-2.5 text-sm font-bold text-lime">
+          <button type="button" onClick={() => setShowForm((s) => !s)} className="flex items-center gap-1.5 rounded-zed bg-obsidian px-4 py-2.5 text-sm font-bold text-champagne">
             <Plus className="size-4" /> {showForm ? "Cancel" : "Add staff"}
           </button>
         </div>
@@ -58,7 +58,7 @@ export function StaffManager({ staff, canAdd }: { staff: StaffRow[]; canAdd: boo
             <input id="sf-password" type="password" className="field" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} required minLength={8} />
           </div>
           {error && <p className="rounded-zed bg-red-50 px-4 py-3 text-sm text-red-700 sm:col-span-2">{error}</p>}
-          <button type="submit" disabled={busy} className="rounded-zed bg-zed-950 py-3 text-sm font-bold text-lime disabled:opacity-50 sm:col-span-2">
+          <button type="submit" disabled={busy} className="rounded-zed bg-obsidian py-3 text-sm font-bold text-champagne disabled:opacity-50 sm:col-span-2">
             {busy ? <Loader2 className="mx-auto size-4 animate-spin" /> : "Add staff"}
           </button>
         </form>
@@ -68,13 +68,13 @@ export function StaffManager({ staff, canAdd }: { staff: StaffRow[]; canAdd: boo
         {staff.map((s) => (
           <li key={s.id} className="flex items-center justify-between rounded-zed border border-edge bg-white p-5">
             <div className="flex items-center gap-3">
-              <span className="grid size-10 place-items-center rounded-full bg-lime-tint text-zed-800">
+              <span className="grid size-10 place-items-center rounded-full bg-warm-white text-deep-olive">
                 <ShieldCheck className="size-5" />
               </span>
               <div>
-                <p className="font-semibold text-zed-950">
+                <p className="font-semibold text-charcoal">
                   {s.name}
-                  <span className={`ml-2 rounded-full px-2 py-0.5 text-[10px] font-bold ${s.role === "ADMIN" ? "bg-zed-950 text-lime" : "bg-lime-tint text-zed-800"}`}>{s.role}</span>
+                  <span className={`ml-2 rounded-full px-2 py-0.5 text-[10px] font-bold ${s.role === "ADMIN" ? "bg-obsidian text-champagne" : "bg-warm-white text-deep-olive"}`}>{s.role}</span>
                 </p>
                 <p className="text-sm text-ink/55">{s.email} · joined {new Date(s.createdAt).toLocaleDateString("en-KE")}</p>
               </div>

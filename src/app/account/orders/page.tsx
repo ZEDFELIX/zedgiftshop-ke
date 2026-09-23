@@ -13,9 +13,9 @@ export default async function AccountOrdersPage() {
   if (orders.length === 0) {
     return (
       <div className="glass-card rounded-zed p-10 text-center">
-        <p className="font-display text-xl font-bold text-zed-950">No orders yet</p>
+        <p className="font-display text-xl font-bold text-charcoal">No orders yet</p>
         <p className="mt-1 text-sm text-ink/55">Your past orders and their status will show up here.</p>
-        <Link href="/shop" className="mt-5 inline-block rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold text-lime">Browse gifts</Link>
+        <Link href="/shop" className="mt-5 inline-block rounded-zed bg-obsidian px-6 py-3 text-sm font-bold text-champagne">Browse gifts</Link>
       </div>
     );
   }
@@ -28,16 +28,16 @@ export default async function AccountOrdersPage() {
           <Link key={o.id} href={`/account/orders/${o.id}`} className="glass-card block rounded-zed p-5 transition-all hover:-translate-y-1 hover:shadow-glass-lg">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="font-bold text-zed-950">{o.orderNumber}</p>
+                <p className="font-bold text-charcoal">{o.orderNumber}</p>
                 <p className="text-sm text-ink/55">{o.createdAt.toLocaleDateString("en-KE", { weekday: "short", day: "numeric", month: "short", year: "numeric" })}</p>
               </div>
-              <p className="font-bold text-zed-950">{formatKES(o.total)}</p>
+              <p className="font-bold text-charcoal">{formatKES(o.total)}</p>
             </div>
             <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
               <span className={`rounded-full px-2.5 py-1 font-semibold ${o.paymentStatus === "SUCCESS" ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"}`}>
                 {PAYMENT_STATUS_LABELS[o.paymentStatus] ?? o.paymentStatus}
               </span>
-              <span className="rounded-full bg-white/45 px-2.5 py-1 font-semibold text-zed-900">{ORDER_STATUS_LABELS[o.orderStatus] ?? o.orderStatus}</span>
+              <span className="rounded-full bg-white/45 px-2.5 py-1 font-semibold text-charcoal">{ORDER_STATUS_LABELS[o.orderStatus] ?? o.orderStatus}</span>
               {receipt && <span className="rounded-full bg-white/45 px-2.5 py-1 text-ink/55">Receipt {receipt}</span>}
               <span className="text-ink/45">· {o.items.length} item{o.items.length === 1 ? "" : "s"} · {o.county}</span>
             </div>

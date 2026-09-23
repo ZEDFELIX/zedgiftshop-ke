@@ -81,7 +81,7 @@ export function ShopControls({
             <button
               type="button"
               onClick={() => go(keyName, active ? "" : c.slug)}
-              className={`flex w-full items-center justify-between rounded-zed px-2 py-1.5 text-sm ${active ? "bg-lime-tint font-semibold text-zed-900" : "text-ink/75 hover:bg-zed-900/5"}`}
+              className={`flex w-full items-center justify-between rounded-zed px-2 py-1.5 text-sm ${active ? "bg-warm-white font-semibold text-charcoal" : "text-ink/75 hover:bg-charcoal/5"}`}
             >
               <span>{c.name}</span>
               <span className="text-xs text-ink/40">{c.count}</span>
@@ -119,7 +119,7 @@ export function ShopControls({
           <input value={min} onChange={(e) => setMin(e.target.value)} inputMode="numeric" placeholder={String(minPrice)} className="field text-sm" aria-label="Minimum price" />
           <span className="text-ink/40">–</span>
           <input value={max} onChange={(e) => setMax(e.target.value)} inputMode="numeric" placeholder={String(maxPrice)} className="field text-sm" aria-label="Maximum price" />
-          <button type="submit" className="rounded-zed bg-zed-950 px-3 py-2.5 text-xs font-bold text-lime">
+          <button type="submit" className="rounded-zed bg-obsidian px-3 py-2.5 text-xs font-bold text-champagne">
             Go
           </button>
         </form>
@@ -128,11 +128,11 @@ export function ShopControls({
       <div>
         <p className="eyebrow mb-3">Quick picks</p>
         <label className="flex cursor-pointer items-center gap-2 text-sm text-ink/80">
-          <input type="checkbox" checked={Boolean(params.get("personalized"))} onChange={(e) => go("personalized", e.target.checked ? "1" : "")} className="size-4 accent-zed-800" />
+          <input type="checkbox" checked={Boolean(params.get("personalized"))} onChange={(e) => go("personalized", e.target.checked ? "1" : "")} className="size-4 accent-deep-olive" />
           Personalized only
         </label>
         <label className="mt-2 flex cursor-pointer items-center gap-2 text-sm text-ink/80">
-          <input type="checkbox" checked={Boolean(params.get("inStock"))} onChange={(e) => go("inStock", e.target.checked ? "1" : "")} className="size-4 accent-zed-800" />
+          <input type="checkbox" checked={Boolean(params.get("inStock"))} onChange={(e) => go("inStock", e.target.checked ? "1" : "")} className="size-4 accent-deep-olive" />
           In stock only
         </label>
       </div>
@@ -157,7 +157,7 @@ export function ShopControls({
       )}
 
       {activeFilterCount > 0 && (
-        <button type="button" onClick={clearAll} className="inline-flex items-center gap-1.5 text-sm font-semibold text-zed-800 underline-offset-2 hover:underline">
+        <button type="button" onClick={clearAll} className="inline-flex items-center gap-1.5 text-sm font-semibold text-deep-olive underline-offset-2 hover:underline">
           <RotateCcw className="size-4" /> Clear all filters ({activeFilterCount})
         </button>
       )}
@@ -176,7 +176,7 @@ export function ShopControls({
           <SlidersHorizontal className="size-4" />
           Filters
           {activeFilterCount > 0 && (
-            <span className="grid size-5 place-items-center rounded-full bg-zed-lime text-[11px] font-bold text-zed-950">{activeFilterCount}</span>
+            <span className="grid size-5 place-items-center rounded-full bg-champagne text-[11px] font-bold text-charcoal">{activeFilterCount}</span>
           )}
         </button>
         <div className="relative">
@@ -195,11 +195,11 @@ export function ShopControls({
       {/* Mobile filter drawer */}
       {filtersOpen && (
         <div className="fixed inset-0 z-[60] lg:hidden">
-          <div className="absolute inset-0 bg-zed-950/45" onClick={() => setFiltersOpen(false)} />
-          <div className="absolute inset-y-0 right-0 flex w-[min(90vw,360px)] flex-col bg-zed-50/85 shadow-drawer backdrop-blur-xl animate-[drawer_0.3s_cubic-bezier(0.16,1,0.3,1)_both]">
+          <div className="absolute inset-0 bg-obsidian/45" onClick={() => setFiltersOpen(false)} />
+          <div className="absolute inset-y-0 right-0 flex w-[min(90vw,360px)] flex-col bg-warm-white/85 shadow-drawer backdrop-blur-xl animate-[drawer_0.3s_cubic-bezier(0.16,1,0.3,1)_both]">
             <div className="flex items-center justify-between border-b border-white/50 bg-white/40 px-4 py-3.5">
-              <p className="font-display text-lg font-bold text-zed-950">Filters</p>
-              <button type="button" onClick={() => setFiltersOpen(false)} aria-label="Close filters" className="grid size-9 place-items-center rounded-zed hover:bg-zed-900/5">
+              <p className="font-display text-lg font-bold text-charcoal">Filters</p>
+              <button type="button" onClick={() => setFiltersOpen(false)} aria-label="Close filters" className="grid size-9 place-items-center rounded-zed hover:bg-charcoal/5">
                 <X className="size-5" />
               </button>
             </div>

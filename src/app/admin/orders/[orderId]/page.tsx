@@ -19,22 +19,22 @@ export default async function AdminOrderPage({ params }: { params: Promise<{ ord
 
   return (
     <div className="space-y-6">
-      <Link href="/admin/orders" className="flex items-center gap-1 text-sm font-semibold text-ink/60 hover:text-zed-700">
+      <Link href="/admin/orders" className="flex items-center gap-1 text-sm font-semibold text-ink/60 hover:text-soft-sage">
         <ArrowLeft className="size-4" /> All orders
       </Link>
 
       <div className="rounded-zed border border-edge bg-white p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="font-display text-xl font-bold text-zed-950">{order.orderNumber}</p>
+            <p className="font-display text-xl font-bold text-charcoal">{order.orderNumber}</p>
             <p className="text-sm text-ink/55">{order.createdAt.toLocaleString("en-KE")}</p>
           </div>
           <div className="text-right">
             <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${order.paymentStatus === "SUCCESS" ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"}`}>
               {PAYMENT_STATUS_LABELS[order.paymentStatus]}
             </span>
-            <span className="ml-2 rounded-full bg-panel px-2.5 py-1 text-xs font-bold text-zed-900">{ORDER_STATUS_LABELS[order.orderStatus]}</span>
-            <p className="mt-1.5 font-display text-lg font-bold text-zed-950">{formatKES(order.total)}</p>
+            <span className="ml-2 rounded-full bg-panel px-2.5 py-1 text-xs font-bold text-charcoal">{ORDER_STATUS_LABELS[order.orderStatus]}</span>
+            <p className="mt-1.5 font-display text-lg font-bold text-charcoal">{formatKES(order.total)}</p>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@ export default async function AdminOrderPage({ params }: { params: Promise<{ ord
       <div className="grid gap-6 lg:grid-cols-[1fr_360px]">
         <div className="space-y-6">
           <section className="rounded-zed border border-edge bg-white p-6">
-            <h3 className="font-display text-base font-bold text-zed-950">Items</h3>
+            <h3 className="font-display text-base font-bold text-charcoal">Items</h3>
             <ul className="mt-3 divide-y divide-edge">
               {order.items.map((i) => (
                 <li key={i.id} className="flex items-center gap-3 py-3">
@@ -70,7 +70,7 @@ export default async function AdminOrderPage({ params }: { params: Promise<{ ord
               <h4 className="text-xs font-bold uppercase tracking-wider text-ink/50">Delivery</h4>
               <p className="mt-2 text-sm text-ink/75">{order.address}{order.building ? `, ${order.building}` : ""}{order.apartment ? `, ${order.apartment}` : ""}</p>
               <p className="text-sm text-ink/75">{order.town}, {order.county} · {order.deliveryMethod}</p>
-              {order.isGift && <p className="mt-1.5 text-xs font-semibold text-zed-700">Gift — hide prices on slip</p>}
+              {order.isGift && <p className="mt-1.5 text-xs font-semibold text-soft-sage">Gift — hide prices on slip</p>}
             </div>
           </section>
 

@@ -21,13 +21,13 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
   const badge = !inStock
     ? { label: "Out of stock", cls: "bg-ink/85 text-white" }
     : personalizable && !sale
-      ? { label: "Personalize", cls: "bg-white/70 text-zed-800 backdrop-blur" }
+      ? { label: "Personalize", cls: "bg-white/70 text-deep-olive backdrop-blur" }
       : sale != null && sale > 0
-        ? { label: `SALE −${sale}%`, cls: "bg-zed-lime text-zed-950" }
+        ? { label: `SALE −${sale}%`, cls: "bg-champagne text-charcoal" }
         : isNew
-          ? { label: "NEW", cls: "bg-zed-950 text-lime" }
+          ? { label: "NEW", cls: "bg-obsidian text-champagne" }
           : isPopular
-            ? { label: "POPULAR", cls: "bg-white/70 text-zed-900 backdrop-blur" }
+            ? { label: "POPULAR", cls: "bg-white/70 text-charcoal backdrop-blur" }
             : null;
 
   return (
@@ -44,10 +44,10 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
             />
           ) : (
-            <span className="grid aspect-square place-items-center font-display text-3xl text-zed-700">ZED</span>
+            <span className="grid aspect-square place-items-center font-display text-3xl text-soft-sage">ZED</span>
           )}
         </Link>
-        <div className="absolute inset-0 bg-gradient-to-t from-zed-950/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
         {badge && (
           <span className={`absolute left-2.5 top-2.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide shadow-glass ${badge.cls}`}>
@@ -65,7 +65,7 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
           ) : (
             <Link
               href={`/product/${product.slug}`}
-              className="block rounded-full border border-white/60 bg-white/85 px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-zed-950 backdrop-blur-sm transition-colors hover:bg-zed-lime"
+              className="block rounded-full border border-white/60 bg-white/85 px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-charcoal backdrop-blur-sm transition-colors hover:bg-champagne"
             >
               {personalizable ? "Personalize" : "View details"}
             </Link>
@@ -75,19 +75,19 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
 
       <div className="flex flex-1 flex-col px-1 pb-1.5 pt-3">
         <div className="flex items-center justify-between gap-2">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zed-700">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-soft-sage">
             {product.categories[0]?.category.name ?? "Gift"}
           </p>
           {product.ratingCount > 0 && (
             <span className="flex items-center gap-1 text-xs text-ink/70">
-              <Star className="size-3.5 fill-zed-lime text-zed-lime" />
+              <Star className="size-3.5 fill-champagne text-champagne" />
               {product.ratingAverage.toFixed(1)}
               <span className="text-ink/40">({product.ratingCount})</span>
             </span>
           )}
         </div>
         <h3 className="mt-1.5">
-          <Link href={`/product/${product.slug}`} className="font-display text-[15px] font-semibold leading-snug text-ink hover:text-zed-800">
+          <Link href={`/product/${product.slug}`} className="font-display text-[15px] font-semibold leading-snug text-ink hover:text-deep-olive">
             {product.name}
           </Link>
         </h3>
@@ -96,13 +96,13 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
         )}
         <div className="mt-auto flex items-baseline justify-between gap-2 pt-2.5">
           <div className="flex items-baseline gap-2">
-            <p className="text-[15px] font-bold text-zed-950">{formatKES(product.price)}</p>
+            <p className="text-[15px] font-bold text-charcoal">{formatKES(product.price)}</p>
             {product.compareAtPrice != null && product.compareAtPrice > product.price && (
               <p className="text-sm text-ink/40 line-through">{formatKES(product.compareAtPrice)}</p>
             )}
           </div>
           {personalizable && (
-            <span className="flex items-center gap-1 text-[11px] font-medium text-zed-700">
+            <span className="flex items-center gap-1 text-[11px] font-medium text-soft-sage">
               <Sparkles className="size-3" /> Personalize
             </span>
           )}

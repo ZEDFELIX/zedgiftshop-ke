@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execSync, spawnSync } from "node:child_process";
@@ -121,7 +121,7 @@ async function up() {
   }
   const ok = await waitForPort();
   if (!ok) {
-    const tail = existsSync(LOG_FILE) ? require("node:fs").readFileSync(LOG_FILE, "utf8").split("\n").slice(-15).join("\n") : "(no log)";
+    const tail = existsSync(LOG_FILE) ? readFileSync(LOG_FILE, "utf8").split("\n").slice(-15).join("\n") : "(no log)";
     throw new Error(`PostgreSQL did not start.\n${tail}`);
   }
   await ensureDatabase();

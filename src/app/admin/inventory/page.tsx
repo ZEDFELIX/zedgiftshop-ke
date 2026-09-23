@@ -31,7 +31,7 @@ export default async function AdminInventoryPage() {
       }))} />
 
       <section className="rounded-zed border border-edge bg-white p-5">
-        <h2 className="font-display text-base font-bold text-zed-950">Recent movements</h2>
+        <h2 className="font-display text-base font-bold text-charcoal">Recent movements</h2>
         <ul className="mt-3 divide-y divide-edge text-sm">
           {txns.map((t) => (
             <li key={t.id} className="flex items-center justify-between gap-2 py-2">

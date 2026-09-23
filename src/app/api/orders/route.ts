@@ -1,8 +1,10 @@
+import "server-only";
 import { NextResponse } from "next/server";
 import type { PaymentStatus } from "@prisma/client";
 import { checkoutSchema } from "@/lib/validations";
 import { createOrderFromCart, createPaymentForOrder } from "@/lib/checkout";
 import { stkPush, mpesaConfigured } from "@/lib/mpesa";
+import { initiateFlutterwaveCharge, flutterwaveConfigured } from "@/lib/flutterwave";
 import { prisma } from "@/lib/prisma";
 
 export const runtime = "nodejs";
@@ -26,55 +28,131 @@ export async function POST(req: Request) {
   }
 
   const { order, totals } = result;
+  const paymentMethod = parsed.data.paymentMethod ?? "M_PESA";
+  const phone = parsed.data.phone;
 
-  let payment: Awaited<ReturnType<typeof createPaymentForOrder>>; 
-  if (mpesaConfigured()) {
+  // Create a payment record
+  let payment: Awaited<ReturnType<typeof createPaymentForOrder>>;
+
+  try {
     payment = await createPaymentForOrder({
       orderId: order.orderId,
       amount: totals.total,
-      phone: parsed.data.phone,
+      phone,
     });
+  } catch {
+    return NextResponse.json({ error: "Failed to create payment record." }, { status: 500 });
+  }
+
+  // Handle M-PESA STK Push
+  if (paymentMethod === "M_PESA") {
+    if (!mpesaConfigured()) {
+      await prisma.payment.update({
+        where: { id: payment.id },
+        data: { status: "FAILED", resultDescription: "M-PESA is not configured on this store." },
+      });
+      return NextResponse.json(
+        { ok: false, error: "M-PESA is not configured on this store yet. Please contact the shop to arrange payment.", orderId: order.orderId, orderNumber: order.orderNumber, configured: false },
+        { status: 501 }
+      );
+    }
 
     const push = await stkPush({
-      phone: parsed.data.phone,
+      phone,
       amount: totals.total,
       accountReference: order.orderNumber,
       transactionDesc: "ZED Gift Shop",
     });
 
     if (push.ok && push.checkoutRequestId) {
-      await prismaUpdate(payment.id, { checkoutRequestId: push.checkoutRequestId, merchantRequestId: push.merchantRequestId ?? null });
+      await prisma.payment.update({
+        where: { id: payment.id },
+        data: { checkoutRequestId: push.checkoutRequestId, merchantRequestId: push.merchantRequestId ?? null },
+      });
       return NextResponse.json({
         ok: true,
         orderId: order.orderId,
         orderNumber: order.orderNumber,
         total: totals.total,
-        payment: { status: "PENDING", checkoutRequestId: push.checkoutRequestId, merchantRequestId: push.merchantRequestId ?? null, configured: true },
+        payment: { status: "PENDING", checkoutRequestId: push.checkoutRequestId, merchantRequestId: push.merchantRequestId ?? null, configured: true, method: "M_PESA" },
       });
     }
 
-    await prismaUpdate(payment.id, { status: "FAILED", resultDescription: push.error ?? null });
+    await prisma.payment.update({
+      where: { id: payment.id },
+      data: { status: "FAILED", resultDescription: push.error ?? null },
+    });
     return NextResponse.json({
       ok: true,
       orderId: order.orderId,
       orderNumber: order.orderNumber,
       total: totals.total,
-      payment: { status: "FAILED", error: push.error ?? "M-PESA rejected the request.", configured: true },
+      payment: { status: "FAILED", error: push.error ?? "M-PESA rejected the request.", configured: true, method: "M_PESA" },
     });
   }
 
-  return NextResponse.json(
-    {
+  // Handle Flutterwave / Card payments
+  if (paymentMethod === "FLUTTERWAVE" || paymentMethod === "CARD") {
+    if (!flutterwaveConfigured()) {
+      await prisma.payment.update({
+        where: { id: payment.id },
+        data: { status: "FAILED", resultDescription: "Flutterwave is not configured on this store." },
+      });
+      return NextResponse.json(
+        { ok: false, error: "Flutterwave is not configured on this store yet. Please contact the shop to arrange payment.", orderId: order.orderId, orderNumber: order.orderNumber, configured: false, method: "FLUTTERWAVE" },
+        { status: 501 }
+      );
+    }
+
+    const txRef = `zed_${order.orderId}_${Date.now()}`;
+    const charge = await initiateFlutterwaveCharge({
+      tx_ref: txRef,
+      amount: totals.total,
+      currency: "KES",
+      payment_options: "card,mpesa,ussd",
+      email: parsed.data.email,
+      first_name: parsed.data.name.split(" ")[0] ?? parsed.data.name,
+      last_name: parsed.data.name.split(" ").slice(1).join(" ") ?? "",
+      phone_number: phone,
+      meta: {
+        orderId: order.orderId,
+        orderNumber: order.orderNumber,
+        platform: "zed-gift-shop",
+      },
+    });
+
+    if (charge.ok && charge.data) {
+      await prisma.payment.update({
+        where: { id: payment.id },
+        data: { provider: "FLUTTERWAVE", txRef, checkoutUrl: charge.data.authorization_url, status: "PENDING" },
+      });
+      return NextResponse.json({
+        ok: true,
+        orderId: order.orderId,
+        orderNumber: order.orderNumber,
+        total: totals.total,
+        payment: {
+          status: "PENDING",
+          configured: true,
+          method: "FLUTTERWAVE",
+          txRef,
+          authorizationUrl: charge.data.authorization_url,
+          link: charge.data.link,
+        },
+      });
+    }
+
+    await prisma.payment.update({
+      where: { id: payment.id },
+      data: { status: "FAILED", resultDescription: charge.error ?? null },
+    });
+    return NextResponse.json({
       ok: false,
-      error:
-        "M-PESA is not configured on this store yet. Set MPESA_CONSUMER_KEY, MPESA_CONSUMER_SECRET, MPESA_PASSKEY, MPESA_SHORTCODE and MPESA_CALLBACK_URL in .env to accept payments, then place the order again. Your order has been saved.",
+      error: charge.error ?? "Flutterwave payment initiation failed.",
       orderId: order.orderId,
       orderNumber: order.orderNumber,
-    },
-    { status: 501 },
-  );
-}
+    });
+  }
 
-async function prismaUpdate(paymentId: string, data: { checkoutRequestId?: string | null; merchantRequestId?: string | null; status?: PaymentStatus; resultDescription?: string | null }) {
-  await prisma.payment.update({ where: { id: paymentId }, data });
+  return NextResponse.json({ error: "Invalid payment method." }, { status: 400 });
 }

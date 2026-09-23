@@ -25,11 +25,11 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
             <option value="DRAFT">Draft</option>
             <option value="ARCHIVED">Archived</option>
           </select>
-          <button type="submit" className="rounded-zed border border-edge bg-white px-4 text-sm font-semibold text-ink/70 hover:border-zed-700">
+          <button type="submit" className="rounded-zed border border-edge bg-white px-4 text-sm font-semibold text-ink/70 hover:border-soft-sage">
             <Search className="size-4" />
           </button>
         </form>
-        <Link href="/admin/products/new" className="flex items-center gap-1.5 rounded-zed bg-zed-950 px-4 py-2.5 text-sm font-bold text-lime">
+        <Link href="/admin/products/new" className="flex items-center gap-1.5 rounded-zed bg-obsidian px-4 py-2.5 text-sm font-bold text-champagne">
           <Plus className="size-4" /> New product
         </Link>
       </div>
@@ -57,7 +57,7 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
                       {p.images[0]?.url && <Image src={p.images[0].url} alt="" fill unoptimized className="object-cover" />}
                     </span>
                     <div>
-                      <p className="font-semibold text-zed-950">{p.name}</p>
+                      <p className="font-semibold text-charcoal">{p.name}</p>
                       <p className="text-xs text-ink/45">/{p.slug}</p>
                     </div>
                   </div>
@@ -71,7 +71,7 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
                   </span>
                 </td>
                 <td className="p-3 text-right">
-                  <Link href={`/admin/products/${p.id}`} className="font-semibold text-zed-700 hover:underline">Edit</Link>
+                  <Link href={`/admin/products/${p.id}`} className="font-semibold text-soft-sage hover:underline">Edit</Link>
                 </td>
               </tr>
             ))}
@@ -86,7 +86,7 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
         <div className="flex items-center justify-center gap-2 text-sm">
           {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
             <Link key={n} href={`?page=${n}${q ? `&q=${encodeURIComponent(q)}` : ""}${status ? `&status=${status}` : ""}`}
-              className={`rounded-zed px-3 py-1.5 font-semibold ${n === current ? "bg-zed-950 text-lime" : "bg-panel text-ink/60 hover:bg-panel/70"}`}>
+              className={`rounded-zed px-3 py-1.5 font-semibold ${n === current ? "bg-obsidian text-champagne" : "bg-panel text-ink/60 hover:bg-panel/70"}`}>
               {n}
             </Link>
           ))}

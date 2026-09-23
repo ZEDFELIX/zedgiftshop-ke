@@ -29,6 +29,7 @@ import { formatKES } from "@/lib/utils";
 import { ProductCard } from "@/components/product/ProductCard";
 import { NewsletterForm } from "@/components/home/NewsletterForm";
 import { OCCASION_CARDS, RECIPIENT_CARDS } from "@/lib/constants";
+import { Suspense } from "react";
 
 export const dynamic = "force-dynamic";
 
@@ -79,18 +80,18 @@ export default async function HomePage() {
     <div>
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_140%_at_80%_-20%,rgba(191,215,47,0.16),transparent_50%),radial-gradient(100%_120%_at_-10%_0%,rgba(18,112,75,0.28),transparent_55%),linear-gradient(160deg,#063121_0%,#0b4a32_55%,#063121_100%)]" aria-hidden />
-        <div className="glass-blob left-[-6%] top-[10%] h-80 w-80 bg-lime/25 animate-[blob_24s_ease-in-out_infinite]" aria-hidden />
-        <div className="glass-blob right-[4%] top-[-10%] h-96 w-96 bg-zed-500/40 animate-[blob_28s_ease-in-out_infinite]" aria-hidden />
+        <div className="absolute inset-0 bg-[radial-gradient(120%_140%_at_80%_-20%,rgba(168,179,163,0.16),transparent_50%),radial-gradient(100%_120%_at_-10%_0%,rgba(63,74,60,0.28),transparent_55%),linear-gradient(160deg,#111110_0%,#1d1d1f_55%,#111110_100%)]" aria-hidden />
+        <div className="glass-blob left-[-6%] top-[10%] h-80 w-80 bg-champagne/25 animate-[blob_24s_ease-in-out_infinite]" aria-hidden />
+        <div className="glass-blob right-[4%] top-[-10%] h-96 w-96 bg-warm-white/40 animate-[blob_28s_ease-in-out_infinite]" aria-hidden />
 
         <div className="container-zed relative grid items-center gap-12 py-14 lg:grid-cols-2 lg:py-24">
           {/* Left */}
           <div className="animate-[rise_0.7s_cubic-bezier(0.16,1,0.3,1)_both]">
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-lime backdrop-blur-md">
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.22em] text-champagne backdrop-blur-md">
               <Sparkles className="size-3.5" /> Make every moment special
             </p>
             <h1 className="mt-6 text-balance font-display text-5xl font-black leading-[1.02] text-white sm:text-6xl lg:text-[4.25rem]">
-              GIFTS THAT <span className="text-lime">SAY MORE.</span>
+              GIFTS THAT <span className="text-champagne">SAY MORE.</span>
             </h1>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-white/80">
               Thoughtfully chosen, beautifully wrapped and delivered same-day in Nairobi. Personalized to the people who matter most.
@@ -98,22 +99,22 @@ export default async function HomePage() {
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
                 href="/shop"
-                className="inline-flex items-center gap-2 rounded-2xl bg-zed-lime px-7 py-4 text-sm font-bold uppercase tracking-wider text-zed-950 shadow-glass transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-glass-lg"
+                className="inline-flex items-center gap-2 rounded-2xl bg-champagne px-7 py-4 text-sm font-bold uppercase tracking-wider text-charcoal shadow-glass transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-glass-lg"
               >
                 Shop Now <ArrowRight className="size-4" />
               </Link>
               <Link
                 href="/gifts"
-                className="inline-flex items-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-7 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-lime hover:text-lime"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-7 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-champagne hover:text-champagne"
               >
                 Explore Gifts
               </Link>
             </div>
             <div className="mt-10 grid max-w-md grid-cols-2 gap-x-4 gap-y-3 border-t border-white/15 pt-6 text-sm sm:grid-cols-4">
-              <div className="flex items-center gap-2 text-white/85"><Truck className="size-4 text-lime" /> Same-day NBO</div>
-              <div className="flex items-center gap-2 text-white/85"><Gift className="size-4 text-lime" /> Free gift box</div>
-              <div className="flex items-center gap-2 text-white/85"><ShieldCheck className="size-4 text-lime" /> M-PESA secure</div>
-              <div className="flex items-center gap-2 text-white/85"><Clock className="size-4 text-lime" /> Live tracking</div>
+              <div className="flex items-center gap-2 text-white/85"><Truck className="size-4 text-champagne" /> Same-day NBO</div>
+              <div className="flex items-center gap-2 text-white/85"><Gift className="size-4 text-champagne" /> Free gift box</div>
+              <div className="flex items-center gap-2 text-white/85"><ShieldCheck className="size-4 text-champagne" /> M-PESA secure</div>
+              <div className="flex items-center gap-2 text-white/85"><Clock className="size-4 text-champagne" /> Live tracking</div>
             </div>
           </div>
 
@@ -127,7 +128,7 @@ export default async function HomePage() {
                     <img src={hero.images[0]?.url ?? "/placeholders/collection-bestsellers.svg"} alt="" className="h-full w-full object-cover" />
                   </div>
                 ) : (
-                  <div className="grid aspect-[4/5] place-items-center rounded-2xl bg-white/10 font-display text-2xl font-black text-lime">ZED</div>
+                  <div className="grid aspect-[4/5] place-items-center rounded-2xl bg-white/10 font-display text-2xl font-black text-champagne">ZED</div>
                 )}
               </div>
             </div>
@@ -154,7 +155,7 @@ export default async function HomePage() {
             {hero && (
               <div className="glass-strong absolute left-[6%] top-[6%] animate-[float_7s_ease-in-out_infinite] rounded-2xl px-4 py-3">
                 <p className="text-[10px] font-bold uppercase tracking-widest text-ink/50">From</p>
-                <p className="font-display text-lg font-black text-zed-950">{formatKES(hero.price)}</p>
+                <p className="font-display text-lg font-black text-charcoal">{formatKES(hero.price)}</p>
                 <p className="text-[11px] text-ink/60">Incl. signature gift box</p>
               </div>
             )}
@@ -163,7 +164,7 @@ export default async function HomePage() {
                 <span className="flex text-amber-400">
                   {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="size-3.5 fill-current" />)}
                 </span>
-                <span className="text-sm font-bold text-zed-950">4.9</span>
+                <span className="text-sm font-bold text-charcoal">4.9</span>
               </div>
               <p className="mt-0.5 text-[11px] text-ink/60">Loved by gifters across Kenya</p>
             </div>
@@ -176,10 +177,10 @@ export default async function HomePage() {
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="eyebrow">Find by moment</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-zed-950 lg:text-4xl">Shop the occasion</h2>
+            <h2 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">Shop the occasion</h2>
             <p className="mt-2 max-w-md text-sm text-ink/60">From birthdays to weddings — a gift for every moment, in every county.</p>
           </div>
-          <Link href="/gifts" className="hidden items-center gap-1 text-sm font-semibold text-zed-800 hover:text-zed-900 sm:inline-flex">
+          <Link href="/gifts" className="hidden items-center gap-1 text-sm font-semibold text-deep-olive hover:text-charcoal sm:inline-flex">
             View all <ArrowRight className="size-4" />
           </Link>
         </div>
@@ -191,7 +192,7 @@ export default async function HomePage() {
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                   style={{ backgroundImage: `url(${c.image})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-zed-950/80 via-zed-950/10 to-transparent transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-obsidian/10 to-transparent transition-opacity" />
                 <span className="absolute inset-x-3 bottom-3 text-center font-display text-sm font-bold text-white drop-shadow">{c.title}</span>
               </div>
             </Link>
@@ -202,10 +203,10 @@ export default async function HomePage() {
           {RECIPIENT_CARDS.map((c) => (
             <Link key={c.href} href={c.href} className="group flex items-center gap-3 rounded-2xl glass-panel py-2 pl-2 pr-5 transition-all hover:-translate-y-1 hover:shadow-glass-lg">
               <span
-                className="size-12 shrink-0 rounded-full bg-cover bg-center ring-2 ring-white/70 transition-all group-hover:ring-zed-lime"
+                className="size-12 shrink-0 rounded-full bg-cover bg-center ring-2 ring-white/70 transition-all group-hover:ring-champagne"
                 style={{ backgroundImage: `url(${c.image})` }}
               />
-              <span className="text-sm font-semibold text-ink group-hover:text-zed-800">{c.title}</span>
+              <span className="text-sm font-semibold text-ink group-hover:text-deep-olive">{c.title}</span>
             </Link>
           ))}
         </div>
@@ -216,10 +217,10 @@ export default async function HomePage() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="eyebrow">Customer favourites</p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-zed-950 lg:text-4xl">Featured gifts</h2>
+            <h2 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">Featured gifts</h2>
             <p className="mt-2 max-w-md text-sm text-ink/60">Best-sellers, new arrivals and personalized favourites — chosen for the people you love.</p>
           </div>
-          <Link href="/shop" className="hidden items-center gap-1 text-sm font-semibold text-zed-800 hover:text-zed-900 sm:inline-flex">
+          <Link href="/shop" className="hidden items-center gap-1 text-sm font-semibold text-deep-olive hover:text-charcoal sm:inline-flex">
             View All Products <ArrowRight className="size-4" />
           </Link>
         </div>
@@ -229,7 +230,7 @@ export default async function HomePage() {
           ))}
         </div>
         <div className="mt-10 text-center lg:hidden">
-          <Link href="/shop" className="inline-flex items-center gap-2 rounded-2xl bg-zed-950 px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-lime">
+          <Link href="/shop" className="inline-flex items-center gap-2 rounded-2xl bg-obsidian px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-champagne">
             View All Products <ArrowRight className="size-4" />
           </Link>
         </div>
@@ -239,17 +240,17 @@ export default async function HomePage() {
       <section className="container-zed pb-14 lg:pb-20">
         <div className="relative overflow-hidden rounded-[2rem] p-8 sm:p-12">
           <div className="absolute inset-0 bg-[radial-gradient(90%_120%_at_10%_0%,rgba(18,112,75,0.2),transparent_55%),radial-gradient(70%_100%_at_100%_20%,rgba(191,215,47,0.18),transparent_55%),linear-gradient(150deg,rgba(255,255,255,0.65),rgba(255,255,255,0.25))]" aria-hidden />
-          <div className="glass-blob right-[-8%] top-[-20%] h-72 w-72 bg-lime/20 animate-[blob_26s_ease-in-out_infinite]" aria-hidden />
+          <div className="glass-blob right-[-8%] top-[-20%] h-72 w-72 bg-champagne/20 animate-[blob_26s_ease-in-out_infinite]" aria-hidden />
           <div className="relative">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="eyebrow">Zed made personal</p>
-                <h2 className="mt-2 font-display text-3xl font-bold text-zed-950 lg:text-4xl">Make It Personal</h2>
+                <h2 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">Make It Personal</h2>
                 <p className="mt-2 max-w-xl text-sm text-ink/65">
                   Turn a beautiful gift into something truly unforgettable.
                 </p>
               </div>
-              <Link href="/personalized" className="inline-flex items-center gap-2 rounded-2xl bg-zed-950 px-6 py-3 text-sm font-bold text-lime transition-all hover:-translate-y-0.5 hover:shadow-glass-lg">
+              <Link href="/personalized" className="inline-flex items-center gap-2 rounded-2xl bg-obsidian px-6 py-3 text-sm font-bold text-champagne transition-all hover:-translate-y-0.5 hover:shadow-glass-lg">
                 Explore personalized <ArrowRight className="size-4" />
               </Link>
             </div>
@@ -257,10 +258,10 @@ export default async function HomePage() {
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
               {PERSONALIZE_CARDS.map((p, i) => (
                 <Link key={p.title} href="/personalized" className="group glass-card rounded-2xl p-4 text-center animate-[rise_0.6s_cubic-bezier(0.16,1,0.3,1)_both]" style={sectionDelay(i)}>
-                  <span className="mx-auto grid size-12 place-items-center rounded-full bg-white/70 text-zed-800 shadow-glass transition-transform group-hover:scale-110">
+                  <span className="mx-auto grid size-12 place-items-center rounded-full bg-white/70 text-deep-olive shadow-glass transition-transform group-hover:scale-110">
                     <p.icon className="size-5" />
                   </span>
-                  <p className="mt-3 text-[13px] font-bold text-zed-950">{p.title}</p>
+                  <p className="mt-3 text-[13px] font-bold text-charcoal">{p.title}</p>
                   <p className="mt-0.5 text-[11px] text-ink/55">{p.text}</p>
                 </Link>
               ))}
@@ -280,24 +281,24 @@ export default async function HomePage() {
       {/* ===== SPECIAL OFFERS ===== */}
       <section className="container-zed pb-14 lg:pb-20">
         <div className="relative overflow-hidden rounded-[2rem] p-8 text-white sm:p-14">
-          <div className="absolute inset-0 bg-[radial-gradient(120%_140%_at_85%_0%,rgba(191,215,47,0.28),transparent_55%),radial-gradient(100%_130%_at_0%_100%,rgba(18,112,75,0.55),transparent_60%),linear-gradient(150deg,#0b4a32_0%,#063121_60%,#0b4a32_100%)]" aria-hidden />
-          <div className="glass-blob left-[-6%] bottom-[-30%] h-80 w-80 bg-lime/25 animate-[blob_24s_ease-in-out_infinite]" aria-hidden />
-          <div className="glass-blob right-[12%] top-[-40%] h-72 w-72 bg-zed-500/45 animate-[blob_30s_ease-in-out_infinite]" aria-hidden />
+          <div className="absolute inset-0 bg-[radial-gradient(120%_140%_at_85%_0%,rgba(168,179,163,0.28),transparent_55%),radial-gradient(100%_130%_at_0%_100%,rgba(63,74,60,0.55),transparent_60%),linear-gradient(150deg,#1d1d1f_0%,#111110_60%,#1d1d1f_100%)]" aria-hidden />
+          <div className="glass-blob left-[-6%] bottom-[-30%] h-80 w-80 bg-champagne/25 animate-[blob_24s_ease-in-out_infinite]" aria-hidden />
+          <div className="glass-blob right-[12%] top-[-40%] h-72 w-72 bg-warm-white/45 animate-[blob_30s_ease-in-out_infinite]" aria-hidden />
 
           <div className="relative grid items-center gap-10 lg:grid-cols-2">
             <div>
-              <p className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-lime backdrop-blur-md">
+              <p className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-champagne backdrop-blur-md">
                 <Sparkles className="size-3.5" /> Limited time
               </p>
               <h2 className="mt-5 font-display text-4xl font-black leading-tight sm:text-5xl">
-                MAKE THEIR DAY <span className="text-lime">EXTRA SPECIAL</span>
+                MAKE THEIR DAY <span className="text-champagne">EXTRA SPECIAL</span>
               </h2>
               <p className="mt-4 max-w-md text-lg text-white/80">
                 Find something unforgettable for someone unforgettable.
               </p>
               <Link
                 href="/deals"
-                className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-lime px-8 py-4 text-sm font-bold uppercase tracking-wider text-zed-950 shadow-glass transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-glass-lg"
+                className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-champagne"
               >
                 Shop Special Offers <ArrowRight className="size-4" />
               </Link>
@@ -321,15 +322,15 @@ export default async function HomePage() {
       <section className="container-zed pb-14 lg:pb-20">
         <div className="text-center">
           <p className="eyebrow">The ZED difference</p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-zed-950 lg:text-4xl">Why shop with ZED</h2>
+          <h2 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">Why shop with ZED</h2>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {WHY_ZED.map((w, i) => (
             <div key={w.title} className="glass-card rounded-3xl p-6 text-center animate-[rise_0.6s_cubic-bezier(0.16,1,0.3,1)_both]" style={sectionDelay(i)}>
-              <span className="mx-auto grid size-14 place-items-center rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.9),rgba(191,215,47,0.5)_70%)] text-zed-950 shadow-glass">
+              <span className="mx-auto grid size-14 place-items-center rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.9),rgba(191,215,47,0.5)_70%)] text-charcoal shadow-glass">
                 <w.icon className="size-6" />
               </span>
-              <p className="mt-4 font-display text-lg font-bold text-zed-950">{w.title}</p>
+              <p className="mt-4 font-display text-lg font-bold text-charcoal">{w.title}</p>
               <p className="mt-1.5 text-sm leading-relaxed text-ink/65">{w.text}</p>
             </div>
           ))}
@@ -340,11 +341,11 @@ export default async function HomePage() {
       <section className="container-zed pb-14 lg:pb-20">
         <div className="text-center">
           <p className="eyebrow">Kind words</p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-zed-950 lg:text-4xl">Loved by gifters across Kenya</h2>
+          <h2 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">Loved by gifters across Kenya</h2>
         </div>
         {testimonials.length === 0 ? (
           <div className="glass-panel mx-auto mt-8 max-w-xl rounded-3xl p-8 text-center">
-            <Quote className="mx-auto size-8 text-zed-700" />
+            <Quote className="mx-auto size-8 text-soft-sage" />
             <p className="mt-3 text-sm text-ink/70">
               Reviews appear here after customers approve them. Bought a gift from us? Your words help others choose.
             </p>
@@ -359,16 +360,16 @@ export default async function HomePage() {
                   ))}
                 </div>
                 <blockquote className="mt-3 flex-1 text-sm leading-relaxed text-ink/75">
-                  “{r.comment ?? r.title ?? "Lovely gift, beautifully delivered."}”
+                  {(r.comment ?? r.title ?? "Lovely gift, beautifully delivered.")}
                 </blockquote>
                 <figcaption className="mt-4 flex items-center gap-3">
-                  <span className="grid size-10 place-items-center rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.95),rgba(14,90,61,0.25)_75%)] font-display font-black text-zed-900">
+                  <span className="grid size-10 place-items-center rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.95),rgba(14,90,61,0.25)_75%)] font-display font-black text-charcoal">
                     {(r.user?.name ?? "ZED").charAt(0).toUpperCase()}
                   </span>
                   <div>
-                    <p className="flex items-center gap-1.5 text-sm font-bold text-zed-950">
+                    <p className="flex items-center gap-1.5 text-sm font-bold text-charcoal">
                       {r.user?.name ?? "Verified customer"}
-                      <BadgeCheck className="size-4 text-zed-700" aria-label="Verified" />
+                      <BadgeCheck className="size-4 text-soft-sage" aria-label="Verified" />
                     </p>
                     {r.product && <p className="text-xs text-ink/55">gifted · {r.product.name}</p>}
                   </div>
@@ -382,17 +383,17 @@ export default async function HomePage() {
       {/* ===== NEWSLETTER + CONTACT ===== */}
       <section className="container-zed pb-16 lg:pb-20">
         <div className="relative overflow-hidden rounded-[2rem] p-8 text-center lg:p-14">
-          <div className="absolute inset-0 bg-[radial-gradient(90%_140%_at_50%_-30%,rgba(191,215,47,0.22),transparent_60%),linear-gradient(160deg,rgba(255,255,255,0.75),rgba(255,255,255,0.3))]" aria-hidden />
-          <div className="glass-blob left-[8%] bottom-[-40%] h-64 w-64 bg-zed-500/25 animate-[blob_26s_ease-in-out_infinite]" aria-hidden />
+          <div className="absolute inset-0 bg-[radial-gradient(90%_140%_at_50%_-30%,rgba(168,179,163,0.22),transparent_60%),linear-gradient(160deg,rgba(255,255,255,0.75),rgba(255,255,255,0.3))]" aria-hidden />
+          <div className="glass-blob left-[8%] bottom-[-40%] h-64 w-64 bg-warm-white/25 animate-[blob_26s_ease-in-out_infinite]" aria-hidden />
           <div className="relative">
-            <h2 className="font-display text-3xl font-bold text-zed-950 lg:text-4xl">Never miss an occasion again</h2>
+            <h2 className="font-display text-3xl font-bold text-charcoal lg:text-4xl">Never miss an occasion again</h2>
             <p className="mx-auto mt-3 max-w-md text-ink/65">
               Gift reminders, exclusive drops and members-only discounts. No spam, unsubscribe anytime.
             </p>
             <NewsletterForm />
             <p className="mt-6 text-sm text-ink/60">
-              Questions? WhatsApp us at <a className="text-zed-700 underline underline-offset-2" href={SITE.whatsappHref}>{SITE.phone}</a> or email{" "}
-              <a className="text-zed-700 underline underline-offset-2" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+              Questions? WhatsApp us at <a className="text-soft-sage underline underline-offset-2" href={SITE.whatsappHref}>{SITE.phone}</a> or email{" "}
+              <a className="text-soft-sage underline underline-offset-2" href={`mailto:${SITE.email}`}>{SITE.email}</a>
             </p>
             <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-ink/45">
               <span className="flex items-center gap-1.5"><MapPin className="size-3.5" /> Nairobi, Kenya</span>

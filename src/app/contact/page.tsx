@@ -8,8 +8,8 @@ export const metadata = { title: "Contact Us · ZED Gift Shop", description: "Qu
 export default function ContactPage() {
   return (
     <div className="container-zed py-12">
-      <p className="eyebrow text-zed-700">We&apos;re here to help</p>
-      <h1 className="mt-2 max-w-2xl font-display text-4xl font-black text-zed-950 sm:text-5xl">Contact ZED Gift Shop</h1>
+      <p className="eyebrow text-soft-sage">We&apos;re here to help</p>
+      <h1 className="mt-2 max-w-2xl font-display text-4xl font-black text-charcoal sm:text-5xl">Contact ZED Gift Shop</h1>
       <p className="mt-4 max-w-2xl text-ink/70">
         Need help with an order, a custom or personalized gift, or a bulk corporate order? Send us a message —
         we usually reply within one working day.
@@ -19,27 +19,27 @@ export default function ContactPage() {
         <ContactForm />
 
         <aside className="space-y-4">
-          <div className="rounded-zed bg-zed-950 p-6 text-white">
-            <p className="eyebrow text-lime">Fastest response</p>
+          <div className="rounded-zed bg-obsidian p-6 text-white">
+            <p className="eyebrow text-champagne">Fastest response</p>
             <div className="mt-4 space-y-3 text-sm">
               <p className="flex items-center gap-3">
-                <Phone className="size-5 text-lime" />
-                <a className="hover:text-lime" href={SITE.phoneHref}>{SITE.phone}</a>
+                <Phone className="size-5 text-champagne" />
+                <a className="hover:text-champagne" href={SITE.phoneHref}>{SITE.phone}</a>
               </p>
               <p className="flex items-center gap-3">
-                <MessageCircle className="size-5 text-lime" />
-                <a className="hover:text-lime" href={SITE.whatsappHref}>WhatsApp {SITE.phone}</a>
+                <MessageCircle className="size-5 text-champagne" />
+                <a className="hover:text-champagne" href={SITE.whatsappHref}>WhatsApp {SITE.phone}</a>
               </p>
               <p className="flex items-center gap-3">
-                <Mail className="size-5 text-lime" />
-                <a className="break-all hover:text-lime" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+                <Mail className="size-5 text-champagne" />
+                <a className="break-all hover:text-champagne" href={`mailto:${SITE.email}`}>{SITE.email}</a>
               </p>
             </div>
           </div>
 
           <div className="glass-card rounded-zed p-6">
-            <p className="flex items-center gap-2 font-display text-base font-bold text-zed-950">
-              <Clock className="size-5 text-zed-700" /> Opening hours
+            <p className="flex items-center gap-2 font-display text-base font-bold text-charcoal">
+              <Clock className="size-5 text-soft-sage" /> Opening hours
             </p>
             <ul className="mt-3 space-y-1.5 text-sm text-ink/70">
               <li className="flex justify-between"><span>Mon – Fri</span><span className="font-semibold">8:00am – 8:00pm</span></li>
@@ -49,13 +49,13 @@ export default function ContactPage() {
           </div>
 
           <div className="glass-panel rounded-zed p-6 text-sm text-ink/70">
-            <p className="flex items-center gap-2 font-display text-base font-bold text-zed-950">
-              <MessageSquareText className="size-5 text-zed-700" /> Business enquiries
+            <p className="flex items-center gap-2 font-display text-base font-bold text-charcoal">
+              <MessageSquareText className="size-5 text-soft-sage" /> Business enquiries
             </p>
             <p className="mt-3">
               Corporate gifting, bulk orders and partnership enquiries: email us and a team member will follow up.
             </p>
-            <Link href="/gifts/corporate" className="mt-4 inline-block rounded-zed bg-lime-tint px-4 py-2 font-bold text-zed-800 hover:bg-lime">
+            <Link href="/gifts/corporate" className="mt-4 inline-block rounded-zed bg-warm-white px-4 py-2 font-bold text-deep-olive hover:bg-champagne">
               Corporate gifting →
             </Link>
           </div>

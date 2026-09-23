@@ -81,7 +81,7 @@ export function HeaderContent({
   return (
     <>
       {/* Announcement bar */}
-      <div className="relative z-30 border-b border-white/10 bg-zed-950/90 text-white backdrop-blur">
+      <div className="relative z-30 border-b border-white/10 bg-obsidian/90 text-white backdrop-blur">
         <div className="container-zed flex h-9 items-center justify-center overflow-hidden">
           <p className="truncate text-[11px] font-medium tracking-[0.12em]">{announcement}</p>
         </div>
@@ -96,18 +96,18 @@ export function HeaderContent({
               type="button"
               aria-label="Open menu"
               onClick={() => setMobileOpen(true)}
-              className="grid size-9 place-items-center rounded-full text-ink hover:bg-zed-900/5 lg:hidden"
+              className="grid size-9 place-items-center rounded-full text-ink hover:bg-charcoal/5 lg:hidden"
             >
               <Menu className="size-5" />
             </button>
             <Link href="/" className="flex items-baseline gap-1.5 px-1" aria-label="ZED GIFT SHOP home">
-              <span className="font-display text-lg font-black tracking-[0.08em] text-zed-950 sm:text-xl">
+              <span className="font-display text-lg font-black tracking-[0.08em] text-charcoal sm:text-xl">
                 ZED
               </span>
-              <span className="hidden text-[9px] font-bold tracking-[0.3em] text-zed-700 sm:inline">
+              <span className="hidden text-[9px] font-bold tracking-[0.3em] text-soft-sage sm:inline">
                 GIFT SHOP
               </span>
-              <span className="inline-block size-2 rounded-full bg-zed-lime sm:hidden" />
+              <span className="inline-block size-2 rounded-full bg-champagne sm:hidden" />
             </Link>
           </div>
 
@@ -146,7 +146,7 @@ export function HeaderContent({
                         href={g.href}
                         className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-ink hover:bg-white/70"
                       >
-                        <Gift className="size-4 text-zed-700" />
+                        <Gift className="size-4 text-soft-sage" />
                         {g.label}
                       </Link>
                     ))}
@@ -155,7 +155,7 @@ export function HeaderContent({
                     <Link href="/gift-builder" className="block rounded-xl px-3 py-2 text-sm text-ink hover:bg-white/70">Build a gift box</Link>
                     <Link
                       href="/gifts"
-                      className="mt-1 block rounded-xl bg-zed-950 px-3 py-2.5 text-center text-sm font-semibold text-lime"
+                      className="mt-1 block rounded-xl bg-obsidian px-3 py-2.5 text-center text-sm font-semibold text-champagne"
                     >
                       Browse all gifts
                     </Link>
@@ -171,25 +171,25 @@ export function HeaderContent({
               type="button"
               aria-label="Search"
               onClick={() => setSearchOpen(true)}
-              className="grid size-9 place-items-center rounded-full text-ink hover:bg-zed-900/5"
+              className="grid size-9 place-items-center rounded-full text-ink hover:bg-charcoal/5"
             >
               <Search className="size-5" />
             </button>
             <Link
               href={accountHref}
               aria-label={isAuthed ? "My account" : "Sign in"}
-              className="grid size-9 place-items-center rounded-full text-ink hover:bg-zed-900/5"
+              className="grid size-9 place-items-center rounded-full text-ink hover:bg-charcoal/5"
             >
               {isAuthed ? <User className="size-5" /> : <LogIn className="size-5" />}
             </Link>
             <Link
               href="/wishlist"
               aria-label={`Wishlist (${wishlistCount})`}
-              className="relative grid size-9 place-items-center rounded-full text-ink hover:bg-zed-900/5"
+              className="relative grid size-9 place-items-center rounded-full text-ink hover:bg-charcoal/5"
             >
               <Heart className="size-5" />
               {wishlistCount > 0 && (
-                <span className="absolute right-0 top-0 grid min-w-4 place-items-center rounded-full bg-zed-lime px-1 text-[10px] font-bold text-zed-950">
+                <span className="absolute right-0 top-0 grid min-w-4 place-items-center rounded-full bg-champagne px-1 text-[10px] font-bold text-charcoal">
                   {wishlistCount}
                 </span>
               )}
@@ -198,11 +198,11 @@ export function HeaderContent({
               type="button"
               aria-label={`Open cart (${cartCount} items)`}
               onClick={openCart}
-              className="relative grid size-9 place-items-center rounded-full bg-zed-950 text-white shadow-glass hover:bg-zed-900"
+              className="relative grid size-9 place-items-center rounded-full bg-obsidian text-white shadow-glass hover:bg-charcoal"
             >
               <ShoppingBag className="size-5" />
               {cartCount > 0 && (
-                <span className="absolute -right-1 -top-1 grid min-w-4 place-items-center rounded-full bg-zed-lime px-1 text-[10px] font-bold text-zed-950">
+                <span className="absolute -right-1 -top-1 grid min-w-4 place-items-center rounded-full bg-champagne px-1 text-[10px] font-bold text-charcoal">
                   {cartCount}
                 </span>
               )}
@@ -214,17 +214,17 @@ export function HeaderContent({
       {/* Mobile glass nav */}
       {mobileOpen && (
         <div className="fixed inset-0 z-[75] lg:hidden">
-          <div className="absolute inset-0 bg-zed-950/40 backdrop-blur-sm animate-fade-in" onClick={() => setMobileOpen(false)} />
+          <div className="absolute inset-0 bg-obsidian/40 backdrop-blur-sm animate-fade-in" onClick={() => setMobileOpen(false)} />
           <div className="glass-strong absolute inset-y-0 left-0 flex w-[min(88vw,340px)] flex-col shadow-glass-lg animate-[menu-in_0.3s_cubic-bezier(0.16,1,0.3,1)_both]">
             <div className="flex items-center justify-between border-b border-white/50 px-4 py-4">
-              <span className="font-display text-base font-black tracking-[0.08em] text-zed-950">
-                ZED <span className="text-zed-700">GIFT SHOP</span>
+              <span className="font-display text-base font-black tracking-[0.08em] text-charcoal">
+                ZED <span className="text-soft-sage">GIFT SHOP</span>
               </span>
               <button
                 type="button"
                 aria-label="Close menu"
                 onClick={() => setMobileOpen(false)}
-                className="grid size-9 place-items-center rounded-full hover:bg-zed-900/5"
+                className="grid size-9 place-items-center rounded-full hover:bg-charcoal/5"
               >
                 <X className="size-5" />
               </button>
@@ -239,16 +239,16 @@ export function HeaderContent({
                 { label: "About", href: "/about" },
                 { label: "Contact", href: "/contact" },
               ].map((l) => (
-                <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="block rounded-xl px-3 py-3 text-[15px] font-medium text-ink hover:bg-white/70 hover:text-zed-900">
+                <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="block rounded-xl px-3 py-3 text-[15px] font-medium text-ink hover:bg-white/70 hover:text-charcoal">
                   {l.label}
                 </Link>
               ))}
-              <p className="mt-2 px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-zed-700">
+              <p className="mt-2 px-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-soft-sage">
                 Gifts by occasion
               </p>
               <div className="mt-1 grid grid-cols-2 gap-1 px-1 pb-4">
                 {GIFT_ROUTES.map((g) => (
-                  <Link key={g.slug} href={g.href} onClick={() => setMobileOpen(false)} className="rounded-xl px-2 py-2.5 text-sm text-ink hover:bg-white/70 hover:text-zed-900">
+                  <Link key={g.slug} href={g.href} onClick={() => setMobileOpen(false)} className="rounded-xl px-2 py-2.5 text-sm text-ink hover:bg-white/70 hover:text-charcoal">
                     {g.label}
                   </Link>
                 ))}
@@ -256,11 +256,11 @@ export function HeaderContent({
             </nav>
             <div className="border-t border-white/50 p-3">
               {isAuthed && (userRole === "ADMIN" || userRole === "STAFF") && (
-                <Link href="/admin" onClick={() => setMobileOpen(false)} className="mb-2 block rounded-xl bg-zed-950 px-4 py-3 text-center text-sm font-semibold text-lime">
+                <Link href="/admin" onClick={() => setMobileOpen(false)} className="mb-2 block rounded-xl bg-obsidian px-4 py-3 text-center text-sm font-semibold text-champagne">
                   Admin dashboard
                 </Link>
               )}
-              <Link href={accountHref} onClick={() => setMobileOpen(false)} className="block rounded-xl bg-zed-950 px-4 py-3 text-center text-sm font-semibold text-white">
+              <Link href={accountHref} onClick={() => setMobileOpen(false)} className="block rounded-xl bg-obsidian px-4 py-3 text-center text-sm font-semibold text-white">
                 {isAuthed ? "My account" : "Sign in / Create account"}
               </Link>
             </div>
@@ -290,7 +290,7 @@ function NavLink({
       href={href}
       onMouseEnter={onMouseEnter}
       className={`flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
-        active ? "bg-zed-950/5 text-zed-900" : "text-ink/80 hover:bg-zed-900/5 hover:text-ink"
+        active ? "bg-obsidian/5 text-charcoal" : "text-ink/80 hover:bg-charcoal/5 hover:text-ink"
       }`}
     >
       {label}

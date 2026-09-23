@@ -37,7 +37,7 @@ export function NewsletterForm() {
 
   if (state === "done") {
     return (
-      <div className="mx-auto mt-6 flex max-w-md items-center justify-center gap-2 rounded-zed bg-zed-lime px-6 py-4 text-sm font-bold text-zed-950">
+      <div className="mx-auto mt-6 flex max-w-md items-center justify-center gap-2 rounded-zed bg-champagne px-6 py-4 text-sm font-bold text-charcoal">
         <Check className="size-5" /> You&apos;re in — check your inbox for a welcome gift code.
       </div>
     );
@@ -53,17 +53,17 @@ export function NewsletterForm() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@example.com"
           aria-label="Email address"
-          className="w-full rounded-zed border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-lime focus:outline-none"
+          className="w-full rounded-zed border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/50 focus:border-champagne focus:outline-none"
         />
         <button
           type="submit"
           disabled={state === "busy"}
-          className="shrink-0 rounded-zed bg-zed-lime px-5 py-3 text-sm font-bold text-zed-950 transition-colors hover:bg-white disabled:opacity-60"
+          className="shrink-0 rounded-zed bg-champagne px-5 py-3 text-sm font-bold text-charcoal transition-colors hover:bg-white disabled:opacity-60"
         >
           {state === "busy" ? "Joining…" : "Join"}
         </button>
       </form>
-      {state === "error" && <p className="mt-2 text-sm text-lime">{message}</p>}
+      {state === "error" && <p className="mt-2 text-sm text-champagne">{message}</p>}
     </div>
   );
 }

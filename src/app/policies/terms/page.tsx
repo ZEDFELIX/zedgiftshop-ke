@@ -3,14 +3,14 @@ import { SITE } from "@/lib/constants";
 export const metadata = { title: "Terms of Service · ZED Gift Shop", description: "Terms of service for zedgiftshop.co.ke purchases and account use." };
 
 function Heading({ n, t }: { n: number; t: string }) {
-  return <h2 className="mt-8 font-display text-xl font-bold text-zed-950"><span className="text-zed-600">{n}.</span> {t}</h2>;
+  return <h2 className="mt-8 font-display text-xl font-bold text-charcoal"><span className="text-soft-sage">{n}.</span> {t}</h2>;
 }
 
 export default function TermsPage() {
   return (
     <div className="container-zed max-w-3xl py-12">
-      <p className="eyebrow text-zed-700">Policies · Last updated {new Date().toDateString()}</p>
-      <h1 className="mt-2 font-display text-4xl font-black text-zed-950">Terms of Service</h1>
+      <p className="eyebrow text-soft-sage">Policies · Last updated {new Date().toDateString()}</p>
+      <h1 className="mt-2 font-display text-4xl font-black text-charcoal">Terms of Service</h1>
       <p className="mt-4 text-ink/70">By using {SITE.name}, you agree to these terms. Please read them before placing an order.</p>
 
       <Heading n={1} t="Prices and payment" />
@@ -43,7 +43,7 @@ export default function TermsPage() {
       <p className="mt-3 text-sm leading-relaxed text-ink/75">To the maximum extent permitted by law, {SITE.name}&apos;s liability is limited to the amount you paid for the affected order. Nothing here limits liability that cannot be excluded under Kenyan law.</p>
 
       <Heading n={7} t="Governing law" />
-      <p className="mt-3 text-sm leading-relaxed text-ink/75">These terms are governed by the laws of the Republic of Kenya, and any disputes will be handled in the courts of Kenya. Questions? <a className="text-zed-700 underline" href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+      <p className="mt-3 text-sm leading-relaxed text-ink/75">These terms are governed by the laws of the Republic of Kenya, and any disputes will be handled in the courts of Kenya. Questions? <a className="text-soft-sage underline" href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
     </div>
   );
 }

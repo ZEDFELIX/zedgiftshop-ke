@@ -73,7 +73,7 @@ function TrackContent() {
     <div className="container-zed max-w-2xl py-14 lg:py-20">
       <header className="text-center">
         <p className="eyebrow">Where&apos;s my gift?</p>
-        <h1 className="mt-2 font-display text-3xl font-bold text-zed-950 lg:text-4xl">Track your order</h1>
+        <h1 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">Track your order</h1>
         <p className="mt-2 text-sm text-ink/60">Enter the order number and the email or phone you used at checkout.</p>
       </header>
 
@@ -86,7 +86,7 @@ function TrackContent() {
           <label className="label" htmlFor="t-key">Email or last digits of M-PESA phone</label>
           <input id="t-key" className="field" value={orderKey} onChange={(e) => setOrderKey(e.target.value)} required placeholder="you@example.com or 0712…" />
         </div>
-        <button type="submit" disabled={loading} className="flex w-full items-center justify-center gap-2 rounded-zed bg-zed-950 py-3.5 text-sm font-bold uppercase tracking-wider text-lime disabled:opacity-50">
+        <button type="submit" disabled={loading} className="flex w-full items-center justify-center gap-2 rounded-zed bg-obsidian py-3.5 text-sm font-bold uppercase tracking-wider text-champagne disabled:opacity-50">
           {loading ? <Loader2 className="size-4 animate-spin" /> : <Search className="size-4" />} Track order
         </button>
         {error && <p className="rounded-zed bg-red-50/70 px-4 py-3 text-sm text-red-700 backdrop-blur-sm">{error}</p>}
@@ -97,11 +97,11 @@ function TrackContent() {
           <div className="glass-card rounded-zed p-5">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <span className="glass-strong grid size-11 place-items-center rounded-full text-zed-800">
+                <span className="glass-strong grid size-11 place-items-center rounded-full text-deep-olive">
                   <Truck className="size-5" />
                 </span>
                 <div>
-                  <p className="font-display text-lg font-bold text-zed-950">{result.orderNumber}</p>
+                  <p className="font-display text-lg font-bold text-charcoal">{result.orderNumber}</p>
                   <p className="text-xs text-ink/55">
                     Placed {new Date(result.createdAt).toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" })} · {result.county}, {result.town}
                   </p>
@@ -109,7 +109,7 @@ function TrackContent() {
               </div>
               <div className="text-right">
                 <p className="text-xs text-ink/50">Total</p>
-                <p className="font-bold text-zed-950">{formatKES(result.total)}</p>
+                <p className="font-bold text-charcoal">{formatKES(result.total)}</p>
                 <p className={`text-xs font-semibold ${paid ? "text-emerald-600" : "text-amber-600"}`}>{paid ? "Paid via M-PESA" : "Awaiting payment"}</p>
               </div>
             </div>
@@ -122,16 +122,16 @@ function TrackContent() {
 
             <ol className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {steps.map((s, i) => (
-                <li key={s} className={`relative rounded-zed border p-3 ${i <= currentIndex ? "border-zed-700 bg-lime-tint" : "border-white/50 bg-white/30 text-ink/45"}`}>
+                <li key={s} className={`relative rounded-zed border p-3 ${i <= currentIndex ? "border-soft-sage bg-warm-white" : "border-white/50 bg-white/30 text-ink/45"}`}>
                   <span className="text-[10px] font-bold uppercase tracking-widest">{ORDER_STATUS_STEPS[i].label}</span>
-                  {i <= currentIndex && <span className="mt-1 block size-1.5 rounded-full bg-zed-700" />}
+                  {i <= currentIndex && <span className="mt-1 block size-1.5 rounded-full bg-soft-sage" />}
                 </li>
               ))}
             </ol>
           </div>
 
           <div className="glass-panel rounded-zed p-5">
-            <h2 className="font-display text-base font-bold text-zed-950">Your items</h2>
+            <h2 className="font-display text-base font-bold text-charcoal">Your items</h2>
             <ul className="mt-3 divide-y divide-white/40">
               {result.items.map((item, idx) => (
                 <li key={idx} className="flex items-center gap-3 py-3">
@@ -142,22 +142,22 @@ function TrackContent() {
                     <p className="truncate text-sm font-medium text-ink">{item.name}</p>
                     <p className="text-xs text-ink/55">Qty {item.quantity}{item.giftWrapPrice > 0 ? " · Gift wrap" : ""}</p>
                   </div>
-                  <p className="text-sm font-semibold text-zed-950">{formatKES((item.price + item.giftWrapPrice) * item.quantity)}</p>
+                  <p className="text-sm font-semibold text-charcoal">{formatKES((item.price + item.giftWrapPrice) * item.quantity)}</p>
                 </li>
               ))}
             </ul>
           </div>
 
           <p className="text-center text-xs text-ink/50">
-            Need help? WhatsApp <a className="font-semibold text-zed-700 underline" href="tel:+254711436169">+254 711 436169</a> with your order number.
+            Need help? WhatsApp <a className="font-semibold text-soft-sage underline" href="tel:+254711436169">+254 711 436169</a> with your order number.
           </p>
         </section>
       )}
 
       {!result && !error && (
         <div className="mt-10 flex flex-col items-center text-center text-sm text-ink/50">
-          <PackageSearch className="mb-2 size-10 text-zed-700/50" />
-          <p>New to ZED? <Link href="/shop" className="text-zed-700 underline underline-offset-2">Explore the gift shop</Link></p>
+          <PackageSearch className="mb-2 size-10 text-soft-sage/50" />
+          <p>New to ZED? <Link href="/shop" className="text-soft-sage underline underline-offset-2">Explore the gift shop</Link></p>
         </div>
       )}
     </div>

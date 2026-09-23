@@ -41,7 +41,7 @@ export function ReviewsManager({ reviews }: { reviews: ReviewRow[] }) {
       <div className="flex gap-2">
         {(["PENDING", "APPROVED", "REJECTED", "ALL"] as const).map((f) => (
           <button key={f} type="button" onClick={() => setFilter(f)}
-            className={`rounded-zed px-4 py-2 text-sm font-semibold ${filter === f ? "bg-zed-950 text-lime" : "border border-edge bg-white text-ink/70 hover:border-zed-700"}`}>
+            className={`rounded-zed px-4 py-2 text-sm font-semibold ${filter === f ? "bg-obsidian text-champagne" : "border border-edge bg-white text-ink/70 hover:border-soft-sage"}`}>
             {f}
           </button>
         ))}
@@ -53,7 +53,7 @@ export function ReviewsManager({ reviews }: { reviews: ReviewRow[] }) {
         <div key={r.id} className={`rounded-zed border bg-white p-5 ${r.status === "PENDING" ? "border-amber-300" : "border-edge"}`}>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-2 text-sm">
-              <span className="font-semibold text-zed-950">{r.rating}</span>
+              <span className="font-semibold text-charcoal">{r.rating}</span>
               <span className="flex text-amber-500">
                 {Array.from({ length: r.rating }).map((_, i) => <Star key={i} className="size-4 fill-current" />)}
               </span>
@@ -67,7 +67,7 @@ export function ReviewsManager({ reviews }: { reviews: ReviewRow[] }) {
           <p className="mt-2 text-sm font-semibold text-ink">{r.title ?? <span className="font-normal italic text-ink/50">No title</span>}</p>
           <p className="mt-1 text-sm text-ink/70">{r.comment ?? <span className="italic text-ink/40">No comment</span>}</p>
           <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-ink/50">
-            <Link target="_blank" href={`/product/${r.productSlug}`} className="text-zed-700 underline underline-offset-2">{r.productName}</Link>
+            <Link target="_blank" href={`/product/${r.productSlug}`} className="text-soft-sage underline underline-offset-2">{r.productName}</Link>
             <span>·</span>
             <span>{new Date(r.createdAt).toLocaleDateString("en-KE")}</span>
             {r.status === "PENDING" && (

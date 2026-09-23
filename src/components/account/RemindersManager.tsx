@@ -92,7 +92,7 @@ export function RemindersManager() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <p className="text-sm text-ink/60">Never miss a day — sit back, we&apos;ll remind you.</p>
-        <button type="button" onClick={() => setShowForm((s) => !s)} className="flex items-center gap-1.5 rounded-zed bg-zed-950 px-4 py-2.5 text-sm font-bold text-lime">
+        <button type="button" onClick={() => setShowForm((s) => !s)} className="flex items-center gap-1.5 rounded-zed bg-obsidian px-4 py-2.5 text-sm font-bold text-champagne">
           <Plus className="size-4" /> {showForm ? "Cancel" : "Add reminder"}
         </button>
       </div>
@@ -124,11 +124,11 @@ export function RemindersManager() {
             <input id="rm-notes" className="field" placeholder="Loves coffee & candles" value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} />
           </div>
           <label className="flex items-center gap-2 text-sm text-ink/75 sm:col-span-2">
-            <input type="checkbox" checked={form.repeatsAnnually} onChange={(e) => setForm({ ...form, repeatsAnnually: e.target.checked })} className="size-4 accent-zed-800" />
+            <input type="checkbox" checked={form.repeatsAnnually} onChange={(e) => setForm({ ...form, repeatsAnnually: e.target.checked })} className="size-4 accent-deep-olive" />
             Remind me every year on this date
           </label>
           {error && <p className="rounded-zed bg-red-50 px-4 py-3 text-sm text-red-700 sm:col-span-2">{error}</p>}
-          <button type="submit" disabled={busy} className="flex items-center justify-center gap-2 rounded-zed bg-zed-950 py-3 text-sm font-bold text-lime disabled:opacity-50 sm:col-span-2">
+          <button type="submit" disabled={busy} className="flex items-center justify-center gap-2 rounded-zed bg-obsidian py-3 text-sm font-bold text-champagne disabled:opacity-50 sm:col-span-2">
             {busy ? <Loader2 className="size-4 animate-spin" /> : <Plus className="size-4" />} Save reminder
           </button>
         </form>
@@ -136,7 +136,7 @@ export function RemindersManager() {
 
       {reminders.length === 0 && !loading && (
         <div className="rounded-zed border border-dashed border-edge p-10 text-center text-sm text-ink/55">
-          <Bell className="mx-auto mb-2 size-8 text-zed-700/50" />
+          <Bell className="mx-auto mb-2 size-8 text-soft-sage/50" />
           No reminders yet. Add birthdays and anniversaries — we&apos;ll email you before each one.
         </div>
       )}
@@ -145,16 +145,16 @@ export function RemindersManager() {
         {reminders.map((r) => (
           <li key={r.id} className="glass-card flex items-start justify-between gap-3 rounded-zed p-5">
             <div className="flex items-start gap-3">
-              <span className="grid size-10 shrink-0 place-items-center rounded-full bg-lime-tint text-zed-800">
+              <span className="grid size-10 shrink-0 place-items-center rounded-full bg-warm-white text-deep-olive">
                 <Calendar className="size-5" />
               </span>
               <div>
-                <p className="font-semibold text-zed-950">
+                <p className="font-semibold text-charcoal">
                   {r.personName}
-                  <span className="ml-2 rounded-full bg-panel px-2 py-0.5 text-[11px] font-bold text-zed-800">{OCCASION_LABELS[r.occasion] ?? r.occasion}</span>
+                  <span className="ml-2 rounded-full bg-panel px-2 py-0.5 text-[11px] font-bold text-deep-olive">{OCCASION_LABELS[r.occasion] ?? r.occasion}</span>
                 </p>
                 <p className="mt-0.5 text-sm text-ink/65">
-                  <span className="font-semibold text-zed-700">{upcomingLabel(r.date)}</span> · every year{r.relationship ? ` · ${r.relationship}` : ""}
+                  <span className="font-semibold text-soft-sage">{upcomingLabel(r.date)}</span> · every year{r.relationship ? ` · ${r.relationship}` : ""}
                 </p>
                 {r.notes && <p className="mt-1 text-sm italic text-ink/50">&ldquo;{r.notes}&rdquo;</p>}
               </div>

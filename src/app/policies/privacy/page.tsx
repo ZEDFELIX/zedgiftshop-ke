@@ -3,14 +3,14 @@ import { SITE } from "@/lib/constants";
 export const metadata = { title: "Privacy Policy · ZED Gift Shop", description: "How ZED Gift Shop collects, uses and protects your personal information." };
 
 function Heading({ n, t }: { n: number; t: string }) {
-  return <h2 className="mt-8 font-display text-xl font-bold text-zed-950"><span className="text-zed-600">{n}.</span> {t}</h2>;
+  return <h2 className="mt-8 font-display text-xl font-bold text-charcoal"><span className="text-soft-sage">{n}.</span> {t}</h2>;
 }
 
 export default function PrivacyPage() {
   return (
     <div className="container-zed max-w-3xl py-12">
-      <p className="eyebrow text-zed-700">Policies · Last updated {new Date().toDateString()}</p>
-      <h1 className="mt-2 font-display text-4xl font-black text-zed-950">Privacy Policy</h1>
+      <p className="eyebrow text-soft-sage">Policies · Last updated {new Date().toDateString()}</p>
+      <h1 className="mt-2 font-display text-4xl font-black text-charcoal">Privacy Policy</h1>
       <p className="mt-4 text-ink/70">This policy explains what we collect, why, and the choices you have. It applies to {SITE.name} ({SITE.url}).</p>
 
       <Heading n={1} t="What we collect" />
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
       </ul>
 
       <Heading n={5} t="Security" />
-      <p className="mt-3 text-sm leading-relaxed text-ink/75">Your information travels over encrypted connections, passwords are hashed, and access is limited to what each role needs. Questions about privacy? Write to <a className="text-zed-700 underline" href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+      <p className="mt-3 text-sm leading-relaxed text-ink/75">Your information travels over encrypted connections, passwords are hashed, and access is limited to what each role needs. Questions about privacy? Write to <a className="text-soft-sage underline" href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
     </div>
   );
 }

@@ -12,9 +12,9 @@ const values = [
 export default function AboutPage() {
   return (
     <div>
-      <div className="bg-zed-950 py-16 text-white">
+      <div className="bg-obsidian py-16 text-white">
         <div className="container-zed">
-          <p className="eyebrow text-lime">Our story</p>
+          <p className="eyebrow text-champagne">Our story</p>
           <h1 className="mt-2 max-w-2xl font-display text-4xl font-black sm:text-5xl">Gifts that say more.</h1>
           <p className="mt-5 max-w-2xl text-white/75">
             ZED Gift Shop started with a simple frustration: the best gifts in Kenya were hard to find, and the
@@ -42,22 +42,22 @@ export default function AboutPage() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v) => (
             <div key={v.title} className="glass-card rounded-zed p-6">
-              <span className="grid size-11 place-items-center rounded-zed bg-lime-tint text-zed-800">
+              <span className="grid size-11 place-items-center rounded-zed bg-warm-white text-deep-olive">
                 <v.icon className="size-5" />
               </span>
-              <p className="mt-4 font-display font-bold text-zed-950">{v.title}</p>
+              <p className="mt-4 font-display font-bold text-charcoal">{v.title}</p>
               <p className="mt-2 text-sm leading-relaxed text-ink/65">{v.body}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-3 rounded-zed bg-zed-950 p-8 text-center text-white sm:flex-row sm:justify-between sm:text-left">
+        <div className="mt-12 flex flex-col items-center gap-3 rounded-zed bg-obsidian p-8 text-center text-white sm:flex-row sm:justify-between sm:text-left">
           <div className="flex items-center gap-3">
-            <MapPin className="size-6 text-lime" />
+            <MapPin className="size-6 text-champagne" />
             <p className="text-sm">Visit-by-appointment showroom in Nairobi — WhatsApp us to book.</p>
           </div>
           <div className="flex items-center gap-3">
-            <Gift className="size-6 text-lime" />
+            <Gift className="size-6 text-champagne" />
             <p className="text-sm">Need a custom gift? We love a challenge.</p>
           </div>
         </div>

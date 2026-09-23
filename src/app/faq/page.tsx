@@ -46,20 +46,20 @@ const faqs = [
 export default function FaqPage() {
   return (
     <div className="container-zed max-w-3xl py-12">
-      <p className="eyebrow text-zed-700">Good to know</p>
-      <h1 className="mt-2 font-display text-4xl font-black text-zed-950">Frequently asked questions</h1>
+      <p className="eyebrow text-soft-sage">Good to know</p>
+      <h1 className="mt-2 font-display text-4xl font-black text-charcoal">Frequently asked questions</h1>
       <p className="mt-4 text-ink/70">
         Everything about ordering, payment, personalization and delivery. Can&apos;t find your answer?{" "}
-        <Link href="/contact" className="text-zed-700 underline underline-offset-2">Contact us</Link> or WhatsApp{" "}
-        <a className="text-zed-700 underline underline-offset-2" href={SITE.phoneHref}>{SITE.phone}</a>.
+        <Link href="/contact" className="text-soft-sage underline underline-offset-2">Contact us</Link> or WhatsApp{" "}
+        <a className="text-soft-sage underline underline-offset-2" href={SITE.phoneHref}>{SITE.phone}</a>.
       </p>
 
       <div className="mt-10 space-y-3">
         {faqs.map((f) => (
           <details key={f.q} className="glass-panel group rounded-2xl p-1">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3.5 font-display font-semibold text-zed-950 marker:hidden">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3.5 font-display font-semibold text-charcoal marker:hidden">
               {f.q}
-              <ChevronDown className="size-5 shrink-0 text-zed-700 transition-transform group-open:rotate-180" />
+              <ChevronDown className="size-5 shrink-0 text-soft-sage transition-transform group-open:rotate-180" />
             </summary>
             <p className="px-4 pb-4 text-sm leading-relaxed text-ink/75">{f.a}</p>
           </details>
