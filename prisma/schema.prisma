@@ -53,6 +53,7 @@ enum PaymentProvider {
   M_PESA
   MANUAL
   CARD
+  FLUTTERWAVE
 }
 
 enum DeliveryMethod {
@@ -506,9 +507,13 @@ model Payment {
   status            PaymentStatus   @default(PENDING)
   amount            Int
   phone             String
+  email             String?
   // Sarafu/Daraja identifiers
   merchantRequestId String?
   checkoutRequestId String?
+  // Flutterwave identifiers
+  txRef             String?
+  checkoutUrl       String?
   mpesaReceipt      String?
   transactionCode   String?
   resultCode        Int?
