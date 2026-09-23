@@ -32,7 +32,7 @@ export function BottomNav() {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-obsidian/90 backdrop-blur-xl lg:hidden"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-champagne/15 bg-obsidian/95 backdrop-blur-xl lg:hidden"
       aria-label="Main navigation"
     >
       <div className="flex items-center justify-around gap-1 py-2">
@@ -63,7 +63,7 @@ export function BottomNav() {
         type="button"
         aria-label="Open cart"
         onClick={() => window.dispatchEvent(new CustomEvent("zed:open-cart"))}
-        className="absolute -top-5 mx-auto grid size-10 place-items-center rounded-full bg-champagne text-charcoal shadow-glass-lg transition-transform hover:scale-110"
+        className="absolute -top-5 mx-auto grid size-10 place-items-center rounded-full bg-champagne text-obsidian shadow-glass-lg transition-transform hover:scale-110"
       >
         <ShoppingCart className="size-5" />
       </button>
