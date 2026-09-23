@@ -21,18 +21,18 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
   const badge = !inStock
     ? { label: "Out of stock", cls: "bg-ink/85 text-white" }
     : personalizable && !sale
-      ? { label: "Personalize", cls: "bg-white/70 text-deep-olive backdrop-blur" }
+      ? { label: "Personalize", cls: "bg-warm-ivory/90 text-deep-olive backdrop-blur" }
       : sale != null && sale > 0
         ? { label: `SALE −${sale}%`, cls: "bg-champagne text-charcoal" }
         : isNew
           ? { label: "NEW", cls: "bg-obsidian text-champagne" }
           : isPopular
-            ? { label: "POPULAR", cls: "bg-white/70 text-charcoal backdrop-blur" }
+            ? { label: "POPULAR", cls: "bg-warm-ivory/90 text-charcoal backdrop-blur" }
             : null;
 
   return (
-    <article className="group glass-card relative flex h-full flex-col rounded-3xl p-2.5">
-      <div className="relative overflow-hidden rounded-2xl bg-white/55">
+    <article className="group glass-card relative flex h-full flex-col rounded-[1.6rem] p-2.5">
+      <div className="relative overflow-hidden rounded-[1.35rem] bg-warm-ivory/65">
         <Link href={`/product/${product.slug}`} className="block aspect-square" aria-label={product.name}>
           {image ? (
             <Image
@@ -44,7 +44,7 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
             />
           ) : (
-            <span className="grid aspect-square place-items-center font-display text-3xl text-soft-sage">ZED</span>
+            <span className="grid aspect-square place-items-center font-display text-3xl text-deep-olive">ZED</span>
           )}
         </Link>
         <div className="absolute inset-0 bg-gradient-to-t from-obsidian/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -65,7 +65,7 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
           ) : (
             <Link
               href={`/product/${product.slug}`}
-              className="block rounded-full border border-white/60 bg-white/85 px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-charcoal backdrop-blur-sm transition-colors hover:bg-champagne"
+              className="block rounded-full border border-white/60 bg-white/85 px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-charcoal backdrop-blur-sm transition-colors hover:bg-champagne hover:text-obsidian"
             >
               {personalizable ? "Personalize" : "View details"}
             </Link>
@@ -87,7 +87,7 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
           )}
         </div>
         <h3 className="mt-1.5">
-          <Link href={`/product/${product.slug}`} className="font-display text-[15px] font-semibold leading-snug text-ink hover:text-deep-olive">
+          <Link href={`/product/${product.slug}`} className="font-display text-[15px] font-semibold leading-snug text-ink hover:text-soft-sage">
             {product.name}
           </Link>
         </h3>
