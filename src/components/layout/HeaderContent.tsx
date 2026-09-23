@@ -155,7 +155,7 @@ export function HeaderContent({
                     <Link href="/gift-builder" className="block rounded-xl px-3 py-2 text-sm text-ink hover:bg-white/70">Build a gift box</Link>
                     <Link
                       href="/gifts"
-                      className="mt-1 block rounded-xl bg-obsidian px-3 py-2.5 text-center text-sm font-semibold text-champagne"
+                      className="mt-1 block rounded-xl bg-deep-olive px-3 py-2.5 text-center text-sm font-semibold text-champagne shadow-raised"
                     >
                       Browse all gifts
                     </Link>
@@ -290,7 +290,7 @@ function NavLink({
       href={href}
       onMouseEnter={onMouseEnter}
       className={`flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
-        active ? "bg-obsidian/5 text-charcoal" : "text-ink/80 hover:bg-charcoal/5 hover:text-ink"
+        active ? "bg-deep-olive/10 text-deep-olive" : "text-ink/80 hover:bg-champagne/10 hover:text-deep-olive"
       }`}
     >
       {label}
