@@ -30,7 +30,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const storeJsonLd = JSON.stringify(jsonLdStore());
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-warm-white text-ink font-sans antialiased">
         <BackgroundScene />
         <script
