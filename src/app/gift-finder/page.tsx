@@ -32,10 +32,10 @@ export default async function GiftFinderPage({
     <div className="container-zed py-10 lg:py-14">
       <header className="mb-8">
         <p className="eyebrow">Smart Gift Finder</p>
-        <h1 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">
+        <h1 className="mt-2 font-display text-3xl font-bold text-black lg:text-4xl">
           {sp.q ? `Results for "${sp.q}"` : "Find the perfect gift"}
         </h1>
-        <p className="mt-2 text-sm text-ink/65">
+        <p className="mt-2 text-sm text-black/65">
           {result.total} gift{result.total !== 1 ? "s" : ""} found.
           {sp.q ? " Refined for you." : " Answer a few questions to get started."}
         </p>
@@ -45,7 +45,7 @@ export default async function GiftFinderPage({
         {/* Filters sidebar */}
         <aside className="space-y-4">
           <div className="glass-card rounded-zed p-5">
-            <p className="font-display text-sm font-bold text-charcoal">Filter by budget</p>
+            <p className="font-display text-sm font-bold text-black">Filter by budget</p>
             <div className="mt-3 space-y-2">
               {[
                 { label: "Under KES 1,000", max: "1000" },
@@ -56,7 +56,7 @@ export default async function GiftFinderPage({
                 <a
                   key={b.max}
                   href={`/gift-finder?budget=${b.max}`}
-                  className="block rounded-lg px-3 py-2 text-sm text-ink/70 hover:bg-obsidian/5 hover:text-charcoal"
+                  className="block rounded-lg px-3 py-2 text-sm text-black/70 hover:bg-zed-950/5 hover:text-black"
                 >
                   {b.label}
                 </a>
@@ -64,13 +64,13 @@ export default async function GiftFinderPage({
             </div>
           </div>
           <div className="glass-card rounded-zed p-5">
-            <p className="font-display text-sm font-bold text-charcoal">Filter by recipient</p>
+            <p className="font-display text-sm font-bold text-black">Filter by recipient</p>
             <div className="mt-3 space-y-2">
               {["for-him", "for-her", "for-couples", "for-friends", "for-parents", "for-colleagues"].map((r) => (
                 <a
                   key={r}
                   href={`/gift-finder?recipient=${r}`}
-                  className="block rounded-lg px-3 py-2 text-sm text-ink/70 hover:bg-obsidian/5 hover:text-charcoal capitalize"
+                  className="block rounded-lg px-3 py-2 text-sm text-black/70 hover:bg-zed-950/5 hover:text-black capitalize"
                 >
                   {r.replace("-", " ")}
                 </a>

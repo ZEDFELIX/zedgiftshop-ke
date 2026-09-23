@@ -5,7 +5,7 @@ import { formatKES } from "@/lib/utils";
 import { Plus, Search } from "lucide-react";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Products · Admin" };
+export const metadata = { title: "Products Â· Admin" };
 
 export default async function AdminProductsPage({ searchParams }: { searchParams: Promise<{ q?: string; status?: string; page?: string }> }) {
   const sp = await searchParams;
@@ -18,28 +18,28 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <form method="GET" className="flex flex-wrap gap-2">
-          <input name="q" defaultValue={q} placeholder="Search name, SKU or slug…" className="field w-64" />
+          <input name="q" defaultValue={q} placeholder="Search name, SKU or slugâ€¦" className="field w-64" />
           <select name="status" defaultValue={status} className="field w-40">
             <option value="">All statuses</option>
             <option value="ACTIVE">Active</option>
             <option value="DRAFT">Draft</option>
             <option value="ARCHIVED">Archived</option>
           </select>
-          <button type="submit" className="rounded-zed border border-edge bg-white px-4 text-sm font-semibold text-ink/70 hover:border-soft-sage">
+          <button type="submit" className="rounded-zed border border-edge bg-white px-4 text-sm font-semibold text-black/70 hover:border-soft-sage">
             <Search className="size-4" />
           </button>
         </form>
-        <Link href="/admin/products/new" className="flex items-center gap-1.5 rounded-zed bg-obsidian px-4 py-2.5 text-sm font-bold text-champagne">
+        <Link href="/admin/products/new" className="flex items-center gap-1.5 rounded-zed bg-zed-950 px-4 py-2.5 text-sm font-bold text-white">
           <Plus className="size-4" /> New product
         </Link>
       </div>
 
-      <p className="text-sm text-ink/55">{total} product{total === 1 ? "" : "s"}</p>
+      <p className="text-sm text-black/55">{total} product{total === 1 ? "" : "s"}</p>
 
       <div className="overflow-x-auto rounded-zed border border-edge bg-white">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-edge bg-panel text-left text-xs uppercase tracking-wider text-ink/50">
+            <tr className="border-b border-edge bg-panel text-left text-xs uppercase tracking-wider text-black/50">
               <th className="p-3">Product</th>
               <th className="p-3">SKU</th>
               <th className="p-3">Price</th>
@@ -57,16 +57,16 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
                       {p.images[0]?.url && <Image src={p.images[0].url} alt="" fill unoptimized className="object-cover" />}
                     </span>
                     <div>
-                      <p className="font-semibold text-charcoal">{p.name}</p>
-                      <p className="text-xs text-ink/45">/{p.slug}</p>
+                      <p className="font-semibold text-black">{p.name}</p>
+                      <p className="text-xs text-black/45">/{p.slug}</p>
                     </div>
                   </div>
                 </td>
-                <td className="p-3 text-ink/60">{p.sku ?? "—"}</td>
-                <td className="p-3 font-semibold text-ink">{formatKES(p.price)}</td>
-                <td className={`p-3 font-semibold ${p.quantity <= p.lowStockThreshold ? "text-red-600" : "text-ink/70"}`}>{p.quantity}</td>
+                <td className="p-3 text-black/60">{p.sku ?? "â€”"}</td>
+                <td className="p-3 font-semibold text-black">{formatKES(p.price)}</td>
+                <td className={`p-3 font-semibold ${p.quantity <= p.lowStockThreshold ? "text-red-600" : "text-black/70"}`}>{p.quantity}</td>
                 <td className="p-3">
-                  <span className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${p.status === "ACTIVE" ? "bg-emerald-50 text-emerald-700" : p.status === "DRAFT" ? "bg-amber-50 text-amber-700" : "bg-panel text-ink/55"}`}>
+                  <span className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${p.status === "ACTIVE" ? "bg-emerald-50 text-emerald-700" : p.status === "DRAFT" ? "bg-amber-50 text-amber-700" : "bg-panel text-black/55"}`}>
                     {p.status}
                   </span>
                 </td>
@@ -76,7 +76,7 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
               </tr>
             ))}
             {items.length === 0 && (
-              <tr><td colSpan={6} className="p-8 text-center text-ink/50">No products match that search.</td></tr>
+              <tr><td colSpan={6} className="p-8 text-center text-black/50">No products match that search.</td></tr>
             )}
           </tbody>
         </table>
@@ -86,7 +86,7 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
         <div className="flex items-center justify-center gap-2 text-sm">
           {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
             <Link key={n} href={`?page=${n}${q ? `&q=${encodeURIComponent(q)}` : ""}${status ? `&status=${status}` : ""}`}
-              className={`rounded-zed px-3 py-1.5 font-semibold ${n === current ? "bg-obsidian text-champagne" : "bg-panel text-ink/60 hover:bg-panel/70"}`}>
+              className={`rounded-zed px-3 py-1.5 font-semibold ${n === current ? "bg-zed-950 text-white" : "bg-panel text-black/60 hover:bg-panel/70"}`}>
               {n}
             </Link>
           ))}

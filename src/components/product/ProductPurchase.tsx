@@ -108,13 +108,13 @@ export function ProductPurchase({
   return (
     <div className="space-y-6">
       {/* Views & reviews summary */}
-      <div className="flex items-center gap-3 text-sm text-ink/60">
-        <span className="flex items-center gap-1 text-ink/80">
+      <div className="flex items-center gap-3 text-sm text-black/60">
+        <span className="flex items-center gap-1 text-black/80">
           <Sparkles className="size-4 text-soft-sage" /> Available online
         </span>
         <span className="text-edge-strong">|</span>
         <span className="flex items-center gap-1">
-          <Truck className="size-4 text-soft-sage" /> Same-day Nairobi, countrywide 1–3 days
+          <Truck className="size-4 text-soft-sage" /> Same-day Nairobi, countrywide 1â€“3 days
         </span>
       </div>
 
@@ -123,7 +123,7 @@ export function ProductPurchase({
         <div key={group.name}>
           <p className="label">
             {group.name}:{" "}
-            <span className="font-semibold text-charcoal">{selections[group.name] ?? "Select"}</span>
+            <span className="font-semibold text-black">{selections[group.name] ?? "Select"}</span>
           </p>
           <div className="flex flex-wrap gap-2">
             {group.values.map((v) => {
@@ -138,8 +138,8 @@ export function ProductPurchase({
                   disabled={!v.inStock}
                   className={`rounded-zed border px-4 py-2.5 text-sm font-semibold backdrop-blur-sm transition-colors ${
                     active
-                      ? "border-soft-sage bg-obsidian text-champagne"
-                      : "border-white/50 bg-white/30 text-ink hover:border-soft-sage"
+                      ? "border-soft-sage bg-zed-950 text-white"
+                      : "border-white/50 bg-white/30 text-black hover:border-soft-sage"
                   } ${!v.inStock ? "cursor-not-allowed opacity-40" : ""}`}
                 >
                   {v.value}
@@ -147,7 +147,7 @@ export function ProductPurchase({
                     <span className="ml-1 text-xs opacity-70">+{formatKES(v.priceOffset)}</span>
                   )}
                   {v.priceOffset < 0 && (
-                    <span className="ml-1 text-xs opacity-70">−{formatKES(Math.abs(v.priceOffset))}</span>
+                    <span className="ml-1 text-xs opacity-70">âˆ’{formatKES(Math.abs(v.priceOffset))}</span>
                   )}
                 </button>
               );
@@ -158,12 +158,12 @@ export function ProductPurchase({
 
       {/* Personalization */}
       {personalizationFields.length > 0 && (
-        <div className="rounded-zed border border-champagne bg-warm-white p-4">
-          <p className="flex items-center gap-2 text-sm font-bold text-charcoal">
+        <div className="rounded-zed border border-zed-900 bg-warm-white p-4">
+          <p className="flex items-center gap-2 text-sm font-bold text-black">
             <Sparkles className="size-4" /> Personalize
           </p>
-          <p className="mt-1 text-xs text-charcoal/70">
-            We engrave or print this exactly as written — double-check spelling.
+          <p className="mt-1 text-xs text-black/70">
+            We engrave or print this exactly as written â€” double-check spelling.
           </p>
           <div className="mt-3 space-y-3">
             {personalizationFields.map((field) => (
@@ -209,7 +209,7 @@ export function ProductPurchase({
                   type="button"
                   onClick={() => setWrapId(w.id)}
                   className={`rounded-zed border px-3.5 py-2 text-left text-sm backdrop-blur-sm transition-colors ${
-                    active ? "border-soft-sage bg-obsidian text-champagne" : "border-white/50 bg-white/30 text-ink hover:border-soft-sage"
+                    active ? "border-soft-sage bg-zed-950 text-white" : "border-white/50 bg-white/30 text-black hover:border-soft-sage"
                   }`}
                 >
                   <span className="font-semibold">{w.name}</span>
@@ -227,9 +227,9 @@ export function ProductPurchase({
           <button
             type="button"
             onClick={() => setUseGiftMessage((v) => !v)}
-            className="flex items-center gap-2 text-sm font-semibold text-charcoal"
+            className="flex items-center gap-2 text-sm font-semibold text-black"
           >
-            <span className={`grid size-5 place-items-center rounded border ${useGiftMessage ? "border-soft-sage bg-champagne text-charcoal" : "border-white/60 bg-white/40"}`}>
+            <span className={`grid size-5 place-items-center rounded border ${useGiftMessage ? "border-soft-sage bg-zed-950 text-white" : "border-white/60 bg-white/40"}`}>
               {useGiftMessage && <Check className="size-3.5" />}
             </span>
             Include a handwritten-style gift note
@@ -246,7 +246,7 @@ export function ProductPurchase({
               <textarea
                 value={giftMessage.message}
                 onChange={(e) => setGiftMessage((m) => ({ ...m, message: e.target.value }))}
-                placeholder="Your message…"
+                placeholder="Your messageâ€¦"
                 className="field"
                 rows={3}
                 maxLength={500}
@@ -267,18 +267,18 @@ export function ProductPurchase({
       {/* Quantity + price + add */}
       <div className="flex flex-wrap items-center gap-4">
         <div className="flex items-center rounded-zed border border-edge">
-          <button type="button" aria-label="Decrease quantity" onClick={() => setQuantity((q) => Math.max(1, q - 1))} className="grid size-11 place-items-center hover:bg-charcoal/5">
+          <button type="button" aria-label="Decrease quantity" onClick={() => setQuantity((q) => Math.max(1, q - 1))} className="grid size-11 place-items-center hover:bg-zed-900/5">
             <Minus className="size-4" />
           </button>
           <span className="w-10 text-center font-bold">{quantity}</span>
-          <button type="button" aria-label="Increase quantity" onClick={() => setQuantity((q) => Math.min(99, q + 1))} className="grid size-11 place-items-center hover:bg-charcoal/5">
+          <button type="button" aria-label="Increase quantity" onClick={() => setQuantity((q) => Math.min(99, q + 1))} className="grid size-11 place-items-center hover:bg-zed-900/5">
             <Plus className="size-4" />
           </button>
         </div>
         <div className="flex items-baseline gap-2">
-          <p className="font-display text-3xl font-black text-charcoal">{formatKES(price * quantity)}</p>
+          <p className="font-display text-3xl font-black text-black">{formatKES(price * quantity)}</p>
           {compareAtPrice != null && compareAtPrice > basePrice && (
-            <p className="text-lg text-ink/40 line-through">{formatKES(compareAtPrice * quantity)}</p>
+            <p className="text-lg text-black/40 line-through">{formatKES(compareAtPrice * quantity)}</p>
           )}
         </div>
       </div>
@@ -289,21 +289,21 @@ export function ProductPurchase({
             type="button"
             onClick={addToCart}
             disabled={busy}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-zed bg-champagne px-6 py-4 text-sm font-bold uppercase tracking-wider text-charcoal transition-colors hover:bg-obsidian hover:text-white disabled:opacity-60"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-zed bg-zed-950 px-6 py-4 text-sm font-bold uppercase tracking-wider text-black transition-colors hover:bg-zed-950 hover:text-white disabled:opacity-60"
           >
             <ShoppingBag className="size-4" />
-            {busy ? "Adding…" : "Add to cart"}
+            {busy ? "Addingâ€¦" : "Add to cart"}
           </button>
         ) : (
-          <p className="rounded-zed bg-panel px-6 py-4 text-center text-sm font-bold text-ink/60">
+          <p className="rounded-zed bg-panel px-6 py-4 text-center text-sm font-bold text-black/60">
             Currently out of stock
           </p>
         )}
         {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
-        <p className="mt-3 flex items-center justify-center gap-2 text-center text-xs text-ink/60">
-          <ShieldCheck className="size-4 text-soft-sage" /> Secure M-PESA checkout · Free gift box with every order
+        <p className="mt-3 flex items-center justify-center gap-2 text-center text-xs text-black/60">
+          <ShieldCheck className="size-4 text-soft-sage" /> Secure M-PESA checkout Â· Free gift box with every order
         </p>
-        <p className="mt-1 text-center text-xs text-ink/40">Free in Nairobi on this item.</p>
+        <p className="mt-1 text-center text-xs text-black/40">Free in Nairobi on this item.</p>
       </div>
     </div>
   );

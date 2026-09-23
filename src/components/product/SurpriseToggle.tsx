@@ -7,7 +7,7 @@ export function SurpriseToggle() {
   const [isSurprise, setIsSurprise] = useState(false);
 
   return (
-    <div className="rounded-zed border border-champagne/30 bg-warm-white/50 p-4 backdrop-blur-sm">
+    <div className="rounded-zed border border-zed-900/30 bg-warm-white/50 p-4 backdrop-blur-sm">
       <button
         type="button"
         onClick={() => setIsSurprise((v) => !v)}
@@ -16,29 +16,29 @@ export function SurpriseToggle() {
         <div className="flex items-center gap-2">
           <Sparkles className="size-5 text-soft-sage" />
           <div className="text-left">
-            <p className="text-sm font-bold text-charcoal">This is a surprise</p>
-            <p className="text-xs text-charcoal/70">Hide price & invoice from delivery</p>
+            <p className="text-sm font-bold text-black">This is a surprise</p>
+            <p className="text-xs text-black/70">Hide price & invoice from delivery</p>
           </div>
         </div>
-        <div className="relative h-7 w-12 rounded-full bg-obsidian transition-colors">
+        <div className="relative h-7 w-12 rounded-full bg-zed-950 transition-colors">
           <span
-            className={`absolute top-1 bottom-1 rounded-full bg-champagne transition-transform ${
+            className={`absolute top-1 bottom-1 rounded-full bg-zed-950 transition-transform ${
               isSurprise ? "translate-x-6" : "translate-x-0.5"
             }`}
           />
           {isSurprise ? (
-            <Eye className="absolute right-2 top-1/2 size-4 -translate-y-1/2 text-charcoal" />
+            <Eye className="absolute right-2 top-1/2 size-4 -translate-y-1/2 text-black" />
           ) : (
             <EyeOff className="absolute left-2 top-1/2 size-4 -translate-y-1/2 text-white/50" />
           )}
         </div>
       </button>
       {isSurprise && (
-        <div className="mt-3 space-y-2 text-xs text-charcoal/75">
-          <p>• Price is hidden from the delivery slip</p>
-          <p>• Your details are protected</p>
-          <p>• Neutral communication is sent</p>
-          <p>• A handwritten-style note is included</p>
+        <div className="mt-3 space-y-2 text-xs text-black/75">
+          <p>â€¢ Price is hidden from the delivery slip</p>
+          <p>â€¢ Your details are protected</p>
+          <p>â€¢ Neutral communication is sent</p>
+          <p>â€¢ A handwritten-style note is included</p>
         </div>
       )}
     </div>

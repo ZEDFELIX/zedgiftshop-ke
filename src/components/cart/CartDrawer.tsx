@@ -134,7 +134,7 @@ export function CartDrawer() {
       {open && (
         <div className="fixed inset-0 z-[70]">
           <div
-            className="absolute inset-0 bg-obsidian/40 backdrop-blur-sm"
+            className="absolute inset-0 bg-zed-950/40 backdrop-blur-sm"
             onClick={() => setOpen(false)}
             aria-hidden
           />
@@ -145,14 +145,14 @@ export function CartDrawer() {
             className="absolute inset-y-0 right-0 flex w-full max-w-md flex-col border-l border-white/40 bg-warm-white/70 shadow-drawer backdrop-blur-2xl animate-[drawer_0.35s_cubic-bezier(0.16,1,0.3,1)_both]"
           >
             <header className="flex items-center justify-between border-b border-white/50 bg-white/50 px-5 py-4 backdrop-blur-sm">
-              <h2 className="font-display text-lg font-bold text-charcoal">
+              <h2 className="font-display text-lg font-bold text-black">
                 Your Cart{cart && cart.count > 0 ? ` (${cart.count})` : ""}
               </h2>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close cart"
-                className="grid size-9 place-items-center rounded-full hover:bg-charcoal/5"
+                className="grid size-9 place-items-center rounded-full hover:bg-zed-900/5"
               >
                 <X className="size-5" />
               </button>
@@ -164,13 +164,13 @@ export function CartDrawer() {
                   <ShoppingBag className="size-7" />
                 </span>
                 <div>
-                  <p className="font-display text-lg font-bold text-charcoal">Your cart is empty</p>
-                  <p className="mt-1 text-sm text-ink/60">Find a gift that says more.</p>
+                  <p className="font-display text-lg font-bold text-black">Your cart is empty</p>
+                  <p className="mt-1 text-sm text-black/60">Find a gift that says more.</p>
                 </div>
                 <Link
                   href="/shop"
                   onClick={() => setOpen(false)}
-                  className="rounded-zed bg-obsidian px-6 py-3 text-sm font-semibold text-champagne hover:bg-charcoal"
+                  className="rounded-zed bg-zed-950 px-6 py-3 text-sm font-semibold text-white hover:bg-zed-900"
                 >
                   Browse gifts
                 </Link>
@@ -179,7 +179,7 @@ export function CartDrawer() {
               <>
                 <div className="flex-1 space-y-3 overflow-y-auto px-5 py-4">
                   {(loading ? [] : cart.items).length === 0 && (
-                    <p className="py-6 text-center text-sm text-ink/50">Refreshing cart…</p>
+                    <p className="py-6 text-center text-sm text-black/50">Refreshing cartâ€¦</p>
                   )}
                   {cart.items.map((item) => (
                     <div key={item.id} className={`glass-panel rounded-2xl p-3 ${busyId === item.id ? "opacity-60" : ""}`}>
@@ -193,33 +193,33 @@ export function CartDrawer() {
                         </Link>
                         <div className="min-w-0 flex-1">
                           <div className="flex items-start justify-between gap-2">
-                            <Link href={`/product/${item.slug}`} className="text-sm font-semibold leading-snug text-ink hover:text-deep-olive">
+                            <Link href={`/product/${item.slug}`} className="text-sm font-semibold leading-snug text-black hover:text-deep-olive">
                               {item.name}
                             </Link>
-                            <button type="button" aria-label="Remove" onClick={() => removeItem(item.id)} className="grid size-7 shrink-0 place-items-center rounded-full text-ink/50 hover:bg-charcoal/5 hover:text-ink">
+                            <button type="button" aria-label="Remove" onClick={() => removeItem(item.id)} className="grid size-7 shrink-0 place-items-center rounded-full text-black/50 hover:bg-zed-900/5 hover:text-black">
                               <Trash2 className="size-4" />
                             </button>
                           </div>
-                          <div className="mt-0.5 text-xs text-ink/60">
+                          <div className="mt-0.5 text-xs text-black/60">
                             {item.variant && <span>{item.variant.value}</span>}
-                            {item.personalization && <span className="ml-1 italic">· Personalized</span>}
-                            {item.giftWrapPrice > 0 && <span className="ml-1">· Gift box +{formatKES(item.giftWrapPrice)}</span>}
+                            {item.personalization && <span className="ml-1 italic">Â· Personalized</span>}
+                            {item.giftWrapPrice > 0 && <span className="ml-1">Â· Gift box +{formatKES(item.giftWrapPrice)}</span>}
                           </div>
                           <div className="mt-2 flex items-center justify-between">
                             <div className="flex items-center rounded-full border border-white/60 bg-white/60">
-                              <button type="button" aria-label="Decrease" onClick={() => changeQty(item, -1)} className="grid size-7 place-items-center hover:bg-charcoal/5">
+                              <button type="button" aria-label="Decrease" onClick={() => changeQty(item, -1)} className="grid size-7 place-items-center hover:bg-zed-900/5">
                                 <Minus className="size-3.5" />
                               </button>
                               <span className="w-8 text-center text-sm font-semibold">{item.quantity}</span>
-                              <button type="button" aria-label="Increase" onClick={() => changeQty(item, 1)} className="grid size-7 place-items-center hover:bg-charcoal/5">
+                              <button type="button" aria-label="Increase" onClick={() => changeQty(item, 1)} className="grid size-7 place-items-center hover:bg-zed-900/5">
                                 <Plus className="size-3.5" />
                               </button>
                             </div>
                             <div className="text-right">
                               {item.compareAt != null && item.compareAt > item.price && (
-                                <p className="text-[11px] text-ink/40 line-through">{formatKES(item.compareAt)}</p>
+                                <p className="text-[11px] text-black/40 line-through">{formatKES(item.compareAt)}</p>
                               )}
-                              <p className="text-sm font-bold text-charcoal">{formatKES(item.lineTotal)}</p>
+                              <p className="text-sm font-bold text-black">{formatKES(item.lineTotal)}</p>
                             </div>
                           </div>
                         </div>
@@ -230,11 +230,11 @@ export function CartDrawer() {
                   {/* Coupon */}
                   <div className="pt-1">
                     {cart.couponCode ? (
-                      <div className="flex items-center justify-between rounded-2xl border border-champagne/60 bg-white/60 px-3 py-2 text-sm backdrop-blur-sm">
-                        <span className="font-semibold text-charcoal">
-                          Coupon {cart.couponCode} · −{formatKES(cart.discount)}
+                      <div className="flex items-center justify-between rounded-2xl border border-zed-900/60 bg-white/60 px-3 py-2 text-sm backdrop-blur-sm">
+                        <span className="font-semibold text-black">
+                          Coupon {cart.couponCode} Â· âˆ’{formatKES(cart.discount)}
                         </span>
-                        <button type="button" onClick={clearCoupon} className="text-xs text-ink/60 underline hover:text-ink">
+                        <button type="button" onClick={clearCoupon} className="text-xs text-black/60 underline hover:text-black">
                           remove
                         </button>
                       </div>
@@ -260,36 +260,36 @@ export function CartDrawer() {
 
                 <footer className="border-t border-white/50 bg-white/40 px-5 py-4 backdrop-blur-sm">
                   <dl className="space-y-1.5 text-sm">
-                    <div className="flex justify-between text-ink/70">
+                    <div className="flex justify-between text-black/70">
                       <dt>Subtotal</dt>
                       <dd>{formatKES(cart.subtotal)}</dd>
                     </div>
                     {cart.discount > 0 && (
                       <div className="flex justify-between font-semibold text-deep-olive">
                         <dt>Discount</dt>
-                        <dd>−{formatKES(cart.discount)}</dd>
+                        <dd>âˆ’{formatKES(cart.discount)}</dd>
                       </div>
                     )}
-                    <div className="flex justify-between border-t border-white/50 pt-2 text-base font-bold text-charcoal">
+                    <div className="flex justify-between border-t border-white/50 pt-2 text-base font-bold text-black">
                       <dt>Total</dt>
                       <dd>{formatKES(cart.total)}</dd>
                     </div>
                   </dl>
-                  <p className="mt-1 text-[11px] text-ink/50">Delivery calculated at checkout.</p>
+                  <p className="mt-1 text-[11px] text-black/50">Delivery calculated at checkout.</p>
                   <Link
                     href="/checkout"
                     onClick={() => setOpen(false)}
                     className={`mt-3 block rounded-2xl py-3.5 text-center text-sm font-bold transition-colors ${
-                      checkoutEnabled ? "bg-champagne text-charcoal shadow-glass hover:bg-deep-olive hover:text-white" : "cursor-not-allowed bg-white/40 text-ink/40"
+                      checkoutEnabled ? "bg-zed-950 text-white shadow-glass hover:bg-deep-olive hover:text-white" : "cursor-not-allowed bg-white/40 text-black/40"
                     }`}
                     aria-disabled={!checkoutEnabled}
                   >
-                    Checkout · M-PESA
+                    Checkout Â· M-PESA
                   </Link>
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
-                    className="mt-2 w-full text-center text-xs text-ink/60 underline-offset-2 hover:underline"
+                    className="mt-2 w-full text-center text-xs text-black/60 underline-offset-2 hover:underline"
                   >
                     Continue shopping
                   </button>

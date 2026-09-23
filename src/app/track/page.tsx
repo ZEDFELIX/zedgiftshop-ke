@@ -24,7 +24,7 @@ type TrackedOrder = {
 
 export default function TrackPage() {
   return (
-    <Suspense fallback={<div className="container-zed max-w-2xl py-20 text-center text-sm text-ink/50">Loading…</div>}>
+    <Suspense fallback={<div className="container-zed max-w-2xl py-20 text-center text-sm text-black/50">Loadingâ€¦</div>}>
       <TrackContent />
     </Suspense>
   );
@@ -73,8 +73,8 @@ function TrackContent() {
     <div className="container-zed max-w-2xl py-14 lg:py-20">
       <header className="text-center">
         <p className="eyebrow">Where&apos;s my gift?</p>
-        <h1 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">Track your order</h1>
-        <p className="mt-2 text-sm text-ink/60">Enter the order number and the email or phone you used at checkout.</p>
+        <h1 className="mt-2 font-display text-3xl font-bold text-black lg:text-4xl">Track your order</h1>
+        <p className="mt-2 text-sm text-black/60">Enter the order number and the email or phone you used at checkout.</p>
       </header>
 
       <form onSubmit={lookup} className="glass-card mt-8 space-y-3 rounded-zed p-5">
@@ -84,9 +84,9 @@ function TrackContent() {
         </div>
         <div>
           <label className="label" htmlFor="t-key">Email or last digits of M-PESA phone</label>
-          <input id="t-key" className="field" value={orderKey} onChange={(e) => setOrderKey(e.target.value)} required placeholder="you@example.com or 0712…" />
+          <input id="t-key" className="field" value={orderKey} onChange={(e) => setOrderKey(e.target.value)} required placeholder="you@example.com or 0712â€¦" />
         </div>
-        <button type="submit" disabled={loading} className="flex w-full items-center justify-center gap-2 rounded-zed bg-obsidian py-3.5 text-sm font-bold uppercase tracking-wider text-champagne disabled:opacity-50">
+        <button type="submit" disabled={loading} className="flex w-full items-center justify-center gap-2 rounded-zed bg-zed-950 py-3.5 text-sm font-bold uppercase tracking-wider text-white disabled:opacity-50">
           {loading ? <Loader2 className="size-4 animate-spin" /> : <Search className="size-4" />} Track order
         </button>
         {error && <p className="rounded-zed bg-red-50/70 px-4 py-3 text-sm text-red-700 backdrop-blur-sm">{error}</p>}
@@ -101,15 +101,15 @@ function TrackContent() {
                   <Truck className="size-5" />
                 </span>
                 <div>
-                  <p className="font-display text-lg font-bold text-charcoal">{result.orderNumber}</p>
-                  <p className="text-xs text-ink/55">
-                    Placed {new Date(result.createdAt).toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" })} · {result.county}, {result.town}
+                  <p className="font-display text-lg font-bold text-black">{result.orderNumber}</p>
+                  <p className="text-xs text-black/55">
+                    Placed {new Date(result.createdAt).toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" })} Â· {result.county}, {result.town}
                   </p>
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-xs text-ink/50">Total</p>
-                <p className="font-bold text-charcoal">{formatKES(result.total)}</p>
+                <p className="text-xs text-black/50">Total</p>
+                <p className="font-bold text-black">{formatKES(result.total)}</p>
                 <p className={`text-xs font-semibold ${paid ? "text-emerald-600" : "text-amber-600"}`}>{paid ? "Paid via M-PESA" : "Awaiting payment"}</p>
               </div>
             </div>
@@ -122,7 +122,7 @@ function TrackContent() {
 
             <ol className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {steps.map((s, i) => (
-                <li key={s} className={`relative rounded-zed border p-3 ${i <= currentIndex ? "border-soft-sage bg-warm-white" : "border-white/50 bg-white/30 text-ink/45"}`}>
+                <li key={s} className={`relative rounded-zed border p-3 ${i <= currentIndex ? "border-soft-sage bg-warm-white" : "border-white/50 bg-white/30 text-black/45"}`}>
                   <span className="text-[10px] font-bold uppercase tracking-widest">{ORDER_STATUS_STEPS[i].label}</span>
                   {i <= currentIndex && <span className="mt-1 block size-1.5 rounded-full bg-soft-sage" />}
                 </li>
@@ -131,7 +131,7 @@ function TrackContent() {
           </div>
 
           <div className="glass-panel rounded-zed p-5">
-            <h2 className="font-display text-base font-bold text-charcoal">Your items</h2>
+            <h2 className="font-display text-base font-bold text-black">Your items</h2>
             <ul className="mt-3 divide-y divide-white/40">
               {result.items.map((item, idx) => (
                 <li key={idx} className="flex items-center gap-3 py-3">
@@ -139,23 +139,23 @@ function TrackContent() {
                     {item.image && <Image src={item.image} alt="" fill unoptimized className="object-cover" />}
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-medium text-ink">{item.name}</p>
-                    <p className="text-xs text-ink/55">Qty {item.quantity}{item.giftWrapPrice > 0 ? " · Gift wrap" : ""}</p>
+                    <p className="truncate text-sm font-medium text-black">{item.name}</p>
+                    <p className="text-xs text-black/55">Qty {item.quantity}{item.giftWrapPrice > 0 ? " Â· Gift wrap" : ""}</p>
                   </div>
-                  <p className="text-sm font-semibold text-charcoal">{formatKES((item.price + item.giftWrapPrice) * item.quantity)}</p>
+                  <p className="text-sm font-semibold text-black">{formatKES((item.price + item.giftWrapPrice) * item.quantity)}</p>
                 </li>
               ))}
             </ul>
           </div>
 
-          <p className="text-center text-xs text-ink/50">
+          <p className="text-center text-xs text-black/50">
             Need help? WhatsApp <a className="font-semibold text-soft-sage underline" href="tel:+254711436169">+254 711 436169</a> with your order number.
           </p>
         </section>
       )}
 
       {!result && !error && (
-        <div className="mt-10 flex flex-col items-center text-center text-sm text-ink/50">
+        <div className="mt-10 flex flex-col items-center text-center text-sm text-black/50">
           <PackageSearch className="mb-2 size-10 text-soft-sage/50" />
           <p>New to ZED? <Link href="/shop" className="text-soft-sage underline underline-offset-2">Explore the gift shop</Link></p>
         </div>

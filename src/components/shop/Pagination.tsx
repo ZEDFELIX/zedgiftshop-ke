@@ -23,15 +23,15 @@ export function Pagination({ page, pages, total, pageSize, href }: { page: numbe
         </Link>
         {Array.from({ length: pages }, (_, i) => i + 1)
           .filter((p) => p === 1 || p === pages || Math.abs(p - page) <= 1)
-          .reduce<(number | "…")[]>((acc, p, idx, arr) => {
-            if (idx > 0 && (arr[idx - 1] as number) + 1 !== p) acc.push("…");
+          .reduce<(number | "â€¦")[]>((acc, p, idx, arr) => {
+            if (idx > 0 && (arr[idx - 1] as number) + 1 !== p) acc.push("â€¦");
             acc.push(p);
             return acc;
           }, [])
           .map((p, i) =>
-            p === "…" ? (
-              <span key={`gap-${i}`} className="px-2 text-ink/40">
-                …
+            p === "â€¦" ? (
+              <span key={`gap-${i}`} className="px-2 text-black/40">
+                â€¦
               </span>
             ) : (
               <Link
@@ -39,7 +39,7 @@ export function Pagination({ page, pages, total, pageSize, href }: { page: numbe
                 href={pageHref(p)}
                 aria-current={p === page ? "page" : undefined}
                 className={`grid size-10 place-items-center rounded-zed text-sm font-semibold ${
-                  p === page ? "bg-obsidian text-champagne" : "glass-panel text-ink hover:border-soft-sage"
+                  p === page ? "bg-zed-950 text-white" : "glass-panel text-black hover:border-soft-sage"
                 }`}
               >
                 {p}
@@ -55,8 +55,8 @@ export function Pagination({ page, pages, total, pageSize, href }: { page: numbe
           <ChevronRight className="size-4" />
         </Link>
       </div>
-      <p className="text-xs text-ink/50">
-        Showing {start}–{end} of {total} gifts
+      <p className="text-xs text-black/50">
+        Showing {start}â€“{end} of {total} gifts
       </p>
     </div>
   );

@@ -19,12 +19,12 @@ type BuilderItem = {
 };
 
 const OCCASIONS = [
-  { value: "birthday", label: "Birthday", emoji: "🎂" },
-  { value: "anniversary", label: "Anniversary", emoji: "💍" },
-  { value: "graduation", label: "Graduation", emoji: "🎓" },
-  { value: "corporate", label: "Corporate", emoji: "💼" },
-  { value: "valentines", label: "Valentine's", emoji: "❤️" },
-  { value: "just-because", label: "Just because", emoji: "✨" },
+  { value: "birthday", label: "Birthday", emoji: "ðŸŽ‚" },
+  { value: "anniversary", label: "Anniversary", emoji: "ðŸ’" },
+  { value: "graduation", label: "Graduation", emoji: "ðŸŽ“" },
+  { value: "corporate", label: "Corporate", emoji: "ðŸ’¼" },
+  { value: "valentines", label: "Valentine's", emoji: "â¤ï¸" },
+  { value: "just-because", label: "Just because", emoji: "âœ¨" },
 ];
 
 const RECIPIENTS = [
@@ -117,10 +117,10 @@ export default function GiftBuilder() {
     <div className="container-zed py-10 lg:py-14">
       <header className="max-w-2xl">
         <p className="eyebrow">The ZED Gift Builder</p>
-        <h1 className="mt-2 font-display text-3xl font-bold text-charcoal lg:text-4xl">
+        <h1 className="mt-2 font-display text-3xl font-bold text-black lg:text-4xl">
           Build a gift, <span className="text-soft-sage">from scratch.</span>
         </h1>
-        <p className="mt-3 text-ink/70">
+        <p className="mt-3 text-black/70">
           Answer three quick questions and we&apos;ll put together a ready-to-checkout box of ideas.
         </p>
       </header>
@@ -131,12 +131,12 @@ export default function GiftBuilder() {
           <div key={label} className="flex items-center gap-2">
             <span
               className={`grid size-7 place-items-center rounded-full text-xs font-bold ${
-                i < step || (step === 3 && i === 3) ? "bg-champagne text-charcoal" : i === step ? "bg-obsidian text-champagne" : "bg-panel text-ink/40"
+                i < step || (step === 3 && i === 3) ? "bg-zed-950 text-white" : i === step ? "bg-zed-950 text-white" : "bg-panel text-black/40"
               }`}
             >
               {i < step ? <Check className="size-4" /> : i + 1}
             </span>
-            <span className={`hidden text-xs font-semibold sm:inline ${i <= step ? "text-charcoal" : "text-ink/40"}`}>{label}</span>
+            <span className={`hidden text-xs font-semibold sm:inline ${i <= step ? "text-black" : "text-black/40"}`}>{label}</span>
             {i < 3 && <span className="h-px w-6 bg-edge-strong sm:w-10" />}
           </div>
         ))}
@@ -145,7 +145,7 @@ export default function GiftBuilder() {
       {/* Step 0 */}
       {step === 0 && (
         <section className="mt-10">
-          <h2 className="font-display text-xl font-bold text-charcoal">What are we celebrating?</h2>
+          <h2 className="font-display text-xl font-bold text-black">What are we celebrating?</h2>
           <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3">
             {OCCASIONS.map((o) => (
               <button
@@ -158,7 +158,7 @@ export default function GiftBuilder() {
                 className="glass-card group rounded-zed p-6 text-left transition-all hover:-translate-y-1 hover:shadow-glass-lg"
               >
                 <span className="text-3xl">{o.emoji}</span>
-                <p className="mt-3 font-display font-bold text-charcoal">{o.label}</p>
+                <p className="mt-3 font-display font-bold text-black">{o.label}</p>
               </button>
             ))}
           </div>
@@ -168,7 +168,7 @@ export default function GiftBuilder() {
       {/* Step 1 */}
       {step === 1 && (
         <section className="mt-10">
-          <h2 className="font-display text-xl font-bold text-charcoal">Who is it for?</h2>
+          <h2 className="font-display text-xl font-bold text-black">Who is it for?</h2>
           <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
             {RECIPIENTS.map((r) => (
               <button
@@ -180,7 +180,7 @@ export default function GiftBuilder() {
                 }}
                 className="glass-card rounded-zed p-5 text-center transition-all hover:-translate-y-1 hover:shadow-glass-lg"
               >
-                <p className="font-semibold text-charcoal">{r.label}</p>
+                <p className="font-semibold text-black">{r.label}</p>
               </button>
             ))}
           </div>
@@ -190,7 +190,7 @@ export default function GiftBuilder() {
       {/* Step 2 */}
       {step === 2 && (
         <section className="mt-10">
-          <h2 className="font-display text-xl font-bold text-charcoal">What&apos;s the budget per gift?</h2>
+          <h2 className="font-display text-xl font-bold text-black">What&apos;s the budget per gift?</h2>
           <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {BUDGETS.map((b) => (
               <button
@@ -205,7 +205,7 @@ export default function GiftBuilder() {
                   budget === b.value ? "border-soft-sage bg-warm-white" : "border-white/50 bg-white/30 hover:border-soft-sage"
                 }`}
               >
-                <p className="font-bold text-charcoal">{b.label}</p>
+                <p className="font-bold text-black">{b.label}</p>
               </button>
             ))}
           </div>
@@ -218,7 +218,7 @@ export default function GiftBuilder() {
                   type="button"
                   onClick={() => setVibe(v.value)}
                   className={`rounded-full border px-4 py-2 text-sm font-semibold backdrop-blur-sm ${
-                    vibe === v.value ? "border-soft-sage bg-obsidian text-champagne" : "border-white/50 bg-white/30 text-ink/70 hover:border-soft-sage"
+                    vibe === v.value ? "border-soft-sage bg-zed-950 text-white" : "border-white/50 bg-white/30 text-black/70 hover:border-soft-sage"
                   }`}
                 >
                   {v.label}
@@ -230,10 +230,10 @@ export default function GiftBuilder() {
             type="button"
             onClick={suggest}
             disabled={loading}
-            className="mt-8 inline-flex items-center gap-2 rounded-zed bg-obsidian px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-champagne transition-colors hover:bg-charcoal disabled:opacity-60"
+            className="mt-8 inline-flex items-center gap-2 rounded-zed bg-zed-950 px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-zed-900 disabled:opacity-60"
           >
             {loading ? <Loader2 className="size-4 animate-spin" /> : <Sparkles className="size-4" />}
-            {loading ? "Picking gifts…" : "Show me gifts"}
+            {loading ? "Picking giftsâ€¦" : "Show me gifts"}
           </button>
         </section>
       )}
@@ -241,9 +241,9 @@ export default function GiftBuilder() {
       {/* Step 3 */}
       {step === 3 && (
         <section className="mt-10">
-          <h2 className="font-display text-xl font-bold text-charcoal">Pick the ones you love</h2>
-          <p className="mt-1 text-sm text-ink/60">
-            Select up to 5 gifts — we&apos;ll add them all to your cart together.
+          <h2 className="font-display text-xl font-bold text-black">Pick the ones you love</h2>
+          <p className="mt-1 text-sm text-black/60">
+            Select up to 5 gifts â€” we&apos;ll add them all to your cart together.
           </p>
 
           {error && <p className="mt-4 rounded-zed bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
@@ -257,7 +257,7 @@ export default function GiftBuilder() {
                   type="button"
                   onClick={() => toggle(item.id)}
                   className={`group relative overflow-hidden rounded-zed border bg-white text-left transition-all ${
-                    isSelected ? "border-soft-sage ring-2 ring-champagne" : "border-edge hover:border-soft-sage"
+                    isSelected ? "border-soft-sage ring-2 ring-zed-900" : "border-edge hover:border-soft-sage"
                   }`}
                 >
                   <div className="relative aspect-square bg-panel">
@@ -271,14 +271,14 @@ export default function GiftBuilder() {
                       <span className="absolute right-2 top-2 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-bold text-deep-olive">Personalize</span>
                     )}
                     {isSelected && (
-                      <span className="absolute left-2 top-2 grid size-7 place-items-center rounded-full bg-champagne text-charcoal">
+                      <span className="absolute left-2 top-2 grid size-7 place-items-center rounded-full bg-zed-950 text-white">
                         <Check className="size-4" />
                       </span>
                     )}
                   </div>
                   <div className="p-3">
-                    <p className="text-sm font-semibold leading-snug text-ink">{item.name}</p>
-                    <p className="mt-1 text-sm font-bold text-charcoal">{formatKES(item.price)}</p>
+                    <p className="text-sm font-semibold leading-snug text-black">{item.name}</p>
+                    <p className="mt-1 text-sm font-bold text-black">{formatKES(item.price)}</p>
                   </div>
                 </button>
               );
@@ -287,11 +287,11 @@ export default function GiftBuilder() {
 
           {/* Selection tray */}
           {selectedItems.length > 0 && (
-            <div className="sticky bottom-4 mt-8 rounded-zed bg-obsidian p-4 text-white shadow-raised">
+            <div className="sticky bottom-4 mt-8 rounded-zed bg-zed-950 p-4 text-white shadow-raised">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="min-w-0">
                   <p className="flex items-center gap-2 text-sm font-bold">
-                    <Package className="size-4 text-champagne" /> {selectedItems.length} gift{selectedItems.length === 1 ? "" : "s"} selected
+                    <Package className="size-4 text-white" /> {selectedItems.length} gift{selectedItems.length === 1 ? "" : "s"} selected
                   </p>
                   <p className="mt-0.5 text-xs text-white/70">Estimated total {formatKES(total)}</p>
                 </div>
@@ -299,7 +299,7 @@ export default function GiftBuilder() {
                   <button
                     type="button"
                     onClick={() => setSelected(new Set())}
-                    className="rounded-zed border border-white/25 px-4 py-2.5 text-sm font-semibold text-white hover:border-champagne hover:text-champagne"
+                    className="rounded-zed border border-white/25 px-4 py-2.5 text-sm font-semibold text-white hover:border-zed-900 hover:text-white"
                   >
                     Clear
                   </button>
@@ -307,9 +307,9 @@ export default function GiftBuilder() {
                     type="button"
                     onClick={addSelected}
                     disabled={adding || selectedItems.length > 5}
-                    className="rounded-zed bg-champagne px-5 py-2.5 text-sm font-bold text-charcoal transition-colors hover:bg-white disabled:opacity-50"
+                    className="rounded-zed bg-zed-950 px-5 py-2.5 text-sm font-bold text-black transition-colors hover:bg-white disabled:opacity-50"
                   >
-                    {adding ? "Adding…" : `Add to cart · ${formatKES(total)}`}
+                    {adding ? "Addingâ€¦" : `Add to cart Â· ${formatKES(total)}`}
                   </button>
                 </div>
               </div>
@@ -317,7 +317,7 @@ export default function GiftBuilder() {
                 {selectedItems.map((it) => (
                   <span key={it.id} className="flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs">
                     {it.name.slice(0, 28)}
-                    <button type="button" onClick={() => toggle(it.id)} aria-label={`Remove ${it.name}`} className="text-white/60 hover:text-champagne">
+                    <button type="button" onClick={() => toggle(it.id)} aria-label={`Remove ${it.name}`} className="text-white/60 hover:text-white">
                       <X className="size-3" />
                     </button>
                   </span>

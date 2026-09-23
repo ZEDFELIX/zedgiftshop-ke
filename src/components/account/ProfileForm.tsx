@@ -32,14 +32,14 @@ export function ProfileForm({ name, email, phone }: { name: string; email: strin
 
   return (
     <form onSubmit={submit} className="glass-card space-y-4 rounded-zed p-6">
-      <h2 className="font-display text-lg font-bold text-charcoal">Profile</h2>
+      <h2 className="font-display text-lg font-bold text-black">Profile</h2>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="label" htmlFor="p-name">Full name</label>
           <input id="p-name" className="field" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
         </div>
         <div>
-          <label className="label" htmlFor="p-phone">Phone (2547…)</label>
+          <label className="label" htmlFor="p-phone">Phone (2547â€¦)</label>
           <input id="p-phone" className="field" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} inputMode="tel" />
         </div>
         <div className="sm:col-span-2">
@@ -49,7 +49,7 @@ export function ProfileForm({ name, email, phone }: { name: string; email: strin
       </div>
       {status === "error" && <p className="rounded-zed bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
       {status === "saved" && <p className="rounded-zed bg-emerald-50 px-4 py-3 text-sm text-emerald-700">Profile updated.</p>}
-      <button type="submit" disabled={status === "saving"} className="flex items-center gap-2 rounded-zed bg-obsidian px-5 py-3 text-sm font-bold text-champagne disabled:opacity-50">
+      <button type="submit" disabled={status === "saving"} className="flex items-center gap-2 rounded-zed bg-zed-950 px-5 py-3 text-sm font-bold text-white disabled:opacity-50">
         {status === "saving" ? <Loader2 className="size-4 animate-spin" /> : <Check className="size-4" />} Save changes
       </button>
     </form>

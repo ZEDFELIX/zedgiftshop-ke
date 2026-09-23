@@ -35,8 +35,8 @@ export default async function DesignApprovalsPage() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="eyebrow">Design workflow</p>
-          <h1 className="mt-2 font-display text-3xl font-bold text-charcoal">Design Approvals</h1>
-          <p className="mt-1 text-sm text-ink/65">
+          <h1 className="mt-2 font-display text-3xl font-bold text-black">Design Approvals</h1>
+          <p className="mt-1 text-sm text-black/65">
             Review and approve custom designs before we begin production.
           </p>
         </div>
@@ -48,8 +48,8 @@ export default async function DesignApprovalsPage() {
       {pendingDesigns.length === 0 ? (
         <div className="glass-panel mx-auto mt-14 max-w-md rounded-zed p-10 text-center">
           <FileImage className="mx-auto size-12 text-soft-sage/50" />
-          <p className="mt-4 font-display text-xl font-bold text-charcoal">No designs pending</p>
-          <p className="mt-2 text-sm text-ink/65">
+          <p className="mt-4 font-display text-xl font-bold text-black">No designs pending</p>
+          <p className="mt-2 text-sm text-black/65">
             Custom design approvals appear here when you order personalized items.
           </p>
         </div>
@@ -59,12 +59,12 @@ export default async function DesignApprovalsPage() {
             <article key={order.id} className="glass-card rounded-zed p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <p className="font-display text-sm font-bold text-charcoal">{order.orderNumber}</p>
-                  <p className="text-xs text-ink/55">
-                    {order.createdAt.toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" })} · {order.items.length} item(s)
+                  <p className="font-display text-sm font-bold text-black">{order.orderNumber}</p>
+                  <p className="text-xs text-black/55">
+                    {order.createdAt.toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" })} Â· {order.items.length} item(s)
                   </p>
                 </div>
-                <span className="rounded-full bg-warm-white px-2.5 py-1 text-xs font-semibold text-charcoal">
+                <span className="rounded-full bg-warm-white px-2.5 py-1 text-xs font-semibold text-black">
                   Pending Your Approval
                 </span>
               </div>
@@ -79,18 +79,18 @@ export default async function DesignApprovalsPage() {
                           <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
                         </div>
                       ) : (
-                        <div className="grid h-16 w-16 place-items-center rounded-zed bg-obsidian text-xs font-bold text-champagne">
+                        <div className="grid h-16 w-16 place-items-center rounded-zed bg-zed-950 text-xs font-bold text-white">
                           ZED
                         </div>
                       )}
                       <div>
-                        <p className="text-sm font-semibold text-charcoal">{item.name}</p>
+                        <p className="text-sm font-semibold text-black">{item.name}</p>
                         {item.personalizationJson && (
                           <p className="text-xs text-soft-sage">
                             {(() => { try { const p = JSON.parse(item.personalizationJson); return p.engravingText ?? p.name ?? "Custom"; } catch { return "Custom"; } })()}
                           </p>
                         )}
-                        <p className="mt-1 text-sm font-bold text-charcoal">{formatKES(item.price)}</p>
+                        <p className="mt-1 text-sm font-bold text-black">{formatKES(item.price)}</p>
                       </div>
                     </div>
                   </div>
@@ -100,7 +100,7 @@ export default async function DesignApprovalsPage() {
               <div className="mt-6 flex flex-wrap gap-3">
                 <button
                   type="button"
-                  className="inline-flex items-center gap-2 rounded-zed bg-obsidian px-6 py-3 text-sm font-bold uppercase tracking-wider text-champagne transition-colors hover:bg-charcoal"
+                  className="inline-flex items-center gap-2 rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-zed-900"
                 >
                   <Check className="size-4" /> Approve Design
                 </button>

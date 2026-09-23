@@ -50,10 +50,10 @@ export function AddToCartButton({
           type="button"
           onClick={add}
           disabled={busy}
-          className="inline-flex w-full items-center justify-center gap-2 rounded-zed bg-champagne px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-charcoal transition-colors hover:bg-obsidian hover:text-white disabled:opacity-60"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-zed bg-zed-950 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-black transition-colors hover:bg-zed-950 hover:text-white disabled:opacity-60"
         >
           <ShoppingBag className="size-4" />
-          {busy ? "Adding…" : label}
+          {busy ? "Addingâ€¦" : label}
         </button>
       ) : (
         <button
@@ -61,10 +61,10 @@ export function AddToCartButton({
           onClick={add}
           disabled={busy}
           aria-label={label}
-          className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-obsidian px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-champagne transition-colors hover:bg-charcoal disabled:opacity-60"
+          className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-zed-950 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-zed-900 disabled:opacity-60"
         >
           <ShoppingBag className="size-4" />
-          {busy ? "Adding…" : label}
+          {busy ? "Addingâ€¦" : label}
         </button>
       )}
       {error && <p className="mt-2 text-xs text-red-600">{error}</p>}

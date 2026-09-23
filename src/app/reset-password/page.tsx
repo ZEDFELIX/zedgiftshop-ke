@@ -37,7 +37,7 @@ function ResetForm() {
       setStatus("done");
       router.push("/login");
     } catch {
-      setError("Network error — please try again.");
+      setError("Network error â€” please try again.");
       setStatus("idle");
     }
   }
@@ -45,12 +45,12 @@ function ResetForm() {
   if (status === "done") {
     return (
       <div className="glass-card w-full max-w-md rounded-zed p-6 text-center lg:p-8">
-        <span className="mx-auto grid size-14 place-items-center rounded-full bg-champagne text-charcoal">
+        <span className="mx-auto grid size-14 place-items-center rounded-full bg-zed-950 text-white">
           <CheckCircle2 className="size-7" />
         </span>
-        <h1 className="mt-4 font-display text-2xl font-bold text-charcoal">Password updated</h1>
-        <p className="mt-2 text-sm text-ink/60">You can now log in with your new password.</p>
-        <Link href="/login" className="mt-6 inline-block rounded-zed bg-obsidian px-6 py-3 text-sm font-bold text-champagne">Log in</Link>
+        <h1 className="mt-4 font-display text-2xl font-bold text-black">Password updated</h1>
+        <p className="mt-2 text-sm text-black/60">You can now log in with your new password.</p>
+        <Link href="/login" className="mt-6 inline-block rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold text-white">Log in</Link>
       </div>
     );
   }
@@ -59,7 +59,7 @@ function ResetForm() {
     <form onSubmit={submit} className="glass-card w-full max-w-md space-y-4 rounded-zed p-6 lg:p-8">
       <div className="text-center">
         <p className="eyebrow">One last step</p>
-        <h1 className="mt-2 font-display text-2xl font-bold text-charcoal">Choose a new password</h1>
+        <h1 className="mt-2 font-display text-2xl font-bold text-black">Choose a new password</h1>
       </div>
       {!token && <p className="rounded-zed bg-amber-50/70 px-4 py-3 text-sm text-amber-800 backdrop-blur-sm">Missing reset token. Open the link from your email again.</p>}
       {token && (
@@ -67,7 +67,7 @@ function ResetForm() {
           <div>
             <label className="label" htmlFor="rp-password">New password</label>
             <div className="relative">
-              <Lock className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-ink/40" />
+              <Lock className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-black/40" />
               <input id="rp-password" type="password" className="field pl-9" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={8} autoComplete="new-password" />
             </div>
           </div>
@@ -76,7 +76,7 @@ function ResetForm() {
             <input id="rp-confirm" type="password" className="field" value={confirm} onChange={(e) => setConfirm(e.target.value)} required minLength={8} autoComplete="new-password" />
           </div>
           {error && <p className="rounded-zed bg-red-50/70 px-4 py-3 text-sm text-red-700 backdrop-blur-sm">{error}</p>}
-          <button type="submit" disabled={status === "loading"} className="flex w-full items-center justify-center gap-2 rounded-zed bg-obsidian py-3.5 text-sm font-bold uppercase tracking-wider text-champagne disabled:opacity-50">
+          <button type="submit" disabled={status === "loading"} className="flex w-full items-center justify-center gap-2 rounded-zed bg-zed-950 py-3.5 text-sm font-bold uppercase tracking-wider text-white disabled:opacity-50">
             {status === "loading" ? <Loader2 className="size-4 animate-spin" /> : "Reset password"}
           </button>
         </>
@@ -88,7 +88,7 @@ function ResetForm() {
 export default function ResetPasswordPage() {
   return (
     <div className="container-zed flex min-h-[60vh] items-center justify-center py-14 lg:py-24">
-      <Suspense fallback={<p className="text-sm text-ink/50">Loading…</p>}>
+      <Suspense fallback={<p className="text-sm text-black/50">Loadingâ€¦</p>}>
         <ResetForm />
       </Suspense>
     </div>

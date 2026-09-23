@@ -8,7 +8,7 @@ import { OrderStatusController } from "@/components/admin/OrderStatusController"
 import { ArrowLeft } from "lucide-react";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Order · Admin", robots: { index: false } };
+export const metadata = { title: "Order Â· Admin", robots: { index: false } };
 
 export default async function AdminOrderPage({ params }: { params: Promise<{ orderId: string }> }) {
   const { orderId } = await params;
@@ -19,22 +19,22 @@ export default async function AdminOrderPage({ params }: { params: Promise<{ ord
 
   return (
     <div className="space-y-6">
-      <Link href="/admin/orders" className="flex items-center gap-1 text-sm font-semibold text-ink/60 hover:text-soft-sage">
+      <Link href="/admin/orders" className="flex items-center gap-1 text-sm font-semibold text-black/60 hover:text-soft-sage">
         <ArrowLeft className="size-4" /> All orders
       </Link>
 
       <div className="rounded-zed border border-edge bg-white p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="font-display text-xl font-bold text-charcoal">{order.orderNumber}</p>
-            <p className="text-sm text-ink/55">{order.createdAt.toLocaleString("en-KE")}</p>
+            <p className="font-display text-xl font-bold text-black">{order.orderNumber}</p>
+            <p className="text-sm text-black/55">{order.createdAt.toLocaleString("en-KE")}</p>
           </div>
           <div className="text-right">
             <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${order.paymentStatus === "SUCCESS" ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"}`}>
               {PAYMENT_STATUS_LABELS[order.paymentStatus]}
             </span>
-            <span className="ml-2 rounded-full bg-panel px-2.5 py-1 text-xs font-bold text-charcoal">{ORDER_STATUS_LABELS[order.orderStatus]}</span>
-            <p className="mt-1.5 font-display text-lg font-bold text-charcoal">{formatKES(order.total)}</p>
+            <span className="ml-2 rounded-full bg-panel px-2.5 py-1 text-xs font-bold text-black">{ORDER_STATUS_LABELS[order.orderStatus]}</span>
+            <p className="mt-1.5 font-display text-lg font-bold text-black">{formatKES(order.total)}</p>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@ export default async function AdminOrderPage({ params }: { params: Promise<{ ord
       <div className="grid gap-6 lg:grid-cols-[1fr_360px]">
         <div className="space-y-6">
           <section className="rounded-zed border border-edge bg-white p-6">
-            <h3 className="font-display text-base font-bold text-charcoal">Items</h3>
+            <h3 className="font-display text-base font-bold text-black">Items</h3>
             <ul className="mt-3 divide-y divide-edge">
               {order.items.map((i) => (
                 <li key={i.id} className="flex items-center gap-3 py-3">
@@ -50,8 +50,8 @@ export default async function AdminOrderPage({ params }: { params: Promise<{ ord
                     {i.image && <Image src={i.image} alt="" fill unoptimized className="object-cover" />}
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="font-medium text-ink">{i.name}{i.sku ? <span className="ml-1 text-xs text-ink/45">({i.sku})</span> : null}</p>
-                    <p className="text-xs text-ink/55">Qty {i.quantity}{i.giftWrapPrice > 0 ? " · Gift wrap" : ""}</p>
+                    <p className="font-medium text-black">{i.name}{i.sku ? <span className="ml-1 text-xs text-black/45">({i.sku})</span> : null}</p>
+                    <p className="text-xs text-black/55">Qty {i.quantity}{i.giftWrapPrice > 0 ? " Â· Gift wrap" : ""}</p>
                   </div>
                   <p className="font-semibold">{formatKES((i.price + i.giftWrapPrice) * i.quantity)}</p>
                 </li>
@@ -61,28 +61,28 @@ export default async function AdminOrderPage({ params }: { params: Promise<{ ord
 
           <section className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-zed border border-edge bg-white p-5">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-ink/50">Customer</h4>
-              <p className="mt-2 font-semibold text-ink">{order.name}</p>
-              <p className="text-sm text-ink/60">{order.email}</p>
-              <p className="text-sm text-ink/60">{order.phone}</p>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-black/50">Customer</h4>
+              <p className="mt-2 font-semibold text-black">{order.name}</p>
+              <p className="text-sm text-black/60">{order.email}</p>
+              <p className="text-sm text-black/60">{order.phone}</p>
             </div>
             <div className="rounded-zed border border-edge bg-white p-5">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-ink/50">Delivery</h4>
-              <p className="mt-2 text-sm text-ink/75">{order.address}{order.building ? `, ${order.building}` : ""}{order.apartment ? `, ${order.apartment}` : ""}</p>
-              <p className="text-sm text-ink/75">{order.town}, {order.county} · {order.deliveryMethod}</p>
-              {order.isGift && <p className="mt-1.5 text-xs font-semibold text-soft-sage">Gift — hide prices on slip</p>}
+              <h4 className="text-xs font-bold uppercase tracking-wider text-black/50">Delivery</h4>
+              <p className="mt-2 text-sm text-black/75">{order.address}{order.building ? `, ${order.building}` : ""}{order.apartment ? `, ${order.apartment}` : ""}</p>
+              <p className="text-sm text-black/75">{order.town}, {order.county} Â· {order.deliveryMethod}</p>
+              {order.isGift && <p className="mt-1.5 text-xs font-semibold text-soft-sage">Gift â€” hide prices on slip</p>}
             </div>
           </section>
 
           {order.payments.length > 0 && (
             <section className="rounded-zed border border-edge bg-white p-5">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-ink/50">Payments</h4>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-black/50">Payments</h4>
               <ul className="mt-2 divide-y divide-edge text-sm">
                 {order.payments.map((p) => (
                   <li key={p.id} className="flex items-center justify-between gap-2 py-2">
                     <div>
-                      <p className="font-medium text-ink">M-PESA · {p.status}{p.mpesaReceipt ? ` · ${p.mpesaReceipt}` : ""}</p>
-                      {p.resultDescription && <p className="text-xs text-ink/50">{p.resultDescription}</p>}
+                      <p className="font-medium text-black">M-PESA Â· {p.status}{p.mpesaReceipt ? ` Â· ${p.mpesaReceipt}` : ""}</p>
+                      {p.resultDescription && <p className="text-xs text-black/50">{p.resultDescription}</p>}
                     </div>
                     <p className="font-semibold">{formatKES(p.amount)}</p>
                   </li>

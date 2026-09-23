@@ -4,16 +4,16 @@ export function BackgroundScene() {
   return (
     <div className="bg-scene" aria-hidden>
       <div
-        className="blob left-[-8%] top-[-12%] h-[46vw] w-[46vw] bg-[radial-gradient(circle_at_center,_rgba(90,31,43,0.18),_transparent_65%)] animate-[blob_26s_ease-in-out_infinite]"
+        className="blob left-[-8%] top-[-12%] h-[46vw] w-[46vw] bg-[radial-gradient(circle_at_center,_rgba(110,31,42,0.18),_transparent_65%)] animate-[blob_26s_ease-in-out_infinite]"
       />
       <div
-        className="blob right-[-10%] top-[8%] h-[40vw] w-[40vw] bg-[radial-gradient(circle_at_center,_rgba(201,168,106,0.18),_transparent_65%)] animate-[blob_30s_ease-in-out_infinite]"
+        className="blob right-[-10%] top-[8%] h-[40vw] w-[40vw] bg-[radial-gradient(circle_at_center,_rgba(110,31,42,0.18),_transparent_65%)] animate-[blob_30s_ease-in-out_infinite]"
       />
       <div
-        className="blob bottom-[-14%] left-[22%] h-[42vw] w-[42vw] bg-[radial-gradient(circle_at_center,_rgba(163,123,130,0.13),_transparent_65%)] animate-[blob_34s_ease-in-out_infinite]"
+        className="blob bottom-[-14%] left-[22%] h-[42vw] w-[42vw] bg-[radial-gradient(circle_at_center,_rgba(110,31,42,0.1),_transparent_65%)] animate-[blob_34s_ease-in-out_infinite]"
       />
       <div
-        className="blob bottom-[6%] right-[8%] h-[28vw] w-[28vw] bg-[radial-gradient(circle_at_center,_rgba(201,168,106,0.12),_transparent_65%)] animate-[blob_28s_ease-in-out_infinite]"
+        className="blob bottom-[6%] right-[8%] h-[28vw] w-[28vw] bg-[radial-gradient(circle_at_center,_rgba(110,31,42,0.12),_transparent_65%)] animate-[blob_28s_ease-in-out_infinite]"
       />
     </div>
   );

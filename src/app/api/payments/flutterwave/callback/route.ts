@@ -61,7 +61,7 @@ export async function POST(req: Request) {
 
   const payment = await prisma.payment.findFirst({
     where: { txRef },
-    include: { order: true },
+    include: { order: { include: { items: true } } },
   });
 
   if (!payment) {
@@ -86,12 +86,12 @@ export async function POST(req: Request) {
       },
     });
 
-    await confirmOrderPaid(payment.orderId);
+    await confirmOrderPaid(payment.orderId, payment.id, `${txRef}-${event.data?.id ?? ""}`);
     await sendOrderConfirmation({
       to: payment.order.email,
       orderNumber: payment.order.orderNumber,
       total: payment.order.total.toString(),
-      items: payment.order.orderItems.map((i) => ({ name: i.name, qty: i.quantity, lineTotal: i.price * i.quantity })),
+      items: payment.order.items.map((i) => ({ name: i.name, qty: i.quantity, lineTotal: (i.price * i.quantity).toString() })),
       statusUrl: `${SITE.url}/track?order=${payment.order.orderNumber}`,
     });
   } else if (finalStatus === "FAILED" || finalStatus === "CANCELLED") {

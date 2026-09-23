@@ -22,8 +22,8 @@ export default async function GiftHistoryPage() {
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="eyebrow">Gifting history</p>
-          <h1 className="mt-2 font-display text-3xl font-bold text-charcoal">My Gift History</h1>
-          <p className="mt-1 text-sm text-ink/65">
+          <h1 className="mt-2 font-display text-3xl font-bold text-black">My Gift History</h1>
+          <p className="mt-1 text-sm text-black/65">
             Every gift you&apos;ve sent. Re-gift with one tap.
           </p>
         </div>
@@ -35,9 +35,9 @@ export default async function GiftHistoryPage() {
       {giftOrders.length === 0 ? (
         <div className="glass-panel mx-auto mt-14 max-w-md rounded-zed p-10 text-center">
           <Package className="mx-auto size-12 text-soft-sage/50" />
-          <p className="mt-4 font-display text-xl font-bold text-charcoal">No gift history yet</p>
-          <p className="mt-2 text-sm text-ink/65">When you send a gift, it appears here for future reference.</p>
-          <Link href="/shop" className="mt-6 inline-flex rounded-zed bg-obsidian px-6 py-3 text-sm font-bold text-champagne">
+          <p className="mt-4 font-display text-xl font-bold text-black">No gift history yet</p>
+          <p className="mt-2 text-sm text-black/65">When you send a gift, it appears here for future reference.</p>
+          <Link href="/shop" className="mt-6 inline-flex rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold text-white">
             Start gifting
           </Link>
         </div>
@@ -47,12 +47,12 @@ export default async function GiftHistoryPage() {
             <article key={order.id} className="glass-card rounded-zed p-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <p className="font-display text-sm font-bold text-charcoal">{order.orderNumber}</p>
-                  <p className="text-xs text-ink/55">
+                  <p className="font-display text-sm font-bold text-black">{order.orderNumber}</p>
+                  <p className="text-xs text-black/55">
                     {order.createdAt.toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" })}
                   </p>
                 </div>
-                <span className="rounded-full bg-warm-white px-2.5 py-1 text-xs font-semibold text-charcoal">
+                <span className="rounded-full bg-warm-white px-2.5 py-1 text-xs font-semibold text-black">
                   {ORDER_STATUS_LABELS[order.orderStatus] ?? order.orderStatus}
                 </span>
               </div>
@@ -61,25 +61,25 @@ export default async function GiftHistoryPage() {
                 {order.items.map((item) => (
                   <li key={item.id} className="flex items-center justify-between py-3">
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-medium text-ink">{item.name}</p>
+                      <p className="text-sm font-medium text-black">{item.name}</p>
                       {item.personalizationJson && (
                         <p className="text-xs text-soft-sage">
-                          Personalized · {JSON.parse(item.personalizationJson).engravingText ?? ""}
+                          Personalized Â· {JSON.parse(item.personalizationJson).engravingText ?? ""}
                         </p>
                       )}
                     </div>
-                    <p className="shrink-0 font-bold text-charcoal">{formatKES(item.price)}</p>
+                    <p className="shrink-0 font-bold text-black">{formatKES(item.price)}</p>
                   </li>
                 ))}
               </ul>
 
               <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center gap-2 text-sm text-ink/65">
+                <div className="flex items-center gap-2 text-sm text-black/65">
                   <span>
-                    {order.items.length} item{order.items.length > 1 ? "s" : ""} ·{" "}
+                    {order.items.length} item{order.items.length > 1 ? "s" : ""} Â·{" "}
                     {formatKES(order.total)} total
                   </span>
-                  {order.isGift && <span className="text-xs text-soft-sage">🎁 Gift order</span>}
+                  {order.isGift && <span className="text-xs text-soft-sage">ðŸŽ Gift order</span>}
                 </div>
                 <Link
                   href={`/track/${order.orderNumber}`}

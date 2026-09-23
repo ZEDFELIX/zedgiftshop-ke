@@ -27,7 +27,7 @@ export function ContactForm() {
     }
     setDone(true);
     setBusy(false);
-    showToast("Message sent — we'll reply within one working day", "success");
+    showToast("Message sent â€” we'll reply within one working day", "success");
   }
 
   if (done) {
@@ -66,7 +66,7 @@ export function ContactForm() {
         <textarea id="cf-message" rows={6} className="field resize-y" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required minLength={5} />
       </div>
       {error && <p className="rounded-zed bg-red-50/70 px-4 py-3 text-sm text-red-700 backdrop-blur-sm">{error}</p>}
-      <button type="submit" disabled={busy} className="flex items-center gap-2 rounded-zed bg-obsidian px-6 py-3 text-sm font-bold text-champagne disabled:opacity-50">
+      <button type="submit" disabled={busy} className="flex items-center gap-2 rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold text-white disabled:opacity-50">
         {busy ? <Loader2 className="size-4 animate-spin" /> : <Send className="size-4" />} Send message
       </button>
     </form>
