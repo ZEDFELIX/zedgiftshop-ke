@@ -5,7 +5,7 @@ import { GIFT_ROUTES, SITE } from "@/lib/constants";
 export function Footer() {
   return (
     <footer className="relative mt-16 overflow-hidden border-t border-white/10 bg-obsidian/85 text-white backdrop-blur-xl">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(80%_120%_at_15%_0%,rgba(63,74,60,0.55),transparent_60%),radial-gradient(60%_100%_at_100%_20%,rgba(199,181,138,0.12),transparent_55%)]" aria-hidden />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(80%_120%_at_15%_0%,rgba(63,74,60,0.55),transparent_60%),radial-gradient(60%_100%_at_100%_20%,rgba(201,165,106,0.14),transparent_55%)]" aria-hidden />
       <div className="container-zed grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="font-display text-xl font-black tracking-[0.08em]">

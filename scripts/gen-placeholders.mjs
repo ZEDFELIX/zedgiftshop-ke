@@ -8,14 +8,14 @@ function escapeXml(s) {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-function svg(label, accent = "#BFD72F") {
+function svg(label, accent = "#c9a56a") {
   const safe = escapeXml(label);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#063121"/>
-      <stop offset="0.55" stop-color="#0b4a33"/>
-      <stop offset="1" stop-color="#063121"/>
+      <stop offset="0" stop-color="#111110"/>
+      <stop offset="0.55" stop-color="#242422"/>
+      <stop offset="1" stop-color="#111110"/>
     </linearGradient>
     <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
       <stop offset="0.6" stop-color="${accent}" stop-opacity="0.18"/>
@@ -53,7 +53,7 @@ const occasions = [
 const recipients = ["him", "her", "couples", "friends", "parents", "colleagues"];
 const collections = ["bestsellers", "new-arrivals", "corporate", "personalized-picks", "home-and-living", "gourmet"];
 
-const palette = ["#BFD72F", "#E8B54D", "#7FB8A0", "#D98BA8", "#8FB6D9", "#C9A2E0"];
+const palette = ["#c9a56a", "#c9a56a", "#94a294", "#dcd6ca", "#94a294", "#dcd6ca"];
 
 for (const [name, label] of products) {
   writeFileSync(join(dir, `${name}.svg`), svg(label, "rgba(0,0,0,0)"));

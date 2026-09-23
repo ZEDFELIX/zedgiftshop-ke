@@ -69,7 +69,6 @@ export function HeaderContent({
 
   const accountHref = isAuthed ? "/account" : "/login";
   const coreNav = [
-    { label: "Home", href: "/", show: "(min-width:1024px)" },
     { label: "Shop", href: "/shop", show: "(min-width:1024px)" },
     { label: "Categories", href: "/collections", show: "(min-width:1024px)" },
     { label: "New Arrivals", href: "/shop?sort=new", show: "(min-width:1280px)" },
@@ -100,7 +99,7 @@ export function HeaderContent({
             >
               <Menu className="size-5" />
             </button>
-            <Link href="/" className="flex items-baseline gap-1.5 px-1" aria-label="ZED GIFT SHOP home">
+            <Link href="/shop" className="flex items-baseline gap-1.5 px-1" aria-label="ZED GIFT SHOP">
               <span className="font-display text-lg font-black tracking-[0.08em] text-charcoal sm:text-xl">
                 ZED
               </span>
@@ -231,7 +230,6 @@ export function HeaderContent({
             </div>
             <nav className="flex-1 overflow-y-auto p-3" aria-label="Mobile">
               {[
-                { label: "Home", href: "/" },
                 { label: "Shop", href: "/shop" },
                 { label: "Categories", href: "/collections" },
                 { label: "New Arrivals", href: "/shop?sort=new" },

@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: SITE.name,
     short_name: "ZED",
     description: SITE.description,
-    start_url: "/",
+    start_url: "/shop",
     display: "standalone",
     background_color: "#111110",
     theme_color: "#3f4a3c",

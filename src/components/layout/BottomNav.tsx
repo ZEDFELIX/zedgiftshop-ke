@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
-  Home,
   ShoppingBag,
   Gift,
   Heart,
@@ -13,7 +12,6 @@ import {
 import { useCallback } from "react";
 
 const NAV_ITEMS = [
-  { href: "/", label: "Home", icon: Home },
   { href: "/shop", label: "Shop", icon: ShoppingBag },
   { href: "/gifts", label: "Gifts", icon: Gift },
   { href: "/wishlist", label: "Wishlist", icon: Heart },
@@ -23,10 +21,7 @@ const NAV_ITEMS = [
 export function BottomNav() {
   const pathname = usePathname();
   const isActive = useCallback(
-    (href: string) => {
-      if (href === "/") return pathname === "/";
-      return pathname.startsWith(href);
-    },
+    (href: string) => pathname.startsWith(href),
     [pathname]
   );
 

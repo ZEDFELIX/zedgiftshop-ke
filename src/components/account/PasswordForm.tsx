@@ -37,7 +37,7 @@ export function PasswordForm() {
 
   async function logout() {
     await fetch("/api/auth/logout", { method: "POST" });
-    router.push("/");
+    router.push("/shop");
     router.refresh();
   }
 

@@ -2,7 +2,7 @@ import "server-only";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { verifyFlutterwaveTransaction } from "@/lib/flutterwave";
-import { confirmOrderPaid, updateOrderStatus, releaseInventoryForOrder } from "@/lib/data/orders";
+import { confirmOrderPaid } from "@/lib/data/orders";
 import { sendOrderConfirmation } from "@/lib/email";
 import { webhookSecretMatches } from "@/lib/mpesa";
 import { SITE } from "@/lib/constants";
@@ -61,7 +61,6 @@ export async function POST(req: Request) {
 
   const payment = await prisma.payment.findFirst({
     where: { txRef },
-    include: { order: true },
   });
 
   if (!payment) {
@@ -77,23 +76,35 @@ export async function POST(req: Request) {
   const finalStatus = verify.ok ? verify.status : (event.data?.status?.toUpperCase() ?? "PENDING");
 
   if (finalStatus === "SUCCESS") {
+    const receipt = `${txRef}-${event.data?.id ?? ""}`;
     await prisma.payment.update({
       where: { id: payment.id },
       data: {
         status: "SUCCESS",
-        mpesaReceipt: `${txRef}-${event.data?.id ?? ""}`,
+        mpesaReceipt: receipt,
         resultDescription: `Flutterwave payment via ${event.data?.payment_type ?? "card"}`,
       },
     });
 
-    await confirmOrderPaid(payment.orderId);
-    await sendOrderConfirmation({
-      to: payment.order.email,
-      orderNumber: payment.order.orderNumber,
-      total: payment.order.total.toString(),
-      items: payment.order.orderItems.map((i) => ({ name: i.name, qty: i.quantity, lineTotal: i.price * i.quantity })),
-      statusUrl: `${SITE.url}/track?order=${payment.order.orderNumber}`,
+    await confirmOrderPaid(payment.orderId, payment.id, receipt);
+
+    const order = await prisma.order.findUnique({
+      where: { id: payment.orderId },
+      include: { items: true },
     });
+    if (order) {
+      await sendOrderConfirmation({
+        to: order.email,
+        orderNumber: order.orderNumber,
+        total: `KES ${order.total.toLocaleString("en-KE")}`,
+        items: order.items.map((i) => ({
+          name: i.name,
+          qty: i.quantity,
+          lineTotal: `KES ${(i.price * i.quantity + i.giftWrapPrice * i.quantity).toLocaleString("en-KE")}`,
+        })),
+        statusUrl: `${SITE.url}/track?order=${order.orderNumber}`,
+      });
+    }
   } else if (finalStatus === "FAILED" || finalStatus === "CANCELLED") {
     await prisma.payment.update({
       where: { id: payment.id },

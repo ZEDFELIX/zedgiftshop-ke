@@ -70,8 +70,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
       {/* Breadcrumbs */}
       <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 overflow-x-auto text-xs text-ink/55">
-        <Link href="/" className="hover:text-deep-olive">Home</Link>
-        <ChevronRight className="size-3.5 shrink-0" />
         <Link href="/shop" className="hover:text-deep-olive">Shop</Link>
         {categories[0] && (
           <>

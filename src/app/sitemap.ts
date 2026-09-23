@@ -6,10 +6,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const url = SITE.url;
 
   const staticRoutes = [
-    "", "/shop", "/search", "/deals", "/collections", "/gifts", "/personalized", "/wishlist",
+    "/shop", "/search", "/deals", "/collections", "/gifts", "/personalized", "/wishlist",
     "/gift-builder", "/track", "/contact", "/about", "/policies/delivery", "/policies/privacy",
     "/policies/terms", "/login", "/register", "/forgot-password",
-  ].map((p) => ({ url: `${url}${p}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: p === "" ? 1 : 0.8 }));
+  ].map((p) => ({ url: `${url}${p}`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: p === "/shop" ? 1 : 0.8 }));
 
   const products = await prisma.product.findMany({
     where: { status: "ACTIVE" },

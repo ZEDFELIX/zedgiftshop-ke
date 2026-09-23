@@ -81,6 +81,7 @@ export async function POST(req: Request) {
       provider: "FLUTTERWAVE",
       status: "PENDING",
       amount,
+      phone: phone ?? "",
       email,
       txRef,
       checkoutUrl: result.data.authorization_url,

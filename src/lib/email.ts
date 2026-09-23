@@ -85,10 +85,10 @@ function layout(raw: { subject: string; text: string; html: string }) {
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px;">
 <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border-radius:12px;overflow:hidden;">
 <tr><td style="background:#111110;padding:20px 28px;">
-<div style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#c7b58a;letter-spacing:2px;">ZED GIFT SHOP</div>
+<div style="font-family:Georgia,serif;font-size:22px;font-weight:700;color:#c9a56a;letter-spacing:2px;">ZED GIFT SHOP</div>
 </td></tr>
 <tr><td style="padding:28px;">${raw.html}</td></tr>
-<tr><td style="padding:20px 28px;background:#f5f3ee;color:#a8b3a3;font-size:12px;">
+<tr><td style="padding:20px 28px;background:#f5f3ee;color:#94a294;font-size:12px;">
 <p style="margin:0 0 6px;">${SITE.name} • ${SITE.phone} • ${SITE.email}</p>
 <p style="margin:0;">Thank you for shopping with us.</p>
 </td></tr>
@@ -115,7 +115,7 @@ export async function sendOrderConfirmation(input: {
     <p style="margin:0 0 16px;">We have received order <strong>${input.orderNumber}</strong> and are busy preparing your gift.</p>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #eee;">${rows}</table>
     <p style="text-align:right;font-weight:bold;border-top:1px solid #eee;padding-top:12px;">Total: ${input.total}</p>
-    <a href="${input.statusUrl}" style="display:inline-block;margin-top:16px;background:#c7b58a;color:#111110;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;">Track your order</a>
+    <a href="${input.statusUrl}" style="display:inline-block;margin-top:16px;background:#c9a56a;color:#111110;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;">Track your order</a>
   `;
   return sendEmail({ to: input.to, subject, text, html: layout({ subject, text, html }).html });
 }
@@ -125,7 +125,7 @@ export async function sendOrderStatusUpdate(input: { to: string; orderNumber: st
   const text = `Your order ${input.orderNumber} is now: ${input.status}. View: ${input.statusUrl}`;
   const html = `<p style="margin:0 0 12px;">Good news — your order <strong>${input.orderNumber}</strong> has a status update:</p>
   <p style="font-size:18px;font-weight:bold;color:#3f4a3c;">${input.status}</p>
-  <a href="${input.statusUrl}" style="display:inline-block;margin-top:16px;background:#c7b58a;color:#111110;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;">Track your order</a>`;
+  <a href="${input.statusUrl}" style="display:inline-block;margin-top:16px;background:#c9a56a;color:#111110;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;">Track your order</a>`;
   return sendEmail({ to: input.to, subject, text, html: layout({ subject, text, html }).html });
 }
 
@@ -133,7 +133,7 @@ export async function sendPasswordReset(input: { to: string; resetUrl: string })
   const subject = "Reset your ZED GIFT SHOP password";
   const text = `Reset your password here: ${input.resetUrl}. This link expires in 30 minutes.`;
   const html = `<p style="margin:0 0 12px;">We received a request to reset your password. Click below to choose a new one.</p>
-  <a href="${input.resetUrl}" style="display:inline-block;margin:8px 0 12px;background:#c7b58a;color:#111110;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;">Reset password</a>
+  <a href="${input.resetUrl}" style="display:inline-block;margin:8px 0 12px;background:#c9a56a;color:#111110;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;">Reset password</a>
   <p style="font-size:12px;color:#888;">This link expires in 30 minutes. If you didn't request this, you can ignore this email.</p>`;
   return sendEmail({ to: input.to, subject, text, html: layout({ subject, text, html }).html });
 }
@@ -143,6 +143,6 @@ export async function sendOccasionReminder(input: { to: string; personName: stri
   const text = `${input.personName}'s ${input.occasion} is on ${input.date}. Find a gift: ${input.shopUrl}`;
   const html = `<p style="margin:0 0 12px;"><strong>${input.personName}</strong>'s <strong>${input.occasion}</strong> is on <strong>${input.date}</strong>.</p>
   <p style="margin:0 0 16px;">Make it special with a gift that says more.</p>
-  <a href="${input.shopUrl}" style="display:inline-block;background:#c7b58a;color:#111110;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;">Shop gifts</a>`;
+  <a href="${input.shopUrl}" style="display:inline-block;background:#c9a56a;color:#111110;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;">Shop gifts</a>`;
   return sendEmail({ to: input.to, subject, text, html: layout({ subject, text, html }).html });
 }

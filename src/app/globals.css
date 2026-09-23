@@ -9,11 +9,11 @@
   --color-charcoal: #1d1d1f;
   --color-warm-ivory: #f5f3ee;
   --color-pure-white: #ffffff;
-  --color-stone: #d9d6ce;
-  --color-soft-sage: #a8b3a3;
+  --color-stone: #dcd6ca;
+  --color-soft-sage: #94a294;
   --color-deep-olive: #3f4a3c;
-  --color-champagne: #c7b58a;
-  --color-warm-white: #fafaf7;
+  --color-champagne: #c9a56a;
+  --color-warm-white: #faf8f2;
   --color-ink: #1d1d1f;
   --color-panel: #f5f3ee;
   --color-edge: rgba(29, 29, 31, 0.1);
@@ -23,12 +23,12 @@
   --color-zed-950: #111110;
   --color-zed-900: #1d1d1f;
   --color-zed-800: #3f4a3c;
-  --color-zed-700: #a8b3a3;
-  --color-zed-600: #a8b3a3;
-  --color-zed-500: #a8b3a3;
-  --color-zed-lime: #c7b58a;
-  --color-lime-tint: #fafaf7;
-  --color-zed-50: #fafaf7;
+  --color-zed-700: #94a294;
+  --color-zed-600: #94a294;
+  --color-zed-500: #94a294;
+  --color-zed-lime: #c9a56a;
+  --color-lime-tint: #faf8f2;
+  --color-zed-50: #faf8f2;
 
   --shadow-card: 0 1px 2px rgba(29, 29, 31, 0.06);
   --shadow-raised: 0 12px 40px -12px rgba(17, 17, 16, 0.2);
@@ -220,9 +220,9 @@
     overflow: hidden;
     pointer-events: none;
     background:
-      radial-gradient(120% 90% at 85% -10%, rgba(168, 179, 163, 0.12), transparent 55%),
+      radial-gradient(120% 90% at 85% -10%, rgba(148, 162, 148, 0.14), transparent 55%),
       radial-gradient(110% 90% at -10% 15%, rgba(21, 21, 20, 0.06), transparent 55%),
-      linear-gradient(180deg, #ffffff 0%, #f5f3ee 40%, #f0ece4 100%);
+      linear-gradient(180deg, #ffffff 0%, #f7f4ed 40%, #f0ebdf 100%);
   }
   .bg-scene::after {
     content: "";
