@@ -94,7 +94,7 @@ export function ProductForm({ product, categories, collections }: { product?: Pr
       router.push("/admin/products");
       router.refresh();
     } catch {
-      setError("Network error â€” please try again.");
+      setError("Network error Ã¢â‚¬â€ please try again.");
       setBusy(false);
     }
   }
@@ -211,17 +211,17 @@ export function ProductForm({ product, categories, collections }: { product?: Pr
 
       <div className="rounded-zed border border-edge bg-white p-5">
         <div className="flex items-center justify-between">
-          <p className="label">Variants (size, scent, colourâ€¦)</p>
+          <p className="label">Variants (size, scent, colourÃ¢â‚¬Â¦)</p>
           <button type="button" onClick={addVariant} className="flex items-center gap-1.5 rounded-zed border border-edge px-3 py-1.5 text-xs font-semibold text-black/70 hover:border-soft-sage">
             <Plus className="size-3.5" /> Add variant
           </button>
         </div>
         {form.variants.length === 0 ? (
-          <p className="mt-3 text-sm text-black/50">No variants â€” the product is sold as a single SKU.</p>
+          <p className="mt-3 text-sm text-black/50">No variants Ã¢â‚¬â€ the product is sold as a single SKU.</p>
         ) : (
           <ul className="mt-3 space-y-3">
             {form.variants.map((v, i) => (
-              <li key={i} className="grid gap-3 rounded-zed bg-panel p-3 sm:grid-cols-6">
+              <li key={i} className="grid gap-3 rounded-zed glass-panel p-3 sm:grid-cols-6">
                 <input className="field" placeholder="Name (e.g. Size)" value={v.name} onChange={(e) => updateVariant(i, { name: e.target.value })} required />
                 <input className="field" placeholder="Value" value={v.value} onChange={(e) => updateVariant(i, { value: e.target.value })} required />
                 <input className="field" placeholder="SKU" value={v.sku} onChange={(e) => updateVariant(i, { sku: e.target.value })} required />

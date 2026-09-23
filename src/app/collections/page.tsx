@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export const metadata = buildMetadata({
   title: "Collections",
   path: "/collections",
-  description: "Curated ZED GIFT SHOP collections â€” bestsellers, personalized picks, corporate gifts and more.",
+  description: "Curated ZED GIFT SHOP collections Ã¢â‚¬â€ bestsellers, personalized picks, corporate gifts and more.",
 });
 
 export default async function CollectionsPage() {
@@ -25,7 +25,7 @@ export default async function CollectionsPage() {
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {collections.map((c) => (
-          <Link key={c.id} href={`/collections/${c.slug}`} className="group overflow-hidden rounded-zed bg-panel">
+          <Link key={c.id} href={`/collections/${c.slug}`} className="group overflow-hidden rounded-zed glass-panel">
             <div className="relative aspect-[4/3] overflow-hidden">
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"

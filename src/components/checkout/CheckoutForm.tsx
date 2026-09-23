@@ -267,9 +267,9 @@ export function CheckoutForm({
                   <div className="min-w-0 flex-1">
                     <p className="truncate font-medium text-black">{i.name}</p>
                     <p className="text-xs text-black/55">
-                      Ã—{i.quantity}
-                      {i.variant ? ` Â· ${i.variant.value}` : ""}
-                      {i.giftWrapPrice > 0 ? " Â· Gift box" : ""}
+                      Ãƒâ€”{i.quantity}
+                      {i.variant ? ` Ã‚Â· ${i.variant.value}` : ""}
+                      {i.giftWrapPrice > 0 ? " Ã‚Â· Gift box" : ""}
                     </p>
                   </div>
                   <p className="font-semibold text-black">{formatKES(i.lineTotal)}</p>
@@ -289,7 +289,7 @@ export function CheckoutForm({
                 <input id="co-name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="field" placeholder="Jane Mwangi" />
               </div>
               <div>
-                <label className="label" htmlFor="co-phone">M-PESA phone (07XXâ€¦)</label>
+                <label className="label" htmlFor="co-phone">M-PESA phone (07XXÃ¢â‚¬Â¦)</label>
                 <div className="relative">
                   <Phone className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-black/40" />
                   <input id="co-phone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="field pl-9" placeholder="0712 345 678" inputMode="tel" />
@@ -332,7 +332,7 @@ export function CheckoutForm({
                 <p className="label">Delivery method</p>
                 {deliveryOptions.length === 0 ? (
                   <p className="flex items-center gap-2 text-sm text-black/50">
-                    <Loader2 className="size-4 animate-spin" /> Checking options for {form.county}â€¦
+                    <Loader2 className="size-4 animate-spin" /> Checking options for {form.county}Ã¢â‚¬Â¦
                   </p>
                 ) : (
                   <div className="space-y-2">
@@ -394,7 +394,7 @@ export function CheckoutForm({
             </div>
 
             {/* Gift flag */}
-            <div className="mt-6 flex items-start gap-3 rounded-zed bg-warm-white/70 p-4 backdrop-blur-sm">
+            <div className="mt-6 flex items-start gap-3 rounded-zed glass-panel/70 p-4 backdrop-blur-sm">
               <Sparkles className="mt-0.5 size-5 shrink-0 text-soft-sage" />
               <div>
                 <label className="flex cursor-pointer items-center gap-2 text-sm font-semibold text-black">
@@ -464,7 +464,7 @@ export function CheckoutForm({
             ) : (
               <>
                 <p className="mx-auto mt-2 max-w-sm text-sm text-black/65">
-                  Waiting for payment confirmation{pollSeconds >= 5 ? ` (${pollSeconds}sâ€¦)` : "â€¦"}.
+                  Waiting for payment confirmation{pollSeconds >= 5 ? ` (${pollSeconds}sÃ¢â‚¬Â¦)` : "Ã¢â‚¬Â¦"}.
                 </p>
                 <p className="mt-4 text-xs text-black/45">If nothing happens in a minute, check your payment app and try again.</p>
               </>
@@ -503,7 +503,7 @@ export function CheckoutForm({
               <li key={i.id} className="flex items-center justify-between gap-3">
                 <span className="truncate text-black/80">
                   {i.name.slice(0, 42)}
-                  <span className="text-black/45"> Ã—{i.quantity}</span>
+                  <span className="text-black/45"> Ãƒâ€”{i.quantity}</span>
                 </span>
                 <span className="shrink-0 font-medium">{formatKES(i.lineTotal)}</span>
               </li>
@@ -519,7 +519,7 @@ export function CheckoutForm({
                 <dt className="flex items-center gap-1">
                   Coupon {cart.couponCode} <HelpCircle className="size-3.5" />
                 </dt>
-                <dd>âˆ’{formatKES(cart.discount)}</dd>
+                <dd>Ã¢Ë†â€™{formatKES(cart.discount)}</dd>
               </div>
             )}
             <div className="flex justify-between text-black/70">
@@ -535,7 +535,7 @@ export function CheckoutForm({
             <span className="flex items-center gap-1.5 font-semibold text-black">
               <ShieldCheck className="size-3.5" /> {paymentMethod === "FLUTTERWAVE" ? "Paid via Flutterwave" : "Paid via M-PESA STK Push"}
             </span>
-            <p className="mt-1">{paymentMethod === "FLUTTERWAVE" ? "Pay securely with card or mobile money." : "You approve with your M-PESA PIN â€” no card details on the site. Refunds are processed via M-PESA."}</p>
+            <p className="mt-1">{paymentMethod === "FLUTTERWAVE" ? "Pay securely with card or mobile money." : "You approve with your M-PESA PIN Ã¢â‚¬â€ no card details on the site. Refunds are processed via M-PESA."}</p>
           </div>
           <p className="mt-3 text-[11px] leading-relaxed text-black/45">
             Need help? WhatsApp {sitePhone}. By placing this order you agree to our delivery &amp; returns policy.

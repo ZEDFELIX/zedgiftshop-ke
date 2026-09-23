@@ -40,7 +40,7 @@ export function ReviewForm({ productId }: { productId: string }) {
 
   if (state === "done") {
     return (
-      <div className="flex items-center gap-2 rounded-zed bg-warm-white px-4 py-3 text-sm font-semibold text-black">
+      <div className="flex items-center gap-2 rounded-zed glass-panel px-4 py-3 text-sm font-semibold text-black">
         <Check className="size-4 text-soft-sage" /> Thanks! Your review is in the queue for approval.
       </div>
     );
@@ -75,7 +75,7 @@ export function ReviewForm({ productId }: { productId: string }) {
       </div>
       {error && <p className="text-sm text-red-600">{error}</p>}
       <button type="submit" disabled={state === "busy"} className="rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold text-white disabled:opacity-60">
-        {state === "busy" ? "Submittingâ€¦" : "Submit review"}
+        {state === "busy" ? "SubmittingÃ¢â‚¬Â¦" : "Submit review"}
       </button>
     </form>
   );

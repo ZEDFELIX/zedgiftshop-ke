@@ -5,7 +5,7 @@ import { formatKES } from "@/lib/utils";
 import { Plus, Search } from "lucide-react";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Products Â· Admin" };
+export const metadata = { title: "Products Ã‚Â· Admin" };
 
 export default async function AdminProductsPage({ searchParams }: { searchParams: Promise<{ q?: string; status?: string; page?: string }> }) {
   const sp = await searchParams;
@@ -18,7 +18,7 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <form method="GET" className="flex flex-wrap gap-2">
-          <input name="q" defaultValue={q} placeholder="Search name, SKU or slugâ€¦" className="field w-64" />
+          <input name="q" defaultValue={q} placeholder="Search name, SKU or slugÃ¢â‚¬Â¦" className="field w-64" />
           <select name="status" defaultValue={status} className="field w-40">
             <option value="">All statuses</option>
             <option value="ACTIVE">Active</option>
@@ -53,7 +53,7 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
               <tr key={p.id} className="hover:bg-panel/50">
                 <td className="p-3">
                   <div className="flex items-center gap-3">
-                    <span className="relative block size-10 shrink-0 overflow-hidden rounded-zed bg-panel">
+                    <span className="relative block size-10 shrink-0 overflow-hidden rounded-zed glass-panel">
                       {p.images[0]?.url && <Image src={p.images[0].url} alt="" fill unoptimized className="object-cover" />}
                     </span>
                     <div>
@@ -62,7 +62,7 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
                     </div>
                   </div>
                 </td>
-                <td className="p-3 text-black/60">{p.sku ?? "â€”"}</td>
+                <td className="p-3 text-black/60">{p.sku ?? "Ã¢â‚¬â€"}</td>
                 <td className="p-3 font-semibold text-black">{formatKES(p.price)}</td>
                 <td className={`p-3 font-semibold ${p.quantity <= p.lowStockThreshold ? "text-red-600" : "text-black/70"}`}>{p.quantity}</td>
                 <td className="p-3">

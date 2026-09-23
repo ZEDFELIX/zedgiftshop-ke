@@ -38,7 +38,7 @@ export function InventoryManager({ products }: { products: ProductRow[] }) {
 
   return (
     <div className="space-y-4">
-      <input className="field w-full max-w-sm" placeholder="Search productsâ€¦" value={q} onChange={(e) => setQ(e.target.value)} />
+      <input className="field w-full max-w-sm" placeholder="Search productsÃ¢â‚¬Â¦" value={q} onChange={(e) => setQ(e.target.value)} />
       <div className="overflow-hidden rounded-zed border border-edge bg-white">
         <table className="w-full text-sm">
           <thead>
@@ -58,7 +58,7 @@ export function InventoryManager({ products }: { products: ProductRow[] }) {
                   <tr className={sticky ? "bg-red-50/40" : "hover:bg-panel/40"}>
                     <td className="p-3">
                       <div className="flex items-center gap-3">
-                        <span className="relative block size-9 shrink-0 overflow-hidden rounded-zed bg-panel">
+                        <span className="relative block size-9 shrink-0 overflow-hidden rounded-zed glass-panel">
                           {p.imageUrl && <Image src={p.imageUrl} alt="" fill unoptimized className="object-cover" />}
                         </span>
                         <div>
@@ -83,7 +83,7 @@ export function InventoryManager({ products }: { products: ProductRow[] }) {
                   </tr>
                   {p.variants.map((v) => (
                     <tr key={v.id} className="bg-panel/30 text-xs hover:bg-panel/60">
-                      <td className="p-2 pl-9 text-black/60">{p.name} Â· {v.value} <span className="text-black/40">({v.sku})</span></td>
+                      <td className="p-2 pl-9 text-black/60">{p.name} Ã‚Â· {v.value} <span className="text-black/40">({v.sku})</span></td>
                       <td className="p-2 font-semibold text-black">{v.quantity}</td>
                       <td className="p-2 text-black/50">{v.reservedQuantity}</td>
                       <td className="p-2 text-black/60">{Math.max(0, v.quantity - v.reservedQuantity)}</td>
