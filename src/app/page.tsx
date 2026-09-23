@@ -80,7 +80,7 @@ export default async function HomePage() {
     <div>
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_140%_at_80%_-20%,rgba(168,179,163,0.16),transparent_50%),radial-gradient(100%_120%_at_-10%_0%,rgba(63,74,60,0.28),transparent_55%),linear-gradient(160deg,#111110_0%,#1d1d1f_55%,#111110_100%)]" aria-hidden />
+        <div className="absolute inset-0 bg-[radial-gradient(120%_140%_at_80%_-20%,rgba(163,123,130,0.15),transparent_50%),radial-gradient(100%_120%_at_-10%_0%,rgba(90,31,43,0.44),transparent_55%),linear-gradient(145deg,#17120F_0%,#3B2035_52%,#17120F_100%)]" aria-hidden />
         <div className="glass-blob left-[-6%] top-[10%] h-80 w-80 bg-champagne/25 animate-[blob_24s_ease-in-out_infinite]" aria-hidden />
         <div className="glass-blob right-[4%] top-[-10%] h-96 w-96 bg-warm-white/40 animate-[blob_28s_ease-in-out_infinite]" aria-hidden />
 
@@ -239,7 +239,7 @@ export default async function HomePage() {
       {/* ===== MAKE IT PERSONAL ===== */}
       <section className="container-zed pb-14 lg:pb-20">
         <div className="relative overflow-hidden rounded-[2rem] p-8 sm:p-12">
-          <div className="absolute inset-0 bg-[radial-gradient(90%_120%_at_10%_0%,rgba(18,112,75,0.2),transparent_55%),radial-gradient(70%_100%_at_100%_20%,rgba(191,215,47,0.18),transparent_55%),linear-gradient(150deg,rgba(255,255,255,0.65),rgba(255,255,255,0.25))]" aria-hidden />
+          <div className="absolute inset-0 bg-[radial-gradient(90%_120%_at_10%_0%,rgba(90,31,43,0.22),transparent_55%),radial-gradient(70%_100%_at_100%_20%,rgba(201,168,106,0.18),transparent_55%),linear-gradient(150deg,rgba(255,255,255,0.65),rgba(255,255,255,0.25))]" aria-hidden />
           <div className="glass-blob right-[-8%] top-[-20%] h-72 w-72 bg-champagne/20 animate-[blob_26s_ease-in-out_infinite]" aria-hidden />
           <div className="relative">
             <div className="flex flex-wrap items-end justify-between gap-4">
@@ -281,7 +281,7 @@ export default async function HomePage() {
       {/* ===== SPECIAL OFFERS ===== */}
       <section className="container-zed pb-14 lg:pb-20">
         <div className="relative overflow-hidden rounded-[2rem] p-8 text-white sm:p-14">
-          <div className="absolute inset-0 bg-[radial-gradient(120%_140%_at_85%_0%,rgba(168,179,163,0.28),transparent_55%),radial-gradient(100%_130%_at_0%_100%,rgba(63,74,60,0.55),transparent_60%),linear-gradient(150deg,#1d1d1f_0%,#111110_60%,#1d1d1f_100%)]" aria-hidden />
+          <div className="absolute inset-0 bg-[radial-gradient(120%_140%_at_85%_0%,rgba(163,123,130,0.2),transparent_55%),radial-gradient(100%_130%_at_0%_100%,rgba(90,31,43,0.62),transparent_60%),linear-gradient(150deg,#3B2035_0%,#17120F_58%,#241A18_100%)]" aria-hidden />
           <div className="glass-blob left-[-6%] bottom-[-30%] h-80 w-80 bg-champagne/25 animate-[blob_24s_ease-in-out_infinite]" aria-hidden />
           <div className="glass-blob right-[12%] top-[-40%] h-72 w-72 bg-warm-white/45 animate-[blob_30s_ease-in-out_infinite]" aria-hidden />
 
@@ -327,7 +327,7 @@ export default async function HomePage() {
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {WHY_ZED.map((w, i) => (
             <div key={w.title} className="glass-card rounded-3xl p-6 text-center animate-[rise_0.6s_cubic-bezier(0.16,1,0.3,1)_both]" style={sectionDelay(i)}>
-              <span className="mx-auto grid size-14 place-items-center rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.9),rgba(191,215,47,0.5)_70%)] text-charcoal shadow-glass">
+              <span className="mx-auto grid size-14 place-items-center rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.9),rgba(201,168,106,0.45)_70%)] text-charcoal shadow-glass">
                 <w.icon className="size-6" />
               </span>
               <p className="mt-4 font-display text-lg font-bold text-charcoal">{w.title}</p>
@@ -363,7 +363,7 @@ export default async function HomePage() {
                   {(r.comment ?? r.title ?? "Lovely gift, beautifully delivered.")}
                 </blockquote>
                 <figcaption className="mt-4 flex items-center gap-3">
-                  <span className="grid size-10 place-items-center rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.95),rgba(14,90,61,0.25)_75%)] font-display font-black text-charcoal">
+                  <span className="grid size-10 place-items-center rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.95),rgba(90,31,43,0.25)_75%)] font-display font-black text-charcoal">
                     {(r.user?.name ?? "ZED").charAt(0).toUpperCase()}
                   </span>
                   <div>
@@ -383,7 +383,7 @@ export default async function HomePage() {
       {/* ===== NEWSLETTER + CONTACT ===== */}
       <section className="container-zed pb-16 lg:pb-20">
         <div className="relative overflow-hidden rounded-[2rem] p-8 text-center lg:p-14">
-          <div className="absolute inset-0 bg-[radial-gradient(90%_140%_at_50%_-30%,rgba(168,179,163,0.22),transparent_60%),linear-gradient(160deg,rgba(255,255,255,0.75),rgba(255,255,255,0.3))]" aria-hidden />
+          <div className="absolute inset-0 bg-[radial-gradient(90%_140%_at_50%_-30%,rgba(201,168,106,0.16),transparent_60%),linear-gradient(160deg,rgba(255,255,255,0.75),rgba(255,255,255,0.3))]" aria-hidden />
           <div className="glass-blob left-[8%] bottom-[-40%] h-64 w-64 bg-warm-white/25 animate-[blob_26s_ease-in-out_infinite]" aria-hidden />
           <div className="relative">
             <h2 className="font-display text-3xl font-bold text-charcoal lg:text-4xl">Never miss an occasion again</h2>
