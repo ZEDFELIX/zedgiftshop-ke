@@ -95,7 +95,7 @@ export function HeaderContent({
               type="button"
               aria-label="Open menu"
               onClick={() => setMobileOpen(true)}
-              className="grid size-9 place-items-center rounded-full text-black hover:bg-zed-900/5 lg:hidden"
+              className="tap-target grid size-9 place-items-center rounded-full text-black hover:bg-zed-900/5 lg:hidden"
             >
               <Menu className="size-5" />
             </button>
@@ -170,21 +170,21 @@ export function HeaderContent({
               type="button"
               aria-label="Search"
               onClick={() => setSearchOpen(true)}
-              className="grid size-9 place-items-center rounded-full text-black hover:bg-zed-900/5"
+              className="tap-target grid size-9 place-items-center rounded-full text-black hover:bg-zed-900/5"
             >
               <Search className="size-5" />
             </button>
             <Link
               href={accountHref}
               aria-label={isAuthed ? "My account" : "Sign in"}
-              className="grid size-9 place-items-center rounded-full text-black hover:bg-zed-900/5"
+              className="tap-target grid size-9 place-items-center rounded-full text-black hover:bg-zed-900/5"
             >
               {isAuthed ? <User className="size-5" /> : <LogIn className="size-5" />}
             </Link>
             <Link
               href="/wishlist"
               aria-label={`Wishlist (${wishlistCount})`}
-              className="relative grid size-9 place-items-center rounded-full text-black hover:bg-zed-900/5"
+              className="tap-target relative grid size-9 place-items-center rounded-full text-black hover:bg-zed-900/5"
             >
               <Heart className="size-5" />
               {wishlistCount > 0 && (
@@ -197,7 +197,7 @@ export function HeaderContent({
               type="button"
               aria-label={`Open cart (${cartCount} items)`}
               onClick={openCart}
-              className="relative grid size-9 place-items-center rounded-full bg-deep-olive text-white shadow-glass transition-transform hover:scale-105 hover:bg-zed-900"
+              className="tap-target relative grid size-9 place-items-center rounded-full bg-deep-olive text-white shadow-glass transition-transform hover:scale-105 hover:bg-zed-900"
             >
               <ShoppingBag className="size-5" />
               {cartCount > 0 && (
@@ -223,7 +223,7 @@ export function HeaderContent({
                 type="button"
                 aria-label="Close menu"
                 onClick={() => setMobileOpen(false)}
-                className="grid size-9 place-items-center rounded-full hover:bg-zed-900/5"
+                className="tap-target grid size-9 place-items-center rounded-full hover:bg-zed-900/5"
               >
                 <X className="size-5" />
               </button>

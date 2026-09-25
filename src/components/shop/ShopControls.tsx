@@ -199,7 +199,7 @@ export function ShopControls({
           <div className="absolute inset-y-0 right-0 flex w-[min(90vw,360px)] flex-col bg-warm-white/85 shadow-drawer backdrop-blur-xl animate-[drawer_0.3s_cubic-bezier(0.16,1,0.3,1)_both]">
             <div className="flex items-center justify-between border-b border-white/50 bg-white/40 px-4 py-3.5 pt-[max(0.875rem,env(safe-area-inset-top,0px))]">
               <p className="font-display text-lg font-bold text-black">Filters</p>
-              <button type="button" onClick={() => setFiltersOpen(false)} aria-label="Close filters" className="grid size-9 place-items-center rounded-zed hover:bg-zed-900/5">
+              <button type="button" onClick={() => setFiltersOpen(false)} aria-label="Close filters" className="tap-target grid size-9 place-items-center rounded-zed hover:bg-zed-900/5">
                 <X className="size-5" />
               </button>
             </div>

@@ -167,6 +167,16 @@
     opacity: .5;
     pointer-events: none;
   }
+
+  /* Widens a small control's tap area to ~44px without changing its visual size. */
+  .tap-target {
+    position: relative;
+  }
+  .tap-target::after {
+    content: "";
+    position: absolute;
+    inset: -0.3125rem;
+  }
   @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .glass, .glass-strong, .glass-dark, .glass-panel, .glass-nav, .glass-card {
       -webkit-backdrop-filter: blur(28px);

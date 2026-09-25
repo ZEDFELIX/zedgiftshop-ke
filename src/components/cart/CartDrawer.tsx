@@ -152,7 +152,7 @@ export function CartDrawer() {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close cart"
-                className="grid size-9 place-items-center rounded-full hover:bg-zed-900/5"
+                className="tap-target grid size-9 place-items-center rounded-full hover:bg-zed-900/5"
               >
                 <X className="size-5" />
               </button>
