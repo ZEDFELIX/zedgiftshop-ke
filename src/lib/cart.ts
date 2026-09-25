@@ -25,6 +25,11 @@ const cartInclude = {
 
 type CartRecord = Prisma.CartGetPayload<{ include: typeof cartInclude }>;
 
+/** The subset of a cart that serialization needs, so an "empty" cart is representable. */
+type CartLike = Pick<CartRecord, "id" | "items" | "couponCode">;
+
+const EMPTY_CART: CartLike = { id: "", items: [], couponCode: null };
+
 function safeJson<T>(value: string | null, fallback: T): T {
   if (!value) return fallback;
   try {
@@ -77,7 +82,21 @@ export async function getCartForApi() {
   return serializeCart(cart);
 }
 
-export async function serializeCart(cart: CartRecord) {
+/**
+ * Read-only cart access for Server Components.
+ *
+ * Next.js only permits `cookies().set()` inside a Server Action or Route Handler,
+ * so rendering a page must never try to mint a cart cookie. Returns an empty cart
+ * when the visitor has none; the cookie gets created by the first /api/cart call.
+ */
+export async function getCartForPage() {
+  const store = await cookies();
+  const cartId = store.get(CART_COOKIE)?.value;
+  const cart = cartId ? await readCartById(cartId) : null;
+  return serializeCart(cart ?? EMPTY_CART);
+}
+
+export async function serializeCart(cart: CartLike) {
   const items = cart.items.filter((i) => i.savedForLater === false);
   const savedItems = cart.items.filter((i) => i.savedForLater === true);
 
@@ -277,11 +296,6 @@ export async function cartCountForHeader() {
   } catch {
     return 0;
   }
-}
-
-export async function cartIdForCookie() {
-  const { cart } = await getOrCreateCart();
-  return cart.id;
 }
 
 export async function getDeliveryEstimateForCart(county?: string | null) {

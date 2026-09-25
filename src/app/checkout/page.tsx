@@ -1,7 +1,7 @@
 import "server-only";
 
 import Link from "next/link";
-import { getOrCreateCart, serializeCart } from "@/lib/cart";
+import { getCartForPage } from "@/lib/cart";
 import { getCurrentUser } from "@/lib/auth";
 import { KENYA_COUNTIES } from "@/lib/constants";
 import { CheckoutForm } from "@/components/checkout/CheckoutForm";
@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 export const metadata = { title: "Checkout", description: "Secure checkout with M-PESA STK Push or Flutterwave card payments." };
 
 export default async function CheckoutPage() {
-  const [{ cart }, user] = await Promise.all([getOrCreateCart().then(async ({ cart }) => ({ cart: await serializeCart(cart) })), getCurrentUser()]);
+  const [cart, user] = await Promise.all([getCartForPage(), getCurrentUser()]);
 
   if (cart.items.length === 0 && cart.count === 0) {
     return (
