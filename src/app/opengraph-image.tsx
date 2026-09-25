@@ -15,7 +15,7 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#111110",
+          background: "#2b0a1c",
           color: "#ffffff",
           fontFamily: "sans-serif",
           padding: 72,
@@ -27,7 +27,7 @@ export default function OpengraphImage() {
               width: 96,
               height: 96,
               borderRadius: 24,
-              background: "#c9a56a",
+              background: "#e48a2b",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -42,7 +42,7 @@ export default function OpengraphImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div style={{ fontSize: 40, fontWeight: 700 }}>{SITE.tagline}</div>
-          <div style={{ fontSize: 26, color: "#c9a56a", letterSpacing: 2 }}>
+          <div style={{ fontSize: 26, color: "#e48a2b", letterSpacing: 2 }}>
             SAME-DAY NAIROBI DELIVERY · COUNTRYWIDE · M-PESA CHECKOUT
           </div>
         </div>
