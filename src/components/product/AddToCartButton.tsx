@@ -50,7 +50,7 @@ export function AddToCartButton({
           type="button"
           onClick={add}
           disabled={busy}
-          className="inline-flex w-full items-center justify-center gap-2 rounded-zed bg-zed-950 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-black transition-colors hover:bg-zed-950 hover:text-white disabled:opacity-60"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-zed bg-zed-950 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-zed-900 hover:text-white disabled:opacity-60"
         >
           <ShoppingBag className="size-4" />
           {busy ? "Adding…" : label}

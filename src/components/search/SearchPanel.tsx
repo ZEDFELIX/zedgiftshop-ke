@@ -100,7 +100,7 @@ export function SearchPanel({ open, onClose }: { open: boolean; onClose: () => v
     <div className="fixed inset-0 z-[80]">
       <div className="absolute inset-0 bg-zed-950/30 backdrop-blur-sm animate-fade-in" onClick={onClose} aria-hidden />
       <div className="absolute inset-x-0 top-0 animate-[slide-up_0.35s_cubic-bezier(0.16,1,0.3,1)_both]">
-        <div className="container-zed py-5 sm:py-8">
+        <div className="container-zed py-5 pt-[max(1.25rem,env(safe-area-inset-top,0px))] sm:py-8">
           <div className="glass-strong rounded-3xl p-5 shadow-glass-lg sm:p-6">
             <form
               onSubmit={(e) => {

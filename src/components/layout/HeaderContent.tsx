@@ -103,7 +103,7 @@ export function HeaderContent({
               <span className="font-display text-lg font-black tracking-[0.08em] text-charcoal sm:text-xl">
                 ZED
               </span>
-              <span className="hidden text-[9px] font-bold tracking-[0.34em] text-white sm:inline">
+              <span className="hidden text-[9px] font-bold tracking-[0.34em] text-charcoal/70 sm:inline">
                 GIFT SHOP
               </span>
               <span className="inline-block size-2 rounded-full bg-zed-950 shadow-[0_0_12px_rgba(255,255,255,0.75)] sm:hidden" />
@@ -188,7 +188,7 @@ export function HeaderContent({
             >
               <Heart className="size-5" />
               {wishlistCount > 0 && (
-                <span className="absolute right-0 top-0 grid min-w-4 place-items-center rounded-full bg-zed-950 px-1 text-[10px] font-bold text-black">
+                <span className="absolute right-0 top-0 grid min-w-4 place-items-center rounded-full bg-zed-950 px-1 text-[10px] font-bold text-white">
                   {wishlistCount}
                 </span>
               )}
@@ -201,7 +201,7 @@ export function HeaderContent({
             >
               <ShoppingBag className="size-5" />
               {cartCount > 0 && (
-                <span className="absolute -right-1 -top-1 grid min-w-4 place-items-center rounded-full bg-zed-950 px-1 text-[10px] font-bold text-black">
+                <span className="absolute -right-1 -top-1 grid min-w-4 place-items-center rounded-full bg-zed-950 px-1 text-[10px] font-bold text-white">
                   {cartCount}
                 </span>
               )}
@@ -215,7 +215,7 @@ export function HeaderContent({
         <div className="fixed inset-0 z-[75] lg:hidden">
           <div className="absolute inset-0 bg-zed-950/40 backdrop-blur-sm animate-fade-in" onClick={() => setMobileOpen(false)} />
           <div className="glass-strong absolute inset-y-0 left-0 flex w-[min(88vw,340px)] flex-col shadow-glass-lg animate-[menu-in_0.3s_cubic-bezier(0.16,1,0.3,1)_both]">
-            <div className="flex items-center justify-between border-b border-white/50 px-4 py-4">
+            <div className="flex items-center justify-between border-b border-white/50 px-4 py-4 pt-[max(1rem,env(safe-area-inset-top,0px))]">
               <span className="font-display text-base font-black tracking-[0.08em] text-black">
                 ZED <span className="text-soft-sage">GIFT SHOP</span>
               </span>
@@ -252,7 +252,7 @@ export function HeaderContent({
                 ))}
               </div>
             </nav>
-            <div className="border-t border-white/50 p-3">
+            <div className="border-t border-white/50 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom,0px))]">
               {isAuthed && (userRole === "ADMIN" || userRole === "STAFF") && (
                 <Link href="/admin" onClick={() => setMobileOpen(false)} className="mb-2 block rounded-xl bg-zed-950 px-4 py-3 text-center text-sm font-semibold text-white">
                   Admin dashboard

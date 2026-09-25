@@ -100,7 +100,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <span className="grid aspect-square place-items-center font-display text-4xl text-soft-sage">ZED</span>
             )}
             {sale != null && sale > 0 && (
-              <span className="absolute left-4 top-4 rounded-full bg-zed-950 px-3 py-1.5 text-xs font-bold text-black">−{sale}%</span>
+              <span className="absolute left-4 top-4 rounded-full bg-zed-950 px-3 py-1.5 text-xs font-bold text-white">−{sale}%</span>
             )}
           </div>
           <div className="grid grid-cols-5 gap-3">
@@ -116,7 +116,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div>
           <div className="flex flex-wrap items-center gap-2">
             {categories.slice(0, 3).map((c) => (
-              <Link key={c.id} href={`/gifts/${c.slug}`} className="rounded-full bg-warm-white px-3 py-1 text-[11px] font-semibold text-deep-olive hover:bg-zed-950">
+              <Link key={c.id} href={`/gifts/${c.slug}`} className="rounded-full bg-warm-white px-3 py-1 text-[11px] font-semibold text-deep-olive hover:bg-zed-950 hover:text-white">
                 {c.name}
               </Link>
             ))}
@@ -152,7 +152,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             {product.compareAtPrice != null && product.compareAtPrice > product.price && (
               <>
                 <p className="text-xl text-black/40 line-through">{formatKES(product.compareAtPrice)}</p>
-                <span className="rounded-full bg-zed-950 px-2.5 py-1 text-xs font-bold text-black">
+                <span className="rounded-full bg-zed-950 px-2.5 py-1 text-xs font-bold text-white">
                   Save {formatKES(product.compareAtPrice - product.price)}
                 </span>
               </>
@@ -204,7 +204,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               Handwritten-style gift note included
             </div>
             <div className="flex items-center gap-2.5 text-sm text-black/75">
-              <span className="grid size-5 shrink-0 place-items-center rounded bg-zed-950 text-[10px] font-black text-black">KES</span>
+              <span className="grid size-5 shrink-0 place-items-center rounded bg-zed-950 text-[10px] font-black text-white">KES</span>
               Transparent pricing in Kenyan Shillings
             </div>
           </div>

@@ -435,7 +435,7 @@ export function CheckoutForm({
               <>
                 <h2 className="mt-4 font-display text-xl font-bold text-black">Complete your payment</h2>
                 {flutterwaveUrl && (
-                  <a href={flutterwaveUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block rounded-zed bg-zed-950 px-8 py-4 text-sm font-bold text-black transition-colors hover:bg-white hover:shadow-glass-lg">
+                  <a href={flutterwaveUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block rounded-zed bg-zed-950 px-8 py-4 text-sm font-bold text-white transition-colors hover:bg-zed-900 hover:shadow-glass-lg">
                     Pay with Flutterwave
                   </a>
                 )}
@@ -452,7 +452,7 @@ export function CheckoutForm({
                 </p>
                 <p className="mt-2 text-xs text-black/45">Order {orderRef.orderNumber}</p>
                 <div className="mt-5 flex flex-col items-center justify-center gap-2 sm:flex-row">
-                  <button type="button" onClick={startPolling} className="rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold text-black">
+                  <button type="button" onClick={startPolling} className="rounded-zed bg-zed-950 px-6 py-3 text-sm font-bold text-white hover:bg-zed-900">
                     I&apos;ve entered my PIN
                   </button>
                   <button type="button" onClick={() => router.push(`/track?order=${orderRef.orderNumber}`)} className="text-sm text-black/60 underline-offset-2 hover:underline">

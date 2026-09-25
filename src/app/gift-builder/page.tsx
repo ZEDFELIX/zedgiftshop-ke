@@ -287,7 +287,7 @@ export default function GiftBuilder() {
 
           {/* Selection tray */}
           {selectedItems.length > 0 && (
-            <div className="sticky bottom-4 mt-8 rounded-zed bg-zed-950 p-4 text-white shadow-raised">
+            <div className="sticky bottom-[calc(4.5rem+env(safe-area-inset-bottom,0px))] mt-8 rounded-zed bg-zed-950 p-4 text-white shadow-raised lg:bottom-4">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="min-w-0">
                   <p className="flex items-center gap-2 text-sm font-bold">

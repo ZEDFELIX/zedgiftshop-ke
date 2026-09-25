@@ -25,7 +25,7 @@ export function ToastHost() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed bottom-5 left-1/2 z-[90] flex w-[min(92vw,380px)] -translate-x-1/2 flex-col items-center gap-2" aria-live="polite">
+    <div className="pointer-events-none fixed bottom-24 left-1/2 z-[90] flex w-[min(92vw,380px)] -translate-x-1/2 flex-col items-center gap-2 lg:bottom-5" aria-live="polite">
       {toasts.map((t) => (
         <div key={t.id} className="glass-strong flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm animate-[toast-in_0.35s_cubic-bezier(0.16,1,0.3,1)_both]">
           {t.type === "success" && <CheckCircle2 className="size-5 shrink-0 text-soft-sage" />}

@@ -176,7 +176,7 @@ export function ShopControls({
           <SlidersHorizontal className="size-4" />
           Filters
           {activeFilterCount > 0 && (
-            <span className="grid size-5 place-items-center rounded-full bg-zed-950 text-[11px] font-bold text-black">{activeFilterCount}</span>
+            <span className="grid size-5 place-items-center rounded-full bg-zed-950 text-[11px] font-bold text-white">{activeFilterCount}</span>
           )}
         </button>
         <div className="relative">
@@ -197,13 +197,13 @@ export function ShopControls({
         <div className="fixed inset-0 z-[60] lg:hidden">
           <div className="absolute inset-0 bg-zed-950/45" onClick={() => setFiltersOpen(false)} />
           <div className="absolute inset-y-0 right-0 flex w-[min(90vw,360px)] flex-col bg-warm-white/85 shadow-drawer backdrop-blur-xl animate-[drawer_0.3s_cubic-bezier(0.16,1,0.3,1)_both]">
-            <div className="flex items-center justify-between border-b border-white/50 bg-white/40 px-4 py-3.5">
+            <div className="flex items-center justify-between border-b border-white/50 bg-white/40 px-4 py-3.5 pt-[max(0.875rem,env(safe-area-inset-top,0px))]">
               <p className="font-display text-lg font-bold text-black">Filters</p>
               <button type="button" onClick={() => setFiltersOpen(false)} aria-label="Close filters" className="grid size-9 place-items-center rounded-zed hover:bg-zed-900/5">
                 <X className="size-5" />
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto p-5">{Filters}</div>
+            <div className="flex-1 overflow-y-auto p-5 pb-[max(1.25rem,env(safe-area-inset-bottom,0px))]">{Filters}</div>
           </div>
         </div>
       )}

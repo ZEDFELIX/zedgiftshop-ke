@@ -1,38 +1,8 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
   "buildCommand": "next build",
   "devCommand": "next dev",
   "installCommand": "npm install",
-  "framework": "nextjs",
-  "regions": ["iad1", "sfo1"],
-  "env": {
-    "NEXT_PUBLIC_SITE_URL": "@site_url",
-    "DATABASE_URL": "@database_url",
-    "AUTH_SECRET": "@auth_secret",
-    "MPESA_ENV": "@mpesa_env",
-    "MPESA_CONSUMER_KEY": "@mpesa_consumer_key",
-    "MPESA_CONSUMER_SECRET": "@mpesa_consumer_secret",
-    "MPESA_PASSKEY": "@mpesa_passkey",
-    "MPESA_SHORTCODE": "@mpesa_shortcode",
-    "MPESA_CALLBACK_URL": "@mpesa_callback_url",
-    "EMAIL_PROVIDER": "@email_provider",
-    "EMAIL_API_KEY": "@email_api_key",
-    "FLUTTERWAVE_ENV": "@flutterwave_env",
-    "FLUTTERWAVE_PUBLIC_KEY": "@flutterwave_public_key",
-    "FLUTTERWAVE_SECRET_KEY": "@flutterwave_secret_key",
-    "FLUTTERWAVE_ENCRYPTION_KEY": "@flutterwave_encryption_key",
-    "FLUTTERWAVE_CALLBACK_URL": "@flutterwave_callback_url"
-  },
-  "frameworkExtensions": {
-    "nextjs": {
-      "buildCommand": "next build",
-      "devCommand": "next dev",
-      "installCommand": "npm install"
-    }
-  },
-  "crons": [
-    {
-      "path": "/api/orders/lookup",
-      "schedule": "*/5 * * * *"
-    }
-  ]
+  "regions": ["iad1"]
 }

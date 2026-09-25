@@ -144,7 +144,7 @@ export function CartDrawer() {
             aria-label="Shopping cart"
             className="absolute inset-y-0 right-0 flex w-full max-w-md flex-col border-l border-white/40 bg-warm-white/70 shadow-drawer backdrop-blur-2xl animate-[drawer_0.35s_cubic-bezier(0.16,1,0.3,1)_both]"
           >
-            <header className="flex items-center justify-between border-b border-white/50 bg-white/50 px-5 py-4 backdrop-blur-sm">
+            <header className="flex items-center justify-between border-b border-white/50 bg-white/50 px-5 py-4 pt-[max(1rem,env(safe-area-inset-top,0px))] backdrop-blur-sm">
               <h2 className="font-display text-lg font-bold text-black">
                 Your Cart{cart && cart.count > 0 ? ` (${cart.count})` : ""}
               </h2>
@@ -258,7 +258,7 @@ export function CartDrawer() {
                   </div>
                 </div>
 
-                <footer className="border-t border-white/50 bg-white/40 px-5 py-4 backdrop-blur-sm">
+                <footer className="border-t border-white/50 bg-white/40 px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom,0px))] backdrop-blur-sm">
                   <dl className="space-y-1.5 text-sm">
                     <div className="flex justify-between text-black/70">
                       <dt>Subtotal</dt>

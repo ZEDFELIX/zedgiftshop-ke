@@ -55,7 +55,7 @@ export default function ContactPage() {
             <p className="mt-3">
               Corporate gifting, bulk orders and partnership enquiries: email us and a team member will follow up.
             </p>
-            <Link href="/gifts/corporate" className="mt-4 inline-block rounded-zed glass-panel px-4 py-2 font-bold text-deep-olive hover:bg-zed-950">
+            <Link href="/gifts/corporate" className="mt-4 inline-block rounded-zed glass-panel px-4 py-2 font-bold text-deep-olive hover:bg-zed-950 hover:text-white">
               Corporate gifting →
             </Link>
           </div>

@@ -91,10 +91,20 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 104px;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
   }
   body {
     @apply bg-warm-white text-ink font-sans antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    min-height: 100dvh;
+  }
+  /* Mobile: the fixed bottom nav would otherwise cover the end of the page. */
+  @media (max-width: 1023px) {
+    body {
+      padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+    }
   }
   ::selection {
     background: var(--color-deep-olive);
