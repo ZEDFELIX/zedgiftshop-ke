@@ -1,0 +1,18 @@
+# Local secrets — Vercel env vars come from the project settings, never from files.
+.env
+.env*.local
+.env.vercel-prod
+!.env.example
+
+# Local dev infrastructure
+pgdata
+prisma/pg-data
+.pgdata
+
+# Runtime uploads are stored in blob storage, not the repo.
+public/uploads
+
+# Tooling
+.opencode
+.vercel
+*.log
