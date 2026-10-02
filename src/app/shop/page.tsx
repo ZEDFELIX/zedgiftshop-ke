@@ -38,15 +38,6 @@ export default async function ShopPage({ searchParams }: {
 
   return (
     <div className="container-zed py-10 lg:py-14">
-      <header className="mb-10">
-        <h1 className="font-display text-3xl font-bold text-black lg:text-4xl">
-          Shop All Gifts
-        </h1>
-        <p className="mt-3 leading-relaxed text-black/70 description">
-          Every gift in the ZED range — filter by occasion, recipient, budget and personalization.
-        </p>
-      </header>
-
       <ListingPage
         title="Shop All Gifts"
         eyebrow="The full collection"
