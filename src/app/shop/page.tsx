@@ -48,11 +48,6 @@ export default async function ShopPage({ searchParams }: {
         </p>
       </header>
 
-      {/* Flash Sale Countdown — prominent banner */}
-      <FlashSaleCountdown
-        sale={{ start: "2026-10-15T00:00:00Z", end: "2026-10-20T23:59:59Z", discount: 20 }}
-      />
-
       {/* Featured section — new arrivals & on-sale highlights */}
       <section className="mb-10">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -142,6 +137,11 @@ export default async function ShopPage({ searchParams }: {
         description="Every gift in the ZED range — filter by occasion, recipient, budget and personalization."
         filters={{ ...filters }}
         href="/shop"
+      />
+
+      {/* Flash Sale Countdown — at the bottom */}
+      <FlashSaleCountdown
+        sale={{ start: "2026-10-15T00:00:00Z", end: "2026-10-20T23:59:59Z", discount: 20 }}
       />
     </div>
   );
