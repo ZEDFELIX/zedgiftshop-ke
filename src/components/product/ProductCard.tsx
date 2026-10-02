@@ -31,9 +31,9 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
             : null;
 
   return (
-    <article className="group glass-card relative flex h-full flex-col rounded-2xl p-3 transition-all duration-300 hover:translate-y-1 hover:shadow-glass-lg">
-      <div className="relative overflow-hidden rounded-2xl bg-panel/65">
-        <Link href={`/product/${product.slug}`} className="block aspect-[4/5] relative" aria-label={product.name}>
+    <article className="group rounded-xl bg-white/55 p-3 transition-all duration-300 hover:translate-y-0.5 hover:shadow-glass-md">
+      <div className="relative rounded-t-xl bg-panel/65 overflow-hidden h-48">
+        <Link href={`/product/${product.slug}`} className="block">
           {image ? (
             <Image
               src={image}
@@ -41,69 +41,61 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
               fill
               sizes="(min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
               unoptimized
-              className="object-cover transition-transform duration-500 ease-out hover:scale-[1.05]"
+              className="object-cover transition-transform duration-300 ease-out hover:scale-[1.05]"
             />
           ) : (
-            <span className="grid aspect-[4/5] place-items-center font-display text-3xl text-deep-olive">ZED</span>
+            <span className="grid aspect-[4/3] place-items-center font-display text-2xl text-deep-olive">ZED</span>
           )}
         </Link>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
         {badge && (
-          <span className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide shadow-glass ${badge.cls}`}>
+          <span className="absolute left-2 top-2 rounded-full px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider shadow-glass ${badge.cls}">
             {badge.label}
           </span>
         )}
 
-        <div className="absolute right-3 top-3">
+        <div className="absolute right-2 top-2">
           <WishlistButton productId={product.id} initialInWishlist={inWishlist} />
         </div>
 
-        <div className="absolute inset-x-3 bottom-3 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        <div className="absolute left-2 bottom-2 right-2 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
           {canQuickAdd ? (
-            <AddToCartButton productId={product.id} label="Quick add" />
+            <AddToCartButton productId={product.id} label="Add" />
           ) : (
             <Link
               href={`/product/${product.slug}`}
-              className="block rounded-full border border-white/60 bg-white/85 px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-black backdrop-blur-sm transition-colors hover:bg-zed-950 hover:text-white"
+              className="block rounded-full border border-white/60 bg-white/80 px-2 py-1.5 text-xs font-bold uppercase tracking-wider text-black backdrop-blur-sm transition-colors hover:bg-zed-950 hover:text-white"
             >
-              {personalizable ? "Personalize" : "View details"}
+              {personalizable ? "Personalize" : "View"}
             </Link>
           )}
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col px-2 pb-2 pt-3">
-        <div className="flex items-center justify-between gap-2">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-soft-sage">
-            {product.categories[0]?.category.name ?? "Gift"}
-          </p>
-          {product.ratingCount > 0 && (
-            <span className="flex items-center gap-1 text-xs text-black/70">
-              <Star className="size-3 fill-zed-950 text-white" />
-              {product.ratingAverage.toFixed(1)}
-              <span className="text-black/40">({product.ratingCount})</span>
-            </span>
-          )}
-        </div>
-        <h3 className="mt-1.5 line-clamp-2">
-          <Link href={`/product/${product.slug}`} className="font-display text-[14px] font-semibold leading-snug text-black hover:text-soft-sage">
-            {product.name}
-          </Link>
-        </h3>
-        {product.shortDescription && (
-          <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-black/55">{product.shortDescription}</p>
+      <div className="p-2">
+        <p className="text-[8px] font-semibold uppercase tracking-[0.1em] text-soft-sage">
+          {product.categories[0]?.category.name ?? "Gift"}
+        </p>
+        {product.ratingCount > 0 && (
+          <span className="text-xs text-black/60">
+            <Star className="size-2 fill-zed-950 text-white" /> {product.ratingAverage.toFixed(1)} ({product.ratingCount})
+          </span>
         )}
-        <div className="mt-auto flex items-baseline justify-between gap-2 pt-2.5">
-          <div className="flex items-baseline gap-2">
-            <p className="text-[14px] font-bold text-black">{formatKES(product.price)}</p>
-            {product.compareAtPrice != null && product.compareAtPrice > product.price && (
-              <p className="text-sm text-black/40 line-through">{formatKES(product.compareAtPrice)}</p>
-            )}
-          </div>
+        <h4 className="mt-1 text-[11px] font-display font-semibold leading-snug text-black hover:text-zed-950 transition-colors">
+          {product.name}
+        </h4>
+        {product.shortDescription && (
+          <p className="mt-0.5 text-[7px] text-black/55 line-clamp-1">{product.shortDescription}</p>
+        )}
+        <div className="mt-1 flex items-baseline justify-between">
+          <p className="text-[11px] font-bold text-black">{formatKES(product.price)}</p>
+          {product.compareAtPrice != null && product.compareAtPrice > product.price && (
+            <p className="text-xs text-black/40 line-through">formatKES(product.compareAtPrice)</p>
+          )}
           {personalizable && (
-            <span className="flex items-center gap-1 text-[10px] font-medium text-soft-sage">
-              <Sparkles className="size-3" /> Personalize
+            <span className="text-[7px] font-medium text-soft-sage">
+              <Sparkles className="size-2" /> Personalize
             </span>
           )}
         </div>

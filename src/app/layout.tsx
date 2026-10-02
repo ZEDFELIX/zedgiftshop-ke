@@ -9,7 +9,6 @@ import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { BackgroundScene } from "@/components/layout/BackgroundScene";
 import { ToastHost } from "@/components/ui/ToastHost";
-import { BottomNav } from "@/components/layout/BottomNav";
 import { ServiceWorkerReg } from "@/components/layout/ServiceWorkerReg";
 import { InstallPrompt } from "@/components/layout/InstallPrompt";
 import "@/app/globals.css";
@@ -50,7 +49,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CartDrawer />
         <ToastHost />
         <InstallPrompt />
-        <BottomNav />
         <ServiceWorkerReg />
       </body>
     </html>

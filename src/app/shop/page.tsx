@@ -1,7 +1,12 @@
 import { ListingPage } from "@/components/shop/ListingPage";
+import { FlashSaleCountdown } from "@/components/shop/FlashSaleCountdown";
+import { SITE } from "@/lib/constants";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Shop All Gifts", description: "Browse the full ZED GIFT SHOP catalogue — personalized keepsakes, gift boxes, corporate gifts and more, delivered across Kenya." };
+export const metadata = {
+  title: "Shop All Gifts",
+  description: "Browse the full ZED GIFT SHOP catalogue — personalized keepsakes, gift boxes, corporate gifts and more, delivered across Kenya.",
+};
 
 function boolParam(value: unknown) {
   return value === "1" || value === "true";
@@ -29,12 +34,25 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
   } as const;
 
   return (
-    <ListingPage
-      title="Shop All Gifts"
-      eyebrow="The full collection"
-      description="Every gift in the ZED range — filter by occasion, recipient, budget and personalization."
-      filters={{ ...filters }}
-      href="/shop"
-    />
+    <div className="container-zed py-10 lg:py-14">
+      <header className="mb-10">
+        <h1 className="font-display text-3xl font-bold text-black lg:text-4xl">Shop All Gifts</h1>
+        <p className="mt-3 leading-relaxed text-black/70 description">
+          Every gift in the ZED range — filter by occasion, recipient, budget and personalization.
+        </p>
+      </header>
+
+      <ListingPage
+        title="Shop All Gifts"
+        eyebrow="The full collection"
+        description="Every gift in the ZED range — filter by occasion, recipient, budget and personalization."
+        filters={{ ...filters }}
+        href="/shop"
+      />
+
+      <FlashSaleCountdown
+        sale={{ start: "2026-10-15T00:00:00Z", end: "2026-10-20T23:59:59Z", discount: 20 }}
+      />
+    </div>
   );
 }
