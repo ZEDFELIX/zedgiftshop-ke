@@ -186,7 +186,7 @@ export function ShopControls({
       </div>
 
       {/* Desktop sidebar */}
-      <aside className="glass-panel hidden w-64 shrink-0 self-start rounded-2xl p-4 pr-2 lg:block">{Filters}</aside>
+      <aside className="glass-panel hidden w-56 shrink-0 self-start rounded-2xl p-4 pr-2 lg:block">{Filters}</aside>
 
       {/* Mobile filter drawer */}
       {filtersOpen && (
