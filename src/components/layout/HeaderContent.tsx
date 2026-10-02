@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ChevronDown, Gift, Heart, LogIn, Menu, Search, ShoppingBag, User, X } from "lucide-react";
+import { ChevronDown, Gift, Heart, LogIn, Menu, Search, ShoppingBag, Sparkles, User, X } from "lucide-react";
 import { GIFT_ROUTES } from "@/lib/constants";
 import { SearchPanel } from "@/components/search/SearchPanel";
 
