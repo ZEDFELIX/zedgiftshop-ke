@@ -1,5 +1,3 @@
-import "server-only";
-
 import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
 import { COOKIE_KEYS, CART_MAX_ITEMS, type CartItemPayload } from "@/lib/constants";

@@ -1,45 +1,44 @@
-import "server-only";
-
+import { getCategoryFacets } from "@/lib/data/products";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { listCollections } from "@/lib/data/catalog";
-import { buildMetadata } from "@/lib/seo";
+import { SITE } from "@/lib/constants";
 
-export const dynamic = "force-dynamic";
-
-export const metadata = buildMetadata({
-  title: "Collections",
-  path: "/collections",
-  description: "Curated ZED GIFT SHOP collections — bestsellers, personalized picks, corporate gifts and more.",
-});
+export const metadata = {
+  title: "Collections & Categories",
+  description: "Browse gifts by category, occasion, and recipient",
+};
 
 export default async function CollectionsPage() {
-  const collections = await listCollections();
+  const categories = await getCategoryFacets("CATEGORY");
+
   return (
     <div className="container-zed py-10 lg:py-14">
-      <header className="max-w-2xl">
-        <p className="eyebrow">Curated for you</p>
-        <h1 className="mt-2 font-display text-3xl font-bold text-black lg:text-4xl">Collections</h1>
-        <p className="mt-3 text-black/70">Groups of gifts we&apos;ve put together for how you shop.</p>
+      <header className="mb-8 max-w-2xl">
+        <h1 className="font-display text-3xl font-bold text-black lg:text-4xl">Collections & Categories</h1>
+        <p className="mt-3 text-sm text-black/50">
+          {categories.length} categories available
+        </p>
       </header>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {collections.map((c) => (
-          <Link key={c.id} href={`/collections/${c.slug}`} className="group overflow-hidden rounded-zed glass-panel">
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url(${c.image ?? "/placeholders/collection-bestsellers.svg"})` }}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {categories.map((category) => (
+          <Link
+            key={category.slug}
+            href={`/collections?category=${category.slug}`}
+            className="glass-card rounded-2xl p-5 text-left transition-colors hover:bg-white/80 hover:text-charcoal"
+          >
+            <div className="h-20 rounded-2xl overflow-hidden mb-3">
+              <Image
+                src={`https://picsum.photos/seed/${category.slug}/400/400`}
+                alt={category.name}
+                fill
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/70 via-transparent to-transparent" />
-              <div className="absolute inset-x-5 bottom-5">
-                <p className="font-display text-xl font-bold text-white">{c.name}</p>
-                <p className="mt-1 text-sm text-white/70">{c._count.products} gifts</p>
-                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
-                  Shop collection <ArrowRight className="size-4" />
-                </span>
-              </div>
             </div>
+            <h3 className="font-display text-[13px] font-semibold text-charcoal line-clamp-2">
+              {category.name}
+            </h3>
+            <p className="mt-2 text-sm text-black/60">{category._count.products} gifts</p>
           </Link>
         ))}
       </div>

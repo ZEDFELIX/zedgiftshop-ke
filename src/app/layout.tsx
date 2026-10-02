@@ -9,9 +9,9 @@ import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { BackgroundScene } from "@/components/layout/BackgroundScene";
 import { ToastHost } from "@/components/ui/ToastHost";
-import { InstallPrompt } from "@/components/layout/InstallPrompt";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { ServiceWorkerReg } from "@/components/layout/ServiceWorkerReg";
+import { InstallPrompt } from "@/components/layout/InstallPrompt";
 import "@/app/globals.css";
 
 export const metadata: Metadata = buildMetadata({
@@ -31,7 +31,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const storeJsonLd = JSON.stringify(jsonLdStore());
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`} suppressHydrationWarning>
-      {/* Strip Chrome extension attributes to prevent hydration mismatch */}
       <script dangerouslySetInnerHTML={{ __html: `document.addEventListener('DOMContentLoaded',()=>{const e=document.documentElement;e.removeAttribute('crxlauncher');e.removeAttribute('crxlauncher-bridged')})`}} />
       <body className="min-h-screen bg-warm-white text-ink font-sans antialiased" suppressHydrationWarning>
         <BackgroundScene />
