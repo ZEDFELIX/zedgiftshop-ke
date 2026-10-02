@@ -40,8 +40,7 @@ export function AddressBook() {
 
   useEffect(() => {
     load();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [load]);
 
   async function create(e: React.FormEvent) {
     e.preventDefault();

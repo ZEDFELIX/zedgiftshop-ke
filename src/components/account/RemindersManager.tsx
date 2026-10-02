@@ -45,8 +45,7 @@ export function RemindersManager() {
 
   useEffect(() => {
     load();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [load]);
 
   function upcomingLabel(date: string): string {
     const d = new Date(date);
