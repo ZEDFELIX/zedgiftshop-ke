@@ -3,8 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ChevronDown, Gift, Heart, LogIn, Menu, Search, ShoppingBag, Sparkles, User, X } from "lucide-react";
-import { GIFT_ROUTES } from "@/lib/constants";
+import {
+  ChevronDown,
+  Gift,
+  Heart,
+  LogIn,
+  Menu,
+  Search,
+  ShoppingBag,
+  User,
+  X,
+} from "lucide-react";
+import { GIFT_ROUTES, SITE } from "@/lib/constants";
 import { SearchPanel } from "@/components/search/SearchPanel";
 
 function openCart() {
@@ -71,8 +81,11 @@ export function HeaderContent({
   const coreNav = [
     { label: "Shop", href: "/shop", show: "(min-width:1024px)" },
     { label: "Categories", href: "/collections", show: "(min-width:1024px)" },
+    { label: "Deals", href: "/deals", show: "(min-width:1024px)" },
     { label: "New Arrivals", href: "/shop?sort=new", show: "(min-width:1280px)" },
-    { label: "Offers", href: "/deals", show: "(min-width:1024px)" },
+    { label: "Official Stores", href: "/collections?type=official", show: "(min-width:1024px)" },
+    { label: "Flash Sales", href: "/deals", show: "(min-width:1024px)" },
+    { label: "Sell With Us", href: "/sell", show: "(min-width:1280px)" },
     { label: "About", href: "/about", show: "(min-width:1280px)" },
     { label: "Contact", href: "/contact", show: "(min-width:1280px)" },
   ];
@@ -86,8 +99,8 @@ export function HeaderContent({
         </div>
       </div>
 
-      {/* Floating glass nav */}
-      <div className="sticky top-0 z-40 px-2 py-2 sm:px-3">
+      {/* Sticky glass nav */}
+      <div className="sticky top-0 z-40 px-2 py-2 sm:px-3 bg-white/80 backdrop-blur-xl border-b2 border-zed-900/10">
         <header className={`glass-nav flex h-14 items-center justify-between gap-4 rounded-[1.25rem] px-3 transition-all duration-500 sm:px-4 lg:h-16 lg:px-5 ${scrolled ? "shadow-glass-lg -translate-y-0.5" : ""}`}>
           {/* Brand */}
           <div className="flex items-center gap-1">
@@ -137,7 +150,7 @@ export function HeaderContent({
                 onMouseEnter={() => setGiftsOpen(true)}
               />
               {giftsOpen && (
-                <div className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3" onMouseLeave={() => setGiftsOpen(false)}>
+                <div className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3" onMouseLeave={() => setGiftsOpen(false)}>
                   <div className="glass-strong overflow-hidden rounded-2xl p-2 shadow-glass-lg">
                     {GIFT_ROUTES.map((g) => (
                       <Link

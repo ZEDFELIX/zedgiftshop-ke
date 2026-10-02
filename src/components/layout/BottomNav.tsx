@@ -10,9 +10,7 @@ import {
   User,
   Menu,
   X,
-  SlidersHorizontal,
 } from "lucide-react";
-import Link from "next/link";
 
 export function BottomNav() {
   const pathname = usePathname();
@@ -43,34 +41,18 @@ export function BottomNav() {
       ref={navRef}
       className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-zed-900/10 shadow-lg"
     >
-      <div className="h-14 flex items-center justify-between gap-2 px-4 lg:hidden">
+      <div className="h-14 flex items-center justify-between px-4 lg:hidden">
         <button
           type="button"
           aria-label="Open menu"
           onClick={() => setNavOpen(true)}
-          className="tap-target grid size-9 shrink-0 place-items-center rounded-full bg-zed-950 text-black hover:bg-zed-900"
+          className="tap-target grid size-9 place-items-center rounded-full bg-zed-950 text-black hover:bg-zed-900"
         >
           <Menu className="size-5" />
         </button>
         <span className="font-display text-base font-black tracking-[0.08em] text-black">
           ZED <span className="text-soft-sage">GIFT SHOP</span>
         </span>
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            aria-label="Filter products"
-            onClick={() => window.dispatchEvent(new CustomEvent("zed:open-filters"))}
-            className="tap-target grid size-9 shrink-0 place-items-center rounded-full bg-zed-950 text-black hover:bg-zed-900"
-          >
-            <SlidersHorizontal className="size-4" />
-          </button>
-          <Link
-            href="/shop?sort=price-asc"
-            className="tap-target flex h-9 shrink-0 items-center gap-1 rounded-full bg-deep-olive px-3 text-xs font-bold text-white"
-          >
-            <span className="text-[10px] uppercase tracking-wide">Price</span>
-          </Link>
-        </div>
       </div>
 
       {/* Bottom nav bar - 5 items */}

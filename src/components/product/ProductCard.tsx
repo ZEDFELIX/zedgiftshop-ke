@@ -31,9 +31,9 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
             : null;
 
   return (
-    <article className="group glass-card relative flex h-full flex-col rounded-[1.6rem] p-2.5">
-      <div className="relative overflow-hidden rounded-[1.35rem] bg-panel/65">
-        <Link href={`/product/${product.slug}`} className="block aspect-square" aria-label={product.name}>
+    <article className="group glass-card relative flex h-full flex-col rounded-2xl p-3 transition-all duration-300 hover:translate-y-1 hover:shadow-glass-lg">
+      <div className="relative overflow-hidden rounded-2xl bg-panel/65">
+        <Link href={`/product/${product.slug}`} className="block aspect-[4/5] relative" aria-label={product.name}>
           {image ? (
             <Image
               src={image}
@@ -41,25 +41,25 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
               fill
               sizes="(min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
               unoptimized
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+              className="object-cover transition-transform duration-500 ease-out hover:scale-[1.05]"
             />
           ) : (
-            <span className="grid aspect-square place-items-center font-display text-3xl text-deep-olive">ZED</span>
+            <span className="grid aspect-[4/5] place-items-center font-display text-3xl text-deep-olive">ZED</span>
           )}
         </Link>
-        <div className="absolute inset-0 bg-gradient-to-t from-obsidian/30 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
         {badge && (
-          <span className={`absolute left-2.5 top-2.5 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide shadow-glass ${badge.cls}`}>
+          <span className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide shadow-glass ${badge.cls}`}>
             {badge.label}
           </span>
         )}
 
-        <div className="absolute right-2.5 top-2.5">
+        <div className="absolute right-3 top-3">
           <WishlistButton productId={product.id} initialInWishlist={inWishlist} />
         </div>
 
-        <div className="absolute inset-x-2.5 bottom-2.5 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        <div className="absolute inset-x-3 bottom-3 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
           {canQuickAdd ? (
             <AddToCartButton productId={product.id} label="Quick add" />
           ) : (
@@ -73,21 +73,21 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col px-1 pb-1.5 pt-3">
+      <div className="flex flex-1 flex-col px-2 pb-2 pt-3">
         <div className="flex items-center justify-between gap-2">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-soft-sage">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-soft-sage">
             {product.categories[0]?.category.name ?? "Gift"}
           </p>
           {product.ratingCount > 0 && (
             <span className="flex items-center gap-1 text-xs text-black/70">
-              <Star className="size-3.5 fill-zed-950 text-white" />
+              <Star className="size-3 fill-zed-950 text-white" />
               {product.ratingAverage.toFixed(1)}
               <span className="text-black/40">({product.ratingCount})</span>
             </span>
           )}
         </div>
-        <h3 className="mt-1.5">
-          <Link href={`/product/${product.slug}`} className="font-display text-[15px] font-semibold leading-snug text-black hover:text-soft-sage">
+        <h3 className="mt-1.5 line-clamp-2">
+          <Link href={`/product/${product.slug}`} className="font-display text-[14px] font-semibold leading-snug text-black hover:text-soft-sage">
             {product.name}
           </Link>
         </h3>
@@ -96,13 +96,13 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
         )}
         <div className="mt-auto flex items-baseline justify-between gap-2 pt-2.5">
           <div className="flex items-baseline gap-2">
-            <p className="text-[15px] font-bold text-black">{formatKES(product.price)}</p>
+            <p className="text-[14px] font-bold text-black">{formatKES(product.price)}</p>
             {product.compareAtPrice != null && product.compareAtPrice > product.price && (
               <p className="text-sm text-black/40 line-through">{formatKES(product.compareAtPrice)}</p>
             )}
           </div>
           {personalizable && (
-            <span className="flex items-center gap-1 text-[11px] font-medium text-soft-sage">
+            <span className="flex items-center gap-1 text-[10px] font-medium text-soft-sage">
               <Sparkles className="size-3" /> Personalize
             </span>
           )}

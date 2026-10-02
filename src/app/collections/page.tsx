@@ -18,6 +18,23 @@ export default async function CollectionsPage() {
         <p className="mt-3 text-sm text-black/50">
           {categories.length} categories available
         </p>
+        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6">
+          <a href="/collections/gourmet" className="group rounded-xl bg-white/80 p-4 hover:bg-white/90 transition-colors">
+            <span className="absolute top-2 right-2 rounded-full bg-zed-950 text-xs text-white px-2">Gourmet</span>
+            <h4 className="font-display text-base font-medium text-black hover:text-zed-950 transition-colors">Gourmet Gifts</h4>
+            <p className="mt-2 text-sm text-black/60">Premium food & delivery</p>
+          </a>
+          <a href="/collections/corporate" className="group rounded-xl bg-white/80 p-4 hover:bg-white/90 transition-colors">
+            <span className="absolute top-2 right-2 rounded-full bg-zed-950 text-xs text-white px-2">Corporate</span>
+            <h4 className="font-display text-base font-medium text-black hover:text-zed-950 transition-colors">Corporate Gifts</h4>
+            <p className="mt-2 text-sm text-black/60">Bulk & personalized</p>
+          </a>
+          <a href="/collections/gifts" className="group rounded-xl bg-white/80 p-4 hover:bg-white/90 transition-colors">
+            <span className="absolute top-2 right-2 rounded-full bg-zed-950 text-xs text-white px-2">Gifts</span>
+            <h4 className="font-display text-base font-medium text-black hover:text-zed-950 transition-colors">Occasion Gifts</h4>
+            <p className="mt-2 text-sm text-black/60">For every moment</p>
+          </a>
+        </div>
       </header>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
