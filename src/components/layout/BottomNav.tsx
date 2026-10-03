@@ -10,18 +10,21 @@ import {
   User,
   Menu,
   X,
+  Filter,
 } from "lucide-react";
 
 export function BottomNav() {
   const pathname = usePathname();
   const router = useRouter();
   const [navOpen, setNavOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
         setNavOpen(false);
+        setFiltersOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -53,6 +56,19 @@ export function BottomNav() {
         <span className="font-display text-base font-black tracking-[0.08em] text-black">
           ZED <span className="text-soft-sage">GIFT SHOP</span>
         </span>
+        {/* Filter button - desktop */}
+        <button
+          type="button"
+          aria-label="Open filters"
+          onClick={() => setFiltersOpen(true)}
+          className="tap-target grid size-9 place-items-center rounded-full bg-zed-950/20 text-sm text-black/60 hover:bg-zed-950"
+        >
+          <Filter className="size-4" />
+          <span className="hidden lg:inline text-[10px]">Filters</span>
+          {filtersOpen && (
+            <span className="grid size-5 place-items-center rounded-full bg-zed-950 text-[11px] font-bold text-white">F</span>
+          )}
+        </button>
       </div>
 
       {/* Bottom nav bar - 5 items */}
