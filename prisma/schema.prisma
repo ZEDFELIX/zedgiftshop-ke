@@ -54,6 +54,7 @@ enum PaymentProvider {
   MANUAL
   CARD
   FLUTTERWAVE
+  BANK_TRANSFER
 }
 
 enum DeliveryMethod {
@@ -520,6 +521,13 @@ model Payment {
   resultDescription String?
   transactionDate   DateTime?
   rawCallbackJson   String?
+  // Bank transfer identifiers
+  bankName          String?
+  accountName       String?
+  accountNumber     String?
+  branch            String?
+  swiftCode         String?
+  paymentReference  String?
   createdAt         DateTime        @default(now())
   updatedAt         DateTime        @updatedAt
 

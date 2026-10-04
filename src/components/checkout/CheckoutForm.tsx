@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Check, HelpCircle, Loader2, Lock, Phone, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowLeft, Check, Filter, HelpCircle, Loader2, Lock, Phone, ShieldCheck, Sparkles } from "lucide-react";
 import { formatKES } from "@/lib/utils";
 import { SurpriseToggle } from "@/components/product/SurpriseToggle";
 
@@ -84,7 +84,7 @@ export function CheckoutForm({
   const [error, setError] = useState<string | null>(null);
   const [orderRef, setOrderRef] = useState<{ orderId: string; orderNumber: string } | null>(null);
   const [pollSeconds, setPollSeconds] = useState(0);
-  const [paymentMethod, setPaymentMethod] = useState<"M_PESA" | "FLUTTERWAVE">("M_PESA");
+  const [paymentMethod, setPaymentMethod] = useState<"M_PESA" | "FLUTTERWAVE" | "BANK_TRANSFER">("M_PESA");
   const [flutterwaveUrl, setFlutterwaveUrl] = useState<string | null>(null);
   const [flutterwaveTxRef, setFlutterwaveTxRef] = useState<string | null>(null);
 
@@ -388,6 +388,19 @@ export function CheckoutForm({
                   <div>
                     <p className="text-sm font-semibold text-black">Card / Mobile Money</p>
                     <p className="text-xs text-black/60">Pay with card or M-PESA via Flutterwave</p>
+                  </div>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPaymentMethod("BANK_TRANSFER")}
+                  className={`flex w-full items-center gap-3 rounded-zed border p-3.5 text-left backdrop-blur-sm transition-colors ${paymentMethod === "BANK_TRANSFER" ? "border-soft-sage bg-warm-white" : "border-white/50 bg-white/30 hover:border-soft-sage hover:bg-white/45"}`}
+                >
+                  <div className={`grid size-5 place-items-center rounded-full border ${paymentMethod === "BANK_TRANSFER" ? "border-soft-sage bg-soft-sage" : "border-white/60"}`}>
+                    <Filter className="size-3" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-black">Bank Transfer</p>
+                    <p className="text-xs text-black/60">Pay via bank transfer</p>
                   </div>
                 </button>
               </div>

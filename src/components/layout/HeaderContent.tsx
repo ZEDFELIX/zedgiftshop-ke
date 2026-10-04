@@ -81,13 +81,9 @@ export function HeaderContent({
   const coreNav = [
     { label: "Shop", href: "/shop", show: "(min-width:1024px)" },
     { label: "Categories", href: "/collections", show: "(min-width:1024px)" },
-    { label: "Deals", href: "/deals", show: "(min-width:1024px)" },
-    { label: "New Arrivals", href: "/shop?sort=new", show: "(min-width:1280px)" },
-    { label: "Official Stores", href: "/collections?type=official", show: "(min-width:1024px)" },
-    { label: "Flash Sales", href: "/deals", show: "(min-width:1024px)" },
-    { label: "Sell With Us", href: "/sell", show: "(min-width:1280px)" },
-    { label: "About", href: "/about", show: "(min-width:1280px)" },
-    { label: "Contact", href: "/contact", show: "(min-width:1280px)" },
+    { label: "Wishlist", href: "/wishlist", show: "(min-width:1024px)" },
+    { label: "Cart", href: "/cart", show: "(min-width:1024px)" },
+    { label: "Account", href: "/account", show: "(min-width:1024px)" },
   ];
 
   return (

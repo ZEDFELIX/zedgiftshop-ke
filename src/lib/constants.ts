@@ -90,8 +90,9 @@ export const ORDER_STATUS_STEPS: { status: string; label: string }[] = [
 export const ORDER_STATUS_LABELS = Object.fromEntries(ORDER_STATUS_STEPS.map((s) => [s.status, s.label])) as Record<string, string>;
 
 export const PAYMENT_STATUS_LABELS: Record<string, string> = {
-  PENDING: "Awaiting payment",
+  PENDING: "Pending Verification",
   SUCCESS: "Paid",
   FAILED: "Payment failed",
   CANCELLED: "Cancelled",
+  BANK_TRANSFER: "Bank Transfer",
 };

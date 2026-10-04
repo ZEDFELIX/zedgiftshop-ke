@@ -1,45 +1,58 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import Link from "next/link";
-import { Boxes, CreditCard, Gift, LayoutDashboard, MapPin, Package, Settings, Star, Truck, Users } from "lucide-react";
-
-const TABS = [
-  { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/admin/orders", label: "Orders", icon: Package },
-  { href: "/admin/products", label: "Products", icon: Gift },
-  { href: "/admin/coupons", label: "Coupons", icon: CreditCard },
-  { href: "/admin/deliveries", label: "Delivery", icon: Truck },
-  { href: "/admin/inventory", label: "Inventory", icon: Boxes },
-  { href: "/admin/reviews", label: "Reviews", icon: Star },
-  { href: "/admin/settings", label: "Settings", icon: Settings },
-  { href: "/admin/staff", label: "Staff", icon: Users },
-  { href: "/account", label: "Back to store", icon: MapPin },
-];
+import { usePathname, useRouter } from "next/navigation";
+import { LayoutDashboard, LogOut } from "lucide-react";
 
 export function AdminNav() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  useEffect(() => {}, [pathname]);
+
+  const isDashboard = pathname === "/admin";
+
   return (
-    <nav className="flex gap-1 overflow-x-auto rounded-zed border border-edge bg-white p-1.5 lg:flex-col lg:overflow-visible">
-      {TABS.map(({ href, label, icon: Icon }) => {
-        if (href === "/account") {
-          return (
-            <Link key={href} href={href} className="flex shrink-0 items-center gap-2 rounded-zed px-4 py-2.5 text-sm font-semibold text-black/60 hover:bg-panel lg:mt-2">
-              <Icon className="size-4" /> {label}
-            </Link>
-          );
-        }
-        const active = pathname === href || (href !== "/admin" && pathname.startsWith(href));
-        return (
-          <Link
-            key={href}
-            href={href}
-            className={`flex shrink-0 items-center gap-2 rounded-zed px-4 py-2.5 text-sm font-semibold transition-colors ${active ? "bg-zed-950 text-white" : "text-black/70 hover:bg-panel hover:text-black"}`}
-          >
-            <Icon className="size-4" /> {label}
+    <nav className="space-y-1 px-2 pb-2 flex flex-col sm:static sm:block border-y border-zed-900/10">
+      <Link
+        href="/admin"
+        className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${isDashboard ? "bg-deep-olive/10 text-deep-olive" : "text-black/80 hover:bg-zed-900/10 hover:text-deep-olive"}`}
+        aria-label="Dashboard"
+      >
+        <LayoutDashboard className="size-4" />
+        Dashboard
+      </Link>
+
+      <ul className="mt-2 space-y-1">
+        <li className={`rounded-xl px-3 py-2 text-sm font-medium transition-colors ${isDashboard ? "bg-deep-olive/10 text-deep-olive" : "text-black/80 hover:bg-zed-900/10 hover:text-deep-olive"}`}>
+          <Link href="/admin/orders" className="flex items-center gap-2.5" aria-label="Orders">
+            Orders
           </Link>
-        );
-      })}
+        </li>
+        <li className={`rounded-xl px-3 py-2 text-sm font-medium transition-colors ${isDashboard ? "bg-deep-olive/10 text-deep-olive" : "text-black/80 hover:bg-zed-900/10 hover:text-deep-olive"}`}>
+          <Link href="/admin/payments" className="flex items-center gap-2.5" aria-label="Payments">
+            Payments
+          </Link>
+        </li>
+        <li className={`rounded-xl px-3 py-2 text-sm font-medium transition-colors ${isDashboard ? "bg-deep-olive/10 text-deep-olive" : "text-black/80 hover:bg-zed-900/10 hover:text-deep-olive"}`}>
+          <Link href="/admin/products" className="flex items-center gap-2.5" aria-label="Products">
+            Products
+          </Link>
+        </li>
+      </ul>
+
+      <div className="mt-auto pt-4 border-t border-zed-900/10">
+        <button
+          type="button"
+          onClick={() => router.replace("/logout")}
+          className="flex items-center gap-2.5 text-sm text-black/60 hover:text-black transition-colors"
+          aria-label="Logout"
+        >
+          <LogOut className="size-4" />
+          Logout
+        </button>
+      </div>
     </nav>
   );
 }

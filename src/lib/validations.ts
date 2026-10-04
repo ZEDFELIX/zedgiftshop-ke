@@ -87,7 +87,7 @@ export const checkoutSchema = z.object({
   deliveryMethod: z.enum(["SAME_DAY", "NEXT_DAY", "STANDARD", "EXPRESS", "PICKUP"]),
   couponCode: z.string().max(40).optional().or(z.literal("")),
   isGift: z.boolean().optional(),
-  paymentMethod: z.enum(["M_PESA", "FLUTTERWAVE", "CARD"]).optional().default("M_PESA"),
+  paymentMethod: z.enum(["M_PESA", "FLUTTERWAVE", "CARD", "BANK_TRANSFER"]).optional().default("M_PESA"),
 });
 
 export const couponSchema = z.object({

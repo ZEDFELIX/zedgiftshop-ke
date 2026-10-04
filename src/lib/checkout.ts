@@ -21,7 +21,7 @@ export type CheckoutInput = {
   deliveryMethod: DeliveryMethod;
   couponCode?: string | null;
   isGift?: boolean;
-  paymentMethod?: "M_PESA" | "FLUTTERWAVE" | "CARD";
+  paymentMethod?: "M_PESA" | "FLUTTERWAVE" | "CARD" | "BANK_TRANSFER";
 };
 
 export type CheckoutResult =

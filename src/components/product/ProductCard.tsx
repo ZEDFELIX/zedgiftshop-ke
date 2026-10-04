@@ -91,7 +91,7 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
         <div className="mt-1 flex items-baseline justify-between">
           <p className="text-[11px] font-bold text-black">{formatKES(product.price)}</p>
           {product.compareAtPrice != null && product.compareAtPrice > product.price && (
-            <p className="text-xs text-black/40 line-through">formatKES(product.compareAtPrice)</p>
+            <p className="text-xs text-black/40 line-through">{formatKES(product.compareAtPrice)}</p>
           )}
           {personalizable && (
             <span className="text-[7px] font-medium text-soft-sage">

@@ -154,5 +154,34 @@ export async function POST(req: Request) {
     });
   }
 
+  // Handle Bank Transfer
+  if (paymentMethod === "BANK_TRANSFER") {
+    await prisma.payment.update({
+      where: { id: payment.id },
+      data: {
+        provider: "BANK_TRANSFER",
+        status: "PENDING",
+      },
+    });
+    const orderNumber = order.orderNumber;
+    return NextResponse.json({
+      ok: true,
+      orderId: order.orderId,
+      orderNumber,
+      total: totals.total,
+      payment: { status: "PENDING", configured: true, method: "BANK_TRANSFER" },
+      bankTransfer: {
+        bankName: "Kenya Commercial Bank",
+        accountName: "ZED Gift Shop",
+        accountNumber: "1234567890",
+        branch: "Nairobi Westgate",
+        swiftCode: "KENKENXXX",
+        paymentReference: orderNumber,
+        instructions: "Transfer the exact order amount to the bank account below, then submit your payment confirmation.",
+        orderTotal: totals.total,
+      },
+    });
+  }
+
   return NextResponse.json({ error: "Invalid payment method." }, { status: 400 });
 }
