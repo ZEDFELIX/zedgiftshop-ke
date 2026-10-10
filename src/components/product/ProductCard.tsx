@@ -2,18 +2,28 @@ import "server-only";
 
 import Image from "next/image";
 import Link from "next/link";
-import { Sparkles, Star } from "lucide-react";
+import { Sparkles, Star, Eye } from "lucide-react";
 import type { ProductWithRelations } from "@/lib/data/products";
 import { discountPercent, formatKES } from "@/lib/utils";
 import { WishlistButton } from "@/components/product/WishlistButton";
 import { AddToCartButton } from "@/components/product/AddToCartButton";
 
-export function ProductCard({ product, inWishlist = false }: { product: ProductWithRelations; inWishlist?: boolean }) {
+export function ProductCard({
+  product,
+  inWishlist = false,
+  onQuickView,
+}: {
+  product: ProductWithRelations;
+  inWishlist?: boolean;
+  onQuickView?: (product: ProductWithRelations) => void;
+}) {
   const image = product.images[0]?.url;
   const sale = discountPercent(product.price, product.compareAtPrice);
   const inStock = !product.trackInventory || product.quantity > product.reservedQuantity;
   const personalizable = product.personalizationEnabled;
   const canQuickAdd = inStock && !personalizable;
+  const totalStock = product.quantity - product.reservedQuantity;
+  const lowStock = inStock && product.trackInventory && totalStock <= 5;
 
   const isNew = product.tags.some((t) => t.toLowerCase() === "new");
   const isPopular = product.ratingCount >= 5;
@@ -33,14 +43,13 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
   return (
     <article className="group rounded-xl bg-white/55 p-3 transition-all duration-300 hover:translate-y-0.5 hover:shadow-glass-md">
       <div className="relative rounded-t-xl bg-panel/65 overflow-hidden h-48">
-        <Link href={`/product/${product.slug}`} className="block">
+        <Link href={`/product/${product.slug}`} className="block" aria-label={`View ${product.name}`}>
           {image ? (
             <Image
               src={image}
               alt={product.images[0]?.alt ?? product.name}
               fill
               sizes="(min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
-              unoptimized
               className="object-cover transition-transform duration-300 ease-out hover:scale-[1.05]"
             />
           ) : (
@@ -50,7 +59,7 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
         {badge && (
-          <span className="absolute left-2 top-2 rounded-full px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider shadow-glass ${badge.cls}">
+          <span className={`absolute left-2 top-2 rounded-full px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider shadow-glass ${badge.cls}`}>
             {badge.label}
           </span>
         )}
@@ -59,17 +68,32 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
           <WishlistButton productId={product.id} initialInWishlist={inWishlist} />
         </div>
 
-        <div className="absolute left-2 bottom-2 right-2 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          {canQuickAdd ? (
+        {lowStock && (
+          <span className="absolute left-2 bottom-2 rounded-full bg-amber-500/90 px-2 py-0.5 text-[8px] font-bold text-white">
+            Only {totalStock} left
+          </span>
+        )}
+
+        <div className="absolute left-2 bottom-2 right-2 flex gap-1.5 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          {canQuickAdd && (
             <AddToCartButton productId={product.id} label="Add" />
-          ) : (
-            <Link
-              href={`/product/${product.slug}`}
-              className="block rounded-full border border-white/60 bg-white/80 px-2 py-1.5 text-xs font-bold uppercase tracking-wider text-black backdrop-blur-sm transition-colors hover:bg-zed-950 hover:text-white"
-            >
-              {personalizable ? "Personalize" : "View"}
-            </Link>
           )}
+          {onQuickView && (
+            <button
+              onClick={() => onQuickView(product)}
+              className="grid size-8 shrink-0 place-items-center rounded-full bg-white/80 text-black backdrop-blur-sm transition-colors hover:bg-zed-950 hover:text-white"
+              aria-label={`Quick view ${product.name}`}
+            >
+              <Eye className="size-3.5" />
+            </button>
+          )}
+          <Link
+            href={`/product/${product.slug}`}
+            className="flex flex-1 items-center justify-center rounded-full border border-white/60 bg-white/80 px-2 py-1.5 text-xs font-bold uppercase tracking-wider text-black backdrop-blur-sm transition-colors hover:bg-zed-950 hover:text-white"
+            aria-label={personalizable ? `Personalize ${product.name}` : `View ${product.name}`}
+          >
+            {personalizable ? "Personalize" : "View"}
+          </Link>
         </div>
       </div>
 
@@ -78,7 +102,7 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
           {product.categories[0]?.category.name ?? "Gift"}
         </p>
         {product.ratingCount > 0 && (
-          <span className="text-xs text-black/60">
+          <span className="flex items-center gap-1 text-xs text-black/60">
             <Star className="size-2 fill-zed-950 text-white" /> {product.ratingAverage.toFixed(1)} ({product.ratingCount})
           </span>
         )}
@@ -94,7 +118,7 @@ export function ProductCard({ product, inWishlist = false }: { product: ProductW
             <p className="text-xs text-black/40 line-through">{formatKES(product.compareAtPrice)}</p>
           )}
           {personalizable && (
-            <span className="text-[7px] font-medium text-soft-sage">
+            <span className="flex items-center gap-0.5 text-[7px] font-medium text-soft-sage">
               <Sparkles className="size-2" /> Personalize
             </span>
           )}

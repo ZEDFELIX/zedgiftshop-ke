@@ -1,9 +1,7 @@
 import { ListingPage } from "@/components/shop/ListingPage";
 import { FlashSaleCountdown } from "@/components/shop/FlashSaleCountdown";
+import { FlashSaleGrid } from "@/components/shop/FlashSaleGrid";
 import { getDealProducts } from "@/lib/data/products";
-import Image from "next/image";
-import { formatKES } from "@/lib/utils";
-import { SITE } from "@/lib/constants";
 
 function boolParam(value: unknown) {
   return value === "1" || value === "true";
@@ -52,23 +50,8 @@ export default async function ShopPage({ searchParams }: {
       )}
 
       {dealProducts.length > 0 && (
-        <div className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
-          {dealProducts.map((product) => (
-            <div key={product.id} className="rounded-xl bg-white/80 p-3 hover:bg-white/90 transition-colors">
-              {product.images[0]?.url ? (
-                <Image
-                  src={product.images[0].url}
-                  alt={product.name}
-                  className="rounded-zed h-32 object-cover mb-2"
-                />
-              ) : (
-                <div className="rounded-zed h-32 bg-panel/60 mb-2"></div>
-              )}
-              <p className="text-xs font-semibold text-black line-clamp-1">{product.name}</p>
-              <p className="mt-1 text-[11px] line-through text-black/40">{formatKES(product.compareAtPrice ?? product.price)}</p>
-              <p className="mt-1 text-[11px] font-bold text-zed-950">{formatKES(product.price)}</p>
-            </div>
-          ))}
+        <div className="mt-6">
+          <FlashSaleGrid products={dealProducts} />
         </div>
       )}
     </div>

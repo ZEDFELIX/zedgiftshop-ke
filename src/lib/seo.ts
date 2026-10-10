@@ -54,8 +54,10 @@ export function jsonLdProduct(input: {
   currency?: string;
   availability?: string;
   sku?: string | null;
+  ratingValue?: number;
+  reviewCount?: number;
 }) {
-  return {
+  const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: input.name,
@@ -71,6 +73,18 @@ export function jsonLdProduct(input: {
       seller: { "@type": "Organization", name: SITE.name, telephone: SITE.phone, email: SITE.email },
     },
   };
+
+  if (input.ratingValue != null && input.reviewCount != null && input.reviewCount > 0) {
+    schema.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: input.ratingValue,
+      reviewCount: input.reviewCount,
+      bestRating: 5,
+      worstRating: 1,
+    };
+  }
+
+  return schema;
 }
 
 export function jsonLdStore() {

@@ -61,6 +61,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     price: product.price,
     sku: product.sku,
     availability: inStock ? "in" : "out",
+    ratingValue: product.ratingCount > 0 ? product.ratingAverage : undefined,
+    reviewCount: product.ratingCount > 0 ? product.ratingCount : undefined,
   });
 
   return (
@@ -93,7 +95,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 alt={product.images[0].alt ?? product.name}
                 fill
                 sizes="(min-width:1024px) 50vw, 100vw"
-                unoptimized
+                priority
                 className="object-cover"
               />
             ) : (
@@ -106,7 +108,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div className="grid grid-cols-5 gap-3">
             {product.images.slice(0, 5).map((img) => (
               <div key={img.id} className="glass-panel relative aspect-square overflow-hidden rounded-zed ring-1 ring-white/50">
-                <Image src={img.url} alt={img.alt ?? product.name} fill sizes="120px" unoptimized className="object-cover" />
+                <Image src={img.url} alt={img.alt ?? product.name} fill sizes="120px" className="object-cover" />
               </div>
             ))}
           </div>

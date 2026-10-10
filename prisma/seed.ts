@@ -427,8 +427,15 @@ const PRODUCTS: SeedProduct[] = [
 async function main() {
   // ---- Users ----
   await upsertUser({
-    email: "admin@zedgiftshop.co.ke",
+    email: "felixsimon855@gmail.com",
     name: "ZED Admin",
+    password: "Felix.877",
+    role: "ADMIN",
+    phone: "+254711436169",
+  });
+  await upsertUser({
+    email: "admin@zedgiftshop.co.ke",
+    name: "ZED Admin (Seed)",
     password: "Admin@12345",
     role: "ADMIN",
     phone: "+254711436169",
