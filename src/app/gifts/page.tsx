@@ -16,8 +16,6 @@ export const metadata = buildMetadata({
 
 export default async function GiftsPage() {
   const giftPages = await listGiftPages();
-  const occasions = giftPages.filter((g) => g.kind === "OCCASION");
-  const recipients = giftPages.filter((g) => g.kind === "RECIPIENT");
 
   return (
     <div className="container-zed py-10 lg:py-14">
@@ -25,7 +23,7 @@ export default async function GiftsPage() {
         <p className="eyebrow">Gift discovery</p>
         <h1 className="mt-2 font-display text-3xl font-bold text-black lg:text-4xl">What are we celebrating?</h1>
         <p className="mt-3 text-black/70">
-          Start with the occasion or the person — we&apos;ll match the moment to the gift.
+          Start with the occasion or the person — we will match the moment to the gift.
         </p>
       </header>
 
@@ -45,16 +43,18 @@ export default async function GiftsPage() {
       <section className="mt-12">
         <h2 className="font-display text-xl font-bold text-black">By recipient</h2>
         <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {recipients.map((r) => (
-            <Link
-              key={r.id}
-              href={`/gifts/${r.slug}`}
-              className="glass-card flex flex-col items-center justify-center gap-2 rounded-zed p-6 text-center transition-all hover:-translate-y-1 hover:shadow-glass-lg"
-            >
-              <span className="font-display text-sm font-bold text-black">{r.name}</span>
-              <span className="text-xs text-black/50">{r._count.products} gifts</span>
-            </Link>
-          ))}
+          {giftPages
+            .filter((g) => g.kind === "CATEGORY")
+            .map((r) => (
+              <Link
+                key={r.slug}
+                href={`/gifts/${r.slug}`}
+                className="glass-card flex flex-col items-center justify-center gap-2 rounded-zed p-6 text-center transition-all hover:-translate-y-1 hover:shadow-glass-lg"
+              >
+                <span className="font-display text-sm font-bold text-black">{r.name}</span>
+                <span className="text-xs text-black/50">{r.productCount} gifts</span>
+              </Link>
+            ))}
         </div>
       </section>
 
@@ -63,7 +63,7 @@ export default async function GiftsPage() {
           <div>
             <h2 className="font-display text-2xl font-bold">Not sure where to start?</h2>
             <p className="mt-2 max-w-md text-white/75">
-              Use the Gift Builder to pick a recipient, budget and vibe — we&apos;ll assemble a ready-to-checkout box of ideas.
+              Use the Gift Builder to pick a recipient, budget and vibe — we will assemble a ready-to-checkout box of ideas.
             </p>
             <Link
               href="/gift-builder"

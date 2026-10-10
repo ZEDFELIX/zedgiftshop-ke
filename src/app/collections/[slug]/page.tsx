@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return buildMetadata({
     title: collection.name,
     path: `/collections/${slug}`,
-    description: collection.seoDescription ?? collection.description ?? undefined,
+    description: collection.description ?? undefined,
   });
 }
 

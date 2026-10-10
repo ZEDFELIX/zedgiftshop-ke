@@ -159,7 +159,6 @@ export async function POST(req: Request) {
     await prisma.payment.update({
       where: { id: payment.id },
       data: {
-        provider: "BANK_TRANSFER",
         status: "PENDING",
       },
     });

@@ -9,11 +9,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const category = await getCategoryBySlug(slug);
   const fallback = await getGiftPageContent(slug);
-  if (!category && !fallback.fallback) return {};
+  if (!category && !fallback.title) return {};
   return buildMetadata({
-    title: fallback.title,
+    title: fallback.title ?? category?.name ?? "ZED Gift Shop",
     path: `/gifts/${slug}`,
-    description: (category?.seoDescription ?? fallback.description) || undefined,
+    description: fallback.description ?? undefined,
   });
 }
 
@@ -22,16 +22,17 @@ export default async function GiftCategoryPage({ params, searchParams }: { param
   const sp = await searchParams;
   const page = sp.page ? Number(Array.isArray(sp.page) ? sp.page[0] : sp.page) || 1 : 1;
   const content = await getGiftPageContent(slug);
-  if (!content.fallback && !(await getCategoryBySlug(slug))) notFound();
+  const category = await getCategoryBySlug(slug);
+  if (!content.fallback && !category) notFound();
 
-  const kind = (await getCategoryBySlug(slug))?.kind ?? "OCCASION";
+  const kind = category?.kind ?? "OCCASION";
 
   return (
     <ListingPage
       key={slug}
       title={content.title}
       eyebrow={kind === "RECIPIENT" ? "Shop by recipient" : "Shop by occasion"}
-      description={content.description || undefined}
+      description={content.description ? String(content.description) : undefined}
       filters={kind === "RECIPIENT" ? { recipient: slug, page } : { occasion: slug, page }}
       href={`/gifts/${slug}`}
     />
